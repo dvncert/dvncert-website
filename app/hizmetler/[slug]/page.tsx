@@ -11,7 +11,8 @@ import { serviceSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas
 type Params = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return hizmetler.map((h) => ({ slug: h.slug }));
+  // iso-9001 has a dedicated static route at app/hizmetler/iso-9001/page.tsx
+  return hizmetler.filter((h) => h.slug !== "iso-9001").map((h) => ({ slug: h.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
