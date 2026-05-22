@@ -82,12 +82,12 @@ export default function KariyerSayfasi() {
                     height: 52,
                     borderRadius: 12,
                     background: "var(--dvn-gradient-lacivert)",
-                    color: "var(--dvn-turkuaz-acik)",
+                    color: "var(--dvn-altin-acik)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     marginBottom: 18,
-                    boxShadow: "0 6px 16px rgba(15,25,34,0.15)",
+                    boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
                   }}
                 >
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none">{n.icon}</svg>
@@ -120,12 +120,12 @@ export default function KariyerSayfasi() {
                 borderRadius: 18,
                 padding: "34px 32px",
                 color: "white",
-                boxShadow: "0 12px 40px rgba(15,25,34,0.18)",
+                boxShadow: "0 12px 40px rgba(46,26,107,0.18)",
                 display: "flex",
                 flexDirection: "column",
               }}
             >
-              <p style={{ fontSize: 11, color: "var(--dvn-turkuaz-acik)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+              <p style={{ fontSize: 11, color: "var(--dvn-altin-acik)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
                 DENETİM KADROSU
               </p>
               <h3 style={{ color: "white", fontSize: 20, fontWeight: 500, margin: "0 0 12px", lineHeight: 1.3 }}>
@@ -140,7 +140,7 @@ export default function KariyerSayfasi() {
                 {denetciAranan.map((m, i) => (
                   <li key={i} style={{ display: "flex", gap: 10, fontSize: 13, color: "#cbd5e1", lineHeight: 1.5 }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-                      <path d="M5 12l5 5L20 7" stroke="var(--dvn-turkuaz-acik)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M5 12l5 5L20 7" stroke="var(--dvn-altin-acik)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     {m}
                   </li>
@@ -177,7 +177,7 @@ export default function KariyerSayfasi() {
                 borderRadius: 18,
                 padding: "34px 32px",
                 border: "0.5px solid var(--dvn-gri-300)",
-                boxShadow: "0 4px 16px rgba(15,25,34,0.06)",
+                boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
                 display: "flex",
                 flexDirection: "column",
               }}
@@ -197,7 +197,7 @@ export default function KariyerSayfasi() {
                 {siteConfig.kariyer.idariPozisyonlar.map((p) => (
                   <li key={p} style={{ display: "flex", gap: 10, fontSize: 13.5, color: "var(--dvn-gri-700)", lineHeight: 1.5 }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-                      <path d="M5 12l5 5L20 7" stroke="var(--dvn-turkuaz)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M5 12l5 5L20 7" stroke="var(--dvn-altin)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     {p}
                   </li>
@@ -222,7 +222,7 @@ export default function KariyerSayfasi() {
             border: "0.5px solid var(--dvn-gri-300)",
             borderRadius: 16,
             padding: "34px 32px",
-            boxShadow: "0 8px 32px rgba(15,25,34,0.06)",
+            boxShadow: "0 8px 32px rgba(46,26,107,0.06)",
           }}
         >
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
@@ -259,6 +259,6 @@ const ctaStili: React.CSSProperties = {
   borderRadius: "var(--dvn-radius-md)",
   fontWeight: 500,
   fontSize: 13.5,
-  boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+  boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
   textAlign: "center",
 };

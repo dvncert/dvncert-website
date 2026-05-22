@@ -132,9 +132,9 @@ export default function HakkimizdaSayfasi() {
                 background: "white",
                 borderRadius: 16,
                 padding: "32px 30px",
-                boxShadow: "0 4px 16px rgba(15,25,34,0.06)",
+                boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
                 border: "0.5px solid var(--dvn-gri-300)",
-                borderTop: "3px solid var(--dvn-turkuaz)",
+                borderTop: "3px solid var(--dvn-altin)",
               }}
             >
               <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 12px" }}>
@@ -178,12 +178,12 @@ export default function HakkimizdaSayfasi() {
                     height: 52,
                     borderRadius: 12,
                     background: "var(--dvn-gradient-lacivert)",
-                    color: "var(--dvn-turkuaz-acik)",
+                    color: "var(--dvn-altin-acik)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     marginBottom: 18,
-                    boxShadow: "0 6px 16px rgba(15,25,34,0.15)",
+                    boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
                   }}
                 >
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -233,7 +233,7 @@ export default function HakkimizdaSayfasi() {
               borderRadius: "var(--dvn-radius-md)",
               fontWeight: 500,
               fontSize: 14,
-              boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
               whiteSpace: "nowrap",
             }}
           >

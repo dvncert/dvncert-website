@@ -40,7 +40,7 @@ export default function KapakGorsel({
             height: "clamp(200px, 30vw, 380px)",
             borderRadius: 18,
             overflow: "hidden",
-            boxShadow: "0 12px 40px rgba(15,25,34,0.12)",
+            boxShadow: "0 12px 40px rgba(46,26,107,0.12)",
           }}
         >
           {src ? (
@@ -76,7 +76,7 @@ export default function KapakGorsel({
                   right: "-10%",
                   width: "45%",
                   height: "120%",
-                  background: "radial-gradient(circle, rgba(45,175,184,0.18) 0%, transparent 65%)",
+                  background: "radial-gradient(circle, rgba(212,169,63,0.18) 0%, transparent 65%)",
                 }}
               />
               <div
@@ -86,7 +86,7 @@ export default function KapakGorsel({
                   left: "-5%",
                   width: "40%",
                   height: "110%",
-                  background: "radial-gradient(circle, rgba(255,107,53,0.12) 0%, transparent 65%)",
+                  background: "radial-gradient(circle, rgba(245,130,32,0.12) 0%, transparent 65%)",
                 }}
               />
 
@@ -102,7 +102,7 @@ export default function KapakGorsel({
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "var(--dvn-turkuaz-acik)",
+                  color: "var(--dvn-altin-acik)",
                 }}
               >
                 {ikon ? (

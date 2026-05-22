@@ -96,13 +96,13 @@ export default function EkibimizSayfasi() {
                     margin: "0 auto 16px",
                     borderRadius: "50%",
                     background: "var(--dvn-gradient-lacivert)",
-                    color: "var(--dvn-turkuaz-acik)",
+                    color: "var(--dvn-altin-acik)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     fontSize: 22,
                     fontWeight: 600,
-                    boxShadow: "0 6px 16px rgba(15,25,34,0.15)",
+                    boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
                   }}
                 >
                   {basHarfler(kisi.ad)}
@@ -113,9 +113,9 @@ export default function EkibimizSayfasi() {
                 <p
                   style={{
                     fontSize: 12,
-                    color: "var(--dvn-turkuaz)",
+                    color: "var(--dvn-altin)",
                     fontWeight: 500,
-                    background: "var(--dvn-turkuaz-soluk)",
+                    background: "var(--dvn-altin-soluk)",
                     display: "inline-block",
                     padding: "3px 12px",
                     borderRadius: 999,
@@ -156,7 +156,7 @@ export default function EkibimizSayfasi() {
               borderRadius: "var(--dvn-radius-md)",
               fontWeight: 500,
               fontSize: 14,
-              boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
             }}
           >
             Kariyer fırsatları →

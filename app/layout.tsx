@@ -40,14 +40,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.adUzun} - TÜRKAK Akreditasyonu ile ISO Belgelendirme`,
     description: siteConfig.aciklamaKisa,
     siteName: siteConfig.adUzun,
-    images: [
-      {
-        url: `${siteConfig.url}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.adUzun,
-      },
-    ],
+    // og:image, kök dizindeki opengraph-image.tsx tarafından otomatik üretilir.
   },
 
   // Twitter Card
@@ -55,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.adUzun} - TÜRKAK Akreditasyonu ile ISO Belgelendirme`,
     description: siteConfig.aciklamaKisa,
-    images: [`${siteConfig.url}/og-image.png`],
+    // twitter:image, kök dizindeki twitter-image.tsx tarafından otomatik üretilir.
   },
 
   // Diğer önemli alanlar
@@ -85,7 +78,7 @@ export default function RootLayout({
     <html lang="tr" style={{ colorScheme: "light" }}>
       <head>
         <meta name="color-scheme" content="light only" />
-        <meta name="theme-color" content="#0f1922" />
+        <meta name="theme-color" content="#2E1A6B" />
         <meta name="format-detection" content="telephone=no" />
 
         {/* JSON-LD: Organization (Her sayfada) */}
@@ -100,7 +93,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={schemaScript(websiteSchema())}
         />
       </head>
-      <body style={{ background: "#fafbfc", color: "#0f1922" }}>
+      <body style={{ background: "#fafbfc", color: "#2E1A6B" }}>
         <Header />
         {children}
         <Footer />

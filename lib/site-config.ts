@@ -39,25 +39,16 @@ export const siteConfig = {
 
   // Anahtar kelimeler (SEO)
   anahtarKelimeler: [
-    "ISO 9001 belgesi",
-    "ISO 14001 belgesi",
-    "ISO 45001 belgesi",
-    "ISO 50001 belgesi",
-    "ISO belgelendirme",
+    "ISO 9001 belgelendirme",
+    "ISO 14001 belgelendirme",
+    "ISO 45001 belgelendirme",
+    "ISO 50001 belgelendirme",
     "TÜRKAK akreditasyon",
-    "kalite yönetim sistemi",
-    "çevre yönetim sistemi",
-    "iş sağlığı güvenliği yönetim sistemi",
-    "enerji yönetim sistemi",
-    "belgelendirme kuruluşu",
-    "denetim hizmetleri",
+    "yönetim sistemi belgelendirme",
     "2. taraf denetimi",
-    "tedarikçi denetimi",
     "iç denetçi eğitimi",
-    "uygunluk değerlendirme",
+    "belgelendirme kuruluşu İstanbul",
     "DVN Cert",
-    "İstanbul belgelendirme",
-    "Pendik belgelendirme",
   ],
 
   // Sosyal medya (ileride doldurursunuz)

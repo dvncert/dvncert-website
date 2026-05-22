@@ -94,7 +94,7 @@ export default function SikayetVeGoruslerSayfasi() {
                     fontSize: 16,
                     fontWeight: 600,
                     marginBottom: 16,
-                    boxShadow: "0 6px 16px rgba(255,107,53,0.3)",
+                    boxShadow: "0 6px 16px rgba(245,130,32,0.3)",
                   }}
                 >
                   {i + 1}
@@ -119,7 +119,7 @@ export default function SikayetVeGoruslerSayfasi() {
             border: "0.5px solid var(--dvn-gri-300)",
             borderRadius: 16,
             padding: "34px 32px",
-            boxShadow: "0 8px 32px rgba(15,25,34,0.06)",
+            boxShadow: "0 8px 32px rgba(46,26,107,0.06)",
           }}
         >
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>

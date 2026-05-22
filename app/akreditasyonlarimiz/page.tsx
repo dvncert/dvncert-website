@@ -91,13 +91,13 @@ export default function AkreditasyonlarimizSayfasi() {
               borderRadius: 16,
               padding: "30px 28px",
               color: "white",
-              boxShadow: "0 12px 40px rgba(15,25,34,0.18)",
+              boxShadow: "0 12px 40px rgba(46,26,107,0.18)",
             }}
           >
             <div style={{ display: "grid", gap: 18 }}>
               <div>
                 <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>AKREDİTASYON KURUMU</p>
-                <p style={{ fontSize: 18, fontWeight: 600, color: "var(--dvn-turkuaz-acik)", margin: 0 }}>{akreditasyon.kurulus}</p>
+                <p style={{ fontSize: 18, fontWeight: 600, color: "var(--dvn-altin-acik)", margin: 0 }}>{akreditasyon.kurulus}</p>
               </div>
               <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.1)" }} />
               <div>
@@ -139,9 +139,9 @@ export default function AkreditasyonlarimizSayfasi() {
                     background: "white",
                     borderRadius: 14,
                     padding: "26px 26px",
-                    boxShadow: "0 4px 16px rgba(15,25,34,0.06)",
+                    boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
                     border: "0.5px solid var(--dvn-gri-300)",
-                    borderLeft: "3px solid var(--dvn-turkuaz)",
+                    borderLeft: "3px solid var(--dvn-altin)",
                     display: "flex",
                     gap: 18,
                   }}
@@ -152,8 +152,8 @@ export default function AkreditasyonlarimizSayfasi() {
                       width: 54,
                       height: 54,
                       borderRadius: 12,
-                      background: "var(--dvn-turkuaz-soluk)",
-                      color: "var(--dvn-turkuaz)",
+                      background: "var(--dvn-altin-soluk)",
+                      color: "var(--dvn-altin)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -213,7 +213,7 @@ export default function AkreditasyonlarimizSayfasi() {
               borderRadius: "var(--dvn-radius-md)",
               fontWeight: 500,
               fontSize: 13.5,
-              boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
               whiteSpace: "nowrap",
             }}
           >

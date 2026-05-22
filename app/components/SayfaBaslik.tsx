@@ -42,7 +42,7 @@ export default function SayfaBaslik({
           right: -40,
           width: 220,
           height: 220,
-          background: "radial-gradient(circle, rgba(45,175,184,0.16) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(212,169,63,0.16) 0%, transparent 70%)",
           borderRadius: "50%",
         }}
       />
@@ -59,7 +59,7 @@ export default function SayfaBaslik({
                     {k.etiket}
                   </Link>
                 ) : (
-                  <span style={{ color: sonuncu ? "var(--dvn-turkuaz-acik)" : "#9aa5b1" }}>{k.etiket}</span>
+                  <span style={{ color: sonuncu ? "var(--dvn-altin-acik)" : "#9aa5b1" }}>{k.etiket}</span>
                 )}
                 {!sonuncu && (
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none">

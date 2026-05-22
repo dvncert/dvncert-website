@@ -14,7 +14,7 @@ export default function Footer() {
             </h2>
             <p style={{ color: "#cbd5e1", fontSize: 13, margin: 0 }}>Online başvuru sistemimiz ile dakikalar içinde başvurunuzu oluşturun.</p>
           </div>
-          <Link href="https://dbys.dvncert.com/basvuru" target="_blank" style={{ background: "var(--dvn-gradient-turuncu)", color: "white", padding: "12px 24px", borderRadius: 8, fontWeight: 500, fontSize: 13, boxShadow: "0 8px 20px rgba(255,107,53,0.3)" }}>
+          <Link href="https://dbys.dvncert.com/basvuru" target="_blank" style={{ background: "var(--dvn-gradient-turuncu)", color: "white", padding: "12px 24px", borderRadius: 8, fontWeight: 500, fontSize: 13, boxShadow: "0 8px 20px rgba(245,130,32,0.3)" }}>
             Hemen başvur →
           </Link>
         </div>
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p style={{ fontSize: 12, color: "var(--dvn-turkuaz-acik)", fontWeight: 500, margin: "0 0 12px" }}>KURUMSAL</p>
+            <p style={{ fontSize: 12, color: "var(--dvn-altin-acik)", fontWeight: 500, margin: "0 0 12px" }}>KURUMSAL</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <Link href="/hakkimizda" style={{ fontSize: 12, color: "#94a3b8" }}>Hakkımızda</Link>
               <Link href="/ekibimiz" style={{ fontSize: 12, color: "#94a3b8" }}>Ekibimiz</Link>
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p style={{ fontSize: 12, color: "var(--dvn-turkuaz-acik)", fontWeight: 500, margin: "0 0 12px" }}>HİZMETLER</p>
+            <p style={{ fontSize: 12, color: "var(--dvn-altin-acik)", fontWeight: 500, margin: "0 0 12px" }}>HİZMETLER</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <Link href="/hizmetler/iso-9001" style={{ fontSize: 12, color: "#94a3b8" }}>ISO 9001</Link>
               <Link href="/hizmetler/iso-14001" style={{ fontSize: 12, color: "#94a3b8" }}>ISO 14001</Link>
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p style={{ fontSize: 12, color: "var(--dvn-turkuaz-acik)", fontWeight: 500, margin: "0 0 12px" }}>İLETİŞİM</p>
+            <p style={{ fontSize: 12, color: "var(--dvn-altin-acik)", fontWeight: 500, margin: "0 0 12px" }}>İLETİŞİM</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <Link href="/iletisim" style={{ fontSize: 12, color: "#94a3b8" }}>Bize Ulaşın</Link>
               <Link href="https://dbys.dvncert.com/basvuru" target="_blank" style={{ fontSize: 12, color: "#94a3b8" }}>Başvuru Yap</Link>

@@ -66,7 +66,7 @@ export default function Hakkimizda() {
                     width: 22,
                     height: 22,
                     borderRadius: "50%",
-                    background: "var(--dvn-turkuaz-soluk)",
+                    background: "var(--dvn-altin-soluk)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -76,7 +76,7 @@ export default function Hakkimizda() {
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
                     <path
                       d="M5 12l5 5L20 7"
-                      stroke="var(--dvn-turkuaz)"
+                      stroke="var(--dvn-altin)"
                       strokeWidth="2.4"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -100,7 +100,7 @@ export default function Hakkimizda() {
               borderRadius: "var(--dvn-radius-md)",
               fontWeight: 500,
               fontSize: 13,
-              boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
             }}
           >
             Daha fazla bilgi
@@ -117,7 +117,7 @@ export default function Hakkimizda() {
             borderRadius: 16,
             padding: "32px 30px",
             color: "white",
-            boxShadow: "0 12px 40px rgba(15,25,34,0.18)",
+            boxShadow: "0 12px 40px rgba(46,26,107,0.18)",
             position: "relative",
             overflow: "hidden",
           }}
@@ -129,7 +129,7 @@ export default function Hakkimizda() {
               right: -40,
               width: 140,
               height: 140,
-              background: "rgba(45,175,184,0.14)",
+              background: "rgba(212,169,63,0.14)",
               borderRadius: "50%",
             }}
           />
@@ -138,7 +138,7 @@ export default function Hakkimizda() {
             <p
               style={{
                 fontSize: 11,
-                color: "var(--dvn-turkuaz-acik)",
+                color: "var(--dvn-altin-acik)",
                 fontWeight: 500,
                 letterSpacing: "1.5px",
                 margin: "0 0 6px",
@@ -173,7 +173,7 @@ export default function Hakkimizda() {
                       width: 32,
                       height: 32,
                       borderRadius: 8,
-                      background: "var(--dvn-gradient-turkuaz)",
+                      background: "var(--dvn-gradient-altin)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",

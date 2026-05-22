@@ -46,7 +46,7 @@ export default function DokumanlarSayfasi() {
           {/* Bilgi notu */}
           <div
             style={{
-              background: "var(--dvn-turkuaz-soluk)",
+              background: "var(--dvn-altin-soluk)",
               borderRadius: 12,
               padding: "16px 20px",
               display: "flex",
@@ -56,8 +56,8 @@ export default function DokumanlarSayfasi() {
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
-              <circle cx="12" cy="12" r="10" stroke="var(--dvn-turkuaz)" strokeWidth="1.8" />
-              <path d="M12 16v-4M12 8h.01" stroke="var(--dvn-turkuaz)" strokeWidth="1.8" strokeLinecap="round" />
+              <circle cx="12" cy="12" r="10" stroke="var(--dvn-altin)" strokeWidth="1.8" />
+              <path d="M12 16v-4M12 8h.01" stroke="var(--dvn-altin)" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
             <p style={{ fontSize: 13, color: "var(--dvn-gri-700)", margin: 0, lineHeight: 1.6 }}>
               Doküman dosyaları en güncel revizyonlarıyla yayımlanmaktadır. İhtiyacınız olan bir dokümana

@@ -6,8 +6,8 @@ const istatistikler = [
   {
     sayi: 500,
     sembol: "+",
-    aciklama: "Belgelendirilen kuruluş",
-    renk: "turkuaz",
+    aciklama: "Yıllık tetkik kapasitesi",
+    renk: "altin",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -16,7 +16,7 @@ const istatistikler = [
     ),
   },
   {
-    sayi: 10,
+    sayi: 15,
     sembol: "+ yıl",
     aciklama: "Sektör tecrübesi",
     renk: "turuncu",
@@ -31,7 +31,7 @@ const istatistikler = [
     sayi: 4,
     sembol: " standart",
     aciklama: "Akreditasyon kapsamı",
-    renk: "turkuaz",
+    renk: "altin",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M9 12l2 2 4-4M12 2L4 6v6c0 5.5 3.5 10 8 12 4.5-2 8-6.5 8-12V6l-8-4z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -41,7 +41,7 @@ const istatistikler = [
   {
     sayi: 25,
     sembol: "+",
-    aciklama: "Uzman denetçi",
+    aciklama: "Uzman denetçi kadrosu",
     renk: "turuncu",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -66,10 +66,19 @@ function SayacKart({
   icon: React.ReactNode;
   baslat: boolean;
 }) {
-  const [mevcutSayi, setMevcutSayi] = useState(0);
+  // Başlangıç değeri hedef sayı: SSR/ilk render ve Open Graph paylaşımlarında
+  // "0+" yerine gerçek rakam görünür. Animasyon ekranda görününce çalışır.
+  const [mevcutSayi, setMevcutSayi] = useState(hedefSayi);
+  const animasyonYapildi = useRef(false);
 
   useEffect(() => {
     if (!baslat) return;
+    // Animasyon yalnızca bir kez çalışsın.
+    if (animasyonYapildi.current) return;
+    animasyonYapildi.current = true;
+
+    // Tetiklenince önce 0'a düşür, sonra hedefe doğru say.
+    setMevcutSayi(0);
 
     const sure = 2000;
     const adimSayisi = 60;
@@ -91,7 +100,7 @@ function SayacKart({
     return () => clearInterval(timer);
   }, [baslat, hedefSayi]);
 
-  const turkuazMi = renk === "turkuaz";
+  const altinMi = renk === "altin";
 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "8px 12px" }}>
@@ -99,14 +108,14 @@ function SayacKart({
         style={{
           width: 52,
           height: 52,
-          background: turkuazMi
-            ? "linear-gradient(135deg, rgba(45,175,184,0.15), rgba(45,175,184,0.05))"
-            : "linear-gradient(135deg, rgba(255,107,53,0.15), rgba(255,107,53,0.05))",
+          background: altinMi
+            ? "linear-gradient(135deg, rgba(212,169,63,0.15), rgba(212,169,63,0.05))"
+            : "linear-gradient(135deg, rgba(245,130,32,0.15), rgba(245,130,32,0.05))",
           borderRadius: 10,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: turkuazMi ? "var(--dvn-turkuaz)" : "var(--dvn-turuncu)",
+          color: altinMi ? "var(--dvn-altin)" : "var(--dvn-turuncu)",
           flexShrink: 0,
         }}
       >
@@ -115,7 +124,7 @@ function SayacKart({
       <div>
         <p style={{ fontSize: 26, fontWeight: 500, color: "var(--dvn-lacivert)", margin: 0, lineHeight: 1 }}>
           {mevcutSayi}
-          <span style={{ color: turkuazMi ? "var(--dvn-turkuaz)" : "var(--dvn-turuncu)" }}>{sembol}</span>
+          <span style={{ color: altinMi ? "var(--dvn-altin)" : "var(--dvn-turuncu)" }}>{sembol}</span>
         </p>
         <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: "4px 0 0", fontWeight: 500 }}>
           {aciklama}
@@ -156,7 +165,7 @@ export default function Istatistikler() {
           background: "white",
           borderRadius: 16,
           padding: "26px 28px",
-          boxShadow: "0 8px 32px rgba(15,25,34,0.06)",
+          boxShadow: "0 8px 32px rgba(46,26,107,0.06)",
           border: "0.5px solid var(--dvn-gri-300)",
         }}
       >

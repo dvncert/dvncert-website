@@ -111,11 +111,11 @@ export default function PolitikaVeBeyanlarSayfasi() {
                       height: 46,
                       borderRadius: 11,
                       background: "var(--dvn-gradient-lacivert)",
-                      color: "var(--dvn-turkuaz-acik)",
+                      color: "var(--dvn-altin-acik)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      boxShadow: "0 6px 16px rgba(15,25,34,0.15)",
+                      boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
                     }}
                   >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -134,7 +134,7 @@ export default function PolitikaVeBeyanlarSayfasi() {
           <div
             style={{
               marginTop: 28,
-              background: "var(--dvn-turkuaz-soluk)",
+              background: "var(--dvn-altin-soluk)",
               borderRadius: 12,
               padding: "18px 22px",
               display: "flex",
@@ -144,8 +144,8 @@ export default function PolitikaVeBeyanlarSayfasi() {
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
-              <circle cx="12" cy="12" r="10" stroke="var(--dvn-turkuaz)" strokeWidth="1.8" />
-              <path d="M12 16v-4M12 8h.01" stroke="var(--dvn-turkuaz)" strokeWidth="1.8" strokeLinecap="round" />
+              <circle cx="12" cy="12" r="10" stroke="var(--dvn-altin)" strokeWidth="1.8" />
+              <path d="M12 16v-4M12 8h.01" stroke="var(--dvn-altin)" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
             <p style={{ fontSize: 13, color: "var(--dvn-gri-700)", margin: 0, lineHeight: 1.6 }}>
               Yukarıdaki metinler özet niteliğindedir. Onaylı ve güncel politika dokümanlarının tam metnine{" "}

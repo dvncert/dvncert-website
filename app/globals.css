@@ -20,7 +20,7 @@ html {
   }
   html, body {
     background: #fafbfc !important;
-    color: #0f1922 !important;
+    color: #2E1A6B !important;
   }
 }
 
@@ -30,20 +30,20 @@ html {
    ========================================== */
 
 :root {
-  /* Ana Renkler - Logo'ya uygun */
-  --dvn-lacivert: #0f1922;
-  --dvn-lacivert-acik: #1a3045;
-  --dvn-lacivert-koyu: #061018;
+  /* Ana Renkler - Yeni logo (Lacivert / Mor) */
+  --dvn-lacivert: #2E1A6B;
+  --dvn-lacivert-acik: #3D2A85;
+  --dvn-lacivert-koyu: #1F0F4D;
 
-  /* Turkuaz Tonları */
-  --dvn-turkuaz: #2dafb8;
-  --dvn-turkuaz-acik: #5dd4dc;
-  --dvn-turkuaz-soluk: #e6f7f8;
+  /* Şampanya Altın Tonları */
+  --dvn-altin: #D4A93F;
+  --dvn-altin-acik: #E8C870;
+  --dvn-altin-soluk: #FAF3DC;
 
   /* Turuncu Tonları */
-  --dvn-turuncu: #ff6b35;
-  --dvn-turuncu-acik: #ff8556;
-  --dvn-turuncu-soluk: #fff0e8;
+  --dvn-turuncu: #F58220;
+  --dvn-turuncu-acik: #FFA050;
+  --dvn-turuncu-soluk: #FFF0E0;
 
   /* Nötr Renkler */
   --dvn-beyaz: #ffffff;
@@ -54,7 +54,7 @@ html {
   --dvn-gri-500: #64748b;
   --dvn-gri-700: #334155;
   --dvn-gri-800: #1e293b;
-  --dvn-metin: #0f1922;
+  --dvn-metin: #2E1A6B;
   --dvn-metin-acik: #475569;
 
   /* Tipografi */
@@ -67,18 +67,18 @@ html {
   --dvn-radius-xl: 16px;
 
   /* Gölgeler */
-  --dvn-shadow-sm: 0 2px 8px rgba(15, 25, 34, 0.04);
-  --dvn-shadow-md: 0 4px 16px rgba(15, 25, 34, 0.06);
-  --dvn-shadow-lg: 0 8px 24px rgba(15, 25, 34, 0.08);
-  --dvn-shadow-xl: 0 12px 40px rgba(15, 25, 34, 0.12);
+  --dvn-shadow-sm: 0 2px 8px rgba(46, 26, 107, 0.04);
+  --dvn-shadow-md: 0 4px 16px rgba(46, 26, 107, 0.06);
+  --dvn-shadow-lg: 0 8px 24px rgba(46, 26, 107, 0.08);
+  --dvn-shadow-xl: 0 12px 40px rgba(46, 26, 107, 0.12);
 
   /* Gradientler */
-  --dvn-gradient-hero: radial-gradient(ellipse at top right, rgba(45, 175, 184, 0.18) 0%, transparent 50%),
-                       radial-gradient(ellipse at bottom left, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
-                       linear-gradient(180deg, #0f1922 0%, #142536 70%, #1a3045 100%);
-  --dvn-gradient-turkuaz: linear-gradient(135deg, #2dafb8 0%, #5dd4dc 100%);
-  --dvn-gradient-turuncu: linear-gradient(135deg, #ff6b35 0%, #ff8556 100%);
-  --dvn-gradient-lacivert: linear-gradient(135deg, #0f1922 0%, #1a3045 100%);
+  --dvn-gradient-hero: radial-gradient(ellipse at top right, rgba(212,169,63,0.12) 0%, transparent 50%),
+                       radial-gradient(ellipse at bottom left, rgba(245,130,32,0.10) 0%, transparent 50%),
+                       linear-gradient(180deg, #2E1A6B 0%, #3D2A85 70%, #1F0F4D 100%);
+  --dvn-gradient-turuncu: linear-gradient(135deg, #F58220 0%, #FFA050 100%);
+  --dvn-gradient-altin: linear-gradient(135deg, #D4A93F 0%, #E8C870 100%);
+  --dvn-gradient-lacivert: linear-gradient(135deg, #2E1A6B 0%, #3D2A85 100%);
 }
 
 /* ==========================================
@@ -187,13 +187,13 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 8px 20px rgba(245, 130, 32, 0.3);
   transition: all 0.2s ease;
 }
 
 .dvn-btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(255, 107, 53, 0.35);
+  box-shadow: 0 12px 24px rgba(245, 130, 32, 0.35);
   color: white;
 }
 

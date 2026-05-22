@@ -211,7 +211,7 @@ export default function Header() {
                 alignItems: "center",
                 gap: 6,
                 textDecoration: "none",
-                boxShadow: "0 2px 8px rgba(255,107,53,0.4)",
+                boxShadow: "0 2px 8px rgba(245,130,32,0.4)",
               }}
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
@@ -286,7 +286,7 @@ export default function Header() {
                     borderRadius: 14,
                     padding: 8,
                     minWidth: 256,
-                    boxShadow: "0 16px 40px rgba(15,25,34,0.16)",
+                    boxShadow: "0 16px 40px rgba(46,26,107,0.16)",
                     border: "0.5px solid var(--dvn-gri-300)",
                   }}
                 >
@@ -323,7 +323,7 @@ export default function Header() {
                     borderRadius: 14,
                     padding: 8,
                     minWidth: 300,
-                    boxShadow: "0 16px 40px rgba(15,25,34,0.16)",
+                    boxShadow: "0 16px 40px rgba(46,26,107,0.16)",
                     border: "0.5px solid var(--dvn-gri-300)",
                   }}
                 >
@@ -377,7 +377,7 @@ export default function Header() {
                     borderRadius: 14,
                     padding: 8,
                     minWidth: 250,
-                    boxShadow: "0 16px 40px rgba(15,25,34,0.16)",
+                    boxShadow: "0 16px 40px rgba(46,26,107,0.16)",
                     border: "0.5px solid var(--dvn-gri-300)",
                   }}
                 >
@@ -408,7 +408,7 @@ export default function Header() {
                 padding: "9px 18px",
                 borderRadius: "var(--dvn-radius-md)",
                 fontWeight: 500,
-                boxShadow: "0 4px 12px rgba(255, 107, 53, 0.25)",
+                boxShadow: "0 4px 12px rgba(245,130,32, 0.25)",
               }}
             >
               Başvuru Yap
@@ -502,7 +502,7 @@ export default function Header() {
                     onClick={() => setMobilMenuAcik(false)}
                     style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 14, color: "var(--dvn-gri-500)" }}
                   >
-                    <span style={{ color: "var(--dvn-turkuaz)", display: "inline-flex" }}>{item.icon}</span>
+                    <span style={{ color: "var(--dvn-altin)", display: "inline-flex" }}>{item.icon}</span>
                     {item.baslik}
                   </Link>
                 ))}
@@ -556,7 +556,7 @@ export default function Header() {
                       onClick={() => setMobilMenuAcik(false)}
                       style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 14, color: "var(--dvn-gri-500)" }}
                     >
-                      <span style={{ color: "var(--dvn-turkuaz)", display: "inline-flex" }}>
+                      <span style={{ color: "var(--dvn-altin)", display: "inline-flex" }}>
                         <HizmetIkon ad={item.ikon} size={18} />
                       </span>
                       {item.baslik}
@@ -627,7 +627,7 @@ export default function Header() {
                     onClick={() => setMobilMenuAcik(false)}
                     style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 14, color: "var(--dvn-gri-500)" }}
                   >
-                    <span style={{ color: "var(--dvn-turkuaz)", display: "inline-flex" }}>{item.icon}</span>
+                    <span style={{ color: "var(--dvn-altin)", display: "inline-flex" }}>{item.icon}</span>
                     {item.baslik}
                   </Link>
                 ))}
@@ -707,15 +707,15 @@ export default function Header() {
           width: 34px;
           height: 34px;
           border-radius: 8px;
-          background: var(--dvn-turkuaz-soluk);
-          color: var(--dvn-turkuaz);
+          background: var(--dvn-altin-soluk);
+          color: var(--dvn-altin);
           display: flex;
           align-items: center;
           justify-content: center;
           transition: background 0.18s ease, color 0.18s ease;
         }
         .dvn-dd-oge:hover .dvn-dd-ikon {
-          background: var(--dvn-gradient-turkuaz);
+          background: var(--dvn-gradient-altin);
           color: white;
         }
         .dvn-dd-ok {

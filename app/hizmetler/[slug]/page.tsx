@@ -121,7 +121,7 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
                     width: 26,
                     height: 26,
                     borderRadius: "50%",
-                    background: "var(--dvn-turkuaz-soluk)",
+                    background: "var(--dvn-altin-soluk)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -129,7 +129,7 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
                   }}
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12l5 5L20 7" stroke="var(--dvn-turkuaz)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M5 12l5 5L20 7" stroke="var(--dvn-altin)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
                 <span style={{ fontSize: 14, color: "var(--dvn-gri-700)", lineHeight: 1.55 }}>{f}</span>
@@ -176,8 +176,8 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
                       width: 50,
                       height: 50,
                       borderRadius: 12,
-                      background: "var(--dvn-turkuaz-soluk)",
-                      color: "var(--dvn-turkuaz)",
+                      background: "var(--dvn-altin-soluk)",
+                      color: "var(--dvn-altin)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -236,7 +236,7 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
                       fontSize: 16,
                       fontWeight: 600,
                       marginBottom: 16,
-                      boxShadow: "0 6px 16px rgba(255,107,53,0.3)",
+                      boxShadow: "0 6px 16px rgba(245,130,32,0.3)",
                     }}
                   >
                     {i + 1}
@@ -287,7 +287,7 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
                 borderRadius: "var(--dvn-radius-md)",
                 fontWeight: 500,
                 fontSize: 14,
-                boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+                boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
                 whiteSpace: "nowrap",
               }}
             >
@@ -313,7 +313,7 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
       </section>
 
       <style>{`
-        .dvn-std-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15,25,34,0.1) !important; }
+        .dvn-std-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(46,26,107,0.1) !important; }
         @media (max-width: 820px) {
           .dvn-fayda-grid { grid-template-columns: 1fr !important; }
           .dvn-std-kart-grid { grid-template-columns: 1fr !important; }

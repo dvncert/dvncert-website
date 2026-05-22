@@ -98,8 +98,8 @@ export default function IletisimSayfasi() {
                         width: 44,
                         height: 44,
                         borderRadius: 11,
-                        background: "var(--dvn-turkuaz-soluk)",
-                        color: "var(--dvn-turkuaz)",
+                        background: "var(--dvn-altin-soluk)",
+                        color: "var(--dvn-altin)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -179,7 +179,7 @@ export default function IletisimSayfasi() {
               border: "0.5px solid var(--dvn-gri-300)",
               borderRadius: 16,
               padding: "32px 30px",
-              boxShadow: "0 8px 32px rgba(15,25,34,0.06)",
+              boxShadow: "0 8px 32px rgba(46,26,107,0.06)",
             }}
           >
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
@@ -196,7 +196,7 @@ export default function IletisimSayfasi() {
       {/* Harita */}
       <section style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <div style={{ borderRadius: 16, overflow: "hidden", border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 8px 32px rgba(15,25,34,0.06)", lineHeight: 0 }}>
+          <div style={{ borderRadius: 16, overflow: "hidden", border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 8px 32px rgba(46,26,107,0.06)", lineHeight: 0 }}>
             <iframe
               src={haritaUrl}
               title={`${siteConfig.adUzun} konumu`}

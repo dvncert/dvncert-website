@@ -7,12 +7,12 @@ const hizmetler = [
     baslik: "Sistem Belgelendirme",
     aciklama: "ISO 9001, 14001, 45001 ve 50001 yönetim sistemleri belgelendirmesi ile kuruluşların uluslararası standartlara uyumunu değerlendiriyoruz.",
     link: "/hizmetler/sistem-belgelendirme",
-    renk: "turkuaz",
+    renk: "altin",
     icon: (
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-        <path d="M9 12l2 2 4-4" stroke="#2dafb8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.84 0 3.55.55 4.98 1.5" stroke="#5dd4dc" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M22 4l-10 10-3-3" stroke="#ff8556" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M9 12l2 2 4-4" stroke="#D4A93F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.84 0 3.55.55 4.98 1.5" stroke="#E8C870" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M22 4l-10 10-3-3" stroke="#FFA050" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -23,9 +23,9 @@ const hizmetler = [
     renk: "turuncu",
     icon: (
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#5dd4dc" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <rect x="9" y="3" width="6" height="4" rx="1" stroke="#ff8556" strokeWidth="1.8" />
-        <path d="M9 14l2 2 4-4" stroke="#ff6b35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#E8C870" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="9" y="3" width="6" height="4" rx="1" stroke="#FFA050" strokeWidth="1.8" />
+        <path d="M9 14l2 2 4-4" stroke="#F58220" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -33,11 +33,11 @@ const hizmetler = [
     baslik: "Eğitim Hizmetleri",
     aciklama: "Yönetim sistemleri, iç denetçi ve uygulama eğitimleri ile kuruluşların yetkinliklerini geliştiriyor, sürekli iyileştirme kültürünü destekliyoruz.",
     link: "/egitimler",
-    renk: "turkuaz",
+    renk: "altin",
     icon: (
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" stroke="#5dd4dc" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M6 12v5c3 3 9 3 12 0v-5" stroke="#ff8556" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" stroke="#E8C870" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M6 12v5c3 3 9 3 12 0v-5" stroke="#FFA050" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -94,14 +94,14 @@ export default function Hizmetler() {
                 background: "white",
                 borderRadius: 14,
                 padding: "30px 26px",
-                boxShadow: "0 4px 16px rgba(15,25,34,0.06)",
+                boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
                 position: "relative",
                 overflow: "hidden",
                 display: "block",
                 textDecoration: "none",
                 color: "inherit",
                 transition: "all 0.3s ease",
-                borderTop: h.renk === "turkuaz" ? "3px solid #2dafb8" : "3px solid #ff6b35",
+                borderTop: h.renk === "altin" ? "3px solid #D4A93F" : "3px solid #F58220",
               }}
             >
               <div
@@ -111,7 +111,7 @@ export default function Hizmetler() {
                   right: -30,
                   width: 100,
                   height: 100,
-                  background: h.renk === "turkuaz" ? "rgba(45,175,184,0.08)" : "rgba(255,107,53,0.08)",
+                  background: h.renk === "altin" ? "rgba(212,169,63,0.08)" : "rgba(245,130,32,0.08)",
                   borderRadius: "50%",
                 }}
               />
@@ -126,7 +126,7 @@ export default function Hizmetler() {
                   alignItems: "center",
                   justifyContent: "center",
                   marginBottom: 18,
-                  boxShadow: "0 6px 16px rgba(15,25,34,0.15)",
+                  boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
                   position: "relative",
                   zIndex: 1,
                 }}
@@ -163,7 +163,7 @@ export default function Hizmetler() {
               <span
                 style={{
                   fontSize: 13,
-                  color: h.renk === "turkuaz" ? "var(--dvn-turkuaz)" : "var(--dvn-turuncu)",
+                  color: h.renk === "altin" ? "var(--dvn-altin)" : "var(--dvn-turuncu)",
                   fontWeight: 500,
                   display: "inline-flex",
                   alignItems: "center",
@@ -191,7 +191,7 @@ export default function Hizmetler() {
       <style>{`
         .dvn-hizmet-kart:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(15,25,34,0.12) !important;
+          box-shadow: 0 12px 28px rgba(46,26,107,0.12) !important;
         }
         @media (max-width: 900px) {
           .dvn-hizmet-grid {

@@ -89,17 +89,17 @@ export default function LogolarimizSayfasi() {
             style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}
           >
             {/* Yapılması gerekenler */}
-            <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", borderTop: "3px solid var(--dvn-turkuaz)" }}>
+            <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", borderTop: "3px solid var(--dvn-altin)" }}>
               <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 18px", display: "flex", alignItems: "center", gap: 8 }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="var(--dvn-turkuaz)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="var(--dvn-altin)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 Yapılması gerekenler
               </h3>
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 12 }}>
                 {yapilmasiGerekenler.map((k, i) => (
                   <li key={i} style={{ display: "flex", gap: 10, fontSize: 13.5, color: "var(--dvn-gri-700)", lineHeight: 1.6 }}>
-                    <span style={{ color: "var(--dvn-turkuaz)", flexShrink: 0 }}>✓</span>
+                    <span style={{ color: "var(--dvn-altin)", flexShrink: 0 }}>✓</span>
                     {k}
                   </li>
                 ))}
@@ -144,7 +144,7 @@ export default function LogolarimizSayfasi() {
 
 function LogoKart({ zeminKoyu, baslik }: { zeminKoyu: boolean; baslik: string }) {
   return (
-    <div style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(15,25,34,0.06)" }}>
+    <div style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(46,26,107,0.06)" }}>
       <div
         style={{
           background: zeminKoyu ? "var(--dvn-gradient-lacivert)" : "var(--dvn-gri-50)",
@@ -178,7 +178,7 @@ function LogoKart({ zeminKoyu, baslik }: { zeminKoyu: boolean; baslik: string })
             borderRadius: "var(--dvn-radius-md)",
             fontWeight: 500,
             fontSize: 13,
-            boxShadow: "0 6px 16px rgba(255,107,53,0.28)",
+            boxShadow: "0 6px 16px rgba(245,130,32,0.28)",
           }}
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none">

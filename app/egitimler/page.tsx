@@ -108,11 +108,11 @@ export default function EgitimlerSayfasi() {
                     height: 54,
                     borderRadius: 12,
                     background: "var(--dvn-gradient-lacivert)",
-                    color: "var(--dvn-turkuaz-acik)",
+                    color: "var(--dvn-altin-acik)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    boxShadow: "0 6px 16px rgba(15,25,34,0.15)",
+                    boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
                   }}
                 >
                   <HizmetIkon ad={e.ikon} size={27} />
@@ -160,7 +160,7 @@ export default function EgitimlerSayfasi() {
               borderRadius: "var(--dvn-radius-md)",
               fontWeight: 500,
               fontSize: 14,
-              boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
               whiteSpace: "nowrap",
             }}
           >

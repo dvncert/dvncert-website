@@ -105,7 +105,7 @@ export default function SikayetFormu() {
           borderRadius: "var(--dvn-radius-md)",
           fontWeight: 500,
           fontSize: 14,
-          boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+          boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
         }}
       >
         Gönder
@@ -115,9 +115,9 @@ export default function SikayetFormu() {
       </button>
 
       {gonderildi && (
-        <p style={{ fontSize: 13, color: "var(--dvn-turkuaz)", margin: 0, display: "flex", alignItems: "center", gap: 8 }}>
+        <p style={{ fontSize: 13, color: "var(--dvn-altin)", margin: 0, display: "flex", alignItems: "center", gap: 8 }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M20 6L9 17l-5-5" stroke="var(--dvn-turkuaz)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M20 6L9 17l-5-5" stroke="var(--dvn-altin)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           Talebiniz alındı. E-posta uygulamanız üzerinden gönderimi tamamlayabilirsiniz.
         </p>
@@ -128,8 +128,8 @@ export default function SikayetFormu() {
         .dvn-sikayet-form select:focus,
         .dvn-sikayet-form textarea:focus {
           outline: none;
-          border-color: var(--dvn-turkuaz) !important;
-          box-shadow: 0 0 0 3px var(--dvn-turkuaz-soluk);
+          border-color: var(--dvn-altin) !important;
+          box-shadow: 0 0 0 3px var(--dvn-altin-soluk);
         }
         .dvn-sikayet-form input::placeholder,
         .dvn-sikayet-form textarea::placeholder {

@@ -123,7 +123,7 @@ export default function SSSSayfasi() {
                 borderRadius: "var(--dvn-radius-md)",
                 fontWeight: 500,
                 fontSize: 13.5,
-                boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+                boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
                 whiteSpace: "nowrap",
               }}
             >
@@ -137,7 +137,7 @@ export default function SSSSayfasi() {
         .dvn-sss-baslik::-webkit-details-marker { display: none; }
         .dvn-sss[open] .dvn-sss-ok { transform: rotate(180deg); }
         .dvn-sss-ok { transition: transform 0.22s ease; }
-        .dvn-sss[open] { border-color: var(--dvn-turkuaz) !important; }
+        .dvn-sss[open] { border-color: var(--dvn-altin) !important; }
         .dvn-sss-baslik:hover { color: var(--dvn-turuncu) !important; }
       `}</style>
     </main>

@@ -52,7 +52,7 @@ export default function DuyurularSayfasi() {
                 textDecoration: "none",
                 color: "inherit",
                 marginBottom: 40,
-                boxShadow: "0 12px 40px rgba(15,25,34,0.16)",
+                boxShadow: "0 12px 40px rgba(46,26,107,0.16)",
               }}
             >
               <div style={{ padding: "40px 38px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -62,7 +62,7 @@ export default function DuyurularSayfasi() {
                       fontSize: 11,
                       fontWeight: 600,
                       color: "var(--dvn-lacivert)",
-                      background: "var(--dvn-turkuaz-acik)",
+                      background: "var(--dvn-altin-acik)",
                       padding: "4px 12px",
                       borderRadius: 999,
                     }}
@@ -100,7 +100,7 @@ export default function DuyurularSayfasi() {
                   <Image src={oneCikan.gorsel} alt={oneCikan.baslik} fill sizes="(max-width: 860px) 100vw, 50vw" style={{ objectFit: "cover" }} />
                 ) : (
                   <svg width="68" height="68" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.7 }}>
-                    <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5" stroke="var(--dvn-turkuaz-acik)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5" stroke="var(--dvn-altin-acik)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M18.5 2.5a2.12 2.12 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="var(--dvn-turuncu-acik)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 )}
@@ -123,7 +123,7 @@ export default function DuyurularSayfasi() {
                     background: "white",
                     borderRadius: 14,
                     padding: "26px 24px",
-                    boxShadow: "0 4px 16px rgba(15,25,34,0.06)",
+                    boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
                     border: "0.5px solid var(--dvn-gri-300)",
                     display: "flex",
                     flexDirection: "column",
@@ -137,8 +137,8 @@ export default function DuyurularSayfasi() {
                       style={{
                         fontSize: 11,
                         fontWeight: 500,
-                        color: "var(--dvn-turkuaz)",
-                        background: "var(--dvn-turkuaz-soluk)",
+                        color: "var(--dvn-altin)",
+                        background: "var(--dvn-altin-soluk)",
                         padding: "4px 10px",
                         borderRadius: 999,
                       }}
@@ -169,7 +169,7 @@ export default function DuyurularSayfasi() {
       <style>{`
         .dvn-duyuru-kart:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(15,25,34,0.12) !important;
+          box-shadow: 0 12px 28px rgba(46,26,107,0.12) !important;
         }
         @media (max-width: 860px) {
           .dvn-one-cikan { grid-template-columns: 1fr !important; }
