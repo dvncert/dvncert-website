@@ -1,26 +1,226 @@
 @import "tailwindcss";
-
+/* Karanlık modu zorla kapat - site her zaman aydınlık modda görünsün */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: only light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  color-scheme: only light;
 }
 
+/* Tüm tarayıcı varsayılanlarını sıfırla */
+* {
+  -webkit-text-fill-color: inherit !important;
+}
+
+/* Karanlık modda renkleri zorla */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: light !important;
+  }
+  html, body {
+    background: #fafbfc !important;
+    color: #0f1922 !important;
   }
 }
 
+/* ==========================================
+   DVN CERT - TASARIM SABİTLERİ
+   Renkler, font, ortak stiller
+   ========================================== */
+
+:root {
+  /* Ana Renkler - Logo'ya uygun */
+  --dvn-lacivert: #0f1922;
+  --dvn-lacivert-acik: #1a3045;
+  --dvn-lacivert-koyu: #061018;
+
+  /* Turkuaz Tonları */
+  --dvn-turkuaz: #2dafb8;
+  --dvn-turkuaz-acik: #5dd4dc;
+  --dvn-turkuaz-soluk: #e6f7f8;
+
+  /* Turuncu Tonları */
+  --dvn-turuncu: #ff6b35;
+  --dvn-turuncu-acik: #ff8556;
+  --dvn-turuncu-soluk: #fff0e8;
+
+  /* Nötr Renkler */
+  --dvn-beyaz: #ffffff;
+  --dvn-gri-50: #fafbfc;
+  --dvn-gri-100: #f5f7f9;
+  --dvn-gri-200: #f0f5f7;
+  --dvn-gri-300: #e2e8f0;
+  --dvn-gri-500: #64748b;
+  --dvn-gri-700: #334155;
+  --dvn-gri-800: #1e293b;
+  --dvn-metin: #0f1922;
+  --dvn-metin-acik: #475569;
+
+  /* Tipografi */
+  --dvn-font: 'Calibri', 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+
+  /* Köşe Yuvarlama */
+  --dvn-radius-sm: 6px;
+  --dvn-radius-md: 8px;
+  --dvn-radius-lg: 12px;
+  --dvn-radius-xl: 16px;
+
+  /* Gölgeler */
+  --dvn-shadow-sm: 0 2px 8px rgba(15, 25, 34, 0.04);
+  --dvn-shadow-md: 0 4px 16px rgba(15, 25, 34, 0.06);
+  --dvn-shadow-lg: 0 8px 24px rgba(15, 25, 34, 0.08);
+  --dvn-shadow-xl: 0 12px 40px rgba(15, 25, 34, 0.12);
+
+  /* Gradientler */
+  --dvn-gradient-hero: radial-gradient(ellipse at top right, rgba(45, 175, 184, 0.18) 0%, transparent 50%),
+                       radial-gradient(ellipse at bottom left, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
+                       linear-gradient(180deg, #0f1922 0%, #142536 70%, #1a3045 100%);
+  --dvn-gradient-turkuaz: linear-gradient(135deg, #2dafb8 0%, #5dd4dc 100%);
+  --dvn-gradient-turuncu: linear-gradient(135deg, #ff6b35 0%, #ff8556 100%);
+  --dvn-gradient-lacivert: linear-gradient(135deg, #0f1922 0%, #1a3045 100%);
+}
+
+/* ==========================================
+   GENEL SIFIRLAMA
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--dvn-font);
+  background: var(--dvn-gri-50);
+  color: var(--dvn-metin);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Başlıklar - Calibri'ye uygun ağırlıklar */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--dvn-metin);
+}
+
+/* Linkler */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--dvn-turuncu);
+}
+
+/* Butonlar */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Resimler */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================
+   YARDIMCI SINIFLAR
+   ========================================== */
+
+.dvn-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 768px) {
+  .dvn-container {
+    padding: 0 16px;
+  }
+}
+
+/* Bölüm başlığı (her bölümün üstündeki turuncu küçük etiket) */
+.dvn-bolum-etiket {
+  font-size: 11px;
+  color: var(--dvn-turuncu);
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.dvn-bolum-baslik {
+  color: var(--dvn-metin);
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .dvn-bolum-baslik {
+    font-size: 18px;
+  }
+}
+
+/* Buton stilleri */
+.dvn-btn-primary {
+  background: var(--dvn-gradient-turuncu);
+  color: white;
+  padding: 11px 20px;
+  border-radius: var(--dvn-radius-md);
+  font-weight: 500;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+  transition: all 0.2s ease;
+}
+
+.dvn-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(255, 107, 53, 0.35);
+  color: white;
+}
+
+.dvn-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 11px 20px;
+  border-radius: var(--dvn-radius-md);
+  font-weight: 500;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.dvn-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+/* Mobil için temel ayarlar */
+@media (max-width: 768px) {
+  .dvn-btn-primary,
+  .dvn-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
 }

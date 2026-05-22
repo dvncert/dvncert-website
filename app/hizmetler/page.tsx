@@ -1,0 +1,179 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import SayfaBaslik from "../components/SayfaBaslik";
+import KapakGorsel from "../components/KapakGorsel";
+import HizmetIkon from "../components/HizmetIkon";
+import { hizmetGetir, hizmetler } from "@/lib/hizmetler";
+import { siteConfig } from "@/lib/site-config";
+import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+
+export const metadata: Metadata = {
+  title: "Hizmetlerimiz",
+  description:
+    "DVN Cert; ISO 9001, 14001, 45001, 50001 sistem belgelendirmesi, 2. taraf denetimleri ve yönetim sistemi eğitimleri sunar. Tüm belgelendirme hizmetlerimizi keşfedin.",
+  alternates: { canonical: `${siteConfig.url}/hizmetler` },
+};
+
+// Üst seviye hizmet kartları (Eğitimler ayrı bir sayfadır, manuel eklenir)
+const anaHizmetler = [
+  { ...hizmetGetir("sistem-belgelendirme")!, href: "/hizmetler/sistem-belgelendirme" },
+  { ...hizmetGetir("2-taraf-denetimleri")!, href: "/hizmetler/2-taraf-denetimleri" },
+  {
+    slug: "egitimler",
+    baslik: "Eğitimler",
+    kisaAciklama:
+      "ISO yönetim sistemleri eğitim programlarımızla kurumların yönetim sistemi bilgi seviyesini artırıyoruz.",
+    ikon: "egitim",
+    href: "/egitimler",
+  },
+];
+
+const isoStandartlari = hizmetler.filter((h) => h.kod);
+
+export default function HizmetlerSayfasi() {
+  return (
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(
+          breadcrumbSchema([
+            { ad: "Ana Sayfa", url: "/" },
+            { ad: "Hizmetler", url: "/hizmetler" },
+          ])
+        )}
+      />
+
+      <SayfaBaslik
+        etiket="HİZMETLERİMİZ"
+        baslik="Belgelendirme Hizmetlerimiz"
+        aciklama="Yönetim sistemleri belgelendirmesinden 2. taraf denetimlerine ve eğitimlere kadar kuruluşunuza değer katan profesyonel çözümler."
+        kirintilar={[{ etiket: "Hizmetler" }]}
+      />
+
+      <KapakGorsel alt="DVN Cert belgelendirme hizmetleri" ikon="sistem" etiket="Belgelendirme Hizmetlerimiz" oncelik />
+
+      {/* Ana hizmetler */}
+      <section style={{ background: "white", padding: "60px 32px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div className="dvn-anahizmet-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+            {anaHizmetler.map((h) => (
+              <Link
+                key={h.slug}
+                href={h.href}
+                className="dvn-hub-kart"
+                style={{
+                  background: "white",
+                  borderRadius: 16,
+                  padding: "32px 28px",
+                  boxShadow: "0 4px 16px rgba(15,25,34,0.06)",
+                  border: "0.5px solid var(--dvn-gri-300)",
+                  textDecoration: "none",
+                  color: "inherit",
+                  display: "block",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <div
+                  style={{
+                    width: 60,
+                    height: 60,
+                    borderRadius: 14,
+                    background: "var(--dvn-gradient-lacivert)",
+                    color: "var(--dvn-turkuaz-acik)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: 20,
+                    boxShadow: "0 8px 20px rgba(15,25,34,0.15)",
+                  }}
+                >
+                  <HizmetIkon ad={h.ikon} size={30} />
+                </div>
+                <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 18, fontWeight: 600, margin: "0 0 10px", lineHeight: 1.3 }}>
+                  {h.baslik}
+                </h2>
+                <p style={{ fontSize: 13.5, color: "var(--dvn-gri-500)", lineHeight: 1.7, margin: "0 0 16px" }}>{h.kisaAciklama}</p>
+                <span style={{ fontSize: 13, color: "var(--dvn-turuncu)", fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>
+                  Detayları gör
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ISO standartları */}
+      <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+              SİSTEM BELGELENDİRME
+            </p>
+            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+              Belgelendirme yaptığımız ISO standartları
+            </h2>
+          </div>
+
+          <div className="dvn-iso-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
+            {isoStandartlari.map((std) => (
+              <Link
+                key={std.slug}
+                href={`/hizmetler/${std.slug}`}
+                className="dvn-hub-kart"
+                style={{
+                  display: "flex",
+                  gap: 18,
+                  background: "white",
+                  borderRadius: 14,
+                  padding: "26px 26px",
+                  boxShadow: "0 4px 16px rgba(15,25,34,0.06)",
+                  border: "0.5px solid var(--dvn-gri-300)",
+                  borderLeft: "3px solid var(--dvn-turkuaz)",
+                  textDecoration: "none",
+                  color: "inherit",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <div
+                  style={{
+                    flexShrink: 0,
+                    width: 52,
+                    height: 52,
+                    borderRadius: 12,
+                    background: "var(--dvn-turkuaz-soluk)",
+                    color: "var(--dvn-turkuaz)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <HizmetIkon ad={std.ikon} size={26} />
+                </div>
+                <div>
+                  <p style={{ fontSize: 11.5, color: "var(--dvn-turuncu)", fontWeight: 600, margin: "0 0 2px", letterSpacing: "0.3px" }}>
+                    {std.kod}
+                  </p>
+                  <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16, fontWeight: 600, margin: "0 0 6px", lineHeight: 1.3 }}>
+                    {std.baslik}
+                  </h3>
+                  <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", lineHeight: 1.6, margin: 0 }}>{std.kisaAciklama}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        .dvn-hub-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15,25,34,0.12) !important; }
+        @media (max-width: 900px) {
+          .dvn-anahizmet-grid { grid-template-columns: 1fr !important; }
+          .dvn-iso-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </main>
+  );
+}

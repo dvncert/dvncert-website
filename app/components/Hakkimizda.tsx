@@ -1,0 +1,211 @@
+import Link from "next/link";
+import { siteConfig } from "@/lib/site-config";
+
+const guclerimiz = [
+  "Bağımsız ve tarafsız değerlendirme",
+  `${siteConfig.akreditasyon.kurulus} akreditasyonu ile güvence`,
+  "Uzman ve deneyimli denetçi kadrosu",
+  "Şeffaf, izlenebilir ve hızlı süreç",
+];
+
+export default function Hakkimizda() {
+  return (
+    <section style={{ background: "white", padding: "60px 32px" }}>
+      <div
+        className="dvn-hakkimizda-grid"
+        style={{
+          maxWidth: 1280,
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "1.1fr 0.9fr",
+          gap: 48,
+          alignItems: "center",
+        }}
+      >
+        {/* Sol kolon: metin + güçler + CTA */}
+        <div>
+          <p
+            style={{
+              fontSize: 11,
+              color: "var(--dvn-turuncu)",
+              fontWeight: 500,
+              letterSpacing: "1.5px",
+              margin: "0 0 8px",
+            }}
+          >
+            KURUMSAL
+          </p>
+          <h2
+            style={{
+              color: "var(--dvn-lacivert)",
+              fontSize: 26,
+              fontWeight: 500,
+              margin: "0 0 16px",
+              lineHeight: 1.3,
+            }}
+          >
+            Bağımsız, tarafsız ve doğrulanabilir belgelendirme yaklaşımı
+          </h2>
+          <p
+            style={{
+              fontSize: 14,
+              color: "var(--dvn-gri-500)",
+              lineHeight: 1.7,
+              margin: "0 0 24px",
+            }}
+          >
+            {siteConfig.aciklamaUzun}
+          </p>
+
+          <ul style={{ listStyle: "none", margin: "0 0 28px", padding: 0, display: "grid", gap: 12 }}>
+            {guclerimiz.map((g, i) => (
+              <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                <span
+                  style={{
+                    flexShrink: 0,
+                    width: 22,
+                    height: 22,
+                    borderRadius: "50%",
+                    background: "var(--dvn-turkuaz-soluk)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginTop: 1,
+                  }}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12l5 5L20 7"
+                      stroke="var(--dvn-turkuaz)"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span style={{ fontSize: 14, color: "var(--dvn-gri-700)", lineHeight: 1.5 }}>{g}</span>
+              </li>
+            ))}
+          </ul>
+
+          <Link
+            href="/hakkimizda"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              background: "var(--dvn-gradient-turuncu)",
+              color: "white",
+              padding: "11px 22px",
+              borderRadius: "var(--dvn-radius-md)",
+              fontWeight: 500,
+              fontSize: 13,
+              boxShadow: "0 8px 20px rgba(255,107,53,0.3)",
+            }}
+          >
+            Daha fazla bilgi
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        </div>
+
+        {/* Sağ kolon: akreditasyon kapsamı kartı */}
+        <div
+          style={{
+            background: "var(--dvn-gradient-lacivert)",
+            borderRadius: 16,
+            padding: "32px 30px",
+            color: "white",
+            boxShadow: "0 12px 40px rgba(15,25,34,0.18)",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: -40,
+              right: -40,
+              width: 140,
+              height: 140,
+              background: "rgba(45,175,184,0.14)",
+              borderRadius: "50%",
+            }}
+          />
+
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <p
+              style={{
+                fontSize: 11,
+                color: "var(--dvn-turkuaz-acik)",
+                fontWeight: 500,
+                letterSpacing: "1.5px",
+                margin: "0 0 6px",
+              }}
+            >
+              AKREDİTASYON KAPSAMI
+            </p>
+            <h3 style={{ color: "white", fontSize: 19, fontWeight: 500, margin: "0 0 4px", lineHeight: 1.3 }}>
+              {siteConfig.akreditasyon.kurulus} akreditasyonu altında
+            </h3>
+            <p style={{ fontSize: 12.5, color: "#9aa5b1", margin: "0 0 22px", lineHeight: 1.6 }}>
+              Yönetim sistemleri belgelendirmesinde uluslararası geçerli sertifikalar.
+            </p>
+
+            <div style={{ display: "grid", gap: 10 }}>
+              {siteConfig.akreditasyon.kapsam.map((standart, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 12,
+                    background: "rgba(255,255,255,0.06)",
+                    border: "0.5px solid rgba(255,255,255,0.12)",
+                    borderRadius: 10,
+                    padding: "12px 14px",
+                  }}
+                >
+                  <span
+                    style={{
+                      flexShrink: 0,
+                      width: 32,
+                      height: 32,
+                      borderRadius: 8,
+                      background: "var(--dvn-gradient-turkuaz)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 2l8 4v6c0 5.5-3.5 10-8 12-4.5-2-8-6.5-8-12V6l8-4z"
+                        stroke="white"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <span style={{ fontSize: 13.5, fontWeight: 500, color: "white" }}>{standart}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .dvn-hakkimizda-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+        }
+      `}</style>
+    </section>
+  );
+}
