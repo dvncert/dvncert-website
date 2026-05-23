@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 import { organizationSchema, websiteSchema, schemaScript } from "@/lib/seo-schemas";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CookieConsent from "./components/CookieConsent";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
@@ -80,6 +81,16 @@ export default function RootLayout({
         <meta name="theme-color" content="#2E1A6B" />
         <meta name="format-detection" content="telephone=no" />
 
+        {/* Google Consent Mode v2 — varsayılan onay: denied.
+            GA yüklenmeden (afterInteractive) önce, parse anında çalışır.
+            Onay CookieConsent banner'ı window.dvnCerezGuncelle ile günceller. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});try{if(localStorage.getItem('dvn-cerez-onay')==='kabul'){gtag('consent','update',{analytics_storage:'granted'});}}catch(e){}window.dvnCerezGuncelle=function(k){try{localStorage.setItem('dvn-cerez-onay',k?'kabul':'red');}catch(e){}gtag('consent','update',{analytics_storage:k?'granted':'denied'});};",
+          }}
+        />
+
         {/* JSON-LD: Organization (Her sayfada) */}
         <script
           type="application/ld+json"
@@ -99,6 +110,7 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
+        <CookieConsent />
       </body>
     </html>
   );
