@@ -3,6 +3,7 @@ import Istatistikler from "./components/Istatistikler";
 import Hizmetler from "./components/Hizmetler";
 import Hakkimizda from "./components/Hakkimizda";
 import Duyurular from "./components/Duyurular";
+import AnaSayfaSSS from "./components/AnaSayfaSSS";
 
 export default function AnaSayfa() {
   return (
@@ -12,6 +13,7 @@ export default function AnaSayfa() {
       <Hizmetler />
       <Hakkimizda />
       <Duyurular />
+      <AnaSayfaSSS />
     </main>
   );
 }
