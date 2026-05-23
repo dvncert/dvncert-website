@@ -53,12 +53,10 @@ export const metadata: Metadata = {
   },
 
   // Diğer önemli alanlar
+  // Not: Site şu an yalnızca Türkçe. İngilizce (/en) eklendiğinde
+  // alternates.languages buraya geri konacak.
   alternates: {
     canonical: siteConfig.url,
-    languages: {
-      "tr-TR": siteConfig.url,
-      "en-US": `${siteConfig.url}/en`,
-    },
   },
 
   // Doğrulama (ileride Google Search Console için)
