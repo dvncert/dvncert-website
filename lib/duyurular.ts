@@ -20,6 +20,8 @@ export type Duyuru = {
   icerik: string;
   /** Kapak görseli yolu, ör. "/gorseller/duyurular/ornek.webp". Boşsa yer tutucu gösterilir. */
   gorsel?: string;
+  /** İlgili hizmet slug'ları (opsiyonel) — detay sayfasında "İlgili Hizmetler" linkleri gösterilir */
+  ilgiliHizmetler?: string[];
 };
 
 export const duyurular: Duyuru[] = [
@@ -45,6 +47,7 @@ export const duyurular: Duyuru[] = [
     icerik:
       "Akreditasyon kapsamımıza ISO 50001:2018 Enerji Yönetim Sistemi belgelendirmesi resmi olarak eklenmiştir.\n\n" +
       "Bu gelişmeyle birlikte ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 standartlarının tamamında akredite belgelendirme hizmeti sunabiliyoruz. Enerji verimliliğini önceliklendiren kuruluşlar, enerji performanslarını uluslararası geçerli bir belgeyle ortaya koyabilecekler.",
+    ilgiliHizmetler: ["iso-50001", "sistem-belgelendirme"],
   },
   {
     slug: "iso-9001-ic-denetci-egitimi",
@@ -56,6 +59,7 @@ export const duyurular: Duyuru[] = [
     icerik:
       "Uzman denetçi kadromuz tarafından verilecek ISO 9001 İç Denetçi Eğitimi için kayıtlar başlamıştır.\n\n" +
       "Eğitim; kalite yönetim sistemi gerekliliklerini, denetim planlama ve raporlama tekniklerini ve uygulamalı örnek senaryoları kapsamaktadır. Kontenjan sınırlı olduğundan erken kayıt yaptırmanızı öneririz. Ayrıntılar için Eğitimler sayfamızı ziyaret edebilirsiniz.",
+    ilgiliHizmetler: ["iso-9001"],
   },
   {
     slug: "sertifika-dogrulama-sistemi-yenilendi",

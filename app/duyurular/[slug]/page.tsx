@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
 import { duyurular, duyuruGetir, tarihiBicimle } from "@/lib/duyurular";
+import { hizmetGetir } from "@/lib/hizmetler";
 import { siteConfig } from "@/lib/site-config";
 import { newsArticleSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
@@ -39,6 +40,9 @@ export default async function DuyuruDetaySayfasi({ params }: Params) {
   if (!duyuru) notFound();
 
   const paragraflar = duyuru.icerik.split("\n\n");
+  const ilgiliHizmetler = (duyuru.ilgiliHizmetler ?? [])
+    .map((s) => hizmetGetir(s))
+    .filter((h): h is NonNullable<typeof h> => Boolean(h));
 
   return (
     <main>
@@ -90,6 +94,41 @@ export default async function DuyuruDetaySayfasi({ params }: Params) {
               {p}
             </p>
           ))}
+
+          {/* İlgili hizmetler */}
+          {ilgiliHizmetler.length > 0 && (
+            <div style={{ marginTop: 36, paddingTop: 24, borderTop: "0.5px solid var(--dvn-gri-300)" }}>
+              <h2 style={{ fontSize: 16, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 14px" }}>
+                İlgili Hizmetler
+              </h2>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                {ilgiliHizmetler.map((h) => (
+                  <Link
+                    key={h.slug}
+                    href={`/hizmetler/${h.slug}`}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 6,
+                      fontSize: 13.5,
+                      fontWeight: 500,
+                      color: "var(--dvn-lacivert)",
+                      background: "var(--dvn-altin-soluk)",
+                      border: "0.5px solid var(--dvn-gri-300)",
+                      borderRadius: 999,
+                      padding: "8px 16px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {h.baslik}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h14M13 5l7 7-7 7" stroke="var(--dvn-turuncu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Geri dön */}
           <div style={{ marginTop: 36, paddingTop: 24, borderTop: "0.5px solid var(--dvn-gri-300)" }}>
