@@ -2,38 +2,34 @@ import Image from "next/image";
 import { referanslariGetir } from "@/lib/icerik";
 
 /**
- * Ana sayfa "Referanslarımız" logo şeridi.
- * Veri lib/referanslar.ts'ten gelir. Liste boşken bölüm RENDER EDİLMEZ
- * (sahte logo yok). Logolar gri tonda gösterilir, hover'da renklenir.
+ * Ana sayfa "Referanslarımız" — yatay sonsuz kayan logo şeridi (marquee).
+ * Tek satır olduğu için logo sayısı arttıkça sayfa dikeyde büyümez.
+ * Hover'da durur; prefers-reduced-motion'da animasyon kapanır, elle kaydırılır.
  */
 export default async function Referanslar() {
   const referanslar = await referanslariGetir();
   if (referanslar.length === 0) return null;
 
-  const hucreStili = {
-    background: "white",
-    border: "0.5px solid var(--dvn-gri-300)",
-    borderRadius: 12,
-    padding: "18px 24px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  } as const;
+  // Kesintisiz döngü için liste iki kez render edilir.
+  // Süre adet ile orantılı (logo başına ~4sn) — adet artsa da hız sabit kalır.
+  const sure = Math.max(20, referanslar.length * 4);
+  const liste = [...referanslar, ...referanslar];
 
   return (
-    <section style={{ background: "var(--dvn-gri-50)", padding: "56px 32px" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 32 }}>
-          <span className="dvn-bolum-etiket">REFERANSLARIMIZ</span>
-          <h2 className="dvn-bolum-baslik" style={{ fontSize: 25 }}>
-            Bize güvenen kurumlar
-          </h2>
-        </div>
+    <section style={{ background: "var(--dvn-gri-50)", padding: "56px 0" }}>
+      <div style={{ textAlign: "center", marginBottom: 32, padding: "0 32px" }}>
+        <span className="dvn-bolum-etiket">REFERANSLARIMIZ</span>
+        <h2 className="dvn-bolum-baslik" style={{ fontSize: 25 }}>
+          Bize güvenen kurumlar
+        </h2>
+      </div>
 
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 18 }}>
-          {referanslar.map((r, i) => {
+      <div className="dvn-ref-marquee">
+        <div className="dvn-ref-track" style={{ animationDuration: `${sure}s` }}>
+          {liste.map((r, i) => {
+            const ikincilKopya = i >= referanslar.length;
             const icerik = (
-              <div style={{ position: "relative", width: 150, height: 60 }}>
+              <div style={{ position: "relative", width: 150, height: 56 }}>
                 <Image
                   src={r.logo}
                   alt={r.ad}
@@ -41,16 +37,25 @@ export default async function Referanslar() {
                   sizes="150px"
                   style={{ objectFit: "contain" }}
                   className="dvn-referans-logo"
+                  unoptimized
                 />
               </div>
             );
 
             return r.url ? (
-              <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" aria-label={r.ad} style={hucreStili}>
+              <a
+                key={i}
+                href={r.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={r.ad}
+                aria-hidden={ikincilKopya}
+                className="dvn-ref-hucre"
+              >
                 {icerik}
               </a>
             ) : (
-              <div key={i} style={hucreStili}>
+              <div key={i} aria-hidden={ikincilKopya} className="dvn-ref-hucre">
                 {icerik}
               </div>
             );
@@ -59,8 +64,43 @@ export default async function Referanslar() {
       </div>
 
       <style>{`
+        .dvn-ref-marquee {
+          overflow: hidden;
+          width: 100%;
+          -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+        }
+        .dvn-ref-track {
+          display: flex;
+          width: max-content;
+          align-items: center;
+          animation-name: dvn-ref-kay;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+        .dvn-ref-marquee:hover .dvn-ref-track { animation-play-state: paused; }
+        .dvn-ref-hucre {
+          flex-shrink: 0;
+          margin-right: 18px;
+          background: white;
+          border: 0.5px solid var(--dvn-gri-300);
+          border-radius: 12px;
+          padding: 16px 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+        }
         .dvn-referans-logo { filter: grayscale(1); opacity: 0.7; transition: filter 0.25s ease, opacity 0.25s ease; }
-        a:hover .dvn-referans-logo, .dvn-referans-logo:hover { filter: grayscale(0); opacity: 1; }
+        .dvn-ref-hucre:hover .dvn-referans-logo { filter: grayscale(0); opacity: 1; }
+        @keyframes dvn-ref-kay {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .dvn-ref-marquee { overflow-x: auto; }
+          .dvn-ref-track { animation: none; }
+        }
       `}</style>
     </section>
   );

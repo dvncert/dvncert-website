@@ -17,6 +17,7 @@ export default async function ReferanslarListe() {
       logo: referanslar.logo,
       url: referanslar.url,
       yayinda: referanslar.yayinda,
+      sira: referanslar.sira,
       logoVar: sql<boolean>`${referanslar.logoVeri} is not null`,
     })
     .from(referanslar)
@@ -41,6 +42,7 @@ export default async function ReferanslarListe() {
             <tr style={{ background: "var(--dvn-gri-50)", color: "var(--dvn-gri-700)" }}>
               <th style={hucre}>Logo</th>
               <th style={hucre}>Firma</th>
+              <th style={hucre}>Sıra</th>
               <th style={hucre}>Durum</th>
               <th style={hucre}>İşlem</th>
             </tr>
@@ -59,6 +61,7 @@ export default async function ReferanslarListe() {
                     )}
                   </td>
                   <td style={{ ...hucre, color: "var(--dvn-lacivert)", fontWeight: 500 }}>{r.ad}</td>
+                  <td style={hucre}>{r.sira}</td>
                   <td style={hucre}>{r.yayinda ? "Yayında" : "Gizli"}</td>
                   <td style={{ ...hucre, whiteSpace: "nowrap" }}>
                     <span style={{ display: "inline-flex", gap: 14, alignItems: "center" }}>
@@ -73,7 +76,7 @@ export default async function ReferanslarListe() {
             })}
             {rows.length === 0 && (
               <tr>
-                <td style={{ ...hucre, color: "var(--dvn-gri-500)" }} colSpan={4}>
+                <td style={{ ...hucre, color: "var(--dvn-gri-500)" }} colSpan={5}>
                   Henüz referans yok.
                 </td>
               </tr>
