@@ -1,14 +1,25 @@
 /**
- * DVN Cert - Veritabanı istemcisi (Drizzle + Vercel Postgres)
+ * DVN Cert - Veritabanı istemcisi (Drizzle + postgres.js)
  *
- * Bağlantı, ortam değişkeni POSTGRES_URL üzerinden kurulur (Vercel Postgres
- * bunu otomatik sağlar; lokalde `vercel env pull .env.local` ile çekilir).
+ * Bağlantı POSTGRES_URL üzerinden kurulur. postgres.js hem Vercel Postgres/Neon
+ * (havuzlu bağlantı, prepare:false) hem de standart Postgres ile çalışır.
+ *
+ * Not: POSTGRES_URL yoksa geçersiz bir yer tutucu ile kurulur (import sırasında
+ * hata atmaz; bağlantı yalnızca sorgu anında denenir). Public sayfalar sorgu
+ * başarısız olursa lib/*.ts statik içeriğine geri düşer.
  */
 
-import { drizzle } from "drizzle-orm/vercel-postgres";
-import { sql } from "@vercel/postgres";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
 import * as schema from "./schema";
 
-export const db = drizzle(sql, { schema });
+const connectionString = process.env.POSTGRES_URL || "postgres://placeholder";
+
+const client = postgres(connectionString, { prepare: false });
+
+export const db = drizzle(client, { schema });
 
 export { schema };
+
+/** POSTGRES_URL tanımlı mı? (Public sayfalar DB mi yoksa statik mi okuyacağına karar verir) */
+export const dbHazir = Boolean(process.env.POSTGRES_URL);
