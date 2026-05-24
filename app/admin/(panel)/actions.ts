@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { eq } from "drizzle-orm";
+import sharp from "sharp";
 import { db } from "@/lib/db";
 import {
   duyurular,
@@ -112,15 +113,35 @@ export async function yorumSil(fd: FormData) {
 // ============ REFERANSLAR ============
 export async function referansKaydet(fd: FormData) {
   const id = s(fd, "id");
-  const veri = {
+
+  // Yüklenen logo dosyasını webp'e çevir (varsa)
+  let logoVeri: Buffer | undefined;
+  const dosya = fd.get("logoDosya");
+  if (dosya instanceof File && dosya.size > 0) {
+    const giris = Buffer.from(await dosya.arrayBuffer());
+    logoVeri = await sharp(giris)
+      .resize(400, 200, { fit: "inside", withoutEnlargement: true })
+      .webp({ quality: 90 })
+      .toBuffer();
+  }
+
+  const temel = {
     ad: s(fd, "ad"),
-    logo: s(fd, "logo"),
+    logo: s(fd, "logo") || null,
     url: s(fd, "url") || null,
     yayinda: bool(fd, "yayinda"),
     sira: num(fd, "sira") ?? 0,
   };
-  if (id) await db.update(referanslar).set(veri).where(eq(referanslar.id, Number(id)));
-  else await db.insert(referanslar).values(veri);
+
+  if (id) {
+    // Düzenlemede yeni dosya yoksa mevcut logo korunur
+    await db
+      .update(referanslar)
+      .set(logoVeri ? { ...temel, logoVeri } : temel)
+      .where(eq(referanslar.id, Number(id)));
+  } else {
+    await db.insert(referanslar).values({ ...temel, logoVeri: logoVeri ?? null });
+  }
   yenile("/", "/admin/referanslar");
   redirect("/admin/referanslar");
 }

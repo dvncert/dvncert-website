@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
 
+  // Logo yüklemeleri için server action gövde limiti (varsayılan 1MB).
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "5mb",
+    },
+  },
+
   // Temel güvenlik başlıkları (CSP eklenmedi: inline stil/script ve GA'yı
   // bozma riski yüksek; HSTS includeSubDomains'siz tutuldu).
   async headers() {

@@ -5,7 +5,14 @@
  * içeriğiyle alan adları uyumludur; seed scripti bu içeriği DB'ye taşır.
  */
 
-import { pgTable, serial, text, integer, boolean, timestamp, jsonb, varchar } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, integer, boolean, timestamp, jsonb, varchar, customType } from "drizzle-orm/pg-core";
+
+/** Postgres bytea (ikili veri) — yüklenen logo görselleri webp olarak burada saklanır. */
+const bytea = customType<{ data: Buffer }>({
+  dataType() {
+    return "bytea";
+  },
+});
 
 export const adminKullanicilar = pgTable("admin_kullanicilar", {
   id: serial("id").primaryKey(),
@@ -61,7 +68,10 @@ export const yorumlar = pgTable("yorumlar", {
 export const referanslar = pgTable("referanslar", {
   id: serial("id").primaryKey(),
   ad: varchar("ad", { length: 255 }).notNull(),
-  logo: text("logo").notNull(),
+  /** Manuel logo yolu (opsiyonel). Yükleme yapılırsa logoVeri kullanılır. */
+  logo: text("logo"),
+  /** Yüklenip webp'e çevrilen logo görseli (varsa /api/referans-logo/{id} ile sunulur). */
+  logoVeri: bytea("logo_veri"),
   url: text("url"),
   yayinda: boolean("yayinda").default(true).notNull(),
   sira: integer("sira").default(0).notNull(),

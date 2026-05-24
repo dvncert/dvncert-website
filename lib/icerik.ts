@@ -8,7 +8,7 @@
  * Yalnızca sunucuda kullanılır (db import eder).
  */
 
-import { desc, eq } from "drizzle-orm";
+import { desc, eq, sql } from "drizzle-orm";
 import { db, dbHazir } from "./db";
 import {
   duyurular as duyurularTbl,
@@ -107,12 +107,25 @@ export async function yorumlariGetir(): Promise<MusteriYorumu[]> {
 export async function referanslariGetir(): Promise<Referans[]> {
   if (!dbHazir) return referanslarStatik;
   try {
+    // logoVeri (bytea) çekilmez; yalnızca var olup olmadığı bayrağı alınır.
     const rows = await db
-      .select()
+      .select({
+        id: referanslarTbl.id,
+        ad: referanslarTbl.ad,
+        logo: referanslarTbl.logo,
+        url: referanslarTbl.url,
+        logoVar: sql<boolean>`${referanslarTbl.logoVeri} is not null`,
+      })
       .from(referanslarTbl)
       .where(eq(referanslarTbl.yayinda, true))
       .orderBy(desc(referanslarTbl.sira), desc(referanslarTbl.id));
-    return rows.map((r) => ({ ad: r.ad, logo: r.logo, url: r.url ?? undefined }));
+    return rows
+      .map((r) => ({
+        ad: r.ad,
+        logo: r.logoVar ? `/api/referans-logo/${r.id}` : r.logo ?? "",
+        url: r.url ?? undefined,
+      }))
+      .filter((r) => r.logo);
   } catch (e) {
     console.error("referanslariGetir DB hatası, statik içeriğe düşülüyor:", e);
     return referanslarStatik;
