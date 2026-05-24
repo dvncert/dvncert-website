@@ -23,8 +23,10 @@ export type BlogYazisi = {
   kategori: string;
   /** Yazar (opsiyonel; boşsa kurum adı kullanılır) */
   yazar?: string;
-  /** Kapak görseli (opsiyonel; boşsa marka renkli yer tutucu) */
+  /** Kapak görseli yolu veya /api/gorsel/blog/{id} (opsiyonel; boşsa yer tutucu) */
   gorsel?: string;
+  /** Kapak görseli alt metni (SEO / erişilebilirlik). */
+  gorselAlt?: string;
   /** Gövde; biçim için yukarıdaki nota bakın */
   icerik: string;
   /** İlgili hizmet slug'ları — iç linkleme */

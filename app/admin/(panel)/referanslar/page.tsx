@@ -49,7 +49,7 @@ export default async function ReferanslarListe() {
           </thead>
           <tbody>
             {rows.map((r) => {
-              const src = r.logoVar ? `/api/referans-logo/${r.id}` : r.logo ?? "";
+              const src = r.logoVar ? `/api/gorsel/referans/${r.id}` : r.logo ?? "";
               return (
                 <tr key={r.id} style={{ borderTop: "0.5px solid var(--dvn-gri-300)" }}>
                   <td style={hucre}>

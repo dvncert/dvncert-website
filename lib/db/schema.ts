@@ -30,7 +30,12 @@ export const duyurular = pgTable("duyurular", {
   kategori: varchar("kategori", { length: 80 }).notNull(),
   ozet: text("ozet").notNull(),
   icerik: text("icerik").notNull(),
+  /** Manuel görsel yolu (opsiyonel). Yükleme yapılırsa gorselVeri kullanılır. */
   gorsel: text("gorsel"),
+  /** Yüklenip WebP'e çevrilen kapak görseli (varsa /api/gorsel/duyuru/{id}). */
+  gorselVeri: bytea("gorsel_veri"),
+  /** Görsel alt metni (SEO / erişilebilirlik). */
+  gorselAlt: text("gorsel_alt"),
   ilgiliHizmetler: jsonb("ilgili_hizmetler").$type<string[]>().default([]).notNull(),
   yayinda: boolean("yayinda").default(true).notNull(),
   olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
@@ -45,7 +50,12 @@ export const blogYazilari = pgTable("blog_yazilari", {
   tarih: varchar("tarih", { length: 10 }).notNull(),
   kategori: varchar("kategori", { length: 80 }).notNull(),
   yazar: varchar("yazar", { length: 120 }),
+  /** Manuel görsel yolu (opsiyonel). Yükleme yapılırsa gorselVeri kullanılır. */
   gorsel: text("gorsel"),
+  /** Yüklenip WebP'e çevrilen kapak görseli (varsa /api/gorsel/blog/{id}). */
+  gorselVeri: bytea("gorsel_veri"),
+  /** Görsel alt metni (SEO / erişilebilirlik). */
+  gorselAlt: text("gorsel_alt"),
   icerik: text("icerik").notNull(),
   ilgiliHizmetler: jsonb("ilgili_hizmetler").$type<string[]>().default([]).notNull(),
   yayinda: boolean("yayinda").default(true).notNull(),

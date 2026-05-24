@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { duyurular } from "@/lib/db/schema";
 import { duyuruKaydet } from "../../actions";
@@ -7,7 +7,26 @@ import { Alan, adminInput, btnBirincil, btnIkincil, SayfaBaslik } from "../../_u
 
 export default async function DuyuruForm({ searchParams }: { searchParams: Promise<{ id?: string }> }) {
   const { id } = await searchParams;
-  const mevcut = id ? (await db.select().from(duyurular).where(eq(duyurular.id, Number(id))))[0] : null;
+  const mevcut = id
+    ? (
+        await db
+          .select({
+            id: duyurular.id,
+            slug: duyurular.slug,
+            baslik: duyurular.baslik,
+            tarih: duyurular.tarih,
+            kategori: duyurular.kategori,
+            ozet: duyurular.ozet,
+            icerik: duyurular.icerik,
+            gorselAlt: duyurular.gorselAlt,
+            ilgiliHizmetler: duyurular.ilgiliHizmetler,
+            yayinda: duyurular.yayinda,
+            gorselVar: sql<boolean>`${duyurular.gorselVeri} is not null`,
+          })
+          .from(duyurular)
+          .where(eq(duyurular.id, Number(id)))
+      )[0]
+    : null;
 
   return (
     <div style={{ maxWidth: 760 }}>
@@ -35,8 +54,26 @@ export default async function DuyuruForm({ searchParams }: { searchParams: Promi
         <Alan etiket="İçerik (paragraflar boş satırla ayrılır)">
           <textarea name="icerik" required rows={10} defaultValue={mevcut?.icerik ?? ""} style={{ ...adminInput, resize: "vertical", minHeight: 200 }} />
         </Alan>
-        <Alan etiket="Görsel yolu (opsiyonel)">
-          <input name="gorsel" defaultValue={mevcut?.gorsel ?? ""} placeholder="/gorseller/duyurular/ornek.webp" style={adminInput} />
+        <Alan etiket="Kapak görseli (PNG / JPG / WebP — sistem otomatik WebP'e çevirir, opsiyonel)">
+          {mevcut?.gorselVar && (
+            <div style={{ marginBottom: 8 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/api/gorsel/duyuru/${mevcut.id}`}
+                alt="Mevcut görsel"
+                style={{ height: 70, width: "auto", borderRadius: 6, border: "0.5px solid var(--dvn-gri-300)" }}
+              />
+            </div>
+          )}
+          <input type="file" name="gorselDosya" accept="image/png,image/jpeg,image/webp" style={{ ...adminInput, padding: 8 }} />
+          {mevcut?.gorselVar && (
+            <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: "6px 0 0" }}>
+              Görseli değiştirmek istemiyorsan boş bırak.
+            </p>
+          )}
+        </Alan>
+        <Alan etiket="Görsel alt metni (SEO / erişilebilirlik — opsiyonel)">
+          <input name="gorselAlt" defaultValue={mevcut?.gorselAlt ?? ""} placeholder="Görseli betimleyen kısa metin" style={adminInput} />
         </Alan>
         <Alan etiket="İlgili hizmet slug'ları (virgülle ayır, opsiyonel)">
           <input name="ilgiliHizmetler" defaultValue={(mevcut?.ilgiliHizmetler ?? []).join(", ")} placeholder="iso-9001, iso-14001" style={adminInput} />

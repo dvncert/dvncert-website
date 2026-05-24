@@ -118,7 +118,7 @@ export default async function BlogDetaySayfasi({ params }: Params) {
         kirintilar={[{ etiket: "Blog", href: "/blog" }, { etiket: yazi.baslik }]}
       />
 
-      <KapakGorsel src={yazi.gorsel} alt={yazi.baslik} etiket={yazi.kategori} oncelik />
+      <KapakGorsel src={yazi.gorsel} alt={yazi.gorselAlt || yazi.baslik} etiket={yazi.kategori} oncelik />
 
       <article style={{ background: "white", padding: "50px 32px 70px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>

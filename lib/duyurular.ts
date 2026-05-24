@@ -18,8 +18,10 @@ export type Duyuru = {
   ozet: string;
   /** Detay sayfası gövdesi. Paragraflar boş satır (\n\n) ile ayrılır. */
   icerik: string;
-  /** Kapak görseli yolu, ör. "/gorseller/duyurular/ornek.webp". Boşsa yer tutucu gösterilir. */
+  /** Kapak görseli yolu veya /api/gorsel/duyuru/{id}. Boşsa yer tutucu gösterilir. */
   gorsel?: string;
+  /** Kapak görseli alt metni (SEO / erişilebilirlik). */
+  gorselAlt?: string;
   /** İlgili hizmet slug'ları (opsiyonel) — detay sayfasında "İlgili Hizmetler" linkleri gösterilir */
   ilgiliHizmetler?: string[];
 };

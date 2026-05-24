@@ -16,13 +16,14 @@ export const metadata: Metadata = {
 
 export default async function DuyurularSayfasi() {
   // Liste bileşenine yalnızca gerekli alanları geçir (icerik taşınmaz).
-  const liste = (await duyurulariGetir()).map(({ slug, baslik, tarih, kategori, ozet, gorsel }) => ({
+  const liste = (await duyurulariGetir()).map(({ slug, baslik, tarih, kategori, ozet, gorsel, gorselAlt }) => ({
     slug,
     baslik,
     tarih,
     kategori,
     ozet,
     gorsel,
+    gorselAlt,
   }));
 
   return (

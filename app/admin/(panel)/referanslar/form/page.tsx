@@ -38,7 +38,7 @@ export default async function ReferansForm({ searchParams }: { searchParams: Pro
             <div style={{ marginBottom: 8 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`/api/referans-logo/${mevcut.id}`}
+                src={`/api/gorsel/referans/${mevcut.id}`}
                 alt="Mevcut logo"
                 style={{ height: 46, width: "auto", background: "var(--dvn-gri-50)", padding: 6, borderRadius: 6, border: "0.5px solid var(--dvn-gri-300)" }}
               />

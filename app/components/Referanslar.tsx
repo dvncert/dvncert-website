@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { referanslariGetir } from "@/lib/icerik";
 
@@ -25,7 +26,7 @@ export default async function Referanslar() {
       </div>
 
       <div className="dvn-ref-marquee">
-        <div className="dvn-ref-track" style={{ animationDuration: `${sure}s` }}>
+        <div className="dvn-ref-track" style={{ "--sure": `${sure}s` } as CSSProperties}>
           {liste.map((r, i) => {
             const ikincilKopya = i >= referanslar.length;
             const icerik = (
@@ -74,9 +75,8 @@ export default async function Referanslar() {
           display: flex;
           width: max-content;
           align-items: center;
-          animation-name: dvn-ref-kay;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
+          /* Önce sağdan içeri girer (tek sefer), sonra kesintisiz döngü. */
+          animation: dvn-ref-giris 2.6s linear, dvn-ref-kay var(--sure, 40s) linear 2.6s infinite;
         }
         .dvn-ref-marquee:hover .dvn-ref-track { animation-play-state: paused; }
         .dvn-ref-hucre {
@@ -93,6 +93,10 @@ export default async function Referanslar() {
         }
         .dvn-referans-logo { filter: grayscale(1); opacity: 0.7; transition: filter 0.25s ease, opacity 0.25s ease; }
         .dvn-ref-hucre:hover .dvn-referans-logo { filter: grayscale(0); opacity: 1; }
+        @keyframes dvn-ref-giris {
+          from { transform: translateX(100vw); }
+          to { transform: translateX(0); }
+        }
         @keyframes dvn-ref-kay {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }

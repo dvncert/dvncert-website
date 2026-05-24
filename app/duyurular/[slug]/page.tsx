@@ -79,7 +79,7 @@ export default async function DuyuruDetaySayfasi({ params }: Params) {
         kirintilar={[{ etiket: "Duyurular", href: "/duyurular" }, { etiket: duyuru.baslik }]}
       />
 
-      <KapakGorsel src={duyuru.gorsel} alt={duyuru.baslik} etiket={duyuru.kategori} oncelik />
+      <KapakGorsel src={duyuru.gorsel} alt={duyuru.gorselAlt || duyuru.baslik} etiket={duyuru.kategori} oncelik />
 
       <article style={{ background: "white", padding: "50px 32px 70px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>

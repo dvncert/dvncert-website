@@ -37,23 +37,48 @@ function yenile(...yollar: string[]) {
   for (const y of yollar) revalidatePath(y);
 }
 
+/**
+ * Yüklenen görseli WebP'e çevirir ve verilen kutuya sığacak şekilde
+ * boyutlandırır (oranı korunur, büyütmez). Dosya yoksa undefined döner.
+ */
+async function gorselWebp(
+  deger: FormDataEntryValue | null,
+  genislik: number,
+  yukseklik: number,
+  kalite = 82,
+): Promise<Buffer | undefined> {
+  if (!(deger instanceof File) || deger.size === 0) return undefined;
+  const giris = Buffer.from(await deger.arrayBuffer());
+  return sharp(giris)
+    .resize(genislik, yukseklik, { fit: "inside", withoutEnlargement: true })
+    .webp({ quality: kalite })
+    .toBuffer();
+}
+
 // ============ DUYURULAR ============
 export async function duyuruKaydet(fd: FormData) {
   const id = s(fd, "id");
-  const veri = {
+  const gorselVeri = await gorselWebp(fd.get("gorselDosya"), 1600, 900);
+  const temel = {
     slug: s(fd, "slug"),
     baslik: s(fd, "baslik"),
     tarih: s(fd, "tarih"),
     kategori: s(fd, "kategori"),
     ozet: s(fd, "ozet"),
     icerik: s(fd, "icerik"),
-    gorsel: s(fd, "gorsel") || null,
+    gorselAlt: s(fd, "gorselAlt") || null,
     ilgiliHizmetler: arr(fd, "ilgiliHizmetler"),
     yayinda: bool(fd, "yayinda"),
     guncellenme: new Date(),
   };
-  if (id) await db.update(duyurular).set(veri).where(eq(duyurular.id, Number(id)));
-  else await db.insert(duyurular).values(veri);
+  if (id) {
+    await db
+      .update(duyurular)
+      .set(gorselVeri ? { ...temel, gorselVeri } : temel)
+      .where(eq(duyurular.id, Number(id)));
+  } else {
+    await db.insert(duyurular).values({ ...temel, gorselVeri: gorselVeri ?? null });
+  }
   yenile("/duyurular", "/", "/admin/duyurular");
   redirect("/admin/duyurular");
 }
@@ -65,21 +90,28 @@ export async function duyuruSil(fd: FormData) {
 // ============ BLOG ============
 export async function blogKaydet(fd: FormData) {
   const id = s(fd, "id");
-  const veri = {
+  const gorselVeri = await gorselWebp(fd.get("gorselDosya"), 1600, 900);
+  const temel = {
     slug: s(fd, "slug"),
     baslik: s(fd, "baslik"),
     ozet: s(fd, "ozet"),
     tarih: s(fd, "tarih"),
     kategori: s(fd, "kategori"),
     yazar: s(fd, "yazar") || null,
-    gorsel: s(fd, "gorsel") || null,
+    gorselAlt: s(fd, "gorselAlt") || null,
     icerik: s(fd, "icerik"),
     ilgiliHizmetler: arr(fd, "ilgiliHizmetler"),
     yayinda: bool(fd, "yayinda"),
     guncellenme: new Date(),
   };
-  if (id) await db.update(blogYazilari).set(veri).where(eq(blogYazilari.id, Number(id)));
-  else await db.insert(blogYazilari).values(veri);
+  if (id) {
+    await db
+      .update(blogYazilari)
+      .set(gorselVeri ? { ...temel, gorselVeri } : temel)
+      .where(eq(blogYazilari.id, Number(id)));
+  } else {
+    await db.insert(blogYazilari).values({ ...temel, gorselVeri: gorselVeri ?? null });
+  }
   yenile("/blog", "/admin/blog");
   redirect("/admin/blog");
 }
@@ -114,16 +146,8 @@ export async function yorumSil(fd: FormData) {
 export async function referansKaydet(fd: FormData) {
   const id = s(fd, "id");
 
-  // Yüklenen logo dosyasını webp'e çevir (varsa)
-  let logoVeri: Buffer | undefined;
-  const dosya = fd.get("logoDosya");
-  if (dosya instanceof File && dosya.size > 0) {
-    const giris = Buffer.from(await dosya.arrayBuffer());
-    logoVeri = await sharp(giris)
-      .resize(400, 200, { fit: "inside", withoutEnlargement: true })
-      .webp({ quality: 90 })
-      .toBuffer();
-  }
+  // Yüklenen logo dosyasını WebP'e çevir (varsa)
+  const logoVeri = await gorselWebp(fd.get("logoDosya"), 400, 200, 90);
 
   const temel = {
     ad: s(fd, "ad"),

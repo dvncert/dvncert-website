@@ -13,6 +13,7 @@ export type DuyuruOzet = {
   kategori: string;
   ozet: string;
   gorsel?: string;
+  gorselAlt?: string;
 };
 
 function OneCikanKart({ d }: { d: DuyuruOzet }) {
@@ -51,7 +52,7 @@ function OneCikanKart({ d }: { d: DuyuruOzet }) {
       </div>
       <div className="dvn-one-cikan-gorsel" style={{ position: "relative", background: "var(--dvn-gradient-hero)", display: "flex", alignItems: "center", justifyContent: "center", minHeight: 240, overflow: "hidden" }}>
         {d.gorsel ? (
-          <Image src={d.gorsel} alt={d.baslik} fill sizes="(max-width: 860px) 100vw, 50vw" style={{ objectFit: "cover" }} />
+          <Image src={d.gorsel} alt={d.gorselAlt || d.baslik} fill sizes="(max-width: 860px) 100vw, 50vw" style={{ objectFit: "cover" }} />
         ) : (
           <svg width="68" height="68" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.7 }}>
             <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5" stroke="var(--dvn-altin-acik)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
