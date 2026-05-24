@@ -3,45 +3,43 @@
 import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { formGonderAction } from "../actions/form-gonder";
 
 const talepTurleri = ["Şikayet", "İtiraz", "Öneri", "Görüş"];
 
 /**
- * Şikayet ve görüş formu.
- *
- * GO-LIVE NOTU: Gönderimler DBYS yazılımına düşürülüp orada yönetilecek.
- * Şu an backend bağlanana kadar mailto ile info@dvncert.com'a ön doldurur.
- * Canlıya alırken aşağıdaki `gonder` fonksiyonundaki gönderimi DBYS API'sine
- * POST ile değiştirmek yeterli (tek entegrasyon noktası).
+ * Şikayet ve görüş formu. Gönderim veritabanına yazılır ve admin panelindeki
+ * "Form Gönderileri" gelen kutusunda görünür (talep türü ekVeri'de saklanır).
  */
 export default function SikayetFormu() {
   const [gonderildi, setGonderildi] = useState(false);
+  const [gonderiliyor, setGonderiliyor] = useState(false);
+  const [hata, setHata] = useState(false);
 
-  function gonder(e: React.FormEvent<HTMLFormElement>) {
+  async function gonder(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const tur = String(data.get("tur") ?? "Şikayet");
-    const ad = String(data.get("ad") ?? "");
-    const email = String(data.get("email") ?? "");
-    const telefon = String(data.get("telefon") ?? "");
     const ilgili = String(data.get("ilgili") ?? "");
-    const mesaj = String(data.get("mesaj") ?? "");
-
-    // TODO (go-live): Bu gönderimi DBYS API'sine POST et; şikayet DBYS'de çözülecek.
-    const govde =
-      `Talep Türü: ${tur}\n` +
-      `Ad Soyad: ${ad}\n` +
-      `E-posta: ${email}\n` +
-      `Telefon: ${telefon}\n` +
-      `İlgili belge/firma: ${ilgili}\n` +
-      `\n${mesaj}`;
-
-    const mailto = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
-      `[${tur}] DVN Cert`
-    )}&body=${encodeURIComponent(govde)}`;
-
-    window.location.href = mailto;
-    setGonderildi(true);
+    setGonderiliyor(true);
+    setHata(false);
+    const sonuc = await formGonderAction({
+      tip: "sikayet",
+      ad: String(data.get("ad") ?? ""),
+      email: String(data.get("email") ?? ""),
+      telefon: String(data.get("telefon") ?? ""),
+      konu: tur,
+      mesaj: String(data.get("mesaj") ?? ""),
+      ekVeri: { talepTuru: tur, ilgiliBelge: ilgili },
+    });
+    setGonderiliyor(false);
+    if (sonuc.ok) {
+      setGonderildi(true);
+      form.reset();
+    } else {
+      setHata(true);
+    }
   }
 
   return (
@@ -94,6 +92,7 @@ export default function SikayetFormu() {
 
       <button
         type="submit"
+        disabled={gonderiliyor}
         style={{
           justifySelf: "start",
           display: "inline-flex",
@@ -106,9 +105,11 @@ export default function SikayetFormu() {
           fontWeight: 500,
           fontSize: 14,
           boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
+          opacity: gonderiliyor ? 0.7 : 1,
+          cursor: gonderiliyor ? "default" : "pointer",
         }}
       >
-        Gönder
+        {gonderiliyor ? "Gönderiliyor..." : "Gönder"}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -119,7 +120,12 @@ export default function SikayetFormu() {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M20 6L9 17l-5-5" stroke="var(--dvn-altin)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Talebiniz alındı. E-posta uygulamanız üzerinden gönderimi tamamlayabilirsiniz.
+          Talebiniz alındı. En kısa sürede değerlendirilecektir.
+        </p>
+      )}
+      {hata && (
+        <p style={{ fontSize: 13, color: "var(--dvn-turuncu)", margin: 0 }}>
+          Gönderilemedi. Lütfen tekrar deneyin veya {siteConfig.email} adresine yazın.
         </p>
       )}
 

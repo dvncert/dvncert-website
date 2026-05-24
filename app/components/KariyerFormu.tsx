@@ -3,42 +3,41 @@
 import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { formGonderAction } from "../actions/form-gonder";
 
 /**
- * İdari/ofis pozisyonları için kariyer başvuru formu.
- *
- * GO-LIVE NOTU: Başvurular DBYS yazılımına düşürülüp orada yönetilecek.
- * Şu an backend bağlanana kadar mailto ile info@dvncert.com'a ön doldurur;
- * canlıya alırken aşağıdaki `gonder` içindeki gönderim DBYS API'sine çevrilir.
+ * İdari/ofis pozisyonları için kariyer başvuru formu. Gönderim veritabanına
+ * yazılır ve admin panelindeki "Form Gönderileri" gelen kutusunda görünür.
  */
 export default function KariyerFormu() {
   const [gonderildi, setGonderildi] = useState(false);
+  const [gonderiliyor, setGonderiliyor] = useState(false);
+  const [hata, setHata] = useState(false);
 
-  function gonder(e: React.FormEvent<HTMLFormElement>) {
+  async function gonder(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const pozisyon = String(data.get("pozisyon") ?? "");
-    const ad = String(data.get("ad") ?? "");
-    const email = String(data.get("email") ?? "");
-    const telefon = String(data.get("telefon") ?? "");
     const cv = String(data.get("cv") ?? "");
-    const mesaj = String(data.get("mesaj") ?? "");
-
-    // TODO (go-live): Bu gönderimi DBYS API'sine POST et; başvuru DBYS'de yönetilecek.
-    const govde =
-      `Pozisyon: ${pozisyon}\n` +
-      `Ad Soyad: ${ad}\n` +
-      `E-posta: ${email}\n` +
-      `Telefon: ${telefon}\n` +
-      `CV / Profil: ${cv}\n` +
-      `\n${mesaj}`;
-
-    const mailto = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
-      `[Kariyer] ${pozisyon}`
-    )}&body=${encodeURIComponent(govde)}`;
-
-    window.location.href = mailto;
-    setGonderildi(true);
+    setGonderiliyor(true);
+    setHata(false);
+    const sonuc = await formGonderAction({
+      tip: "kariyer",
+      ad: String(data.get("ad") ?? ""),
+      email: String(data.get("email") ?? ""),
+      telefon: String(data.get("telefon") ?? ""),
+      konu: pozisyon,
+      mesaj: String(data.get("mesaj") ?? ""),
+      ekVeri: { pozisyon, cv },
+    });
+    setGonderiliyor(false);
+    if (sonuc.ok) {
+      setGonderildi(true);
+      form.reset();
+    } else {
+      setHata(true);
+    }
   }
 
   return (
@@ -95,6 +94,7 @@ export default function KariyerFormu() {
 
       <button
         type="submit"
+        disabled={gonderiliyor}
         style={{
           justifySelf: "start",
           display: "inline-flex",
@@ -107,9 +107,11 @@ export default function KariyerFormu() {
           fontWeight: 500,
           fontSize: 14,
           boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
+          opacity: gonderiliyor ? 0.7 : 1,
+          cursor: gonderiliyor ? "default" : "pointer",
         }}
       >
-        Başvuruyu Gönder
+        {gonderiliyor ? "Gönderiliyor..." : "Başvuruyu Gönder"}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -120,7 +122,12 @@ export default function KariyerFormu() {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M20 6L9 17l-5-5" stroke="var(--dvn-altin)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Başvurunuz alındı. E-posta uygulamanız üzerinden gönderimi tamamlayabilirsiniz.
+          Başvurunuz alındı. Teşekkür ederiz; değerlendirme sonrası dönüş yapılacaktır.
+        </p>
+      )}
+      {hata && (
+        <p style={{ fontSize: 13, color: "var(--dvn-turuncu)", margin: 0 }}>
+          Gönderilemedi. Lütfen tekrar deneyin veya {siteConfig.email} adresine yazın.
         </p>
       )}
 
