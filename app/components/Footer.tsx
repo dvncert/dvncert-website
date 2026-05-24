@@ -55,6 +55,7 @@ export default function Footer() {
               <Link href="/akreditasyonlarimiz" style={{ fontSize: 12, color: "#94a3b8" }}>Akreditasyonlarımız</Link>
               <Link href="/politika-ve-beyanlar" style={{ fontSize: 12, color: "#94a3b8" }}>Politika ve Beyanlar</Link>
               <Link href="/kariyer" style={{ fontSize: 12, color: "#94a3b8" }}>Kariyer</Link>
+              <Link href="/blog" style={{ fontSize: 12, color: "#94a3b8" }}>Blog</Link>
             </div>
           </div>
 

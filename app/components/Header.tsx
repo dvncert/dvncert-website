@@ -378,6 +378,7 @@ export default function Header() {
 
             <Link href="/kariyer">Kariyer</Link>
             <Link href="/duyurular">Duyurular</Link>
+            <Link href="/blog">Blog</Link>
 
             {/* İletişim - açılır menü */}
             <div className="dvn-dd" style={{ position: "relative" }}>
@@ -601,6 +602,7 @@ export default function Header() {
 
           <Link href="/kariyer" onClick={() => setMobilMenuAcik(false)}>Kariyer</Link>
           <Link href="/duyurular" onClick={() => setMobilMenuAcik(false)}>Duyurular</Link>
+          <Link href="/blog" onClick={() => setMobilMenuAcik(false)}>Blog</Link>
 
           {/* İletişim - mobil genişleyen alt menü */}
           <div>

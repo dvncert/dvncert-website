@@ -243,6 +243,41 @@ export function newsArticleSchema(params: {
 }
 
 /**
+ * 9. BlogPosting Schema (Blog / Bilgi Merkezi yazıları için)
+ */
+export function blogPostingSchema(params: {
+  baslik: string;
+  aciklama: string;
+  yayinTarihi: string;
+  guncellenmeTarihi?: string;
+  url: string;
+  yazar?: string;
+  gorselUrl?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: params.baslik,
+    description: params.aciklama,
+    datePublished: params.yayinTarihi,
+    dateModified: params.guncellenmeTarihi || params.yayinTarihi,
+    url: `${siteConfig.url}${params.url}`,
+    image: params.gorselUrl || `${siteConfig.url}/logo.png`,
+    author: {
+      "@type": "Organization",
+      name: params.yazar || siteConfig.adUzun,
+    },
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteConfig.url}${params.url}`,
+    },
+  };
+}
+
+/**
  * Schema'yı HTML'e yerleştirmek için yardımcı.
  * Bu fonksiyonu sayfa içinde kullanırız.
  */

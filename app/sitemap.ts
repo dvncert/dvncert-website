@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { hizmetler } from "@/lib/hizmetler";
 import { duyurular } from "@/lib/duyurular";
+import { blogYazilari } from "@/lib/blog";
 
 /**
  * Otomatik sitemap üretimi.
@@ -42,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Bilgi sayfaları (duyuru detayları aşağıda otomatik)
     { url: `${url}/duyurular`, lastModified: bugun, changeFrequency: "weekly", priority: 0.75 },
+    { url: `${url}/blog`, lastModified: bugun, changeFrequency: "weekly", priority: 0.7 },
     { url: `${url}/dokumanlar`, lastModified: bugun, changeFrequency: "monthly", priority: 0.6 },
     { url: `${url}/sss`, lastModified: bugun, changeFrequency: "monthly", priority: 0.65 },
 
@@ -67,5 +69,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...sabitSayfalar, ...hizmetSayfalari, ...duyuruSayfalari];
+  // ===== BLOG YAZILARI (otomatik) =====
+  const blogSayfalari: MetadataRoute.Sitemap = blogYazilari.map((y) => ({
+    url: `${url}/blog/${y.slug}`,
+    lastModified: new Date(y.tarih),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...sabitSayfalar, ...hizmetSayfalari, ...duyuruSayfalari, ...blogSayfalari];
 }
