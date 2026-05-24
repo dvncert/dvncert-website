@@ -3,7 +3,7 @@ import SayfaBaslik from "./SayfaBaslik";
 import KapakGorsel from "./KapakGorsel";
 import Akordeon from "./Akordeon";
 import { hizmetGetir } from "@/lib/hizmetler";
-import { schemaScript } from "@/lib/seo-schemas";
+import { schemaScript, faqSchema } from "@/lib/seo-schemas";
 import { isoIcerikler, isoTumStandartlar } from "@/lib/iso-icerik";
 
 /**
@@ -113,6 +113,30 @@ export default function IsoStandartSayfasi({ slug }: { slug: string }) {
 
   const { stdAd, stdKod, sistem, politika } = veri;
 
+  // Standarda göre üretilen, içerikle tutarlı SSS (hem görünür akordeon hem FAQPage şeması)
+  const sss = [
+    {
+      soru: `${stdAd} belgesi nasıl alınır?`,
+      cevap: `${stdAd} belgesi, TÜRKAK akreditasyonlu bir belgelendirme kuruluşuna başvuru ile başlar; Aşama 1 (ön tetkik) ve Aşama 2 (belgelendirme tetkiki) denetimlerinin ardından bağımsız bir belgelendirme kararıyla tamamlanır. Olumlu sonuçta ${stdKod} sertifikası düzenlenir.`,
+    },
+    {
+      soru: `${stdAd} belgesi kaç yıl geçerlidir?`,
+      cevap: `${stdKod} sertifikasının geçerlilik süresi 3 yıldır. Bu süre boyunca her yıl gözetim tetkiki yapılır; üçüncü yılın sonunda yeniden belgelendirme tetkikiyle belge yenilenir.`,
+    },
+    {
+      soru: `${stdAd} belgelendirme süreci ne kadar sürer?`,
+      cevap: `Süre; kuruluşun büyüklüğüne, faaliyet alanına ve ${sistem.nin} olgunluğuna göre değişir. Hazırlık düzeyine bağlı olarak süreç genellikle birkaç hafta ile birkaç ay arasında tamamlanır.`,
+    },
+    {
+      soru: `${stdAd} belgesini hangi kuruluşlar alabilir?`,
+      cevap: `${stdAd}, sektör ve ölçek fark etmeksizin ${sistem.i} kurmak isteyen her kuruluşa uygulanabilir. Standardın şartlarını karşılayan KOBİ'ler de büyük kuruluşlar da belge alabilir.`,
+    },
+    {
+      soru: `${stdAd} belgesinin TÜRKAK akreditasyonlu olması neden önemlidir?`,
+      cevap: `Belgenin ulusal ve uluslararası geçerlilik taşıması için TÜRKAK tarafından akredite edilmiş bir kuruluştan alınması esastır. Akredite belge; ihale, tedarik zinciri ve ihracat süreçlerinde tanınırlık sağlar.`,
+    },
+  ];
+
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -140,6 +164,7 @@ export default function IsoStandartSayfasi({ slug }: { slug: string }) {
     { etiket: "Faydalar", hash: "faydalar" },
     { etiket: "Nasıl Alınır?", hash: "nasil-alinir" },
     { etiket: "Geçerlilik", hash: "gecerlilik" },
+    { etiket: "S.S.S.", hash: "sss" },
   ];
 
   const ilgili = isoTumStandartlar.filter((s) => s.slug !== slug);
@@ -148,6 +173,7 @@ export default function IsoStandartSayfasi({ slug }: { slug: string }) {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={schemaScript(serviceLd)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={schemaScript(breadcrumbLd)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={schemaScript(faqSchema(sss))} />
 
       {/* Header + breadcrumb + hero */}
       <SayfaBaslik
@@ -428,6 +454,16 @@ export default function IsoStandartSayfasi({ slug }: { slug: string }) {
               </Link>
               {` üzerinden anlık olarak doğrulanabilir.`}
             </p>
+          </Akordeon>
+
+          {/* 6 — Sıkça Sorulan Sorular (FAQPage şeması ile) */}
+          <Akordeon baslik="Sıkça Sorulan Sorular" id="sss">
+            {sss.map((s, i) => (
+              <div key={i} style={{ marginBottom: i < sss.length - 1 ? 18 : 0 }}>
+                <AltBaslik>{s.soru}</AltBaslik>
+                <p style={{ ...P, margin: 0 }}>{s.cevap}</p>
+              </div>
+            ))}
           </Akordeon>
         </div>
       </section>
