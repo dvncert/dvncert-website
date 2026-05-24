@@ -116,8 +116,14 @@ export function websiteSchema() {
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
     },
-    // Not: Site içi arama (/arama) eklendiğinde SearchAction potentialAction
-    // buraya geri konacak. Sayfa olmadan eklemek geçersiz şema üretir.
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteConfig.url}/arama?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 

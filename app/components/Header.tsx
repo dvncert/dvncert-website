@@ -172,6 +172,28 @@ export default function Header() {
           </div>
 
           <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+            {/* Arama */}
+            <Link
+              href="/arama"
+              aria-label="Sitede ara"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 28,
+                height: 28,
+                borderRadius: 6,
+                background: "rgba(255,255,255,0.12)",
+                border: "1px solid rgba(255,255,255,0.4)",
+                color: "#ffffff",
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <circle cx="11" cy="11" r="7" stroke="#ffffff" strokeWidth="2.2" />
+                <path d="M21 21l-3.5-3.5" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" />
+              </svg>
+            </Link>
+
             {/* Müşteri Girişi */}
             <Link
               href="/musteri-giris"
