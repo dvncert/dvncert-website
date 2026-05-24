@@ -2,32 +2,37 @@
  * DVN Cert - Veritabanı seed scripti
  *
  * Çalıştırma: `npm run db:seed` (önce `.env.local` içinde POSTGRES_URL,
- * ADMIN_EMAIL, ADMIN_PASSWORD tanımlı olmalı; şema `npm run db:push` ile kurulmalı).
+ * ADMIN_EMAIL, ADMIN_PASSWORD tanımlı olmalı; şema `db:migrate`/`db:push` ile kurulmalı).
  *
  * Yaptığı:
  *  - İlk admin kullanıcısını ekler (şifre bcrypt ile hash'lenir)
  *  - Mevcut lib/*.ts içeriğini (duyuru, blog, yorum, referans) DB'ye taşır
  * Tekrar çalıştırılabilir (idempotent): slug çakışmaları atlanır.
+ *
+ * NOT: env, lib/db'den ÖNCE yüklenmeli; bu yüzden lib/* importları main()
+ * içinde dinamik yapılır (config() çağrısından sonra).
  */
 
 import { config } from "dotenv";
 config({ path: ".env.local" });
 
 import bcrypt from "bcryptjs";
-import { db } from "../lib/db";
-import {
-  adminKullanicilar,
-  duyurular as duyurularTbl,
-  blogYazilari as blogTbl,
-  yorumlar as yorumlarTbl,
-  referanslar as referanslarTbl,
-} from "../lib/db/schema";
-import { duyurular } from "../lib/duyurular";
-import { blogYazilari } from "../lib/blog";
-import { musteriYorumlari } from "../lib/yorumlar";
-import { referanslar } from "../lib/referanslar";
 
 async function main() {
+  // Dinamik importlar: dotenv config()'ten SONRA -> POSTGRES_URL hazır
+  const { db } = await import("../lib/db");
+  const {
+    adminKullanicilar,
+    duyurular: duyurularTbl,
+    blogYazilari: blogTbl,
+    yorumlar: yorumlarTbl,
+    referanslar: referanslarTbl,
+  } = await import("../lib/db/schema");
+  const { duyurular } = await import("../lib/duyurular");
+  const { blogYazilari } = await import("../lib/blog");
+  const { musteriYorumlari } = await import("../lib/yorumlar");
+  const { referanslar } = await import("../lib/referanslar");
+
   // 1) İlk admin
   const email = process.env.ADMIN_EMAIL;
   const sifre = process.env.ADMIN_PASSWORD;
@@ -35,7 +40,7 @@ async function main() {
     const sifreHash = bcrypt.hashSync(sifre, 10);
     await db
       .insert(adminKullanicilar)
-      .values({ email, sifreHash, ad: "Yönetici" })
+      .values({ email: email.trim().toLowerCase(), sifreHash, ad: "Yönetici" })
       .onConflictDoNothing({ target: adminKullanicilar.email });
     console.log("✓ Admin eklendi/zaten var:", email);
   } else {
