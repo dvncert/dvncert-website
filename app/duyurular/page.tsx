@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import SayfaBaslik from "../components/SayfaBaslik";
 import DuyuruListe from "../components/DuyuruListe";
-import { duyurular } from "@/lib/duyurular";
+import { duyurulariGetir } from "@/lib/icerik";
 import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Duyurular",
@@ -12,9 +14,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteConfig.url}/duyurular` },
 };
 
-export default function DuyurularSayfasi() {
+export default async function DuyurularSayfasi() {
   // Liste bileşenine yalnızca gerekli alanları geçir (icerik taşınmaz).
-  const liste = duyurular.map(({ slug, baslik, tarih, kategori, ozet, gorsel }) => ({
+  const liste = (await duyurulariGetir()).map(({ slug, baslik, tarih, kategori, ozet, gorsel }) => ({
     slug,
     baslik,
     tarih,

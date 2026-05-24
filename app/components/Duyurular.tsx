@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { duyurular, tarihiBicimle } from "@/lib/duyurular";
+import { tarihiBicimle } from "@/lib/duyurular";
+import { duyurulariGetir } from "@/lib/icerik";
 
-export default function Duyurular() {
-  const sonDuyurular = duyurular.slice(0, 3);
+export default async function Duyurular() {
+  const sonDuyurular = (await duyurulariGetir()).slice(0, 3);
 
   return (
     <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>

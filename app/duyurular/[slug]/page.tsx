@@ -3,21 +3,25 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
-import { duyurular, duyuruGetir, tarihiBicimle } from "@/lib/duyurular";
+import { tarihiBicimle } from "@/lib/duyurular";
+import { duyurulariGetir, duyuruDetay } from "@/lib/icerik";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { siteConfig } from "@/lib/site-config";
 import { newsArticleSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
 type Params = { params: Promise<{ slug: string }> };
 
-// Tüm duyuru sayfalarını derleme anında statik üret
-export function generateStaticParams() {
-  return duyurular.map((d) => ({ slug: d.slug }));
+export const revalidate = 300;
+
+// Bilinen duyuru sayfalarını derleme anında üret; yenileri istek anında (ISR)
+export async function generateStaticParams() {
+  const liste = await duyurulariGetir();
+  return liste.map((d) => ({ slug: d.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
-  const duyuru = duyuruGetir(slug);
+  const duyuru = await duyuruDetay(slug);
   if (!duyuru) return { title: "Duyuru bulunamadı" };
 
   return {
@@ -36,7 +40,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function DuyuruDetaySayfasi({ params }: Params) {
   const { slug } = await params;
-  const duyuru = duyuruGetir(slug);
+  const duyuru = await duyuruDetay(slug);
   if (!duyuru) notFound();
 
   const paragraflar = duyuru.icerik.split("\n\n");

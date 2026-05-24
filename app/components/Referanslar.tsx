@@ -1,12 +1,13 @@
 import Image from "next/image";
-import { referanslar } from "@/lib/referanslar";
+import { referanslariGetir } from "@/lib/icerik";
 
 /**
  * Ana sayfa "Referanslarımız" logo şeridi.
  * Veri lib/referanslar.ts'ten gelir. Liste boşken bölüm RENDER EDİLMEZ
  * (sahte logo yok). Logolar gri tonda gösterilir, hover'da renklenir.
  */
-export default function Referanslar() {
+export default async function Referanslar() {
+  const referanslar = await referanslariGetir();
   if (referanslar.length === 0) return null;
 
   const hucreStili = {

@@ -3,21 +3,24 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
-import { blogYazilari, blogGetir } from "@/lib/blog";
 import { tarihiBicimle } from "@/lib/duyurular";
+import { bloglariGetir, blogDetay } from "@/lib/icerik";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { siteConfig } from "@/lib/site-config";
 import { blogPostingSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
 type Params = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
-  return blogYazilari.map((y) => ({ slug: y.slug }));
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  const liste = await bloglariGetir();
+  return liste.map((y) => ({ slug: y.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
-  const yazi = blogGetir(slug);
+  const yazi = await blogDetay(slug);
   if (!yazi) return { title: "Yazı bulunamadı" };
 
   return {
@@ -76,7 +79,7 @@ function icerikBloklari(icerik: string) {
 
 export default async function BlogDetaySayfasi({ params }: Params) {
   const { slug } = await params;
-  const yazi = blogGetir(slug);
+  const yazi = await blogDetay(slug);
   if (!yazi) notFound();
 
   const ilgiliHizmetler = (yazi.ilgiliHizmetler ?? [])

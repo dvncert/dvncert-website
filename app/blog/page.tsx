@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
-import { blogYazilari } from "@/lib/blog";
+import { bloglariGetir } from "@/lib/icerik";
 import { tarihiBicimle } from "@/lib/duyurular";
 import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Blog ve Bilgi Merkezi",
@@ -13,7 +15,8 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteConfig.url}/blog` },
 };
 
-export default function BlogSayfasi() {
+export default async function BlogSayfasi() {
+  const blogYazilari = await bloglariGetir();
   return (
     <main>
       <script

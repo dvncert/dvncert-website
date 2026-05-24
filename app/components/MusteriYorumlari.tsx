@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/site-config";
-import { musteriYorumlari } from "@/lib/yorumlar";
+import { yorumlariGetir } from "@/lib/icerik";
 import { schemaScript } from "@/lib/seo-schemas";
 
 /**
@@ -12,7 +12,8 @@ import { schemaScript } from "@/lib/seo-schemas";
  * Not: Google, kuruluşun kendi sitesinde topladığı "kendi kendine" yorumlar için
  * zengin sonuç (yıldız) göstermeyebilir; şema yine de geçerli ve standarda uygundur.
  */
-export default function MusteriYorumlari() {
+export default async function MusteriYorumlari() {
+  const musteriYorumlari = await yorumlariGetir();
   if (musteriYorumlari.length === 0) return null;
 
   const puanli = musteriYorumlari.filter((y) => typeof y.puan === "number");
