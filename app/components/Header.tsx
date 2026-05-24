@@ -242,12 +242,6 @@ export default function Header() {
               Denetçi Girişi
             </Link>
 
-            {/* Dil seçimi */}
-            <div style={{ display: "flex", gap: 6, alignItems: "center", marginLeft: 4 }}>
-              <span style={{ cursor: "pointer" }}>TR</span>
-              <span style={{ opacity: 0.4 }}>|</span>
-              <span style={{ cursor: "pointer", opacity: 0.6 }}>EN</span>
-            </div>
           </div>
         </div>
       </div>

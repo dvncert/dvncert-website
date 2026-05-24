@@ -224,3 +224,34 @@ img {
     justify-content: center;
   }
 }
+
+/* ==========================================
+   ERİŞİLEBİLİRLİK
+   ========================================== */
+
+/* Klavye ile gezinmede odak görünürlüğü (fare tıklamasında çıkmaz) */
+:focus-visible {
+  outline: 2px solid var(--dvn-turuncu);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* "İçeriğe geç" bağlantısı - yalnızca klavye odağında görünür */
+.dvn-skip-link {
+  position: absolute;
+  left: 12px;
+  top: -64px;
+  z-index: 1000;
+  background: var(--dvn-lacivert);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: top 0.2s ease;
+}
+
+.dvn-skip-link:focus {
+  top: 12px;
+  color: #ffffff;
+}

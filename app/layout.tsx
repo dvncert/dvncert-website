@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/ScrollToTop";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
@@ -105,13 +106,19 @@ export default function RootLayout({
         />
       </head>
       <body style={{ background: "#fafbfc", color: "#2E1A6B" }}>
+        <a href="#ana-icerik" className="dvn-skip-link">
+          İçeriğe geç
+        </a>
         <Header />
-        {children}
+        <div id="ana-icerik" tabIndex={-1} style={{ outline: "none" }}>
+          {children}
+        </div>
         <Footer />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
         <WhatsAppButton />
+        <ScrollToTop />
         <CookieConsent />
       </body>
     </html>
