@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { auth, signOut } from "@/auth";
 
@@ -34,7 +35,20 @@ export default async function PanelLayout({ children }: { children: React.ReactN
           flexDirection: "column",
         }}
       >
-        <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 24, padding: "0 8px" }}>DVN Cert Yönetim</div>
+        <Link
+          href="/admin"
+          style={{ display: "block", background: "#fff", borderRadius: 10, padding: "12px 16px", marginBottom: 22 }}
+          aria-label="DVN Cert Yönetim Paneli"
+        >
+          <Image
+            src="/logo.webp"
+            alt="DVN Cert"
+            width={150}
+            height={83}
+            priority
+            style={{ width: "100%", height: "auto", display: "block" }}
+          />
+        </Link>
         <nav style={{ display: "flex", flexDirection: "column", gap: 4 }}>
           {nav.map((n) => (
             <Link
