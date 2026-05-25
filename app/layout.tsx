@@ -63,9 +63,13 @@ export const metadata: Metadata = {
     canonical: siteConfig.url,
   },
 
-  // Doğrulama (ileride Google Search Console için)
+  // Google Search Console doğrulaması.
+  // En kolay yöntem: GA ölçüm etiketi sitede yüklü olduğundan, Search Console'da
+  // "Google Analytics" doğrulama yöntemiyle koda dokunmadan onaylayabilirsiniz.
+  // "HTML etiketi" yöntemini seçerseniz, Google'ın verdiği içerik kodunu
+  // NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ortam değişkenine koyun (build sırasında okunur).
   verification: {
-    google: "", // İleride doldurulacak
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
 
   // Kategori (Google için)
@@ -121,9 +125,10 @@ export default function RootLayout({
         <ChromeGate>
           <Footer />
         </ChromeGate>
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-        )}
+        {/* GA4 ölçüm etiketi. ID gizli değildir (istemcide görünür); ortam değişkeni
+            yoksa diye varsayılan gömülüdür ki canlıda her zaman yüklensin.
+            Consent Mode v2 nedeniyle analiz çerezleri ancak onaydan sonra çalışır. */}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-3VJDV7WQBG"} />
         <ChromeGate>
           <WhatsAppButton />
           <ScrollToTop />
