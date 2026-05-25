@@ -302,7 +302,7 @@ export default function Header() {
                     borderRadius: 14,
                     padding: 8,
                     minWidth: 256,
-                    boxShadow: "0 16px 40px rgba(46,26,107,0.16)",
+                    boxShadow: "0 16px 40px rgba(2,35,152,0.16)",
                     border: "0.5px solid var(--dvn-gri-300)",
                   }}
                 >
@@ -339,7 +339,7 @@ export default function Header() {
                     borderRadius: 14,
                     padding: 8,
                     minWidth: 300,
-                    boxShadow: "0 16px 40px rgba(46,26,107,0.16)",
+                    boxShadow: "0 16px 40px rgba(2,35,152,0.16)",
                     border: "0.5px solid var(--dvn-gri-300)",
                   }}
                 >
@@ -394,7 +394,7 @@ export default function Header() {
                     borderRadius: 14,
                     padding: 8,
                     minWidth: 250,
-                    boxShadow: "0 16px 40px rgba(46,26,107,0.16)",
+                    boxShadow: "0 16px 40px rgba(2,35,152,0.16)",
                     border: "0.5px solid var(--dvn-gri-300)",
                   }}
                 >

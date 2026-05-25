@@ -117,7 +117,7 @@ export default function Hakkimizda() {
             borderRadius: 16,
             padding: "32px 30px",
             color: "white",
-            boxShadow: "0 12px 40px rgba(46,26,107,0.18)",
+            boxShadow: "0 12px 40px rgba(2,35,152,0.18)",
             position: "relative",
             overflow: "hidden",
           }}

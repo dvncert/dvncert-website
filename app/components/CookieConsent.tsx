@@ -57,7 +57,7 @@ export default function CookieConsent() {
         border: "0.5px solid var(--dvn-gri-300)",
         borderTop: "3px solid var(--dvn-altin)",
         borderRadius: 14,
-        boxShadow: "0 12px 40px rgba(46,26,107,0.18)",
+        boxShadow: "0 12px 40px rgba(2,35,152,0.18)",
         padding: "20px 22px",
         display: "flex",
         alignItems: "center",

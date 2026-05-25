@@ -91,7 +91,7 @@ export default function AkreditasyonlarimizSayfasi() {
               borderRadius: 16,
               padding: "30px 28px",
               color: "white",
-              boxShadow: "0 12px 40px rgba(46,26,107,0.18)",
+              boxShadow: "0 12px 40px rgba(2,35,152,0.18)",
             }}
           >
             <div style={{ display: "grid", gap: 18 }}>
@@ -139,7 +139,7 @@ export default function AkreditasyonlarimizSayfasi() {
                     background: "white",
                     borderRadius: 14,
                     padding: "26px 26px",
-                    boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
+                    boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
                     border: "0.5px solid var(--dvn-gri-300)",
                     borderLeft: "3px solid var(--dvn-altin)",
                     display: "flex",

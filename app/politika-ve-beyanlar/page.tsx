@@ -115,7 +115,7 @@ export default function PolitikaVeBeyanlarSayfasi() {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
+                      boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
                     }}
                   >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

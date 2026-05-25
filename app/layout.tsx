@@ -88,7 +88,7 @@ export default function RootLayout({
     <html lang="tr" style={{ colorScheme: "light" }}>
       <head>
         <meta name="color-scheme" content="light only" />
-        <meta name="theme-color" content="#2E1A6B" />
+        <meta name="theme-color" content="#022398" />
         <meta name="format-detection" content="telephone=no" />
 
         {/* 1) Google Consent Mode v2 — varsayılan onay: denied. Parse anında,
@@ -121,7 +121,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={schemaScript(websiteSchema())}
         />
       </head>
-      <body style={{ background: "#fafbfc", color: "#2E1A6B" }}>
+      <body style={{ background: "#fafbfc", color: "#022398" }}>
         <ChromeGate>
           <a href="#ana-icerik" className="dvn-skip-link">
             İçeriğe geç

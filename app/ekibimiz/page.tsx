@@ -102,7 +102,7 @@ export default function EkibimizSayfasi() {
                     justifyContent: "center",
                     fontSize: 22,
                     fontWeight: 600,
-                    boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
+                    boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
                   }}
                 >
                   {basHarfler(kisi.ad)}

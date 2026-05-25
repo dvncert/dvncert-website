@@ -68,7 +68,7 @@ export default async function Duyurular() {
                 background: "white",
                 borderRadius: 14,
                 padding: "26px 24px",
-                boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
+                boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
                 border: "0.5px solid var(--dvn-gri-300)",
                 display: "flex",
                 flexDirection: "column",
@@ -140,7 +140,7 @@ export default async function Duyurular() {
       <style>{`
         .dvn-duyuru-kart:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(46,26,107,0.12) !important;
+          box-shadow: 0 12px 28px rgba(2,35,152,0.12) !important;
         }
         @media (max-width: 900px) {
           .dvn-duyuru-grid {

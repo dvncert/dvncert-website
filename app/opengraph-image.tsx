@@ -24,7 +24,7 @@ export default function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(180deg, #2E1A6B 0%, #1F0F4D 100%)",
+          background: "linear-gradient(180deg, #022398 0%, #011A70 100%)",
           color: "#ffffff",
           fontFamily:
             "'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif",

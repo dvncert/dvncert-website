@@ -124,7 +124,7 @@ function SorgulamaMockup() {
       <path d="M40 265 L320 265 L300 275 L60 275 Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.25)" />
 
       {/* Ekran */}
-      <rect x="60" y="60" width="240" height="160" rx="6" fill="rgba(46,26,107,0.6)" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+      <rect x="60" y="60" width="240" height="160" rx="6" fill="rgba(2,35,152,0.6)" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
       <rect x="60" y="60" width="240" height="18" rx="6" fill="rgba(255,255,255,0.08)" />
       <circle cx="72" cy="69" r="2.5" fill="#F58220" />
       <circle cx="80" cy="69" r="2.5" fill="#E8C870" opacity="0.6" />
@@ -136,7 +136,7 @@ function SorgulamaMockup() {
 
       {/* Input */}
       <rect x="76" y="135" width="160" height="22" rx="4" fill="rgba(255,255,255,0.95)" />
-      <text x="84" y="150" fill="#2E1A6B" fontFamily="Calibri" fontSize="10">DVN-2026-00284</text>
+      <text x="84" y="150" fill="#022398" fontFamily="Calibri" fontSize="10">DVN-2026-00284</text>
 
       {/* Sorgula butonu */}
       <rect x="240" y="135" width="48" height="22" rx="4" fill="#F58220" />
@@ -152,7 +152,7 @@ function SorgulamaMockup() {
       {/* Mobil cihaz - sağ üstte */}
       <g transform="translate(280, 30)">
         <rect width="36" height="56" rx="6" fill="rgba(212,169,63,0.15)" stroke="rgba(212,169,63,0.4)" strokeWidth="1" />
-        <rect x="3" y="6" width="30" height="38" rx="2" fill="rgba(46,26,107,0.6)" />
+        <rect x="3" y="6" width="30" height="38" rx="2" fill="rgba(2,35,152,0.6)" />
         <circle cx="18" cy="50" r="2" fill="rgba(255,255,255,0.4)" />
         {/* Ekranda check */}
         <circle cx="18" cy="25" r="6" fill="#F58220" />
@@ -188,7 +188,7 @@ function DenetimMockup() {
       {/* Tablet */}
       <g transform="translate(140, 50)">
         <rect width="180" height="220" rx="14" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
-        <rect x="10" y="14" width="160" height="190" rx="6" fill="rgba(46,26,107,0.6)" />
+        <rect x="10" y="14" width="160" height="190" rx="6" fill="rgba(2,35,152,0.6)" />
 
         {/* Başlık */}
         <text x="20" y="36" fill="#E8C870" fontFamily="Calibri" fontSize="9" letterSpacing="1">DENETİM KONTROLÜ</text>

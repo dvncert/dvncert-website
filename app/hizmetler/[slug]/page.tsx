@@ -318,7 +318,7 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
       </section>
 
       <style>{`
-        .dvn-std-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(46,26,107,0.1) !important; }
+        .dvn-std-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(2,35,152,0.1) !important; }
         @media (max-width: 820px) {
           .dvn-fayda-grid { grid-template-columns: 1fr !important; }
           .dvn-std-kart-grid { grid-template-columns: 1fr !important; }

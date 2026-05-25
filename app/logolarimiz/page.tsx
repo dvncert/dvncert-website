@@ -144,7 +144,7 @@ export default function LogolarimizSayfasi() {
 
 function LogoKart({ zeminKoyu, baslik }: { zeminKoyu: boolean; baslik: string }) {
   return (
-    <div style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(46,26,107,0.06)" }}>
+    <div style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)" }}>
       <div
         style={{
           background: zeminKoyu ? "var(--dvn-gradient-lacivert)" : "var(--dvn-gri-50)",

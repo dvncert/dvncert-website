@@ -94,7 +94,7 @@ export default function Akordeon({ baslik, id, defaultOpen = false, children }: 
         marginBottom: 12,
         borderRadius: 12,
         overflow: "hidden",
-        boxShadow: "0 2px 12px rgba(46,26,107,0.06)",
+        boxShadow: "0 2px 12px rgba(2,35,152,0.06)",
         scrollMarginTop: 96,
       }}
     >

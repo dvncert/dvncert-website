@@ -106,7 +106,7 @@ export default function AramaIcerik() {
       )}
 
       <style>{`
-        .dvn-arama-sonuc:hover { border-color: var(--dvn-altin) !important; box-shadow: 0 8px 22px rgba(46,26,107,0.08); transform: translateY(-2px); }
+        .dvn-arama-sonuc:hover { border-color: var(--dvn-altin) !important; box-shadow: 0 8px 22px rgba(2,35,152,0.08); transform: translateY(-2px); }
       `}</style>
     </div>
   );

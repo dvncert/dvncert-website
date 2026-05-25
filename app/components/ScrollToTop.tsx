@@ -38,7 +38,7 @@ export default function ScrollToTop() {
         alignItems: "center",
         justifyContent: "center",
         cursor: "pointer",
-        boxShadow: "0 8px 22px rgba(46,26,107,0.35)",
+        boxShadow: "0 8px 22px rgba(2,35,152,0.35)",
       }}
     >
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">

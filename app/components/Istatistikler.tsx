@@ -165,7 +165,7 @@ export default function Istatistikler() {
           background: "white",
           borderRadius: 16,
           padding: "26px 28px",
-          boxShadow: "0 8px 32px rgba(46,26,107,0.06)",
+          boxShadow: "0 8px 32px rgba(2,35,152,0.06)",
           border: "0.5px solid var(--dvn-gri-300)",
         }}
       >

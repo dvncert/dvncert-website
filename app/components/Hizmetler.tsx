@@ -92,7 +92,7 @@ export default function Hizmetler() {
                 background: "white",
                 borderRadius: 14,
                 padding: "30px 26px",
-                boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
+                boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
                 position: "relative",
                 overflow: "hidden",
                 display: "block",
@@ -124,7 +124,7 @@ export default function Hizmetler() {
                   alignItems: "center",
                   justifyContent: "center",
                   marginBottom: 18,
-                  boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
+                  boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
                   position: "relative",
                   zIndex: 1,
                 }}
@@ -189,7 +189,7 @@ export default function Hizmetler() {
       <style>{`
         .dvn-hizmet-kart:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(46,26,107,0.12) !important;
+          box-shadow: 0 12px 28px rgba(2,35,152,0.12) !important;
         }
         @media (max-width: 900px) {
           .dvn-hizmet-grid {

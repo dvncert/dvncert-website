@@ -65,7 +65,7 @@ export default function HizmetlerSayfasi() {
                   background: "white",
                   borderRadius: 16,
                   padding: "32px 28px",
-                  boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
+                  boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
                   border: "0.5px solid var(--dvn-gri-300)",
                   textDecoration: "none",
                   color: "inherit",
@@ -84,7 +84,7 @@ export default function HizmetlerSayfasi() {
                     alignItems: "center",
                     justifyContent: "center",
                     marginBottom: 20,
-                    boxShadow: "0 8px 20px rgba(46,26,107,0.15)",
+                    boxShadow: "0 8px 20px rgba(2,35,152,0.15)",
                   }}
                 >
                   <HizmetIkon ad={h.ikon} size={30} />
@@ -129,7 +129,7 @@ export default function HizmetlerSayfasi() {
                   background: "white",
                   borderRadius: 14,
                   padding: "26px 26px",
-                  boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
+                  boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
                   border: "0.5px solid var(--dvn-gri-300)",
                   borderLeft: "3px solid var(--dvn-altin)",
                   textDecoration: "none",
@@ -168,7 +168,7 @@ export default function HizmetlerSayfasi() {
       </section>
 
       <style>{`
-        .dvn-hub-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(46,26,107,0.12) !important; }
+        .dvn-hub-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(2,35,152,0.12) !important; }
         @media (max-width: 900px) {
           .dvn-anahizmet-grid { grid-template-columns: 1fr !important; }
           .dvn-iso-grid { grid-template-columns: 1fr !important; }

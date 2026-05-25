@@ -20,7 +20,7 @@ html {
   }
   html, body {
     background: #fafbfc !important;
-    color: #2E1A6B !important;
+    color: #022398 !important;
   }
 }
 
@@ -30,10 +30,10 @@ html {
    ========================================== */
 
 :root {
-  /* Ana Renkler - Yeni logo (Lacivert / Mor) */
-  --dvn-lacivert: #2E1A6B;
-  --dvn-lacivert-acik: #3D2A85;
-  --dvn-lacivert-koyu: #1F0F4D;
+  /* Ana Renkler - Lacivert (CMYK C99 M79 Y8 K35) */
+  --dvn-lacivert: #022398;
+  --dvn-lacivert-acik: #032CC0;
+  --dvn-lacivert-koyu: #011A70;
 
   /* Şampanya Altın Tonları */
   --dvn-altin: #D4A93F;
@@ -54,7 +54,7 @@ html {
   --dvn-gri-500: #64748b;
   --dvn-gri-700: #334155;
   --dvn-gri-800: #1e293b;
-  --dvn-metin: #2E1A6B;
+  --dvn-metin: #022398;
   --dvn-metin-acik: #475569;
 
   /* Tipografi */
@@ -67,18 +67,18 @@ html {
   --dvn-radius-xl: 16px;
 
   /* Gölgeler */
-  --dvn-shadow-sm: 0 2px 8px rgba(46, 26, 107, 0.04);
-  --dvn-shadow-md: 0 4px 16px rgba(46, 26, 107, 0.06);
-  --dvn-shadow-lg: 0 8px 24px rgba(46, 26, 107, 0.08);
-  --dvn-shadow-xl: 0 12px 40px rgba(46, 26, 107, 0.12);
+  --dvn-shadow-sm: 0 2px 8px rgba(2, 35, 152, 0.04);
+  --dvn-shadow-md: 0 4px 16px rgba(2, 35, 152, 0.06);
+  --dvn-shadow-lg: 0 8px 24px rgba(2, 35, 152, 0.08);
+  --dvn-shadow-xl: 0 12px 40px rgba(2, 35, 152, 0.12);
 
   /* Gradientler */
   --dvn-gradient-hero: radial-gradient(ellipse at top right, rgba(212,169,63,0.12) 0%, transparent 50%),
                        radial-gradient(ellipse at bottom left, rgba(245,130,32,0.10) 0%, transparent 50%),
-                       linear-gradient(180deg, #2E1A6B 0%, #3D2A85 70%, #1F0F4D 100%);
+                       linear-gradient(180deg, #022398 0%, #032CC0 70%, #011A70 100%);
   --dvn-gradient-turuncu: linear-gradient(135deg, #F58220 0%, #FFA050 100%);
   --dvn-gradient-altin: linear-gradient(135deg, #D4A93F 0%, #E8C870 100%);
-  --dvn-gradient-lacivert: linear-gradient(135deg, #2E1A6B 0%, #3D2A85 100%);
+  --dvn-gradient-lacivert: linear-gradient(135deg, #022398 0%, #032CC0 100%);
 }
 
 /* ==========================================

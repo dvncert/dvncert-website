@@ -87,7 +87,7 @@ export default function KariyerSayfasi() {
                     alignItems: "center",
                     justifyContent: "center",
                     marginBottom: 18,
-                    boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
+                    boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
                   }}
                 >
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none">{n.icon}</svg>
@@ -120,7 +120,7 @@ export default function KariyerSayfasi() {
                 borderRadius: 18,
                 padding: "34px 32px",
                 color: "white",
-                boxShadow: "0 12px 40px rgba(46,26,107,0.18)",
+                boxShadow: "0 12px 40px rgba(2,35,152,0.18)",
                 display: "flex",
                 flexDirection: "column",
               }}
@@ -177,7 +177,7 @@ export default function KariyerSayfasi() {
                 borderRadius: 18,
                 padding: "34px 32px",
                 border: "0.5px solid var(--dvn-gri-300)",
-                boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
+                boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
                 display: "flex",
                 flexDirection: "column",
               }}
@@ -222,7 +222,7 @@ export default function KariyerSayfasi() {
             border: "0.5px solid var(--dvn-gri-300)",
             borderRadius: 16,
             padding: "34px 32px",
-            boxShadow: "0 8px 32px rgba(46,26,107,0.06)",
+            boxShadow: "0 8px 32px rgba(2,35,152,0.06)",
           }}
         >
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>

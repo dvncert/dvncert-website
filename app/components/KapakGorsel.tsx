@@ -40,7 +40,7 @@ export default function KapakGorsel({
             height: "clamp(200px, 30vw, 380px)",
             borderRadius: 18,
             overflow: "hidden",
-            boxShadow: "0 12px 40px rgba(46,26,107,0.12)",
+            boxShadow: "0 12px 40px rgba(2,35,152,0.12)",
           }}
         >
           {src ? (

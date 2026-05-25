@@ -132,7 +132,7 @@ export default function HakkimizdaSayfasi() {
                 background: "white",
                 borderRadius: 16,
                 padding: "32px 30px",
-                boxShadow: "0 4px 16px rgba(46,26,107,0.06)",
+                boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
                 border: "0.5px solid var(--dvn-gri-300)",
                 borderTop: "3px solid var(--dvn-altin)",
               }}
@@ -183,7 +183,7 @@ export default function HakkimizdaSayfasi() {
                     alignItems: "center",
                     justifyContent: "center",
                     marginBottom: 18,
-                    boxShadow: "0 6px 16px rgba(46,26,107,0.15)",
+                    boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
                   }}
                 >
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none">

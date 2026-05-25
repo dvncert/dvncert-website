@@ -119,7 +119,7 @@ export default function SikayetVeGoruslerSayfasi() {
             border: "0.5px solid var(--dvn-gri-300)",
             borderRadius: 16,
             padding: "34px 32px",
-            boxShadow: "0 8px 32px rgba(46,26,107,0.06)",
+            boxShadow: "0 8px 32px rgba(2,35,152,0.06)",
           }}
         >
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
