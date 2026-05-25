@@ -8,7 +8,6 @@ import CookieConsent from "./components/CookieConsent";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTop from "./components/ScrollToTop";
 import ChromeGate from "./components/ChromeGate";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -81,6 +80,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // GA4 ölçüm ID'si gizli değildir (istemcide görünür); ortam değişkeni yoksa
+  // varsayılan gömülüdür ki canlıda her zaman yüklensin.
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-3VJDV7WQBG";
+
   return (
     <html lang="tr" style={{ colorScheme: "light" }}>
       <head>
@@ -88,14 +91,22 @@ export default function RootLayout({
         <meta name="theme-color" content="#2E1A6B" />
         <meta name="format-detection" content="telephone=no" />
 
-        {/* Google Consent Mode v2 — varsayılan onay: denied.
-            GA yüklenmeden (afterInteractive) önce, parse anında çalışır.
-            Onay CookieConsent banner'ı window.dvnCerezGuncelle ile günceller. */}
+        {/* 1) Google Consent Mode v2 — varsayılan onay: denied. Parse anında,
+            gtag config'ten ÖNCE çalışır. Onayı CookieConsent banner'ı
+            window.dvnCerezGuncelle ile günceller. */}
         <script
           dangerouslySetInnerHTML={{
             __html:
               "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});try{if(localStorage.getItem('dvn-cerez-onay')==='kabul'){gtag('consent','update',{analytics_storage:'granted'});}}catch(e){}window.dvnCerezGuncelle=function(k){try{localStorage.setItem('dvn-cerez-onay',k?'kabul':'red');}catch(e){}gtag('consent','update',{analytics_storage:k?'granted':'denied'});};",
           }}
+        />
+
+        {/* 2) GA4 (Google etiketi) — resmî snippet, doğrudan <head>'de.
+            <head> yerleşimi Search Console'un "Google Analytics" doğrulama
+            yöntemi için gereklidir; consent default'tan SONRA config çalışır. */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+        <script
+          dangerouslySetInnerHTML={{ __html: `gtag('js', new Date());gtag('config', '${gaId}');` }}
         />
 
         {/* JSON-LD: Organization (Her sayfada) */}
@@ -125,10 +136,6 @@ export default function RootLayout({
         <ChromeGate>
           <Footer />
         </ChromeGate>
-        {/* GA4 ölçüm etiketi. ID gizli değildir (istemcide görünür); ortam değişkeni
-            yoksa diye varsayılan gömülüdür ki canlıda her zaman yüklensin.
-            Consent Mode v2 nedeniyle analiz çerezleri ancak onaydan sonra çalışır. */}
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-3VJDV7WQBG"} />
         <ChromeGate>
           <WhatsAppButton />
           <ScrollToTop />
