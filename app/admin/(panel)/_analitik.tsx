@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { googleYapilandirildiMi } from "@/lib/google/client";
 import { gaOzetGetir } from "@/lib/google/analytics";
 import { gscOzetGetir, type GscSatir } from "@/lib/google/search-console";
-import { adminKart } from "./_ui";
+import { adminKart, btnBirincil, btnIkincil } from "./_ui";
 
 const sayi = (n: number) => Math.round(n).toLocaleString("tr-TR");
 const yuzde = (oran: number) => `%${(oran * 100).toFixed(1)}`;
@@ -11,6 +11,14 @@ function sureBicim(sn: number): string {
   const kalan = Math.round(sn % 60);
   return dk > 0 ? `${dk}dk ${kalan}sn` : `${kalan}sn`;
 }
+
+// GA4 mülk numarası ortam değişkeninden gelir; yoksa GA4 ana ekranına götür.
+const GA4_URL = process.env.GA4_PROPERTY_ID
+  ? `https://analytics.google.com/analytics/web/#/p${process.env.GA4_PROPERTY_ID}/reports/intelligenthome`
+  : "https://analytics.google.com/";
+const GSC_URL = `https://search.google.com/search-console?resource_id=${encodeURIComponent(
+  process.env.GSC_SITE_URL ?? "sc-domain:dvncert.com",
+)}`;
 
 function BolumBaslik({ baslik, aciklama }: { baslik: string; aciklama?: string }) {
   return (
@@ -37,24 +45,23 @@ const statIzgara: CSSProperties = {
   gap: 14,
 };
 
-function Not({ renk, children }: { renk: "bilgi" | "hata"; children: ReactNode }) {
-  const stiller =
-    renk === "hata"
-      ? { background: "#fef2f2", border: "0.5px solid #fecaca", color: "#b91c1c" }
-      : { background: "var(--dvn-turuncu-soluk)", border: "0.5px solid var(--dvn-turuncu-acik)", color: "var(--dvn-gri-700)" };
+/** GA4 ve Search Console'a yönlendiren hızlı erişim kartı. */
+function HarciPanelKart({ aciklama }: { aciklama: string }) {
+  const baglantiOrtak: CSSProperties = { textDecoration: "none" };
   return (
-    <div style={{ ...stiller, borderRadius: 12, padding: "16px 18px", fontSize: 13, lineHeight: 1.6 }}>{children}</div>
-  );
-}
-
-function YapilandirmaNotu() {
-  return (
-    <Not renk="bilgi">
-      <strong>Henüz bağlı değil.</strong> Bu verileri görmek için bir Google Cloud servis hesabı oluşturup
-      Vercel&apos;e <code>GOOGLE_SERVICE_ACCOUNT_JSON</code>, <code>GA4_PROPERTY_ID</code> ve{" "}
-      <code>GSC_SITE_URL</code> değişkenlerini eklemeniz gerekiyor. Kurulum adımları proje belgelerinde
-      (<code>docs/google-analytics-kurulum.md</code>) anlatıldı.
-    </Not>
+    <div style={{ ...adminKart, display: "flex", flexDirection: "column", gap: 16 }}>
+      <p style={{ fontSize: 13.5, color: "var(--dvn-gri-700)", lineHeight: 1.6, margin: 0 }}>
+        {aciklama}
+      </p>
+      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+        <a href={GA4_URL} target="_blank" rel="noopener noreferrer" style={{ ...btnBirincil, ...baglantiOrtak }}>
+          Google Analytics&apos;i Aç →
+        </a>
+        <a href={GSC_URL} target="_blank" rel="noopener noreferrer" style={{ ...btnIkincil, ...baglantiOrtak }}>
+          Search Console&apos;u Aç →
+        </a>
+      </div>
+    </div>
   );
 }
 
@@ -101,8 +108,11 @@ export async function AnalitikBolum() {
   if (!googleYapilandirildiMi()) {
     return (
       <>
-        <BolumBaslik baslik="Ziyaretçi İstatistikleri · Google Analytics" />
-        <YapilandirmaNotu />
+        <BolumBaslik
+          baslik="Ziyaretçi İstatistikleri · Google Analytics"
+          aciklama="Site GA4 etiketiyle veri toplamaya devam ediyor (G-3VJDV7WQBG)."
+        />
+        <HarciPanelKart aciklama="Ziyaretçi sayısı, sayfa görüntülemeleri ve gerçek zamanlı kullanıcı verisi için doğrudan Google Analytics&apos;i açın. Tüm raporlar, kitle, dönüşüm ve özel segmentler orada." />
       </>
     );
   }
@@ -125,14 +135,14 @@ export async function AnalitikBolum() {
         </div>
       </>
     );
-  } catch (e) {
+  } catch {
     return (
       <>
-        <BolumBaslik baslik="Ziyaretçi İstatistikleri · Google Analytics" />
-        <Not renk="hata">
-          Veri alınamadı: {e instanceof Error ? e.message : "bilinmeyen hata"}. Servis hesabının GA4 mülküne
-          görüntüleyici (Viewer) yetkisi olduğundan ve <code>GA4_PROPERTY_ID</code> değerinin doğru olduğundan emin olun.
-        </Not>
+        <BolumBaslik
+          baslik="Ziyaretçi İstatistikleri · Google Analytics"
+          aciklama="Panel içi veri çekilemedi; verileri doğrudan Google Analytics&apos;te görüntüleyebilirsiniz."
+        />
+        <HarciPanelKart aciklama="Ziyaretçi sayısı, sayfa görüntülemeleri ve gerçek zamanlı kullanıcı verisi için doğrudan Google Analytics&apos;i açın." />
       </>
     );
   }
@@ -141,7 +151,7 @@ export async function AnalitikBolum() {
 /* ------------------------------ Search Console ----------------------------- */
 
 export async function AramaBolum() {
-  if (!googleYapilandirildiMi()) return null; // GA bölümündeki not zaten kurulum için yeterli.
+  if (!googleYapilandirildiMi()) return null; // Üstteki Google Analytics kartında Search Console butonu zaten var.
   try {
     const s = await gscOzetGetir();
     const satir = (r: GscSatir): ReactNode[] => [r.ad, sayi(r.tiklama), sayi(r.gosterim), yuzde(r.ctr), r.sira.toFixed(1)];
@@ -169,16 +179,7 @@ export async function AramaBolum() {
         </div>
       </>
     );
-  } catch (e) {
-    return (
-      <>
-        <BolumBaslik baslik="Arama Performansı · Google Search Console" />
-        <Not renk="hata">
-          Veri alınamadı: {e instanceof Error ? e.message : "bilinmeyen hata"}. Servis hesabının e-postasını Search
-          Console&apos;da kullanıcı olarak eklediğinizden ve <code>GSC_SITE_URL</code> değerinin mülk adresiyle
-          (ör. <code>sc-domain:dvncert.com</code>) eşleştiğinden emin olun.
-        </Not>
-      </>
-    );
+  } catch {
+    return null; // GA bölümündeki kart Search Console butonunu zaten içeriyor.
   }
 }
