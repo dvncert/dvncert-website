@@ -1,0 +1,1245 @@
+{
+  "id": "7b58739d-8041-4d38-83e3-14b255856f65",
+  "prevId": "b3ad9dfb-6c24-4bc8-9db7-ca1ba641341f",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.admin_kullanicilar": {
+      "name": "admin_kullanicilar",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sifre_hash": {
+          "name": "sifre_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ad": {
+          "name": "ad",
+          "type": "varchar(120)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "admin_kullanicilar_email_unique": {
+          "name": "admin_kullanicilar_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.akreditasyon_belgeleri": {
+      "name": "akreditasyon_belgeleri",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "ad": {
+          "name": "ad",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aciklama": {
+          "name": "aciklama",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kapsam": {
+          "name": "kapsam",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "belge_veri": {
+          "name": "belge_veri",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "belge_mime": {
+          "name": "belge_mime",
+          "type": "varchar(80)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gecerlilik_tarihi": {
+          "name": "gecerlilik_tarihi",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sira": {
+          "name": "sira",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.blog_yazilari": {
+      "name": "blog_yazilari",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "baslik": {
+          "name": "baslik",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ozet": {
+          "name": "ozet",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tarih": {
+          "name": "tarih",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kategori": {
+          "name": "kategori",
+          "type": "varchar(80)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "yazar": {
+          "name": "yazar",
+          "type": "varchar(120)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gorsel": {
+          "name": "gorsel",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gorsel_veri": {
+          "name": "gorsel_veri",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gorsel_alt": {
+          "name": "gorsel_alt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "icerik": {
+          "name": "icerik",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ilgili_hizmetler": {
+          "name": "ilgili_hizmetler",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'[]'::jsonb"
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "blog_yazilari_slug_unique": {
+          "name": "blog_yazilari_slug_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "slug"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dokumanlar": {
+      "name": "dokumanlar",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "kod": {
+          "name": "kod",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "baslik": {
+          "name": "baslik",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aciklama": {
+          "name": "aciklama",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kategori": {
+          "name": "kategori",
+          "type": "varchar(60)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tip": {
+          "name": "tip",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dosya_veri": {
+          "name": "dosya_veri",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dosya_mime": {
+          "name": "dosya_mime",
+          "type": "varchar(80)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dosya_adi": {
+          "name": "dosya_adi",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sira": {
+          "name": "sira",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.duyurular": {
+      "name": "duyurular",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "baslik": {
+          "name": "baslik",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tarih": {
+          "name": "tarih",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kategori": {
+          "name": "kategori",
+          "type": "varchar(80)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ozet": {
+          "name": "ozet",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "icerik": {
+          "name": "icerik",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gorsel": {
+          "name": "gorsel",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gorsel_veri": {
+          "name": "gorsel_veri",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gorsel_alt": {
+          "name": "gorsel_alt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ilgili_hizmetler": {
+          "name": "ilgili_hizmetler",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'[]'::jsonb"
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "duyurular_slug_unique": {
+          "name": "duyurular_slug_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "slug"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.egitim_etkinlikleri": {
+      "name": "egitim_etkinlikleri",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "baslik": {
+          "name": "baslik",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kategori": {
+          "name": "kategori",
+          "type": "varchar(60)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "baslangic": {
+          "name": "baslangic",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bitis": {
+          "name": "bitis",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "yer": {
+          "name": "yer",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ozet": {
+          "name": "ozet",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "icerik": {
+          "name": "icerik",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gorsel": {
+          "name": "gorsel",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gorsel_veri": {
+          "name": "gorsel_veri",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gorsel_alt": {
+          "name": "gorsel_alt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kayit_url": {
+          "name": "kayit_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ucretli": {
+          "name": "ucretli",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "seo_title": {
+          "name": "seo_title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "seo_description": {
+          "name": "seo_description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "no_index": {
+          "name": "no_index",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "egitim_etkinlikleri_slug_unique": {
+          "name": "egitim_etkinlikleri_slug_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "slug"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.ekip_uyeleri": {
+      "name": "ekip_uyeleri",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "ad": {
+          "name": "ad",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "unvan": {
+          "name": "unvan",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "uzmanlik": {
+          "name": "uzmanlik",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "foto_veri": {
+          "name": "foto_veri",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "foto_alt": {
+          "name": "foto_alt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sira": {
+          "name": "sira",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.ekstra_menu_ogeleri": {
+      "name": "ekstra_menu_ogeleri",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "baslik": {
+          "name": "baslik",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "href": {
+          "name": "href",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "yeni_sekme": {
+          "name": "yeni_sekme",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "sira": {
+          "name": "sira",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "aktif": {
+          "name": "aktif",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.form_gonderileri": {
+      "name": "form_gonderileri",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "tip": {
+          "name": "tip",
+          "type": "varchar(40)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ad": {
+          "name": "ad",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "telefon": {
+          "name": "telefon",
+          "type": "varchar(60)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "konu": {
+          "name": "konu",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mesaj": {
+          "name": "mesaj",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ek_veri": {
+          "name": "ek_veri",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "durum": {
+          "name": "durum",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'yeni'"
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.logo_dosyalari": {
+      "name": "logo_dosyalari",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "ad": {
+          "name": "ad",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aciklama": {
+          "name": "aciklama",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zemin_tipi": {
+          "name": "zemin_tipi",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'acik'"
+        },
+        "dosya_veri": {
+          "name": "dosya_veri",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dosya_mime": {
+          "name": "dosya_mime",
+          "type": "varchar(80)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dosya_adi": {
+          "name": "dosya_adi",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sira": {
+          "name": "sira",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.referanslar": {
+      "name": "referanslar",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "ad": {
+          "name": "ad",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "logo": {
+          "name": "logo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo_veri": {
+          "name": "logo_veri",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "sira": {
+          "name": "sira",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sayfa_bloklari": {
+      "name": "sayfa_bloklari",
+      "schema": "",
+      "columns": {
+        "yol": {
+          "name": "yol",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "anahtar": {
+          "name": "anahtar",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deger": {
+          "name": "deger",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "''"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "sayfa_bloklari_yol_anahtar_pk": {
+          "name": "sayfa_bloklari_yol_anahtar_pk",
+          "columns": [
+            "yol",
+            "anahtar"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sayfa_seo": {
+      "name": "sayfa_seo",
+      "schema": "",
+      "columns": {
+        "yol": {
+          "name": "yol",
+          "type": "varchar(200)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "seo_title": {
+          "name": "seo_title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "seo_description": {
+          "name": "seo_description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "no_index": {
+          "name": "no_index",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "og_image_veri": {
+          "name": "og_image_veri",
+          "type": "bytea",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.site_ayarlari": {
+      "name": "site_ayarlari",
+      "schema": "",
+      "columns": {
+        "anahtar": {
+          "name": "anahtar",
+          "type": "varchar(100)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "deger": {
+          "name": "deger",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "''"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sss_sorulari": {
+      "name": "sss_sorulari",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "soru": {
+          "name": "soru",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cevap": {
+          "name": "cevap",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sira": {
+          "name": "sira",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "guncellenme": {
+          "name": "guncellenme",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.yorumlar": {
+      "name": "yorumlar",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "isim": {
+          "name": "isim",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kurum": {
+          "name": "kurum",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "yorum": {
+          "name": "yorum",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "puan": {
+          "name": "puan",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tarih": {
+          "name": "tarih",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "yayinda": {
+          "name": "yayinda",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "sira": {
+          "name": "sira",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "olusturulma": {
+          "name": "olusturulma",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

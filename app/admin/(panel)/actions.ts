@@ -2,7 +2,7 @@
 
 import { revalidatePath, updateTag } from "next/cache";
 import { redirect } from "next/navigation";
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 import sharp from "sharp";
 import { db } from "@/lib/db";
 import {
@@ -19,7 +19,10 @@ import {
   logoDosyalari,
   dokumanlar,
   sayfaSeo,
+  sayfaBloklari,
+  sssSorulari,
 } from "@/lib/db/schema";
+import { SAYFA_ICERIK } from "@/lib/sayfa-icerigi";
 
 // ---- FormData yardımcıları ----
 function s(fd: FormData, k: string): string {
@@ -411,6 +414,60 @@ export async function dokumanKaydet(fd: FormData) {
 export async function dokumanSil(fd: FormData) {
   await db.delete(dokumanlar).where(eq(dokumanlar.id, Number(s(fd, "id"))));
   yenile("/dokumanlar", "/admin/dokumanlar");
+}
+
+// ============ SAYFA İÇERİK BLOKLARI ============
+export async function sayfaIcerikKaydet(fd: FormData) {
+  const yol = s(fd, "yol");
+  const tanim = SAYFA_ICERIK[yol];
+  if (!tanim) throw new Error(`Bu yol için içerik tanımı yok: ${yol}`);
+
+  // Her alanı sırayla upsert et; boş gönderilenler de DB'de boş kalır
+  // (boşluk alanDegeri() içinde varsayılana fallback'i tetikler).
+  for (const alan of tanim.alanlar) {
+    const deger = s(fd, alan.anahtar);
+    await db
+      .insert(sayfaBloklari)
+      .values({ yol, anahtar: alan.anahtar, deger, guncellenme: new Date() })
+      .onConflictDoUpdate({
+        target: [sayfaBloklari.yol, sayfaBloklari.anahtar],
+        set: { deger, guncellenme: new Date() },
+      });
+  }
+  updateTag("sayfa-icerik");
+  revalidatePath(yol);
+  redirect(`/admin/icerik?yol=${encodeURIComponent(yol)}&ok=1`);
+}
+
+export async function sayfaIcerikSifirla(fd: FormData) {
+  const yol = s(fd, "yol");
+  const anahtar = s(fd, "anahtar");
+  await db
+    .delete(sayfaBloklari)
+    .where(and(eq(sayfaBloklari.yol, yol), eq(sayfaBloklari.anahtar, anahtar)));
+  updateTag("sayfa-icerik");
+  revalidatePath(yol);
+  redirect(`/admin/icerik?yol=${encodeURIComponent(yol)}`);
+}
+
+// ============ SSS SORULARI ============
+export async function sssKaydet(fd: FormData) {
+  const id = s(fd, "id");
+  const veri = {
+    soru: s(fd, "soru"),
+    cevap: s(fd, "cevap"),
+    sira: num(fd, "sira") ?? 0,
+    yayinda: bool(fd, "yayinda"),
+    guncellenme: new Date(),
+  };
+  if (id) await db.update(sssSorulari).set(veri).where(eq(sssSorulari.id, Number(id)));
+  else await db.insert(sssSorulari).values(veri);
+  yenile("/sss", "/admin/sss");
+  redirect("/admin/sss");
+}
+export async function sssSil(fd: FormData) {
+  await db.delete(sssSorulari).where(eq(sssSorulari.id, Number(s(fd, "id"))));
+  yenile("/sss", "/admin/sss");
 }
 
 // ============ SAYFA SEO OVERRIDE ============

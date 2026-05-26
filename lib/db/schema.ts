@@ -5,7 +5,7 @@
  * içeriğiyle alan adları uyumludur; seed scripti bu içeriği DB'ye taşır.
  */
 
-import { pgTable, serial, text, integer, boolean, timestamp, jsonb, varchar, customType } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, integer, boolean, timestamp, jsonb, varchar, customType, primaryKey } from "drizzle-orm/pg-core";
 
 /** Postgres bytea (ikili veri) — yüklenen logo görselleri webp olarak burada saklanır. */
 const bytea = customType<{ data: Buffer }>({
@@ -207,6 +207,35 @@ export const dokumanlar = pgTable("dokumanlar", {
   dosyaVeri: bytea("dosya_veri"),
   dosyaMime: varchar("dosya_mime", { length: 80 }),
   dosyaAdi: varchar("dosya_adi", { length: 200 }),
+  sira: integer("sira").default(0).notNull(),
+  yayinda: boolean("yayinda").default(true).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/**
+ * Sayfa içerik blokları — statik sayfaların metinleri admin'den düzenlenebilir.
+ * Her sayfanın hangi anahtarlara sahip olduğu kodda (lib/sayfa-icerigi.ts) tanımlı;
+ * burada sadece (yol, anahtar) → değer eşlemesi tutulur. Boş kayıt = varsayılan kullanılır.
+ */
+export const sayfaBloklari = pgTable(
+  "sayfa_bloklari",
+  {
+    yol: varchar("yol", { length: 200 }).notNull(),
+    anahtar: varchar("anahtar", { length: 100 }).notNull(),
+    deger: text("deger").notNull().default(""),
+    guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (t) => ({ pk: primaryKey({ columns: [t.yol, t.anahtar] }) }),
+);
+
+/**
+ * Sıkça sorulan sorular — /sss sayfasında listelenir.
+ */
+export const sssSorulari = pgTable("sss_sorulari", {
+  id: serial("id").primaryKey(),
+  soru: text("soru").notNull(),
+  cevap: text("cevap").notNull(),
   sira: integer("sira").default(0).notNull(),
   yayinda: boolean("yayinda").default(true).notNull(),
   olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),

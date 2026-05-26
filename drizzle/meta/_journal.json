@@ -43,6 +43,13 @@
       "when": 1779807261313,
       "tag": "0005_sticky_smasher",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1779808325555,
+      "tag": "0006_fearless_darkstar",
+      "breakpoints": true
     }
   ]
 }

@@ -4,66 +4,42 @@ import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { sayfaIcerigiGetir, alanDegeri } from "@/lib/sayfa-icerigi";
+import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 
-export const metadata: Metadata = {
-  title: "Hakkımızda",
-  description:
-    "DVN Cert; bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşudur. Misyonumuz, vizyonumuz ve değerlerimizle TÜRKAK akreditasyonu altında güvenilir belgelendirme sunuyoruz.",
-  alternates: { canonical: `${siteConfig.url}/hakkimizda` },
-};
+const YOL = "/hakkimizda";
 
-const degerler = [
-  {
-    baslik: "Bağımsızlık ve Tarafsızlık",
-    aciklama:
-      "Belgelendirme kararlarımız her türlü ticari, mali ve idari baskıdan bağımsızdır. Tarafsızlığımız kurumsal kimliğimizin temelidir.",
-    icon: (
-      <path d="M12 3v18M3 7l9-4 9 4M5 7v6c0 2 1.5 3 3.5 3S12 15 12 13M12 13c0 2 1.5 3 3.5 3S19 15 19 13V7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Şeffaflık",
-    aciklama:
-      "Süreçlerimizin her adımı izlenebilir ve açıktır. Müşterilerimiz denetim sürecinin tamamını net biçimde takip edebilir.",
-    icon: (
-      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Uzmanlık",
-    aciklama:
-      "Sektör deneyimi yüksek, yetkin denetçi kadromuzla her standardın gerekliliklerine hakim bir değerlendirme sunarız.",
-    icon: (
-      <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z M6 12v5c3 3 9 3 12 0v-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Gizlilik",
-    aciklama:
-      "Denetim sürecinde edindiğimiz tüm bilgileri gizlilik ilkeleri ve yasal yükümlülüklere uygun olarak korur, üçüncü taraflarla paylaşmayız.",
-    icon: (
-      <path d="M19 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2zM7 11V7a5 5 0 0110 0v4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Sürekli İyileştirme",
-    aciklama:
-      "Kendi süreçlerimizi de denetlediğimiz kuruluşlar gibi sürekli geliştirir, hizmet kalitemizi her gün bir adım ileriye taşırız.",
-    icon: (
-      <path d="M21 12a9 9 0 11-2.64-6.36M21 4v5h-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Güvenilirlik",
-    aciklama:
-      "Verdiğimiz sertifikalar uluslararası geçerliliğe sahiptir; kuruluşların pazardaki güvenilirliğini somut biçimde güçlendirir.",
-    icon: (
-      <path d="M9 12l2 2 4-4M12 2L4 6v6c0 5.5 3.5 10 8 12 4.5-2 8-6.5 8-12V6l-8-4z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
+export const revalidate = 300;
+
+export async function generateMetadata(): Promise<Metadata> {
+  return sayfaMetadataUret({
+    yol: YOL,
+    title: "Hakkımızda",
+    description:
+      "DVN Cert; bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşudur. Misyonumuz, vizyonumuz ve değerlerimizle TÜRKAK akreditasyonu altında güvenilir belgelendirme sunuyoruz.",
+  });
+}
+
+// 6 değer için SVG ikonları sabit (içerik düzenlenebilir ama görsel kimlik korunur)
+const degerIkonlari = [
+  <path key="d1" d="M12 3v18M3 7l9-4 9 4M5 7v6c0 2 1.5 3 3.5 3S12 15 12 13M12 13c0 2 1.5 3 3.5 3S19 15 19 13V7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="d2" d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="d3" d="M22 10v6M2 10l10-5 10 5-10 5-10-5z M6 12v5c3 3 9 3 12 0v-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="d4" d="M19 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2zM7 11V7a5 5 0 0110 0v4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="d5" d="M21 12a9 9 0 11-2.64-6.36M21 4v5h-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="d6" d="M9 12l2 2 4-4M12 2L4 6v6c0 5.5 3.5 10 8 12 4.5-2 8-6.5 8-12V6l-8-4z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
 ];
 
-export default function HakkimizdaSayfasi() {
+export default async function HakkimizdaSayfasi() {
+  const icerik = await sayfaIcerigiGetir(YOL);
+  const al = (anahtar: string) => alanDegeri(icerik, YOL, anahtar);
+
+  const degerler = [1, 2, 3, 4, 5, 6].map((i) => ({
+    baslik: al(`deger-${i}-baslik`),
+    aciklama: al(`deger-${i}-metin`),
+    icon: degerIkonlari[i - 1],
+  }));
+
   return (
     <main>
       <script
@@ -72,7 +48,7 @@ export default function HakkimizdaSayfasi() {
           breadcrumbSchema([
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Hakkımızda", url: "/hakkimizda" },
-          ])
+          ]),
         )}
       />
 
@@ -88,22 +64,14 @@ export default function HakkimizdaSayfasi() {
       {/* Giriş */}
       <section style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto" }}>
-          <p
-            style={{
-              fontSize: 11,
-              color: "var(--dvn-turuncu)",
-              fontWeight: 500,
-              letterSpacing: "1.5px",
-              margin: "0 0 10px",
-            }}
-          >
-            BİZ KİMİZ
+          <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 10px" }}>
+            {al("giris-etiket")}
           </p>
           <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: "0 0 18px", lineHeight: 1.3 }}>
-            Bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşu
+            {al("giris-baslik")}
           </h2>
           <p style={{ fontSize: 15, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: 0 }}>
-            {siteConfig.aciklamaUzun}
+            {al("giris-metin")}
           </p>
         </div>
       </section>
@@ -115,16 +83,8 @@ export default function HakkimizdaSayfasi() {
           style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}
         >
           {[
-            {
-              etiket: "MİSYONUMUZ",
-              metin:
-                "Kuruluşların yönetim sistemlerini uluslararası standartlara uygunluk açısından bağımsız ve tarafsız biçimde değerlendirerek; güvenilir, şeffaf ve katma değer yaratan belgelendirme hizmeti sunmak.",
-            },
-            {
-              etiket: "VİZYONUMUZ",
-              metin:
-                "Akreditasyon kapsamımızı ve uzmanlık alanlarımızı sürekli genişleterek, ulusal ve uluslararası ölçekte tercih edilen, itibarı yüksek bir belgelendirme kuruluşu olmak.",
-            },
+            { etiket: "MİSYONUMUZ", metin: al("misyon") },
+            { etiket: "VİZYONUMUZ", metin: al("vizyon") },
           ].map((mv) => (
             <div
               key={mv.etiket}
@@ -154,17 +114,14 @@ export default function HakkimizdaSayfasi() {
               DEĞERLERİMİZ
             </p>
             <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
-              Çalışma kültürümüzü şekillendiren ilkeler
+              {al("degerler-baslik")}
             </h2>
           </div>
 
-          <div
-            className="dvn-deger-grid"
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}
-          >
-            {degerler.map((d) => (
+          <div className="dvn-deger-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+            {degerler.map((d, i) => (
               <div
-                key={d.baslik}
+                key={i}
                 style={{
                   background: "var(--dvn-gri-50)",
                   borderRadius: 14,
@@ -218,10 +175,10 @@ export default function HakkimizdaSayfasi() {
         >
           <div>
             <h2 style={{ color: "white", fontSize: 21, fontWeight: 500, margin: "0 0 6px" }}>
-              Belgelendirme süreciniz hakkında konuşalım
+              {al("cta-baslik")}
             </h2>
             <p style={{ color: "#9aa5b1", fontSize: 13.5, margin: 0 }}>
-              Uzman ekibimiz kuruluşunuza en uygun çözümü birlikte planlamak için hazır.
+              {al("cta-metin")}
             </p>
           </div>
           <Link

@@ -1,19 +1,41 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { asc, eq } from "drizzle-orm";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
-import { siteConfig } from "@/lib/site-config";
+import { db, dbHazir } from "@/lib/db";
+import { sssSorulari } from "@/lib/db/schema";
 import { faqSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
-import { sssSorular as sorular } from "@/lib/sss";
+import { sssSorular as varsayilanSorular } from "@/lib/sss";
+import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 
-export const metadata: Metadata = {
-  title: "Sıkça Sorulan Sorular",
-  description:
-    "DVN Cert belgelendirme hizmetleri hakkında sıkça sorulan sorular: belgelendirme süreci, süresi, ISO belgesinin faydaları ve belgelendirme sonrası yükümlülükler.",
-  alternates: { canonical: `${siteConfig.url}/sss` },
-};
+export const revalidate = 300;
 
-export default function SSSSayfasi() {
+export async function generateMetadata(): Promise<Metadata> {
+  return sayfaMetadataUret({
+    yol: "/sss",
+    title: "Sıkça Sorulan Sorular",
+    description:
+      "DVN Cert belgelendirme hizmetleri hakkında sıkça sorulan sorular: belgelendirme süreci, süresi, ISO belgesinin faydaları ve belgelendirme sonrası yükümlülükler.",
+  });
+}
+
+async function sssGetir() {
+  if (!dbHazir) return varsayilanSorular;
+  try {
+    const rows = await db
+      .select({ soru: sssSorulari.soru, cevap: sssSorulari.cevap })
+      .from(sssSorulari)
+      .where(eq(sssSorulari.yayinda, true))
+      .orderBy(asc(sssSorulari.sira), asc(sssSorulari.id));
+    return rows.length > 0 ? rows : varsayilanSorular;
+  } catch {
+    return varsayilanSorular;
+  }
+}
+
+export default async function SSSSayfasi() {
+  const sorular = await sssGetir();
   return (
     <main>
       <script

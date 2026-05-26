@@ -2,70 +2,42 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
-import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { sayfaIcerigiGetir, alanDegeri } from "@/lib/sayfa-icerigi";
+import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 
-export const metadata: Metadata = {
-  title: "Politika ve Beyanlar",
-  description:
-    "DVN Cert'in tarafsızlık ve bağımsızlık beyanı, kalite politikası, gizlilik ilkeleri ile şikayet ve itirazların değerlendirilmesine ilişkin temel politika ve beyanları.",
-  alternates: { canonical: `${siteConfig.url}/politika-ve-beyanlar` },
-};
+const YOL = "/politika-ve-beyanlar";
 
-// NOT: Politika metinleri özettir. Tam ve onaylı dokümanlar Dökümanlar
-// bölümünden yayımlanacaktır.
-const politikalar = [
-  {
-    baslik: "Tarafsızlık ve Bağımsızlık Beyanı",
-    metin:
-      "Belgelendirme faaliyetlerimizi her türlü ticari, mali ve idari etkiden bağımsız olarak yürütürüz. Tarafsızlığı tehdit eden çıkar ilişkilerini düzenli olarak değerlendirir; danışmanlık veya iç denetim gibi tarafsızlığı zedeleyebilecek hizmetleri sunmayız.",
-    icon: (
-      <path d="M12 3v18M3 7l9-4 9 4M5 7v6c0 2 1.5 3 3.5 3S12 15 12 13M12 13c0 2 1.5 3 3.5 3S19 15 19 13V7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Kalite Politikası",
-    metin:
-      "Hizmetlerimizi ilgili akreditasyon ve standart gerekliliklerine tam uyum içinde, tutarlı ve güvenilir biçimde sunmayı; süreçlerimizi ve denetçi yetkinliklerimizi sürekli iyileştirmeyi taahhüt ederiz.",
-    icon: (
-      <path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Gizlilik Politikası",
-    metin:
-      "Denetim ve belgelendirme sürecinde edindiğimiz tüm bilgileri gizli tutar; yasal zorunluluklar dışında üçüncü taraflarla paylaşmayız. Bilgi güvenliği önlemlerimizi yürürlükteki mevzuata uygun olarak uygularız.",
-    icon: (
-      <path d="M19 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2zM7 11V7a5 5 0 0110 0v4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Şikayet ve İtirazların Değerlendirilmesi",
-    metin:
-      "Belgelendirme kararlarımıza yönelik itirazlar ve hizmetlerimize ilişkin şikayetler; tarafsız, adil ve gizlilik esasına dayalı bir süreçle ele alınır. Her başvuru kayıt altına alınır ve sonucu başvurana bildirilir.",
-    icon: (
-      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z M12 7v4M12 14h.01" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Ayrım Gözetmeme",
-    metin:
-      "Belgelendirme hizmetlerimize erişim; başvuran kuruluşun büyüklüğü, üyeliği veya halihazırda belgelendirilmiş kuruluş sayısı gibi koşullara bağlı tutulmadan, eşit ve ayrımcılık yapılmaksızın sağlanır.",
-    icon: (
-      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
-  {
-    baslik: "Belge Kullanımı ve Marka",
-    metin:
-      "Belgelendirilen kuruluşların sertifika ve akreditasyon markalarını yalnızca kapsam dahilinde ve yanıltıcı olmayacak biçimde kullanmasını bekleriz. Hatalı kullanım durumunda gerekli düzeltici işlemler uygulanır.",
-    icon: (
-      <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z M7 7h.01" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    ),
-  },
+export const revalidate = 300;
+
+export async function generateMetadata(): Promise<Metadata> {
+  return sayfaMetadataUret({
+    yol: YOL,
+    title: "Politika ve Beyanlar",
+    description:
+      "DVN Cert'in tarafsızlık ve bağımsızlık beyanı, kalite politikası, gizlilik ilkeleri ile şikayet ve itirazların değerlendirilmesine ilişkin temel politika ve beyanları.",
+  });
+}
+
+const politikaIkonlari = [
+  <path key="p1" d="M12 3v18M3 7l9-4 9 4M5 7v6c0 2 1.5 3 3.5 3S12 15 12 13M12 13c0 2 1.5 3 3.5 3S19 15 19 13V7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="p2" d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="p3" d="M19 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2zM7 11V7a5 5 0 0110 0v4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="p4" d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z M12 7v4M12 14h.01" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="p5" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
+  <path key="p6" d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z M7 7h.01" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />,
 ];
 
-export default function PolitikaVeBeyanlarSayfasi() {
+export default async function PolitikaVeBeyanlarSayfasi() {
+  const icerik = await sayfaIcerigiGetir(YOL);
+  const al = (anahtar: string) => alanDegeri(icerik, YOL, anahtar);
+
+  const politikalar = [1, 2, 3, 4, 5, 6].map((i) => ({
+    baslik: al(`pol-${i}-baslik`),
+    metin: al(`pol-${i}-metin`),
+    icon: politikaIkonlari[i - 1],
+  }));
+
   return (
     <main>
       <script
@@ -74,7 +46,7 @@ export default function PolitikaVeBeyanlarSayfasi() {
           breadcrumbSchema([
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Politika ve Beyanlar", url: "/politika-ve-beyanlar" },
-          ])
+          ]),
         )}
       />
 
@@ -93,9 +65,9 @@ export default function PolitikaVeBeyanlarSayfasi() {
             className="dvn-pol-grid"
             style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}
           >
-            {politikalar.map((p) => (
+            {politikalar.map((p, i) => (
               <div
-                key={p.baslik}
+                key={i}
                 style={{
                   background: "var(--dvn-gri-50)",
                   borderRadius: 14,

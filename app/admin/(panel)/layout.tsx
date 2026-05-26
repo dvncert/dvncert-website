@@ -18,6 +18,8 @@ const nav = [
   { ad: "Akreditasyonlar", href: "/admin/akreditasyonlar" },
   { ad: "Logolar", href: "/admin/logolar" },
   { ad: "Dokümanlar", href: "/admin/dokumanlar" },
+  { ad: "Sayfa İçeriği", href: "/admin/icerik" },
+  { ad: "S.S.S.", href: "/admin/sss" },
   { ad: "Yorumlar", href: "/admin/yorumlar" },
   { ad: "Referanslar", href: "/admin/referanslar" },
   { ad: "Form Gönderileri", href: "/admin/gonderiler" },
