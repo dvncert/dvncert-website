@@ -1,10 +1,10 @@
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { duyurular, blogYazilari, referanslar } from "@/lib/db/schema";
+import { duyurular, blogYazilari, referanslar, egitimEtkinlikleri } from "@/lib/db/schema";
 
 /**
  * Veritabanında saklanan görselleri (WebP) sunar.
- * /api/gorsel/{tur}/{id}  — tur: referans | duyuru | blog
+ * /api/gorsel/{tur}/{id}  — tur: referans | duyuru | blog | etkinlik
  */
 export async function GET(_req: Request, { params }: { params: Promise<{ tur: string; id: string }> }) {
   const { tur, id } = await params;
@@ -18,6 +18,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ tur: st
     veri = (await db.select({ v: duyurular.gorselVeri }).from(duyurular).where(eq(duyurular.id, n)).limit(1))[0]?.v;
   } else if (tur === "blog") {
     veri = (await db.select({ v: blogYazilari.gorselVeri }).from(blogYazilari).where(eq(blogYazilari.id, n)).limit(1))[0]?.v;
+  } else if (tur === "etkinlik") {
+    veri = (await db.select({ v: egitimEtkinlikleri.gorselVeri }).from(egitimEtkinlikleri).where(eq(egitimEtkinlikleri.id, n)).limit(1))[0]?.v;
   } else {
     return new Response("Geçersiz tür", { status: 400 });
   }

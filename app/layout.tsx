@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 import { organizationSchema, websiteSchema, schemaScript } from "@/lib/seo-schemas";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { ekstraMenuOgeleriGetir } from "@/lib/ust-menu";
 import CookieConsent from "./components/CookieConsent";
 import WhatsAppButton from "./components/WhatsAppButton";
 import SosyalSabitButon from "./components/SosyalSabitButon";
@@ -76,7 +77,7 @@ export const metadata: Metadata = {
   category: "Certification Services",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -84,6 +85,7 @@ export default function RootLayout({
   // GA4 ölçüm ID'si gizli değildir (istemcide görünür); ortam değişkeni yoksa
   // varsayılan gömülüdür ki canlıda her zaman yüklensin.
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-3VJDV7WQBG";
+  const ekstraOgeler = await ekstraMenuOgeleriGetir();
 
   return (
     <html lang="tr" style={{ colorScheme: "light" }}>
@@ -129,7 +131,7 @@ export default function RootLayout({
           </a>
         </ChromeGate>
         <ChromeGate>
-          <Header />
+          <Header ekstraOgeler={ekstraOgeler} />
         </ChromeGate>
         <div id="ana-icerik" tabIndex={-1} style={{ outline: "none" }}>
           {children}

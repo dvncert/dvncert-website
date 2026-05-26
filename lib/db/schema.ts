@@ -99,6 +99,57 @@ export const siteAyarlari = pgTable("site_ayarlari", {
   guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
 });
 
+/**
+ * Eğitim ve etkinlikler — admin panelden yönetilir, ana sayfada yaklaşan
+ * etkinlikler bölümünde gösterilir, /etkinlikler altında detay sayfaları olur.
+ */
+export const egitimEtkinlikleri = pgTable("egitim_etkinlikleri", {
+  id: serial("id").primaryKey(),
+  slug: varchar("slug", { length: 200 }).notNull().unique(),
+  baslik: text("baslik").notNull(),
+  kategori: varchar("kategori", { length: 60 }).notNull(), // eğitim / seminer / konferans / webinar
+  /** Başlangıç tarihi/saati (timestamptz). */
+  baslangic: timestamp("baslangic", { withTimezone: true }).notNull(),
+  /** Bitiş tarihi/saati — tek günlük etkinlikse boş. */
+  bitis: timestamp("bitis", { withTimezone: true }),
+  /** Yer açıklaması, örn. "İstanbul / Online" veya "Pendik Ofis". */
+  yer: varchar("yer", { length: 200 }).notNull(),
+  ozet: text("ozet").notNull(),
+  icerik: text("icerik").notNull(),
+  /** Manuel görsel yolu. */
+  gorsel: text("gorsel"),
+  /** Yüklenen kapak görseli (WebP). */
+  gorselVeri: bytea("gorsel_veri"),
+  gorselAlt: text("gorsel_alt"),
+  /** Kayıt / başvuru bağlantısı (opsiyonel). */
+  kayitUrl: text("kayit_url"),
+  ucretli: boolean("ucretli").default(false).notNull(),
+  /** SEO — boş bırakılırsa başlık/özet kullanılır. */
+  seoTitle: text("seo_title"),
+  seoDescription: text("seo_description"),
+  noIndex: boolean("no_index").default(false).notNull(),
+  yayinda: boolean("yayinda").default(true).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/**
+ * Üst navigasyon şeridine admin panelinden eklenen ek öğeler.
+ * Mevcut hardcoded menülere (Neden DVN Cert / Hizmetler / İletişim) dokunmaz;
+ * bunlar nav'ın sağına/sonuna eklenir.
+ */
+export const ekstraMenuOgeleri = pgTable("ekstra_menu_ogeleri", {
+  id: serial("id").primaryKey(),
+  baslik: varchar("baslik", { length: 100 }).notNull(),
+  href: text("href").notNull(),
+  /** Yeni sekmede aç (dış bağlantılar için). */
+  yeniSekme: boolean("yeni_sekme").default(false).notNull(),
+  sira: integer("sira").default(0).notNull(),
+  aktif: boolean("aktif").default(true).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
 export const formGonderileri = pgTable("form_gonderileri", {
   id: serial("id").primaryKey(),
   tip: varchar("tip", { length: 40 }).notNull(), // iletisim | sikayet | kariyer

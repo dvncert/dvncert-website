@@ -5,6 +5,7 @@ import Hakkimizda from "./components/Hakkimizda";
 import Referanslar from "./components/Referanslar";
 import MusteriYorumlari from "./components/MusteriYorumlari";
 import Duyurular from "./components/Duyurular";
+import EgitimEtkinlikleri from "./components/EgitimEtkinlikleri";
 import AnaSayfaSSS from "./components/AnaSayfaSSS";
 
 export default function AnaSayfa() {
@@ -17,6 +18,7 @@ export default function AnaSayfa() {
       <Referanslar />
       <MusteriYorumlari />
       <Duyurular />
+      <EgitimEtkinlikleri />
       <AnaSayfaSSS />
     </main>
   );

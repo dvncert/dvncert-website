@@ -13,9 +13,11 @@ const nav = [
   { ad: "Panel", href: "/admin" },
   { ad: "Duyurular", href: "/admin/duyurular" },
   { ad: "Blog", href: "/admin/blog" },
+  { ad: "Etkinlikler", href: "/admin/etkinlikler" },
   { ad: "Yorumlar", href: "/admin/yorumlar" },
   { ad: "Referanslar", href: "/admin/referanslar" },
   { ad: "Form Gönderileri", href: "/admin/gonderiler" },
+  { ad: "Üst Menü", href: "/admin/menu" },
   { ad: "Site Ayarları", href: "/admin/site-ayarlari" },
 ];
 

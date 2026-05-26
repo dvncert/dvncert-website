@@ -3,7 +3,7 @@ import Link from "next/link";
 import { sql } from "drizzle-orm";
 import type { PgTable } from "drizzle-orm/pg-core";
 import { db } from "@/lib/db";
-import { duyurular, blogYazilari, yorumlar, referanslar, formGonderileri } from "@/lib/db/schema";
+import { duyurular, blogYazilari, yorumlar, referanslar, formGonderileri, egitimEtkinlikleri } from "@/lib/db/schema";
 import { SayfaBaslik, adminKart } from "./_ui";
 import { AnalitikBolum, AramaBolum } from "./_analitik";
 
@@ -23,9 +23,10 @@ function Yukleniyor({ ad }: { ad: string }) {
 }
 
 export default async function Panel() {
-  const [d, b, y, r, g] = await Promise.all([
+  const [d, b, e, y, r, g] = await Promise.all([
     say(duyurular),
     say(blogYazilari),
+    say(egitimEtkinlikleri),
     say(yorumlar),
     say(referanslar),
     say(formGonderileri),
@@ -34,6 +35,7 @@ export default async function Panel() {
   const kartlar = [
     { ad: "Duyurular", sayi: d, href: "/admin/duyurular" },
     { ad: "Blog Yazıları", sayi: b, href: "/admin/blog" },
+    { ad: "Etkinlikler", sayi: e, href: "/admin/etkinlikler" },
     { ad: "Müşteri Yorumları", sayi: y, href: "/admin/yorumlar" },
     { ad: "Referanslar", sayi: r, href: "/admin/referanslar" },
     { ad: "Form Gönderileri", sayi: g, href: "/admin/gonderiler" },

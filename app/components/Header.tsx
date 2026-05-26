@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useState } from "react";
 import HizmetIkon from "./HizmetIkon";
 
+type EkstraOge = { id: number; baslik: string; href: string; yeniSekme: boolean };
+
 // "Neden DVN Cert" açılır menü öğeleri - tek kaynak (masaüstü + mobil)
 const kurumsalMenu = [
   {
@@ -99,6 +101,7 @@ const hizmetlerMenu: {
   },
   { baslik: "2. Taraf Denetimleri", href: "/hizmetler/2-taraf-denetimleri", ikon: "denetim", alt: [] },
   { baslik: "Eğitimler", href: "/egitimler", ikon: "egitim", alt: [] },
+  { baslik: "Etkinlikler", href: "/etkinlikler", ikon: "egitim", alt: [] },
 ];
 
 // "İletişim" açılır menü öğeleri (Başvuru Talebi dış DBYS sistemine gider)
@@ -135,7 +138,7 @@ const iletisimMenu: { baslik: string; href: string; dis?: boolean; icon: React.R
   },
 ];
 
-export default function Header() {
+export default function Header({ ekstraOgeler = [] }: { ekstraOgeler?: EkstraOge[] }) {
   const [mobilMenuAcik, setMobilMenuAcik] = useState(false);
   const [kurumsalAcikMobil, setKurumsalAcikMobil] = useState(false);
   const [hizmetlerAcikMobil, setHizmetlerAcikMobil] = useState(false);
@@ -374,6 +377,16 @@ export default function Header() {
             <Link href="/duyurular">Duyurular</Link>
             <Link href="/blog">Blog</Link>
 
+            {ekstraOgeler.map((o) => (
+              <Link
+                key={o.id}
+                href={o.href}
+                {...(o.yeniSekme ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
+                {o.baslik}
+              </Link>
+            ))}
+
             {/* İletişim - açılır menü */}
             <div className="dvn-dd" style={{ position: "relative" }}>
               <Link
@@ -597,6 +610,17 @@ export default function Header() {
           <Link href="/kariyer" onClick={() => setMobilMenuAcik(false)}>Kariyer</Link>
           <Link href="/duyurular" onClick={() => setMobilMenuAcik(false)}>Duyurular</Link>
           <Link href="/blog" onClick={() => setMobilMenuAcik(false)}>Blog</Link>
+
+          {ekstraOgeler.map((o) => (
+            <Link
+              key={o.id}
+              href={o.href}
+              {...(o.yeniSekme ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              onClick={() => setMobilMenuAcik(false)}
+            >
+              {o.baslik}
+            </Link>
+          ))}
 
           {/* İletişim - mobil genişleyen alt menü */}
           <div>

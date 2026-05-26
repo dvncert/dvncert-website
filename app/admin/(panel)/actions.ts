@@ -12,6 +12,8 @@ import {
   referanslar,
   formGonderileri,
   siteAyarlari,
+  egitimEtkinlikleri,
+  ekstraMenuOgeleri,
 } from "@/lib/db/schema";
 
 // ---- FormData yardımcıları ----
@@ -186,6 +188,77 @@ export async function gonderiDurum(fd: FormData) {
 export async function gonderiSil(fd: FormData) {
   await db.delete(formGonderileri).where(eq(formGonderileri.id, Number(s(fd, "id"))));
   yenile("/admin/gonderiler");
+}
+
+// ============ EĞİTİM ETKİNLİKLERİ ============
+function tarihParse(deger: string): Date | null {
+  if (!deger) return null;
+  const d = new Date(deger);
+  return Number.isNaN(d.getTime()) ? null : d;
+}
+
+export async function etkinlikKaydet(fd: FormData) {
+  const id = s(fd, "id");
+  const gorselVeri = await gorselWebp(fd.get("gorselDosya"), 1600, 900);
+  const baslangic = tarihParse(s(fd, "baslangic"));
+  if (!baslangic) throw new Error("Başlangıç tarihi/saati zorunludur (örn. 2026-06-15T19:00).");
+  const bitis = tarihParse(s(fd, "bitis"));
+
+  const temel = {
+    slug: s(fd, "slug"),
+    baslik: s(fd, "baslik"),
+    kategori: s(fd, "kategori"),
+    baslangic,
+    bitis,
+    yer: s(fd, "yer"),
+    ozet: s(fd, "ozet"),
+    icerik: s(fd, "icerik"),
+    gorselAlt: s(fd, "gorselAlt") || null,
+    kayitUrl: s(fd, "kayitUrl") || null,
+    ucretli: bool(fd, "ucretli"),
+    seoTitle: s(fd, "seoTitle") || null,
+    seoDescription: s(fd, "seoDescription") || null,
+    noIndex: bool(fd, "noIndex"),
+    yayinda: bool(fd, "yayinda"),
+    guncellenme: new Date(),
+  };
+  if (id) {
+    await db
+      .update(egitimEtkinlikleri)
+      .set(gorselVeri ? { ...temel, gorselVeri } : temel)
+      .where(eq(egitimEtkinlikleri.id, Number(id)));
+  } else {
+    await db.insert(egitimEtkinlikleri).values({ ...temel, gorselVeri: gorselVeri ?? null });
+  }
+  yenile("/etkinlikler", "/", "/admin/etkinlikler");
+  redirect("/admin/etkinlikler");
+}
+export async function etkinlikSil(fd: FormData) {
+  await db.delete(egitimEtkinlikleri).where(eq(egitimEtkinlikleri.id, Number(s(fd, "id"))));
+  yenile("/etkinlikler", "/", "/admin/etkinlikler");
+}
+
+// ============ ÜST MENÜ EK ÖĞELERİ ============
+export async function menuOgesiKaydet(fd: FormData) {
+  const id = s(fd, "id");
+  const veri = {
+    baslik: s(fd, "baslik"),
+    href: s(fd, "href"),
+    yeniSekme: bool(fd, "yeniSekme"),
+    sira: num(fd, "sira") ?? 0,
+    aktif: bool(fd, "aktif"),
+    guncellenme: new Date(),
+  };
+  if (id) await db.update(ekstraMenuOgeleri).set(veri).where(eq(ekstraMenuOgeleri.id, Number(id)));
+  else await db.insert(ekstraMenuOgeleri).values(veri);
+  updateTag("ust-menu");
+  yenile("/", "/admin/menu");
+  redirect("/admin/menu");
+}
+export async function menuOgesiSil(fd: FormData) {
+  await db.delete(ekstraMenuOgeleri).where(eq(ekstraMenuOgeleri.id, Number(s(fd, "id"))));
+  updateTag("ust-menu");
+  yenile("/", "/admin/menu");
 }
 
 // ============ SİTE AYARLARI (sosyal medya vb.) ============
