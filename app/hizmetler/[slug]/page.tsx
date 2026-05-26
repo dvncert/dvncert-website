@@ -5,7 +5,8 @@ import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
 import HizmetIkon from "../../components/HizmetIkon";
 import { hizmetler, hizmetGetir } from "@/lib/hizmetler";
-import { siteConfig } from "@/lib/site-config";
+import { hizmetIcerikGetirDB } from "@/lib/sayfa-icerigi";
+import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 import { serviceSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -24,16 +25,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const hizmet = hizmetGetir(slug);
   if (!hizmet) return { title: "Hizmet bulunamadı" };
 
-  return {
+  return sayfaMetadataUret({
+    yol: `/hizmetler/${hizmet.slug}`,
     title: hizmet.baslik,
     description: hizmet.kisaAciklama,
-    alternates: { canonical: `${siteConfig.url}/hizmetler/${hizmet.slug}` },
-  };
+  });
 }
 
 export default async function HizmetDetaySayfasi({ params }: Params) {
   const { slug } = await params;
-  const hizmet = hizmetGetir(slug);
+  const hizmet = await hizmetIcerikGetirDB(slug);
   if (!hizmet) notFound();
 
   const girisParagraflar = hizmet.giris.split("\n\n");

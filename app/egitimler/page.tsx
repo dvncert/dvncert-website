@@ -3,40 +3,41 @@ import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import HizmetIkon from "../components/HizmetIkon";
-import { siteConfig } from "@/lib/site-config";
 import { courseSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { sayfaIcerigiGetir, alanDegeri, egitimIkonu } from "@/lib/sayfa-icerigi";
+import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 
-export const metadata: Metadata = {
-  title: "Eğitimler",
-  description:
-    "DVN Cert ISO yönetim sistemleri eğitim programları: ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 eğitimleri. Çevrim içi veya yüz yüze, genel katılıma açık.",
-  alternates: { canonical: `${siteConfig.url}/egitimler` },
-};
+const YOL = "/egitimler";
 
-const egitimler = [
-  {
-    ikon: "kalite",
-    baslik: "ISO 9001 Kalite Yönetim Sistemi Eğitimi",
-    icerik: "Temel kavramlar, madde bazlı gereklilikler ve uygulama örnekleri.",
-  },
-  {
-    ikon: "cevre",
-    baslik: "ISO 14001 Çevre Yönetim Sistemi Eğitimi",
-    icerik: "Çevre boyutları, risk ve fırsat yönetimi ve mevzuat uyumu.",
-  },
-  {
-    ikon: "isg",
-    baslik: "ISO 45001 İş Sağlığı ve Güvenliği Yönetim Sistemi Eğitimi",
-    icerik: "Tehlike tanımlama, risk değerlendirme ve İSG performans yönetimi.",
-  },
-  {
-    ikon: "enerji",
-    baslik: "ISO 50001 Enerji Yönetim Sistemi Eğitimi",
-    icerik: "Enerji performans göstergeleri, enerji verimliliği ve sürekli iyileştirme.",
-  },
-];
+export const revalidate = 300;
 
-export default function EgitimlerSayfasi() {
+export async function generateMetadata(): Promise<Metadata> {
+  return sayfaMetadataUret({
+    yol: YOL,
+    title: "Eğitimler",
+    description:
+      "DVN Cert ISO yönetim sistemleri eğitim programları: ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 eğitimleri. Çevrim içi veya yüz yüze, genel katılıma açık.",
+  });
+}
+
+function egitimKartlariCozumle(metin: string): { baslik: string; icerik: string; ikon: string }[] {
+  if (!metin.trim()) return [];
+  return metin
+    .split(/\n\s*\n/)
+    .filter((b) => b.trim())
+    .map((b) => {
+      const satirlar = b.split("\n");
+      const baslik = (satirlar[0] ?? "").replace(/^##\s*/, "").trim();
+      const icerik = satirlar.slice(1).join("\n").trim();
+      return { baslik, icerik, ikon: egitimIkonu(baslik) };
+    });
+}
+
+export default async function EgitimlerSayfasi() {
+  const icerik = await sayfaIcerigiGetir(YOL);
+  const al = (anahtar: string) => alanDegeri(icerik, YOL, anahtar);
+  const egitimler = egitimKartlariCozumle(al("egitim-kartlari"));
+
   return (
     <main>
       <script
@@ -46,7 +47,7 @@ export default function EgitimlerSayfasi() {
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Hizmetler", url: "/hizmetler" },
             { ad: "Eğitimler", url: "/egitimler" },
-          ])
+          ]),
         )}
       />
       {egitimler.map((e) => (
@@ -54,7 +55,7 @@ export default function EgitimlerSayfasi() {
           key={e.baslik}
           type="application/ld+json"
           dangerouslySetInnerHTML={schemaScript(
-            courseSchema({ ad: e.baslik, aciklama: e.icerik, url: "/egitimler" })
+            courseSchema({ ad: e.baslik, aciklama: e.icerik, url: "/egitimler" }),
           )}
         />
       ))}
@@ -72,15 +73,13 @@ export default function EgitimlerSayfasi() {
       <section style={{ background: "white", padding: "60px 32px 36px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto" }}>
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 10px" }}>
-            ISO YÖNETİM SİSTEMLERİ EĞİTİM PROGRAMLARI
+            {al("giris-etiket")}
           </p>
           <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: "0 0 16px", lineHeight: 1.3 }}>
-            Yönetim sistemi bilgi seviyenizi artırın
+            {al("giris-baslik")}
           </h2>
           <p style={{ fontSize: 15, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: 0 }}>
-            DVN Cert olarak, uluslararası standartlarda belgelendirme deneyimimizden edindiğimiz bilgi birikimini
-            profesyonel eğitim programlarımızla paylaşarak kurumların yönetim sistemi bilgi seviyesini artırmayı
-            hedefliyoruz. Eğitimlerimiz çevrim içi veya yüz yüze gerçekleştirilmekte olup genel katılıma açıktır.
+            {al("giris-metin")}
           </p>
         </div>
       </section>
@@ -146,10 +145,8 @@ export default function EgitimlerSayfasi() {
           }}
         >
           <div>
-            <h2 style={{ color: "white", fontSize: 21, fontWeight: 500, margin: "0 0 6px" }}>Eğitim talebinde bulunun</h2>
-            <p style={{ color: "#9aa5b1", fontSize: 13.5, margin: 0 }}>
-              Kurumunuza özel veya genel katılımlı eğitim programları için bizimle iletişime geçin.
-            </p>
+            <h2 style={{ color: "white", fontSize: 21, fontWeight: 500, margin: "0 0 6px" }}>{al("cta-baslik")}</h2>
+            <p style={{ color: "#9aa5b1", fontSize: 13.5, margin: 0 }}>{al("cta-metin")}</p>
           </div>
           <Link
             href="/iletisim"

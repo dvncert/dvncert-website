@@ -14,6 +14,7 @@ import { db, dbHazir } from "./db";
 import { sayfaBloklari } from "./db/schema";
 import { siteConfig } from "./site-config";
 import { isoIcerikler, type IsoIcerik, type IsoKart } from "./iso-icerik";
+import { hizmetGetir, type Hizmet, type SurecAdimi } from "./hizmetler";
 
 export type AlanTipi = "input" | "textarea" | "textarea-uzun";
 
@@ -76,6 +77,40 @@ const isoSayfaTanimlari: Record<string, SayfaIcerikTanim> = Object.fromEntries(
   ]),
 );
 
+/** Hizmet detay sayfaları (/hizmetler/[slug]) için alan üretici. */
+function hizmetAlanlari(h: Hizmet): Alan[] {
+  return [
+    { anahtar: "kisa-aciklama", etiket: "Üst kısa açıklama (sayfa başlığı altında)", tip: "textarea", varsayilan: h.kisaAciklama },
+    {
+      anahtar: "giris",
+      etiket: "Giriş paragrafları (boş satırla ayır)",
+      tip: "textarea-uzun",
+      varsayilan: h.giris,
+      yardim: "Paragrafları boş satırla ayırın.",
+    },
+    {
+      anahtar: "faydalar",
+      etiket: "Kazanımlar / faydalar (her satır 1 madde)",
+      tip: "textarea-uzun",
+      varsayilan: h.faydalar.join("\n"),
+    },
+    {
+      anahtar: "surec-kartlari",
+      etiket: "Süreç adımları ('## Başlık' formatı)",
+      tip: "textarea-uzun",
+      varsayilan: (h.surec ?? []).map((s) => `## ${s.baslik}\n${s.aciklama}`).join("\n\n"),
+      yardim: "Her adım için: '## Başlık' satırı, ardından açıklama. Adımları boş satırla ayırın.",
+    },
+  ];
+}
+
+const hizmetSayfaTanimlari: Record<string, SayfaIcerikTanim> = Object.fromEntries(
+  (["sistem-belgelendirme", "2-taraf-denetimleri"] as const)
+    .map((slug) => hizmetGetir(slug))
+    .filter((h): h is Hizmet => Boolean(h))
+    .map((h) => [`/hizmetler/${h.slug}`, { ad: h.baslik, alanlar: hizmetAlanlari(h) }]),
+);
+
 export const SAYFA_ICERIK: Record<string, SayfaIcerikTanim> = {
   "/hakkimizda": {
     ad: "Hakkımızda",
@@ -120,6 +155,31 @@ export const SAYFA_ICERIK: Record<string, SayfaIcerikTanim> = {
     ],
   },
   ...isoSayfaTanimlari,
+  ...hizmetSayfaTanimlari,
+  "/egitimler": {
+    ad: "Eğitimler",
+    alanlar: [
+      { anahtar: "giris-etiket", etiket: "Giriş — üst etiket", tip: "input", varsayilan: "ISO YÖNETİM SİSTEMLERİ EĞİTİM PROGRAMLARI" },
+      { anahtar: "giris-baslik", etiket: "Giriş — başlık", tip: "input", varsayilan: "Yönetim sistemi bilgi seviyenizi artırın" },
+      {
+        anahtar: "giris-metin",
+        etiket: "Giriş — paragraf",
+        tip: "textarea-uzun",
+        varsayilan:
+          "DVN Cert olarak, uluslararası standartlarda belgelendirme deneyimimizden edindiğimiz bilgi birikimini profesyonel eğitim programlarımızla paylaşarak kurumların yönetim sistemi bilgi seviyesini artırmayı hedefliyoruz. Eğitimlerimiz çevrim içi veya yüz yüze gerçekleştirilmekte olup genel katılıma açıktır.",
+      },
+      {
+        anahtar: "egitim-kartlari",
+        etiket: "Eğitim kartları ('## Başlık' formatı)",
+        tip: "textarea-uzun",
+        varsayilan:
+          "## ISO 9001 Kalite Yönetim Sistemi Eğitimi\nTemel kavramlar, madde bazlı gereklilikler ve uygulama örnekleri.\n\n## ISO 14001 Çevre Yönetim Sistemi Eğitimi\nÇevre boyutları, risk ve fırsat yönetimi ve mevzuat uyumu.\n\n## ISO 45001 İş Sağlığı ve Güvenliği Yönetim Sistemi Eğitimi\nTehlike tanımlama, risk değerlendirme ve İSG performans yönetimi.\n\n## ISO 50001 Enerji Yönetim Sistemi Eğitimi\nEnerji performans göstergeleri, enerji verimliliği ve sürekli iyileştirme.",
+        yardim: "Her eğitim için: '## Başlık' satırı, ardından açıklama. Eğitimleri boş satırla ayırın. İkonlar başlığa göre otomatik atanır.",
+      },
+      { anahtar: "cta-baslik", etiket: "Alt CTA — başlık", tip: "input", varsayilan: "Eğitim talebinde bulunun" },
+      { anahtar: "cta-metin", etiket: "Alt CTA — alt metin", tip: "input", varsayilan: "Kurumunuza özel veya genel katılımlı eğitim programları için bizimle iletişime geçin." },
+    ],
+  },
 };
 
 // ---------- Erişim katmanı ----------
@@ -173,6 +233,45 @@ function maddeleriCozumle(metin: string): string[] {
     .split("\n")
     .map((s) => s.trim())
     .filter(Boolean);
+}
+
+/** Süreç kartları formatından SurecAdimi[] üretir (kartlariCozumle ile aynı format). */
+function surecCozumle(metin: string): SurecAdimi[] {
+  return kartlariCozumle(metin).map((k) => ({ baslik: k.baslik, aciklama: k.metin }));
+}
+
+/**
+ * Bir hizmet sayfasının (/hizmetler/[slug]) statik + DB override içeriklerinin
+ * birleşmiş halini döner. lib/hizmetler.ts'teki Hizmet shape'inde, sadece
+ * düzenlenebilir alanlar override edilmiş olur.
+ */
+export async function hizmetIcerikGetirDB(slug: string): Promise<Hizmet | undefined> {
+  const def = hizmetGetir(slug);
+  if (!def) return undefined;
+  const yol = `/hizmetler/${slug}`;
+  // Yalnızca admin'de tanımlı sayfalar için override uygula
+  if (!SAYFA_ICERIK[yol]) return def;
+
+  const icerik = await sayfaIcerigiGetir(yol);
+  const al = (k: string) => alanDegeri(icerik, yol, k);
+
+  return {
+    ...def,
+    kisaAciklama: al("kisa-aciklama"),
+    giris: al("giris"),
+    faydalar: maddeleriCozumle(al("faydalar")),
+    surec: surecCozumle(al("surec-kartlari")),
+  };
+}
+
+/** Eğitimler sayfasındaki kart başlığından ikon anahtarına çevrim. */
+export function egitimIkonu(baslik: string): string {
+  const b = baslik.toLowerCase();
+  if (b.includes("9001")) return "kalite";
+  if (b.includes("14001")) return "cevre";
+  if (b.includes("45001")) return "isg";
+  if (b.includes("50001")) return "enerji";
+  return "egitim";
 }
 
 /**
