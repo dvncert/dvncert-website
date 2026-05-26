@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
-import BizleTakipEt from "../components/BizleTakipEt";
 import { bloglariGetir } from "@/lib/icerik";
 import { tarihiBicimle } from "@/lib/duyurular";
 import { siteConfig } from "@/lib/site-config";
@@ -90,8 +89,6 @@ export default async function BlogSayfasi() {
           )}
         </div>
       </section>
-
-      <BizleTakipEt />
 
       <style>{`
         .dvn-blog-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(2,35,152,0.12) !important; }

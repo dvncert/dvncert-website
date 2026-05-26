@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
 import WhatsAppButton from "./components/WhatsAppButton";
+import SosyalSabitButon from "./components/SosyalSabitButon";
 import ScrollToTop from "./components/ScrollToTop";
 import ChromeGate from "./components/ChromeGate";
 
@@ -138,6 +139,7 @@ export default function RootLayout({
         </ChromeGate>
         <ChromeGate>
           <WhatsAppButton />
+          <SosyalSabitButon />
           <ScrollToTop />
           <CookieConsent />
         </ChromeGate>
