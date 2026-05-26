@@ -68,9 +68,26 @@ export default async function SosyalSabitButon() {
         zIndex: 9990,
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
         gap: 10,
       }}
     >
+      <div
+        className="dvn-sosyal-rail-title"
+        style={{
+          fontSize: 9.5,
+          fontWeight: 600,
+          color: "var(--dvn-turuncu)",
+          letterSpacing: "1.5px",
+          textTransform: "uppercase",
+          whiteSpace: "nowrap",
+          paddingBottom: 6,
+          borderBottom: "2px solid var(--dvn-turuncu-acik)",
+          marginBottom: 2,
+        }}
+      >
+        Bizi Takip Et
+      </div>
       {hesaplar.map((h) => (
         <a
           key={h.tip}
@@ -106,6 +123,7 @@ export default async function SosyalSabitButon() {
           .dvn-sosyal-rail { left: 10px !important; gap: 8px !important; }
           .dvn-sosyal-rail-btn { width: 38px !important; height: 38px !important; }
           .dvn-sosyal-rail-btn svg { width: 18px !important; height: 18px !important; }
+          .dvn-sosyal-rail-title { display: none !important; }
         }
       `}</style>
     </div>
