@@ -4,7 +4,8 @@ import KapakGorsel from "./KapakGorsel";
 import Akordeon from "./Akordeon";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { schemaScript, faqSchema } from "@/lib/seo-schemas";
-import { isoIcerikler, isoTumStandartlar } from "@/lib/iso-icerik";
+import { isoTumStandartlar } from "@/lib/iso-icerik";
+import { isoIcerikGetirDB } from "@/lib/sayfa-icerigi";
 
 /**
  * ISO yönetim sistemi standartları için ortak sayfa düzeni.
@@ -106,8 +107,8 @@ function SurecKart({ numara, baslik, children }: { numara: number; baslik: strin
   );
 }
 
-export default function IsoStandartSayfasi({ slug }: { slug: string }) {
-  const veri = isoIcerikler[slug];
+export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
+  const veri = await isoIcerikGetirDB(slug);
   const hizmet = hizmetGetir(slug);
   if (!veri || !hizmet) return null;
 

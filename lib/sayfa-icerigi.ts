@@ -13,6 +13,7 @@ import { eq } from "drizzle-orm";
 import { db, dbHazir } from "./db";
 import { sayfaBloklari } from "./db/schema";
 import { siteConfig } from "./site-config";
+import { isoIcerikler, type IsoIcerik, type IsoKart } from "./iso-icerik";
 
 export type AlanTipi = "input" | "textarea" | "textarea-uzun";
 
@@ -29,6 +30,51 @@ export type SayfaIcerikTanim = {
   ad: string;
   alanlar: Alan[];
 };
+
+/** ISO sayfaları için ortak alan üretici — lib/iso-icerik.ts'teki statik veriyi varsayılan olarak alır. */
+function isoAlanlari(def: IsoIcerik): Alan[] {
+  return [
+    {
+      anahtar: "nedir",
+      etiket: `"${def.stdAd} Belgesi Nedir?" — paragraflar`,
+      tip: "textarea-uzun",
+      varsayilan: def.nedirParagraflar.join("\n\n"),
+      yardim: "Her paragrafı boş bir satırla ayırın. Sayfada akredite cümlesi otomatik olarak en sona eklenir.",
+    },
+    { anahtar: "bolum2-baslik", etiket: "İlkeler/Unsurlar — bölüm başlığı", tip: "input", varsayilan: def.bolum2Baslik },
+    { anahtar: "bolum2-giris", etiket: "İlkeler/Unsurlar — giriş paragrafı", tip: "textarea", varsayilan: def.bolum2Giris },
+    {
+      anahtar: "bolum2-kartlar",
+      etiket: "İlkeler/Unsurlar — kart listesi",
+      tip: "textarea-uzun",
+      varsayilan: def.bolum2Kartlar.map((k) => `## ${k.baslik}\n${k.metin}`).join("\n\n"),
+      yardim: "Her kart için: '## Başlık' satırı, ardından kart metni. Kartları boş satırla ayırın.",
+    },
+    { anahtar: "faydalar-giris", etiket: "Faydalar — giriş paragrafı", tip: "textarea", varsayilan: def.faydalarGiris },
+    {
+      anahtar: "ic-faydalar",
+      etiket: "Kuruluş içi faydalar — her satır 1 madde",
+      tip: "textarea-uzun",
+      varsayilan: def.icFaydalar.join("\n"),
+      yardim: "Her satır = 1 madde. Etiket-açıklama biçimi için 'Etiket: açıklama' yazabilirsiniz.",
+    },
+    {
+      anahtar: "pazar-faydalar",
+      etiket: "Pazar/dış faydalar — her satır 1 madde",
+      tip: "textarea-uzun",
+      varsayilan: def.pazarFaydalar.join("\n"),
+      yardim: "Her satır = 1 madde. Etiket-açıklama biçimi için 'Etiket: açıklama' yazabilirsiniz.",
+    },
+    { anahtar: "faydalar-kapanis", etiket: "Faydalar — kapanış paragrafı", tip: "textarea", varsayilan: def.faydalarKapanis },
+  ];
+}
+
+const isoSayfaTanimlari: Record<string, SayfaIcerikTanim> = Object.fromEntries(
+  Object.values(isoIcerikler).map((def) => [
+    `/hizmetler/${def.slug}`,
+    { ad: `${def.stdKod} ${def.sistemAdiBuyuk}`, alanlar: isoAlanlari(def) },
+  ]),
+);
 
 export const SAYFA_ICERIK: Record<string, SayfaIcerikTanim> = {
   "/hakkimizda": {
@@ -73,6 +119,7 @@ export const SAYFA_ICERIK: Record<string, SayfaIcerikTanim> = {
       { anahtar: "pol-6-metin", etiket: "6. politika — metin", tip: "textarea", varsayilan: "Belgelendirilen kuruluşların sertifika ve akreditasyon markalarını yalnızca kapsam dahilinde ve yanıltıcı olmayacak biçimde kullanmasını bekleriz. Hatalı kullanım durumunda gerekli düzeltici işlemler uygulanır." },
     ],
   },
+  ...isoSayfaTanimlari,
 };
 
 // ---------- Erişim katmanı ----------
@@ -103,4 +150,59 @@ export function alanDegeri(icerik: Record<string, string>, yol: string, anahtar:
   if (dbDeger && dbDeger.trim()) return dbDeger;
   const alan = SAYFA_ICERIK[yol]?.alanlar.find((a) => a.anahtar === anahtar);
   return alan?.varsayilan ?? "";
+}
+
+// ---------- ISO sayfaları için DB-aware getirme ----------
+
+/** "## Başlık\nMetin..." formatından IsoKart[] dizisi üretir. */
+function kartlariCozumle(metin: string): IsoKart[] {
+  if (!metin.trim()) return [];
+  const bloklar = metin.split(/\n\s*\n/).filter((b) => b.trim());
+  return bloklar.map((b) => {
+    const satirlar = b.split("\n");
+    const baslikSatiri = satirlar[0] ?? "";
+    const baslik = baslikSatiri.replace(/^##\s*/, "").trim();
+    const metinKismi = satirlar.slice(1).join("\n").trim();
+    return { baslik, metin: metinKismi };
+  });
+}
+
+/** Çok satırlı metni satır-bazlı maddelere çevirir; boşları atar. */
+function maddeleriCozumle(metin: string): string[] {
+  return metin
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+/**
+ * Bir ISO sayfasının statik + DB override içeriklerinin birleşmiş halini döner.
+ * IsoStandartSayfasi bileşeni bunu kullanır.
+ */
+export async function isoIcerikGetirDB(slug: string): Promise<IsoIcerik | undefined> {
+  const def = isoIcerikler[slug];
+  if (!def) return undefined;
+  const yol = `/hizmetler/${slug}`;
+  const icerik = await sayfaIcerigiGetir(yol);
+  const al = (k: string) => alanDegeri(icerik, yol, k);
+
+  const nedirHam = al("nedir");
+  const kartlarHam = al("bolum2-kartlar");
+  const icHam = al("ic-faydalar");
+  const pazarHam = al("pazar-faydalar");
+
+  return {
+    ...def,
+    nedirParagraflar: nedirHam
+      .split(/\n\s*\n/)
+      .map((p) => p.trim())
+      .filter(Boolean),
+    bolum2Baslik: al("bolum2-baslik"),
+    bolum2Giris: al("bolum2-giris"),
+    bolum2Kartlar: kartlariCozumle(kartlarHam),
+    faydalarGiris: al("faydalar-giris"),
+    icFaydalar: maddeleriCozumle(icHam),
+    pazarFaydalar: maddeleriCozumle(pazarHam),
+    faydalarKapanis: al("faydalar-kapanis"),
+  };
 }
