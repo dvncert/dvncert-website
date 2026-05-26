@@ -4,13 +4,19 @@ import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { akreditasyonBelgeleriniGetir } from "@/lib/faz2-icerik";
+import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 
-export const metadata: Metadata = {
-  title: "Akreditasyonlarımız",
-  description:
-    "DVN Cert, TÜRKAK akreditasyonu kapsamında ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri belgelendirmesi yapar. Akreditasyon kapsamımızın ayrıntıları.",
-  alternates: { canonical: `${siteConfig.url}/akreditasyonlarimiz` },
-};
+export const revalidate = 300;
+
+export async function generateMetadata(): Promise<Metadata> {
+  return sayfaMetadataUret({
+    yol: "/akreditasyonlarimiz",
+    title: "Akreditasyonlarımız",
+    description:
+      "DVN Cert, TÜRKAK akreditasyonu kapsamında ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri belgelendirmesi yapar. Akreditasyon kapsamımızın ayrıntıları.",
+  });
+}
 
 // Kapsamdaki her standardın açıklaması (kapsam listesi site-config'ten gelir)
 const standartAciklamalari: Record<string, { ad: string; aciklama: string }> = {
@@ -36,8 +42,9 @@ const standartAciklamalari: Record<string, { ad: string; aciklama: string }> = {
   },
 };
 
-export default function AkreditasyonlarimizSayfasi() {
+export default async function AkreditasyonlarimizSayfasi() {
   const { akreditasyon } = siteConfig;
+  const belgeler = await akreditasyonBelgeleriniGetir();
 
   return (
     <main>
@@ -178,6 +185,69 @@ export default function AkreditasyonlarimizSayfasi() {
           </div>
         </div>
       </section>
+
+      {/* Akreditasyon belgeleri (admin'den yüklenenler) */}
+      {belgeler.length > 0 && (
+        <section style={{ background: "white", padding: "0 32px 60px" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <div style={{ marginBottom: 26 }}>
+              <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+                BELGELERİMİZ
+              </p>
+              <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 24, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+                Akreditasyon ve uygunluk belgeleri
+              </h2>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 18 }}>
+              {belgeler.map((b) => (
+                <div
+                  key={b.id}
+                  style={{
+                    background: "var(--dvn-gri-50)",
+                    border: "0.5px solid var(--dvn-gri-300)",
+                    borderRadius: 14,
+                    padding: "20px 22px",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 15, fontWeight: 600, margin: "0 0 6px" }}>{b.ad}</h3>
+                  {b.kapsam && <p style={{ fontSize: 12.5, color: "var(--dvn-turuncu)", fontWeight: 500, margin: "0 0 8px" }}>{b.kapsam}</p>}
+                  {b.aciklama && <p style={{ fontSize: 13, color: "var(--dvn-gri-700)", lineHeight: 1.6, margin: "0 0 12px" }}>{b.aciklama}</p>}
+                  {b.gecerlilikTarihi && (
+                    <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: "0 0 14px" }}>
+                      Geçerlilik: {b.gecerlilikTarihi}
+                    </p>
+                  )}
+                  {b.belge && (
+                    <a
+                      href={b.belge}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        marginTop: "auto",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6,
+                        fontSize: 13,
+                        fontWeight: 500,
+                        color: "var(--dvn-turuncu)",
+                        textDecoration: "none",
+                      }}
+                    >
+                      {b.belgeMime === "application/pdf" ? "PDF'i görüntüle" : "Belgeyi görüntüle"}
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M7 7h10v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Sertifika doğrulama yönlendirmesi */}
       <section style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>

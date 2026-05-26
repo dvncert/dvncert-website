@@ -36,6 +36,13 @@
       "when": 1779805998759,
       "tag": "0004_workable_maggott",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1779807261313,
+      "tag": "0005_sticky_smasher",
+      "breakpoints": true
     }
   ]
 }

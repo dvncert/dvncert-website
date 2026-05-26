@@ -2,15 +2,20 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
-import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { logoDosyalariniGetir, type LogoDosyasi } from "@/lib/faz2-icerik";
+import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 
-export const metadata: Metadata = {
-  title: "Logolarımız",
-  description:
-    "DVN Cert kurumsal logosu ve marka kullanım kuralları. Logomuzun doğru kullanımına ilişkin yönergeler ve indirilebilir logo dosyaları.",
-  alternates: { canonical: `${siteConfig.url}/logolarimiz` },
-};
+export const revalidate = 300;
+
+export async function generateMetadata(): Promise<Metadata> {
+  return sayfaMetadataUret({
+    yol: "/logolarimiz",
+    title: "Logolarımız",
+    description:
+      "DVN Cert kurumsal logosu ve marka kullanım kuralları. Logomuzun doğru kullanımına ilişkin yönergeler ve indirilebilir logo dosyaları.",
+  });
+}
 
 const yapilmasiGerekenler = [
   "Logoyu orijinal en-boy oranını koruyarak kullanın.",
@@ -26,7 +31,8 @@ const yapilmamasiGerekenler = [
   "Logoyu, belgelendirme kapsamı dışında yanıltıcı biçimde kullanmayın.",
 ];
 
-export default function LogolarimizSayfasi() {
+export default async function LogolarimizSayfasi() {
+  const logolar = await logoDosyalariniGetir();
   return (
     <main>
       <script
@@ -35,7 +41,7 @@ export default function LogolarimizSayfasi() {
           breadcrumbSchema([
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Logolarımız", url: "/logolarimiz" },
-          ])
+          ]),
         )}
       />
 
@@ -48,7 +54,6 @@ export default function LogolarimizSayfasi() {
 
       <KapakGorsel alt="DVN Cert kurumsal logo ve marka kullanımı" etiket="Marka ve logo kullanım kuralları" oncelik />
 
-      {/* Logo indirme kartları */}
       <section style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ marginBottom: 32 }}>
@@ -60,19 +65,19 @@ export default function LogolarimizSayfasi() {
             </h2>
           </div>
 
-          <div
-            className="dvn-logo-grid"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}
-          >
-            {/* Açık zemin */}
-            <LogoKart zeminKoyu={false} baslik="Açık zemin için" />
-            {/* Koyu zemin */}
-            <LogoKart zeminKoyu={true} baslik="Koyu zemin için" />
-          </div>
+          {logolar.length === 0 ? (
+            <div className="dvn-logo-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+              <VarsayilanLogoKart zeminKoyu={false} />
+              <VarsayilanLogoKart zeminKoyu={true} />
+            </div>
+          ) : (
+            <div className="dvn-logo-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+              {logolar.map((l) => <LogoKart key={l.id} logo={l} />)}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Kullanım kuralları */}
       <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
@@ -84,11 +89,7 @@ export default function LogolarimizSayfasi() {
             </h2>
           </div>
 
-          <div
-            className="dvn-kural-grid"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}
-          >
-            {/* Yapılması gerekenler */}
+          <div className="dvn-kural-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
             <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", borderTop: "3px solid var(--dvn-altin)" }}>
               <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 18px", display: "flex", alignItems: "center", gap: 8 }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -106,7 +107,6 @@ export default function LogolarimizSayfasi() {
               </ul>
             </div>
 
-            {/* Yapılmaması gerekenler */}
             <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", borderTop: "3px solid var(--dvn-turuncu)" }}>
               <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 18px", display: "flex", alignItems: "center", gap: 8 }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -142,7 +142,69 @@ export default function LogolarimizSayfasi() {
   );
 }
 
-function LogoKart({ zeminKoyu, baslik }: { zeminKoyu: boolean; baslik: string }) {
+function LogoKart({ logo }: { logo: LogoDosyasi }) {
+  const zeminKoyu = logo.zeminTipi === "koyu";
+  const onizlemeUrl = logo.dosya;
+  const previewable = onizlemeUrl && (logo.dosyaMime?.startsWith("image/") ?? false);
+  return (
+    <div style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)" }}>
+      <div
+        style={{
+          background: zeminKoyu ? "var(--dvn-gradient-lacivert)" : "var(--dvn-gri-50)",
+          borderRadius: 12,
+          padding: "40px 24px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: 16,
+          minHeight: 150,
+          border: zeminKoyu ? "none" : "0.5px solid var(--dvn-gri-300)",
+        }}
+      >
+        {previewable ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img src={onizlemeUrl} alt={logo.ad} style={{ maxHeight: 120, maxWidth: "100%", width: "auto", height: "auto" }} />
+        ) : (
+          <span style={{ fontSize: 13, color: zeminKoyu ? "#cbd5e1" : "var(--dvn-gri-500)" }}>
+            {logo.dosyaMime?.split("/")[1]?.toUpperCase() ?? "Dosya"}
+          </span>
+        )}
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+        <div>
+          <p style={{ fontSize: 14, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>{logo.ad}</p>
+          {logo.aciklama && <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: 0 }}>{logo.aciklama}</p>}
+        </div>
+        {logo.dosya && (
+          <a
+            href={logo.dosya}
+            download={logo.dosyaAdi || undefined}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              background: "var(--dvn-gradient-turuncu)",
+              color: "white",
+              padding: "9px 18px",
+              borderRadius: "var(--dvn-radius-md)",
+              fontWeight: 500,
+              fontSize: 13,
+              boxShadow: "0 6px 16px rgba(245,130,32,0.28)",
+              textDecoration: "none",
+            }}
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            İndir
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function VarsayilanLogoKart({ zeminKoyu }: { zeminKoyu: boolean }) {
   return (
     <div style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)" }}>
       <div
@@ -160,32 +222,13 @@ function LogoKart({ zeminKoyu, baslik }: { zeminKoyu: boolean; baslik: string })
       >
         <Image src="/logo.webp" alt="DVN Cert Belgelendirme logosu" width={126} height={84} style={{ height: 84, width: "auto" }} />
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-        <div>
-          <p style={{ fontSize: 14, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>{baslik}</p>
-          <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: 0 }}>PNG · Yatay logo</p>
-        </div>
-        <a
-          href="/logo.png"
-          download
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            background: "var(--dvn-gradient-turuncu)",
-            color: "white",
-            padding: "9px 18px",
-            borderRadius: "var(--dvn-radius-md)",
-            fontWeight: 500,
-            fontSize: 13,
-            boxShadow: "0 6px 16px rgba(245,130,32,0.28)",
-          }}
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
-            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          İndir
-        </a>
+      <div>
+        <p style={{ fontSize: 14, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>
+          {zeminKoyu ? "Koyu zemin için" : "Açık zemin için"}
+        </p>
+        <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: 0, fontStyle: "italic" }}>
+          Admin panelinden logo yüklenmedi
+        </p>
       </div>
     </div>
   );

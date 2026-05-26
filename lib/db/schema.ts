@@ -134,6 +134,100 @@ export const egitimEtkinlikleri = pgTable("egitim_etkinlikleri", {
 });
 
 /**
+ * Ekip üyeleri — /ekibimiz sayfasında listelenir.
+ */
+export const ekipUyeleri = pgTable("ekip_uyeleri", {
+  id: serial("id").primaryKey(),
+  ad: varchar("ad", { length: 200 }).notNull(),
+  unvan: varchar("unvan", { length: 200 }).notNull(),
+  uzmanlik: text("uzmanlik"),
+  /** Profil fotoğrafı (yüklenince WebP'e çevrilir). */
+  fotoVeri: bytea("foto_veri"),
+  fotoAlt: text("foto_alt"),
+  sira: integer("sira").default(0).notNull(),
+  yayinda: boolean("yayinda").default(true).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/**
+ * Akreditasyon belgeleri — sertifika taramaları/PDF'leri.
+ * /akreditasyonlarimiz sayfasında gösterilir.
+ */
+export const akreditasyonBelgeleri = pgTable("akreditasyon_belgeleri", {
+  id: serial("id").primaryKey(),
+  ad: varchar("ad", { length: 255 }).notNull(),
+  aciklama: text("aciklama"),
+  kapsam: text("kapsam"),
+  /** PDF veya görsel (binary). */
+  belgeVeri: bytea("belge_veri"),
+  /** Dosya MIME türü (örn. application/pdf, image/webp). */
+  belgeMime: varchar("belge_mime", { length: 80 }),
+  /** YYYY-MM-DD geçerlilik tarihi (opsiyonel). */
+  gecerlilikTarihi: varchar("gecerlilik_tarihi", { length: 10 }),
+  sira: integer("sira").default(0).notNull(),
+  yayinda: boolean("yayinda").default(true).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/**
+ * Logo dosyaları — /logolarimiz sayfasında indirilebilir kart olarak gösterilir.
+ */
+export const logoDosyalari = pgTable("logo_dosyalari", {
+  id: serial("id").primaryKey(),
+  ad: varchar("ad", { length: 200 }).notNull(),
+  aciklama: text("aciklama"),
+  /** 'acik' / 'koyu' — önizleme zemin rengi. */
+  zeminTipi: varchar("zemin_tipi", { length: 20 }).default("acik").notNull(),
+  /** Dosya içeriği (binary, indirilebilir). */
+  dosyaVeri: bytea("dosya_veri"),
+  /** Dosya MIME türü. */
+  dosyaMime: varchar("dosya_mime", { length: 80 }),
+  /** Önerilen indirme dosya adı (örn. dvncert-logo-yatay.png). */
+  dosyaAdi: varchar("dosya_adi", { length: 200 }),
+  sira: integer("sira").default(0).notNull(),
+  yayinda: boolean("yayinda").default(true).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/**
+ * Dokümanlar — politika, talimat, prosedür, form vb.
+ */
+export const dokumanlar = pgTable("dokumanlar", {
+  id: serial("id").primaryKey(),
+  kod: varchar("kod", { length: 50 }).notNull(),
+  baslik: text("baslik").notNull(),
+  aciklama: text("aciklama"),
+  /** Politika / Talimat / Prosedür / Form vb. */
+  kategori: varchar("kategori", { length: 60 }).notNull(),
+  /** Görüntü için badge etiketi: PDF / DOCX / XLSX. */
+  tip: varchar("tip", { length: 10 }).notNull(),
+  dosyaVeri: bytea("dosya_veri"),
+  dosyaMime: varchar("dosya_mime", { length: 80 }),
+  dosyaAdi: varchar("dosya_adi", { length: 200 }),
+  sira: integer("sira").default(0).notNull(),
+  yayinda: boolean("yayinda").default(true).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/**
+ * Statik sayfaların SEO override'ı. Yol (URL path) primary key.
+ * Boş bırakılan alanlar için sayfanın varsayılan metadata'sı kullanılır.
+ */
+export const sayfaSeo = pgTable("sayfa_seo", {
+  yol: varchar("yol", { length: 200 }).primaryKey(),
+  seoTitle: text("seo_title"),
+  seoDescription: text("seo_description"),
+  noIndex: boolean("no_index").default(false).notNull(),
+  /** OG/Twitter görseli (WebP, opsiyonel). */
+  ogImageVeri: bytea("og_image_veri"),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/**
  * Üst navigasyon şeridine admin panelinden eklenen ek öğeler.
  * Mevcut hardcoded menülere (Neden DVN Cert / Hizmetler / İletişim) dokunmaz;
  * bunlar nav'ın sağına/sonuna eklenir.

@@ -2,26 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
-import { siteConfig } from "@/lib/site-config";
+import { ekipUyeleriniGetir } from "@/lib/faz2-icerik";
+import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
-export const metadata: Metadata = {
-  title: "Ekibimiz",
-  description:
-    "DVN Cert'in alanında deneyimli baş denetçi, teknik uzman ve değerlendirme ekibi. Yetkin kadromuzla bağımsız ve tarafsız belgelendirme hizmeti sunuyoruz.",
-  alternates: { canonical: `${siteConfig.url}/ekibimiz` },
-};
+export const revalidate = 300;
 
-// NOT: Aşağıdaki ekip bilgileri ÖRNEK / yer tutucudur.
-// Gerçek ekip üyeleri ve görselleriyle güncellenecektir.
-const ekip = [
-  { ad: "Genel Müdür", rol: "Üst Yönetim", uzmanlik: "Kurumsal yönetim ve strateji" },
-  { ad: "Belgelendirme Müdürü", rol: "Karar Mercii", uzmanlik: "Belgelendirme kararı ve gözetim" },
-  { ad: "Baş Denetçi", rol: "ISO 9001 / 14001", uzmanlik: "Kalite ve çevre yönetim sistemleri" },
-  { ad: "Baş Denetçi", rol: "ISO 45001", uzmanlik: "İş sağlığı ve güvenliği" },
-  { ad: "Teknik Uzman", rol: "ISO 50001", uzmanlik: "Enerji yönetim sistemleri" },
-  { ad: "Tarafsızlık Komitesi", rol: "Gözetim", uzmanlik: "Bağımsızlık ve tarafsızlığın güvencesi" },
-];
+export async function generateMetadata(): Promise<Metadata> {
+  return sayfaMetadataUret({
+    yol: "/ekibimiz",
+    title: "Ekibimiz",
+    description:
+      "DVN Cert'in alanında deneyimli baş denetçi, teknik uzman ve değerlendirme ekibi. Yetkin kadromuzla bağımsız ve tarafsız belgelendirme hizmeti sunuyoruz.",
+  });
+}
 
 function basHarfler(metin: string) {
   return metin
@@ -32,7 +26,9 @@ function basHarfler(metin: string) {
     .toUpperCase();
 }
 
-export default function EkibimizSayfasi() {
+export default async function EkibimizSayfasi() {
+  const ekip = await ekipUyeleriniGetir();
+
   return (
     <main>
       <script
@@ -41,7 +37,7 @@ export default function EkibimizSayfasi() {
           breadcrumbSchema([
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Ekibimiz", url: "/ekibimiz" },
-          ])
+          ]),
         )}
       />
 
@@ -54,7 +50,6 @@ export default function EkibimizSayfasi() {
 
       <KapakGorsel alt="DVN Cert uzman denetçi ve değerlendirme ekibi" ikon="denetim" etiket="Uzman ve bağımsız denetçi kadromuz" oncelik />
 
-      {/* Giriş */}
       <section style={{ background: "white", padding: "60px 32px 36px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 10px" }}>
@@ -71,71 +66,86 @@ export default function EkibimizSayfasi() {
         </div>
       </section>
 
-      {/* Ekip kartları */}
       <section style={{ background: "white", padding: "0 32px 60px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <div
-            className="dvn-ekip-grid"
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}
-          >
-            {ekip.map((kisi, i) => (
-              <div
-                key={i}
-                style={{
-                  background: "var(--dvn-gri-50)",
-                  borderRadius: 14,
-                  padding: "28px 24px",
-                  border: "0.5px solid var(--dvn-gri-300)",
-                  textAlign: "center",
-                }}
-              >
+          {ekip.length === 0 ? (
+            <p style={{ textAlign: "center", color: "var(--dvn-gri-500)", fontSize: 14, fontStyle: "italic" }}>
+              Ekip kadrosu yakında bu sayfada paylaşılacaktır.
+            </p>
+          ) : (
+            <div className="dvn-ekip-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+              {ekip.map((kisi) => (
                 <div
+                  key={kisi.id}
                   style={{
-                    width: 76,
-                    height: 76,
-                    margin: "0 auto 16px",
-                    borderRadius: "50%",
-                    background: "var(--dvn-gradient-lacivert)",
-                    color: "var(--dvn-altin-acik)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 22,
-                    fontWeight: 600,
-                    boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
+                    background: "var(--dvn-gri-50)",
+                    borderRadius: 14,
+                    padding: "28px 24px",
+                    border: "0.5px solid var(--dvn-gri-300)",
+                    textAlign: "center",
                   }}
                 >
-                  {basHarfler(kisi.ad)}
+                  {kisi.foto ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={kisi.foto}
+                      alt={kisi.fotoAlt || kisi.ad}
+                      style={{
+                        width: 96,
+                        height: 96,
+                        margin: "0 auto 16px",
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                        border: "0.5px solid var(--dvn-gri-300)",
+                        boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
+                        display: "block",
+                      }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        width: 96,
+                        height: 96,
+                        margin: "0 auto 16px",
+                        borderRadius: "50%",
+                        background: "var(--dvn-gradient-lacivert)",
+                        color: "var(--dvn-altin-acik)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 26,
+                        fontWeight: 600,
+                        boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
+                      }}
+                    >
+                      {basHarfler(kisi.ad)}
+                    </div>
+                  )}
+                  <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 500, margin: "0 0 4px" }}>{kisi.ad}</h3>
+                  <p
+                    style={{
+                      fontSize: 12,
+                      color: "var(--dvn-altin)",
+                      fontWeight: 500,
+                      background: "var(--dvn-altin-soluk)",
+                      display: "inline-block",
+                      padding: "3px 12px",
+                      borderRadius: 999,
+                      margin: "0 0 12px",
+                    }}
+                  >
+                    {kisi.unvan}
+                  </p>
+                  {kisi.uzmanlik && (
+                    <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", lineHeight: 1.6, margin: 0 }}>{kisi.uzmanlik}</p>
+                  )}
                 </div>
-                <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 500, margin: "0 0 4px" }}>
-                  {kisi.ad}
-                </h3>
-                <p
-                  style={{
-                    fontSize: 12,
-                    color: "var(--dvn-altin)",
-                    fontWeight: 500,
-                    background: "var(--dvn-altin-soluk)",
-                    display: "inline-block",
-                    padding: "3px 12px",
-                    borderRadius: 999,
-                    margin: "0 0 12px",
-                  }}
-                >
-                  {kisi.rol}
-                </p>
-                <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", lineHeight: 1.6, margin: 0 }}>{kisi.uzmanlik}</p>
-              </div>
-            ))}
-          </div>
-
-          <p style={{ textAlign: "center", fontSize: 12, color: "var(--dvn-gri-500)", margin: "28px 0 0", fontStyle: "italic" }}>
-            Kadro bilgileri yakında üye bazında detaylandırılacaktır.
-          </p>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Kariyer CTA */}
       <section style={{ background: "var(--dvn-gri-50)", padding: "50px 32px 70px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 22, fontWeight: 500, margin: "0 0 10px" }}>

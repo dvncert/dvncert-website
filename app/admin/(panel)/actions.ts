@@ -14,6 +14,11 @@ import {
   siteAyarlari,
   egitimEtkinlikleri,
   ekstraMenuOgeleri,
+  ekipUyeleri,
+  akreditasyonBelgeleri,
+  logoDosyalari,
+  dokumanlar,
+  sayfaSeo,
 } from "@/lib/db/schema";
 
 // ---- FormData yardımcıları ----
@@ -259,6 +264,178 @@ export async function menuOgesiSil(fd: FormData) {
   await db.delete(ekstraMenuOgeleri).where(eq(ekstraMenuOgeleri.id, Number(s(fd, "id"))));
   updateTag("ust-menu");
   yenile("/", "/admin/menu");
+}
+
+// ============ EKİP ÜYELERİ ============
+export async function ekipKaydet(fd: FormData) {
+  const id = s(fd, "id");
+  const fotoVeri = await gorselWebp(fd.get("fotoDosya"), 600, 600, 88);
+  const temel = {
+    ad: s(fd, "ad"),
+    unvan: s(fd, "unvan"),
+    uzmanlik: s(fd, "uzmanlik") || null,
+    fotoAlt: s(fd, "fotoAlt") || null,
+    sira: num(fd, "sira") ?? 0,
+    yayinda: bool(fd, "yayinda"),
+    guncellenme: new Date(),
+  };
+  if (id) {
+    await db
+      .update(ekipUyeleri)
+      .set(fotoVeri ? { ...temel, fotoVeri } : temel)
+      .where(eq(ekipUyeleri.id, Number(id)));
+  } else {
+    await db.insert(ekipUyeleri).values({ ...temel, fotoVeri: fotoVeri ?? null });
+  }
+  yenile("/ekibimiz", "/admin/ekip");
+  redirect("/admin/ekip");
+}
+export async function ekipSil(fd: FormData) {
+  await db.delete(ekipUyeleri).where(eq(ekipUyeleri.id, Number(s(fd, "id"))));
+  yenile("/ekibimiz", "/admin/ekip");
+}
+
+// ============ AKREDİTASYON BELGELERİ ============
+/** PDF veya görsel dosyayı bayt dizisi olarak alır; MIME türünü döner. */
+async function dosyaOku(deger: FormDataEntryValue | null): Promise<{ veri: Buffer; mime: string; ad: string } | undefined> {
+  if (!(deger instanceof File) || deger.size === 0) return undefined;
+  const veri = Buffer.from(await deger.arrayBuffer());
+  return { veri, mime: deger.type || "application/octet-stream", ad: deger.name };
+}
+
+export async function akreditasyonKaydet(fd: FormData) {
+  const id = s(fd, "id");
+  const dosya = await dosyaOku(fd.get("belgeDosya"));
+  const temel = {
+    ad: s(fd, "ad"),
+    aciklama: s(fd, "aciklama") || null,
+    kapsam: s(fd, "kapsam") || null,
+    gecerlilikTarihi: s(fd, "gecerlilikTarihi") || null,
+    sira: num(fd, "sira") ?? 0,
+    yayinda: bool(fd, "yayinda"),
+    guncellenme: new Date(),
+  };
+  if (id) {
+    await db
+      .update(akreditasyonBelgeleri)
+      .set(dosya ? { ...temel, belgeVeri: dosya.veri, belgeMime: dosya.mime } : temel)
+      .where(eq(akreditasyonBelgeleri.id, Number(id)));
+  } else {
+    await db.insert(akreditasyonBelgeleri).values({
+      ...temel,
+      belgeVeri: dosya?.veri ?? null,
+      belgeMime: dosya?.mime ?? null,
+    });
+  }
+  yenile("/akreditasyonlarimiz", "/admin/akreditasyonlar");
+  redirect("/admin/akreditasyonlar");
+}
+export async function akreditasyonSil(fd: FormData) {
+  await db.delete(akreditasyonBelgeleri).where(eq(akreditasyonBelgeleri.id, Number(s(fd, "id"))));
+  yenile("/akreditasyonlarimiz", "/admin/akreditasyonlar");
+}
+
+// ============ LOGO DOSYALARI ============
+export async function logoKaydet(fd: FormData) {
+  const id = s(fd, "id");
+  const dosya = await dosyaOku(fd.get("logoDosya"));
+  const temel = {
+    ad: s(fd, "ad"),
+    aciklama: s(fd, "aciklama") || null,
+    zeminTipi: s(fd, "zeminTipi") || "acik",
+    dosyaAdi: dosya?.ad ?? (s(fd, "dosyaAdi") || null),
+    sira: num(fd, "sira") ?? 0,
+    yayinda: bool(fd, "yayinda"),
+    guncellenme: new Date(),
+  };
+  if (id) {
+    await db
+      .update(logoDosyalari)
+      .set(dosya ? { ...temel, dosyaVeri: dosya.veri, dosyaMime: dosya.mime } : temel)
+      .where(eq(logoDosyalari.id, Number(id)));
+  } else {
+    await db.insert(logoDosyalari).values({
+      ...temel,
+      dosyaVeri: dosya?.veri ?? null,
+      dosyaMime: dosya?.mime ?? null,
+    });
+  }
+  yenile("/logolarimiz", "/admin/logolar");
+  redirect("/admin/logolar");
+}
+export async function logoSil(fd: FormData) {
+  await db.delete(logoDosyalari).where(eq(logoDosyalari.id, Number(s(fd, "id"))));
+  yenile("/logolarimiz", "/admin/logolar");
+}
+
+// ============ DOKÜMANLAR ============
+const TIP_HARITA: Record<string, string> = {
+  "application/pdf": "PDF",
+  "application/msword": "DOCX",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "DOCX",
+  "application/vnd.ms-excel": "XLSX",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "XLSX",
+};
+
+export async function dokumanKaydet(fd: FormData) {
+  const id = s(fd, "id");
+  const dosya = await dosyaOku(fd.get("dokumanDosya"));
+  const elTip = s(fd, "tip");
+  const otomatikTip = dosya ? TIP_HARITA[dosya.mime] : undefined;
+  const temel = {
+    kod: s(fd, "kod"),
+    baslik: s(fd, "baslik"),
+    aciklama: s(fd, "aciklama") || null,
+    kategori: s(fd, "kategori"),
+    tip: elTip || otomatikTip || "PDF",
+    dosyaAdi: dosya?.ad ?? (s(fd, "dosyaAdi") || null),
+    sira: num(fd, "sira") ?? 0,
+    yayinda: bool(fd, "yayinda"),
+    guncellenme: new Date(),
+  };
+  if (id) {
+    await db
+      .update(dokumanlar)
+      .set(dosya ? { ...temel, dosyaVeri: dosya.veri, dosyaMime: dosya.mime } : temel)
+      .where(eq(dokumanlar.id, Number(id)));
+  } else {
+    await db.insert(dokumanlar).values({
+      ...temel,
+      dosyaVeri: dosya?.veri ?? null,
+      dosyaMime: dosya?.mime ?? null,
+    });
+  }
+  yenile("/dokumanlar", "/admin/dokumanlar");
+  redirect("/admin/dokumanlar");
+}
+export async function dokumanSil(fd: FormData) {
+  await db.delete(dokumanlar).where(eq(dokumanlar.id, Number(s(fd, "id"))));
+  yenile("/dokumanlar", "/admin/dokumanlar");
+}
+
+// ============ SAYFA SEO OVERRIDE ============
+export async function sayfaSeoKaydet(fd: FormData) {
+  const yol = s(fd, "yol");
+  if (!yol) throw new Error("Sayfa yolu zorunludur.");
+  const ogVeri = await gorselWebp(fd.get("ogImageDosya"), 1200, 630, 86);
+
+  const temel = {
+    seoTitle: s(fd, "seoTitle") || null,
+    seoDescription: s(fd, "seoDescription") || null,
+    noIndex: bool(fd, "noIndex"),
+    guncellenme: new Date(),
+  };
+  await db
+    .insert(sayfaSeo)
+    .values({ yol, ...temel, ogImageVeri: ogVeri ?? null })
+    .onConflictDoUpdate({
+      target: sayfaSeo.yol,
+      set: ogVeri ? { ...temel, ogImageVeri: ogVeri } : temel,
+    });
+
+  updateTag("sayfa-seo");
+  revalidatePath("/", "layout");
+  redirect(`/admin/sayfa-seo?ok=1&yol=${encodeURIComponent(yol)}`);
 }
 
 // ============ SİTE AYARLARI (sosyal medya vb.) ============

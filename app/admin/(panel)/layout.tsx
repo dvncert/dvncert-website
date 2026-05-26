@@ -14,10 +14,15 @@ const nav = [
   { ad: "Duyurular", href: "/admin/duyurular" },
   { ad: "Blog", href: "/admin/blog" },
   { ad: "Etkinlikler", href: "/admin/etkinlikler" },
+  { ad: "Ekibimiz", href: "/admin/ekip" },
+  { ad: "Akreditasyonlar", href: "/admin/akreditasyonlar" },
+  { ad: "Logolar", href: "/admin/logolar" },
+  { ad: "Dokümanlar", href: "/admin/dokumanlar" },
   { ad: "Yorumlar", href: "/admin/yorumlar" },
   { ad: "Referanslar", href: "/admin/referanslar" },
   { ad: "Form Gönderileri", href: "/admin/gonderiler" },
   { ad: "Üst Menü", href: "/admin/menu" },
+  { ad: "Sayfa SEO", href: "/admin/sayfa-seo" },
   { ad: "Site Ayarları", href: "/admin/site-ayarlari" },
 ];
 
