@@ -101,7 +101,6 @@ const hizmetlerMenu: {
   },
   { baslik: "2. Taraf Denetimleri", href: "/hizmetler/2-taraf-denetimleri", ikon: "denetim", alt: [] },
   { baslik: "Eğitimler", href: "/egitimler", ikon: "egitim", alt: [] },
-  { baslik: "Etkinlikler", href: "/etkinlikler", ikon: "egitim", alt: [] },
 ];
 
 // "İletişim" açılır menü öğeleri (Başvuru Talebi dış DBYS sistemine gider)
