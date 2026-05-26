@@ -88,6 +88,17 @@ export const referanslar = pgTable("referanslar", {
   olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
 });
 
+/**
+ * Site ayarları — admin panelden yönetilen anahtar/değer çiftleri.
+ * Örn: "sosyal.linkedin", "sosyal.instagram". Footer ve blog "Bizi Takip Et"
+ * köşesi bu tablodan okur; siteConfig.sosyal fallback olarak kalır.
+ */
+export const siteAyarlari = pgTable("site_ayarlari", {
+  anahtar: varchar("anahtar", { length: 100 }).primaryKey(),
+  deger: text("deger").notNull().default(""),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
 export const formGonderileri = pgTable("form_gonderileri", {
   id: serial("id").primaryKey(),
   tip: varchar("tip", { length: 40 }).notNull(), // iletisim | sikayet | kariyer

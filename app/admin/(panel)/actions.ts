@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { eq } from "drizzle-orm";
 import sharp from "sharp";
@@ -11,6 +11,7 @@ import {
   yorumlar,
   referanslar,
   formGonderileri,
+  siteAyarlari,
 } from "@/lib/db/schema";
 
 // ---- FormData yardımcıları ----
@@ -185,4 +186,27 @@ export async function gonderiDurum(fd: FormData) {
 export async function gonderiSil(fd: FormData) {
   await db.delete(formGonderileri).where(eq(formGonderileri.id, Number(s(fd, "id"))));
   yenile("/admin/gonderiler");
+}
+
+// ============ SİTE AYARLARI (sosyal medya vb.) ============
+export async function siteAyarlariKaydet(fd: FormData) {
+  const kayitlar: { anahtar: string; deger: string }[] = [
+    { anahtar: "sosyal.linkedin", deger: s(fd, "linkedin") },
+    { anahtar: "sosyal.instagram", deger: s(fd, "instagram") },
+    { anahtar: "sosyal.twitter", deger: s(fd, "twitter") },
+    { anahtar: "sosyal.facebook", deger: s(fd, "facebook") },
+  ];
+  for (const k of kayitlar) {
+    await db
+      .insert(siteAyarlari)
+      .values({ anahtar: k.anahtar, deger: k.deger, guncellenme: new Date() })
+      .onConflictDoUpdate({
+        target: siteAyarlari.anahtar,
+        set: { deger: k.deger, guncellenme: new Date() },
+      });
+  }
+  // Önbelleği temizle: footer ve blog 'Bizi Takip Et' kullanan tüm sayfalar.
+  updateTag("site-ayarlari");
+  revalidatePath("/", "layout");
+  redirect("/admin/site-ayarlari?ok=1");
 }

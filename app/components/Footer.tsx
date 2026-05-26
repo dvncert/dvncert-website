@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import SosyalIkonlar from "./SosyalIkonlar";
 
 export default function Footer() {
   const yil = new Date().getFullYear();
@@ -44,7 +45,8 @@ export default function Footer() {
             <p style={{ fontSize: 12, lineHeight: 1.6, margin: "0 0 14px" }}>Bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşu.</p>
             <a href="mailto:info@dvncert.com" style={{ fontSize: 11, color: "#94a3b8", display: "block", marginBottom: 6 }}>✉ info@dvncert.com</a>
             <a href="tel:+905300448037" style={{ fontSize: 11, color: "#94a3b8", display: "block", marginBottom: 6 }}>☎ +90 530 044 80 37</a>
-            <p style={{ fontSize: 11, color: "#94a3b8", margin: 0 }}>📍 Güzelyalı Mah. Eyüp Sultan Cad. No:32/A Pendik / İstanbul</p>
+            <p style={{ fontSize: 11, color: "#94a3b8", margin: "0 0 16px" }}>📍 Güzelyalı Mah. Eyüp Sultan Cad. No:32/A Pendik / İstanbul</p>
+            <SosyalIkonlar boyut={36} tema="koyu" baslik="BİZİ TAKİP EDİN" />
           </div>
 
           <div>

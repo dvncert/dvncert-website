@@ -16,6 +16,7 @@ const nav = [
   { ad: "Yorumlar", href: "/admin/yorumlar" },
   { ad: "Referanslar", href: "/admin/referanslar" },
   { ad: "Form Gönderileri", href: "/admin/gonderiler" },
+  { ad: "Site Ayarları", href: "/admin/site-ayarlari" },
 ];
 
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
