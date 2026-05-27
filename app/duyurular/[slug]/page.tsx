@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
+import IcerikMetin from "../../components/IcerikMetin";
 import { tarihiBicimle } from "@/lib/duyurular";
 import { duyurulariGetir, duyuruDetay } from "@/lib/icerik";
 import { hizmetGetir } from "@/lib/hizmetler";
@@ -43,7 +44,6 @@ export default async function DuyuruDetaySayfasi({ params }: Params) {
   const duyuru = await duyuruDetay(slug);
   if (!duyuru) notFound();
 
-  const paragraflar = duyuru.icerik.split("\n\n");
   const ilgiliHizmetler = (duyuru.ilgiliHizmetler ?? [])
     .map((s) => hizmetGetir(s))
     .filter((h): h is NonNullable<typeof h> => Boolean(h));
@@ -93,11 +93,7 @@ export default async function DuyuruDetaySayfasi({ params }: Params) {
           </div>
 
           {/* Gövde */}
-          {paragraflar.map((p, i) => (
-            <p key={i} style={{ fontSize: 15.5, color: "var(--dvn-gri-700)", lineHeight: 1.85, margin: "0 0 20px" }}>
-              {p}
-            </p>
-          ))}
+          <IcerikMetin metin={duyuru.icerik} />
 
           {/* İlgili hizmetler */}
           {ilgiliHizmetler.length > 0 && (

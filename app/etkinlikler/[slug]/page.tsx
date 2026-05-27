@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
+import IcerikMetin from "../../components/IcerikMetin";
 import { etkinlikleriGetir, etkinlikDetay, etkinlikTarihBicim } from "@/lib/etkinlikler";
 import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
@@ -41,7 +42,6 @@ export default async function EtkinlikDetaySayfasi({ params }: Params) {
   const e = await etkinlikDetay(slug);
   if (!e) notFound();
 
-  const paragraflar = e.icerik.split("\n\n");
   const gelecek = e.baslangic > new Date();
 
   return (
@@ -133,11 +133,7 @@ export default async function EtkinlikDetaySayfasi({ params }: Params) {
           )}
 
           {/* İçerik */}
-          {paragraflar.map((p, i) => (
-            <p key={i} style={{ fontSize: 15.5, color: "var(--dvn-gri-700)", lineHeight: 1.85, margin: "0 0 20px" }}>
-              {p}
-            </p>
-          ))}
+          <IcerikMetin metin={e.icerik} />
 
           <div style={{ marginTop: 36, paddingTop: 24, borderTop: "0.5px solid var(--dvn-gri-300)" }}>
             <Link

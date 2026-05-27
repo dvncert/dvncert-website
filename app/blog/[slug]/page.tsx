@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
+import { metniBaglantiyaCevir } from "../../components/IcerikMetin";
 import { tarihiBicimle } from "@/lib/duyurular";
 import { bloglariGetir, blogDetay } from "@/lib/icerik";
 import { hizmetGetir } from "@/lib/hizmetler";
@@ -63,7 +64,7 @@ function icerikBloklari(icerik: string) {
           {satirlar.map((s, j) => (
             <li key={j} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
               <span style={{ flexShrink: 0, width: 7, height: 7, borderRadius: "50%", background: "var(--dvn-altin)", marginTop: 9 }} />
-              <span style={{ fontSize: 15, color: "var(--dvn-gri-700)", lineHeight: 1.7 }}>{s.slice(2)}</span>
+              <span style={{ fontSize: 15, color: "var(--dvn-gri-700)", lineHeight: 1.7 }}>{metniBaglantiyaCevir(s.slice(2))}</span>
             </li>
           ))}
         </ul>
@@ -71,7 +72,7 @@ function icerikBloklari(icerik: string) {
     }
     return (
       <p key={i} style={P}>
-        {blok}
+        {metniBaglantiyaCevir(blok)}
       </p>
     );
   });

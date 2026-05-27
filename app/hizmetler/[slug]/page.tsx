@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
 import HizmetIkon from "../../components/HizmetIkon";
+import IcerikMetin from "../../components/IcerikMetin";
 import { hizmetler, hizmetGetir } from "@/lib/hizmetler";
 import { hizmetIcerikGetirDB } from "@/lib/sayfa-icerigi";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
@@ -37,7 +38,6 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
   const hizmet = await hizmetIcerikGetirDB(slug);
   if (!hizmet) notFound();
 
-  const girisParagraflar = hizmet.giris.split("\n\n");
   const altStandartlar = (hizmet.altStandartlar ?? [])
     .map((s) => hizmetGetir(s))
     .filter((h): h is NonNullable<typeof h> => Boolean(h));
@@ -84,11 +84,7 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
       {/* Giriş */}
       <section style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto" }}>
-          {girisParagraflar.map((p, i) => (
-            <p key={i} style={{ fontSize: 15.5, color: "var(--dvn-gri-700)", lineHeight: 1.85, margin: "0 0 18px" }}>
-              {p}
-            </p>
-          ))}
+          <IcerikMetin metin={hizmet.giris} paragrafStil={{ margin: "0 0 18px" }} />
         </div>
       </section>
 

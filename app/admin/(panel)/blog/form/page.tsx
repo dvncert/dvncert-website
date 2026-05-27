@@ -57,6 +57,9 @@ export default async function BlogForm({ searchParams }: { searchParams: Promise
         </Alan>
         <Alan etiket="İçerik (## Alt başlık, ### H3, - madde; paragraflar boş satırla ayrılır)">
           <textarea name="icerik" required rows={14} defaultValue={mevcut?.icerik ?? ""} style={{ ...adminInput, resize: "vertical", minHeight: 280 }} />
+          <p style={{ fontSize: 11.5, color: "var(--dvn-gri-500)", margin: "4px 0 0", lineHeight: 1.5 }}>
+            URL yazdığınızda otomatik link olur. Metin üzerine link için: <code>[bağlantı metni](https://...)</code>.
+          </p>
         </Alan>
         <Alan etiket="Kapak görseli (PNG / JPG / WebP — sistem otomatik WebP'e çevirir, opsiyonel)">
           {mevcut?.gorselVar && (

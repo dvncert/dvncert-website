@@ -53,6 +53,10 @@ export default async function DuyuruForm({ searchParams }: { searchParams: Promi
         </Alan>
         <Alan etiket="İçerik (paragraflar boş satırla ayrılır)">
           <textarea name="icerik" required rows={10} defaultValue={mevcut?.icerik ?? ""} style={{ ...adminInput, resize: "vertical", minHeight: 200 }} />
+          <p style={{ fontSize: 11.5, color: "var(--dvn-gri-500)", margin: "4px 0 0", lineHeight: 1.5 }}>
+            Paragraflar arasında boş bir satır bırakın. URL yazdığınızda otomatik link olur. Metin üzerine link
+            için: <code>[bağlantı metni](https://...)</code> biçimini kullanabilirsiniz.
+          </p>
         </Alan>
         <Alan etiket="Kapak görseli (PNG / JPG / WebP — sistem otomatik WebP'e çevirir, opsiyonel)">
           {mevcut?.gorselVar && (
