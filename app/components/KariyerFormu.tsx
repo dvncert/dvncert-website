@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { formGonderAction } from "../actions/form-gonder";
+import SpamKorumasi from "./SpamKorumasi";
 
 /**
  * İdari/ofis pozisyonları için kariyer başvuru formu. Gönderim veritabanına
@@ -30,6 +31,8 @@ export default function KariyerFormu() {
       konu: pozisyon,
       mesaj: String(data.get("mesaj") ?? ""),
       ekVeri: { pozisyon, cv },
+      _honeypot: String(data.get("website") ?? ""),
+      _ts: Number(data.get("_ts") ?? 0),
     });
     setGonderiliyor(false);
     if (sonuc.ok) {
@@ -41,7 +44,8 @@ export default function KariyerFormu() {
   }
 
   return (
-    <form onSubmit={gonder} className="dvn-kariyer-form" style={{ display: "grid", gap: 16 }}>
+    <form onSubmit={gonder} className="dvn-kariyer-form" style={{ display: "grid", gap: 16, position: "relative" }}>
+      <SpamKorumasi />
       <label style={alanStili}>
         <span style={etiketStili}>Başvurulan Pozisyon *</span>
         <select name="pozisyon" required defaultValue="" style={inputStili}>

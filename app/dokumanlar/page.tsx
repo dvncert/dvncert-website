@@ -4,7 +4,7 @@ import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import { dokumanlariGetir } from "@/lib/faz2-icerik";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
-import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { breadcrumbSchema, collectionPageSchema, schemaScript } from "@/lib/seo-schemas";
 
 export const revalidate = 300;
 
@@ -42,6 +42,16 @@ export default async function DokumanlarSayfasi() {
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Dökümanlar", url: "/dokumanlar" },
           ]),
+        )}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(
+          collectionPageSchema({
+            baslik: "Dökümanlar",
+            aciklama: "DVN Cert belgelendirme politikaları, talimatları, prosedürleri ve başvuru formları.",
+            url: "/dokumanlar",
+          }),
         )}
       />
 

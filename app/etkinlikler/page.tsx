@@ -3,7 +3,7 @@ import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
 import { etkinlikleriGetir, etkinlikTarihBicim } from "@/lib/etkinlikler";
 import { siteConfig } from "@/lib/site-config";
-import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { breadcrumbSchema, collectionPageSchema, schemaScript } from "@/lib/seo-schemas";
 
 export const revalidate = 300;
 
@@ -29,6 +29,16 @@ export default async function EtkinliklerSayfasi() {
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Etkinlikler", url: "/etkinlikler" },
           ]),
+        )}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(
+          collectionPageSchema({
+            baslik: "Eğitimler ve Etkinlikler",
+            aciklama: "DVN Cert eğitim, seminer, konferans ve webinarları.",
+            url: "/etkinlikler",
+          }),
         )}
       />
 

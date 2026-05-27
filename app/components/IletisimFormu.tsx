@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { formGonderAction } from "../actions/form-gonder";
+import SpamKorumasi from "./SpamKorumasi";
 
 /**
  * İletişim formu. Gönderim veritabanına yazılır ve admin panelindeki
@@ -27,6 +28,8 @@ export default function IletisimFormu() {
       telefon: String(data.get("telefon") ?? ""),
       konu: String(data.get("konu") ?? ""),
       mesaj: String(data.get("mesaj") ?? ""),
+      _honeypot: String(data.get("website") ?? ""),
+      _ts: Number(data.get("_ts") ?? 0),
     });
     setGonderiliyor(false);
     if (sonuc.ok) {
@@ -38,7 +41,8 @@ export default function IletisimFormu() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="dvn-iletisim-form" style={{ display: "grid", gap: 16 }}>
+    <form onSubmit={handleSubmit} className="dvn-iletisim-form" style={{ display: "grid", gap: 16, position: "relative" }}>
+      <SpamKorumasi />
       <div className="dvn-form-satir" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <label style={alanStili}>
           <span style={etiketStili}>Ad Soyad *</span>

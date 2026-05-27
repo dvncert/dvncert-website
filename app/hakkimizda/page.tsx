@@ -3,7 +3,7 @@ import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import { siteConfig } from "@/lib/site-config";
-import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { breadcrumbSchema, aboutPageSchema, schemaScript } from "@/lib/seo-schemas";
 import { sayfaIcerigiGetir, alanDegeri } from "@/lib/sayfa-icerigi";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 
@@ -49,6 +49,16 @@ export default async function HakkimizdaSayfasi() {
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Hakkımızda", url: "/hakkimizda" },
           ]),
+        )}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(
+          aboutPageSchema({
+            baslik: "Hakkımızda",
+            aciklama: siteConfig.aciklamaUzun,
+            url: "/hakkimizda",
+          }),
         )}
       />
 

@@ -3,7 +3,7 @@ import SayfaBaslik from "../components/SayfaBaslik";
 import DuyuruListe from "../components/DuyuruListe";
 import { duyurulariGetir } from "@/lib/icerik";
 import { siteConfig } from "@/lib/site-config";
-import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { breadcrumbSchema, collectionPageSchema, schemaScript } from "@/lib/seo-schemas";
 
 export const revalidate = 300;
 
@@ -35,6 +35,16 @@ export default async function DuyurularSayfasi() {
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Duyurular", url: "/duyurular" },
           ])
+        )}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(
+          collectionPageSchema({
+            baslik: "Duyurular",
+            aciklama: "DVN Cert'ten güncel duyurular, akreditasyon gelişmeleri, eğitim takvimi ve sektörel haberler.",
+            url: "/duyurular",
+          })
         )}
       />
 

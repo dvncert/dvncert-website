@@ -3,7 +3,7 @@ import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import IletisimFormu from "../components/IletisimFormu";
 import { siteConfig } from "@/lib/site-config";
-import { localBusinessSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { localBusinessSchema, contactPageSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
 export const metadata: Metadata = {
   title: "İletişim",
@@ -53,6 +53,10 @@ export default function IletisimSayfasi() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaScript(localBusinessSchema())}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(contactPageSchema({ url: "/iletisim" }))}
       />
       <script
         type="application/ld+json"

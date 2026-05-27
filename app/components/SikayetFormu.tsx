@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { formGonderAction } from "../actions/form-gonder";
+import SpamKorumasi from "./SpamKorumasi";
 
 const talepTurleri = ["Şikayet", "İtiraz", "Öneri", "Görüş"];
 
@@ -32,6 +33,8 @@ export default function SikayetFormu() {
       konu: tur,
       mesaj: String(data.get("mesaj") ?? ""),
       ekVeri: { talepTuru: tur, ilgiliBelge: ilgili },
+      _honeypot: String(data.get("website") ?? ""),
+      _ts: Number(data.get("_ts") ?? 0),
     });
     setGonderiliyor(false);
     if (sonuc.ok) {
@@ -43,7 +46,8 @@ export default function SikayetFormu() {
   }
 
   return (
-    <form onSubmit={gonder} className="dvn-sikayet-form" style={{ display: "grid", gap: 16 }}>
+    <form onSubmit={gonder} className="dvn-sikayet-form" style={{ display: "grid", gap: 16, position: "relative" }}>
+      <SpamKorumasi />
       <label style={alanStili}>
         <span style={etiketStili}>Talep Türü *</span>
         <select name="tur" required defaultValue="Şikayet" style={inputStili}>

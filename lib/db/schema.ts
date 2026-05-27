@@ -309,5 +309,8 @@ export const formGonderileri = pgTable("form_gonderileri", {
   mesaj: text("mesaj"),
   ekVeri: jsonb("ek_veri").$type<Record<string, unknown>>(),
   durum: varchar("durum", { length: 30 }).default("yeni").notNull(), // yeni | okundu | cozuldu
+  /** Rate-limit + spam izleme için. */
+  ip: varchar("ip", { length: 45 }),
+  userAgent: text("user_agent"),
   olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
 });

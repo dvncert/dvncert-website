@@ -278,6 +278,79 @@ export function blogPostingSchema(params: {
 }
 
 /**
+ * 10. AboutPage Schema (/hakkimizda için)
+ */
+export function aboutPageSchema(params: { baslik: string; aciklama: string; url: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${siteConfig.url}${params.url}#aboutpage`,
+    name: params.baslik,
+    description: params.aciklama,
+    url: `${siteConfig.url}${params.url}`,
+    inLanguage: siteConfig.dil,
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    about: { "@id": `${siteConfig.url}/#organization` },
+  };
+}
+
+/**
+ * 11. ContactPage Schema (/iletisim için)
+ */
+export function contactPageSchema(params: { url: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${siteConfig.url}${params.url}#contactpage`,
+    name: `İletişim · ${siteConfig.adUzun}`,
+    url: `${siteConfig.url}${params.url}`,
+    inLanguage: siteConfig.dil,
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    mainEntity: { "@id": `${siteConfig.url}/#organization` },
+  };
+}
+
+/**
+ * 12. ItemList Schema (ekip listesi, doküman listesi vb. için)
+ */
+export function itemListSchema(params: {
+  url: string;
+  ad: string;
+  ogeler: { ad: string; aciklama?: string; url?: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: params.ad,
+    url: `${siteConfig.url}${params.url}`,
+    numberOfItems: params.ogeler.length,
+    itemListElement: params.ogeler.map((o, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: o.ad,
+      description: o.aciklama,
+      url: o.url ? `${siteConfig.url}${o.url}` : undefined,
+    })),
+  };
+}
+
+/**
+ * 13. CollectionPage Schema (liste tarzı sayfalar — /duyurular, /blog, /dokumanlar)
+ */
+export function collectionPageSchema(params: { baslik: string; aciklama: string; url: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${siteConfig.url}${params.url}#collectionpage`,
+    name: params.baslik,
+    description: params.aciklama,
+    url: `${siteConfig.url}${params.url}`,
+    inLanguage: siteConfig.dil,
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
+  };
+}
+
+/**
  * Schema'yı HTML'e yerleştirmek için yardımcı.
  * Bu fonksiyonu sayfa içinde kullanırız.
  */

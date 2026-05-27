@@ -4,7 +4,7 @@ import SayfaBaslik from "../components/SayfaBaslik";
 import { bloglariGetir } from "@/lib/icerik";
 import { tarihiBicimle } from "@/lib/duyurular";
 import { siteConfig } from "@/lib/site-config";
-import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { breadcrumbSchema, collectionPageSchema, schemaScript } from "@/lib/seo-schemas";
 
 export const revalidate = 300;
 
@@ -26,6 +26,16 @@ export default async function BlogSayfasi() {
             { ad: "Ana Sayfa", url: "/" },
             { ad: "Blog", url: "/blog" },
           ])
+        )}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(
+          collectionPageSchema({
+            baslik: "Blog ve Bilgi Merkezi",
+            aciklama: "ISO yönetim sistemleri, belgelendirme süreci ve denetime hazırlık hakkında bilgilendirici yazılar.",
+            url: "/blog",
+          })
         )}
       />
 

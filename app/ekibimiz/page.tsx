@@ -4,7 +4,7 @@ import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import { ekipUyeleriniGetir } from "@/lib/faz2-icerik";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
-import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { breadcrumbSchema, itemListSchema, schemaScript } from "@/lib/seo-schemas";
 
 export const revalidate = 300;
 
@@ -40,6 +40,18 @@ export default async function EkibimizSayfasi() {
           ]),
         )}
       />
+      {ekip.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={schemaScript(
+            itemListSchema({
+              url: "/ekibimiz",
+              ad: "DVN Cert Ekibi",
+              ogeler: ekip.map((k) => ({ ad: `${k.ad} — ${k.unvan}`, aciklama: k.uzmanlik })),
+            }),
+          )}
+        />
+      )}
 
       <SayfaBaslik
         etiket="KURUMSAL"
