@@ -19,6 +19,7 @@ const nav = [
   { ad: "Logolar", href: "/admin/logolar" },
   { ad: "Dokümanlar", href: "/admin/dokumanlar" },
   { ad: "Sayfa İçeriği", href: "/admin/icerik" },
+  { ad: "Özel Sayfalar", href: "/admin/sayfalar" },
   { ad: "S.S.S.", href: "/admin/sss" },
   { ad: "Yorumlar", href: "/admin/yorumlar" },
   { ad: "Referanslar", href: "/admin/referanslar" },

@@ -214,6 +214,32 @@ export const dokumanlar = pgTable("dokumanlar", {
 });
 
 /**
+ * Admin panelinden oluşturulan özel sayfalar.
+ * Her sayfanın bir şablonu (sablon) var; içerik (veri) JSON olarak saklanır;
+ * şablona göre dinamik /[slug] rotasında render edilir.
+ */
+export const ozelSayfalar = pgTable("ozel_sayfalar", {
+  id: serial("id").primaryKey(),
+  slug: varchar("slug", { length: 200 }).notNull().unique(),
+  baslik: text("baslik").notNull(),
+  /** Şablon kimliği: 'metin' | 'faq' | 'kart-listesi' | ... */
+  sablon: varchar("sablon", { length: 40 }).notNull(),
+  /** Üst etiket (örn. "KURUMSAL") — opsiyonel. */
+  ustEtiket: varchar("ust_etiket", { length: 80 }),
+  /** Sayfa başlığı altında görünen açıklama (opsiyonel). */
+  aciklama: text("aciklama"),
+  /** Şablona göre değişen veri alanları (anahtar → değer). */
+  veri: jsonb("veri").$type<Record<string, string>>().default({}).notNull(),
+  /** SEO override. */
+  seoTitle: text("seo_title"),
+  seoDescription: text("seo_description"),
+  noIndex: boolean("no_index").default(false).notNull(),
+  yayinda: boolean("yayinda").default(true).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/**
  * Sayfa içerik blokları — statik sayfaların metinleri admin'den düzenlenebilir.
  * Her sayfanın hangi anahtarlara sahip olduğu kodda (lib/sayfa-icerigi.ts) tanımlı;
  * burada sadece (yol, anahtar) → değer eşlemesi tutulur. Boş kayıt = varsayılan kullanılır.

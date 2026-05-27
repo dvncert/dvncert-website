@@ -21,8 +21,10 @@ import {
   sayfaSeo,
   sayfaBloklari,
   sssSorulari,
+  ozelSayfalar,
 } from "@/lib/db/schema";
 import { SAYFA_ICERIK } from "@/lib/sayfa-icerigi";
+import { sablonBul } from "@/lib/sablonlar";
 
 // ---- FormData yardımcıları ----
 function s(fd: FormData, k: string): string {
@@ -414,6 +416,72 @@ export async function dokumanKaydet(fd: FormData) {
 export async function dokumanSil(fd: FormData) {
   await db.delete(dokumanlar).where(eq(dokumanlar.id, Number(s(fd, "id"))));
   yenile("/dokumanlar", "/admin/dokumanlar");
+}
+
+// ============ ÖZEL SAYFALAR ============
+/** Statik route'larla çakışmasın diye yasak slug'lar. */
+const REZERVE_SLUGLAR = new Set([
+  "admin", "api", "arama", "blog", "cerez-politikasi", "dokumanlar",
+  "duyurular", "egitimler", "ekibimiz", "etkinlikler", "gizlilik",
+  "hakkimizda", "hizmetler", "iletisim", "kariyer", "kvkk",
+  "logolarimiz", "musteri-giris", "politika-ve-beyanlar",
+  "robots.txt", "sertifika-sorgula", "sikayet-ve-gorusler",
+  "sitemap.xml", "sss", "akreditasyonlarimiz",
+]);
+
+function slugGecerliMi(slug: string): { ok: boolean; hata?: string } {
+  if (!/^[a-z0-9-]+$/.test(slug)) return { ok: false, hata: "Slug yalnızca küçük harf, rakam ve tire içerebilir." };
+  if (slug.startsWith("-") || slug.endsWith("-")) return { ok: false, hata: "Slug tire ile başlayamaz veya bitemez." };
+  if (REZERVE_SLUGLAR.has(slug)) return { ok: false, hata: `'${slug}' zaten kullanılan bir sistem yolu — başka bir slug seçin.` };
+  return { ok: true };
+}
+
+export async function ozelSayfaKaydet(fd: FormData) {
+  const id = s(fd, "id");
+  const sablon = s(fd, "sablon");
+  if (!sablonBul(sablon)) throw new Error(`Geçersiz şablon: ${sablon}`);
+
+  const slug = s(fd, "slug");
+  const dogrulama = slugGecerliMi(slug);
+  if (!dogrulama.ok) throw new Error(dogrulama.hata);
+
+  // Şablon alanlarını topla
+  const tanim = sablonBul(sablon)!;
+  const veri: Record<string, string> = {};
+  for (const alan of tanim.alanlar) {
+    veri[alan.anahtar] = s(fd, alan.anahtar);
+  }
+
+  const temel = {
+    slug,
+    baslik: s(fd, "baslik"),
+    sablon,
+    ustEtiket: s(fd, "ustEtiket") || null,
+    aciklama: s(fd, "aciklama") || null,
+    veri,
+    seoTitle: s(fd, "seoTitle") || null,
+    seoDescription: s(fd, "seoDescription") || null,
+    noIndex: bool(fd, "noIndex"),
+    yayinda: bool(fd, "yayinda"),
+    guncellenme: new Date(),
+  };
+
+  if (id) {
+    await db.update(ozelSayfalar).set(temel).where(eq(ozelSayfalar.id, Number(id)));
+  } else {
+    await db.insert(ozelSayfalar).values(temel);
+  }
+  yenile(`/${slug}`, "/admin/sayfalar");
+  redirect("/admin/sayfalar");
+}
+
+export async function ozelSayfaSil(fd: FormData) {
+  // Önce slug'ı al (rota cache temizleme için)
+  const id = Number(s(fd, "id"));
+  const mevcut = (await db.select({ slug: ozelSayfalar.slug }).from(ozelSayfalar).where(eq(ozelSayfalar.id, id)).limit(1))[0];
+  await db.delete(ozelSayfalar).where(eq(ozelSayfalar.id, id));
+  if (mevcut) yenile(`/${mevcut.slug}`);
+  yenile("/admin/sayfalar");
 }
 
 // ============ SAYFA İÇERİK BLOKLARI ============
