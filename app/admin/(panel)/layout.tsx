@@ -25,6 +25,7 @@ const nav = [
   { ad: "Referanslar", href: "/admin/referanslar" },
   { ad: "Form Gönderileri", href: "/admin/gonderiler" },
   { ad: "Üst Menü", href: "/admin/menu" },
+  { ad: "Pop-up", href: "/admin/popup" },
   { ad: "Sayfa SEO", href: "/admin/sayfa-seo" },
   { ad: "Site Ayarları", href: "/admin/site-ayarlari" },
 ];

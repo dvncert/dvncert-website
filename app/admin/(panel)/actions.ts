@@ -22,6 +22,7 @@ import {
   sayfaBloklari,
   sssSorulari,
   ozelSayfalar,
+  popup,
 } from "@/lib/db/schema";
 import { SAYFA_ICERIK } from "@/lib/sayfa-icerigi";
 import { sablonBul } from "@/lib/sablonlar";
@@ -561,6 +562,39 @@ export async function sayfaSeoKaydet(fd: FormData) {
   updateTag("sayfa-seo");
   revalidatePath("/", "layout");
   redirect(`/admin/sayfa-seo?ok=1&yol=${encodeURIComponent(yol)}`);
+}
+
+// ============ POP-UP (site geneli modal) ============
+export async function popupKaydet(fd: FormData) {
+  const id = s(fd, "id");
+  // Görsel modalda ~440px genişlikte gösterilir; retina için 2x'e kadar saklarız.
+  const gorselVeri = await gorselWebp(fd.get("gorselDosya"), 1000, 1000, 86);
+  const gorselKaldir = bool(fd, "gorselKaldir");
+
+  const temel = {
+    aktif: bool(fd, "aktif"),
+    baslik: s(fd, "baslik") || null,
+    metin: s(fd, "metin") || null,
+    butonYazi: s(fd, "butonYazi") || null,
+    butonUrl: s(fd, "butonUrl") || null,
+    gorselAlt: s(fd, "gorselAlt") || null,
+    guncellenme: new Date(),
+  };
+
+  if (id) {
+    const set = gorselVeri
+      ? { ...temel, gorselVeri }
+      : gorselKaldir
+        ? { ...temel, gorselVeri: null }
+        : temel;
+    await db.update(popup).set(set).where(eq(popup.id, Number(id)));
+  } else {
+    await db.insert(popup).values({ ...temel, gorselVeri: gorselVeri ?? null });
+  }
+
+  updateTag("popup");
+  revalidatePath("/", "layout");
+  redirect("/admin/popup?ok=1");
 }
 
 // ============ SİTE AYARLARI (sosyal medya vb.) ============

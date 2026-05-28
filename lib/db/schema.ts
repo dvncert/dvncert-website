@@ -299,6 +299,26 @@ export const ekstraMenuOgeleri = pgTable("ekstra_menu_ogeleri", {
   guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
 });
 
+/**
+ * Site geneli pop-up (modal) — admin panelinden tek kayıt olarak yönetilir.
+ * Aktifse tüm public sayfalarda ziyaretçiye gösterilir. Görsel WebP olarak
+ * saklanır ve /api/gorsel/popup/{id} ile sunulur.
+ */
+export const popup = pgTable("popup", {
+  id: serial("id").primaryKey(),
+  aktif: boolean("aktif").default(false).notNull(),
+  baslik: text("baslik"),
+  metin: text("metin"),
+  /** Buton metni (boşsa buton gösterilmez). */
+  butonYazi: varchar("buton_yazi", { length: 120 }),
+  /** Buton/görsel bağlantısı. */
+  butonUrl: text("buton_url"),
+  /** Yüklenip WebP'e çevrilen görsel (varsa /api/gorsel/popup/{id}). */
+  gorselVeri: bytea("gorsel_veri"),
+  gorselAlt: text("gorsel_alt"),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
 export const formGonderileri = pgTable("form_gonderileri", {
   id: serial("id").primaryKey(),
   tip: varchar("tip", { length: 40 }).notNull(), // iletisim | sikayet | kariyer

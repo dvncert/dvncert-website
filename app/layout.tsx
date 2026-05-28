@@ -10,6 +10,8 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import SosyalSabitButon from "./components/SosyalSabitButon";
 import ScrollToTop from "./components/ScrollToTop";
 import ChromeGate from "./components/ChromeGate";
+import PopupModal from "./components/PopupModal";
+import { popupGetir } from "@/lib/popup";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -86,6 +88,7 @@ export default async function RootLayout({
   // varsayılan gömülüdür ki canlıda her zaman yüklensin.
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-3VJDV7WQBG";
   const ekstraOgeler = await ekstraMenuOgeleriGetir();
+  const popupVeri = await popupGetir();
 
   return (
     <html lang="tr" style={{ colorScheme: "light" }}>
@@ -144,6 +147,9 @@ export default async function RootLayout({
           <SosyalSabitButon />
           <ScrollToTop />
           <CookieConsent />
+          {popupVeri?.aktif && (popupVeri.baslik || popupVeri.metin || popupVeri.gorselVar) && (
+            <PopupModal popup={popupVeri} />
+          )}
         </ChromeGate>
       </body>
     </html>
