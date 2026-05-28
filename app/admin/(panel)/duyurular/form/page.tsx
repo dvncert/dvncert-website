@@ -58,7 +58,7 @@ export default async function DuyuruForm({ searchParams }: { searchParams: Promi
             için: <code>[bağlantı metni](https://...)</code> biçimini kullanabilirsiniz.
           </p>
         </Alan>
-        <Alan etiket="Kapak görseli (PNG / JPG / WebP — sistem otomatik WebP'e çevirir, opsiyonel)">
+        <Alan etiket="Kapak görseli — önerilen: 1600×900 px (16:9) · PNG / JPG / WebP (sistem otomatik WebP'e çevirir, opsiyonel)">
           {mevcut?.gorselVar && (
             <div style={{ marginBottom: 8 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}

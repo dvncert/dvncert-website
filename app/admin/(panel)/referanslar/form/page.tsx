@@ -33,7 +33,7 @@ export default async function ReferansForm({ searchParams }: { searchParams: Pro
           <input name="ad" required defaultValue={mevcut?.ad ?? ""} style={adminInput} />
         </Alan>
 
-        <Alan etiket="Logo dosyası (PNG / JPG / SVG / WebP — sistem otomatik WebP'e çevirir)">
+        <Alan etiket="Logo dosyası — önerilen: 400×200 px (yatay, şeffaf zemin) · PNG / JPG / SVG / WebP (sistem otomatik WebP'e çevirir)">
           {mevcut?.logoVar && (
             <div style={{ marginBottom: 8 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}

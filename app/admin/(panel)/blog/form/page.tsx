@@ -61,7 +61,7 @@ export default async function BlogForm({ searchParams }: { searchParams: Promise
             URL yazdığınızda otomatik link olur. Metin üzerine link için: <code>[bağlantı metni](https://...)</code>.
           </p>
         </Alan>
-        <Alan etiket="Kapak görseli (PNG / JPG / WebP — sistem otomatik WebP'e çevirir, opsiyonel)">
+        <Alan etiket="Kapak görseli — önerilen: 1600×900 px (16:9) · PNG / JPG / WebP (sistem otomatik WebP'e çevirir, opsiyonel)">
           {mevcut?.gorselVar && (
             <div style={{ marginBottom: 8 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}

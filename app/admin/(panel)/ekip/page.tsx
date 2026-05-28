@@ -47,7 +47,7 @@ export default async function EkipYonetim({ searchParams }: { searchParams: Prom
           <Alan etiket="Uzmanlık alanı (kısa açıklama)">
             <textarea name="uzmanlik" rows={2} defaultValue={duzenlenen?.uzmanlik ?? ""} style={{ ...adminInput, resize: "vertical" }} />
           </Alan>
-          <Alan etiket="Profil fotoğrafı (PNG / JPG — otomatik WebP'e çevrilir, kare oran önerilir)">
+          <Alan etiket="Profil fotoğrafı — önerilen: 600×600 px (kare) · PNG / JPG (otomatik WebP'e çevrilir)">
             {duzenlenen?.fotoVar && (
               <div style={{ marginBottom: 8 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}

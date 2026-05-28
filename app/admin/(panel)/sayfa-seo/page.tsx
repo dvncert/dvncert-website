@@ -97,7 +97,7 @@ export default async function SayfaSeoYonetim({
           <Alan etiket="Meta açıklama (140-160 karakter ideal)">
             <textarea name="seoDescription" rows={3} defaultValue={mevcut?.seoDescription ?? ""} placeholder={sayfa?.varsayilanDesc} style={{ ...adminInput, resize: "vertical" }} />
           </Alan>
-          <Alan etiket="OG / Twitter görseli (paylaşımda görünen, 1200×630 ideal)">
+          <Alan etiket="OG / Twitter görseli — önerilen: 1200×630 px (sosyal medya paylaşımında görünür)">
             {mevcut?.ogVar && (
               <div style={{ marginBottom: 8 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
