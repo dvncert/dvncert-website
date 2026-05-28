@@ -26,6 +26,12 @@ export type Hizmet = {
   surec?: SurecAdimi[];
   /** Sadece "sistem-belgelendirme" için: alt standartların slug'ları */
   altStandartlar?: string[];
+  /** SEO için özel <title> (verilmezse baslik kullanılır); layout şablonu " | DVN Cert Belgelendirme" ekler. */
+  seoTitle?: string;
+  /** SEO için özel meta açıklaması (verilmezse kisaAciklama kullanılır). */
+  seoAciklama?: string;
+  /** Sayfada gösterilen ve FAQPage yapısal verisi üretilen sıkça sorulan sorular. */
+  sss?: { soru: string; cevap: string }[];
 };
 
 // Tüm ISO sistem belgelendirmeleri için ortak süreç adımları
@@ -153,23 +159,57 @@ export const hizmetler: Hizmet[] = [
     slug: "2-taraf-denetimleri",
     kategori: "Denetim",
     baslik: "2. Taraf Denetimleri",
+    seoTitle: "2. Taraf Denetimi (Tedarikçi Denetimi) Hizmeti",
+    seoAciklama:
+      "Tedarikçi ve iş ortaklarınızı standartlara, sözleşme ve yasal gerekliliklere uygunluk açısından bağımsız 2. taraf (tedarikçi) denetimiyle değerlendiriyoruz.",
     kisaAciklama:
       "Tedarikçi ve iş ortaklarınızı standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından bağımsızca değerlendiriyoruz.",
     ikon: "denetim",
     giris:
-      "2. taraf denetimleri; bir kuruluşun tedarikçilerini, alt yüklenicilerini veya iş ortaklarını belirlenen standartlara, sözleşme şartlarına ya da yasal gerekliliklere uygunluk açısından değerlendirmesidir.\n\n" +
-      "Bu hizmet, işletmelerin tedarikçi performansını nesnel biçimde değerlendirmesine ve olası riskleri önceden tespit etmesine yardımcı olur. Denetimlerimiz tarafsızlık, bağımsızlık ve gizlilik ilkeleriyle yürütülür.",
+      "2. taraf denetimi (ikinci taraf denetimi); bir kuruluşun kendi tedarikçilerini, alt yüklenicilerini veya iş ortaklarını belirlenen standartlara, sözleşme şartlarına ya da yasal gerekliliklere uygunluk açısından değerlendirmesidir. Uygulamada çoğu zaman \"tedarikçi denetimi\" olarak da anılır.\n\n" +
+      "1. taraf denetimi kuruluşun kendi iç denetimini, 3. taraf denetimi ise bağımsız ve akredite bir belgelendirme kuruluşunun yaptığı denetimi ifade eder. 2. taraf denetimi bu ikisinin arasında konumlanır: müşteri konumundaki kuruluş adına, tedarik zincirindeki bir tarafın yerinde ve nesnel biçimde değerlendirilmesini sağlar.\n\n" +
+      "Bu hizmet; işletmelerin tedarikçi performansını objektif ölçütlerle değerlendirmesine, tedarik zinciri risklerini önceden tespit etmesine ve sözleşmesel yükümlülüklerin yerine getirildiğini doğrulamasına yardımcı olur. Özellikle kalite, çevre, iş sağlığı ve güvenliği ile sektörel uygunluk gereksinimlerinin kritik olduğu tedarik ilişkilerinde güvence sağlar.\n\n" +
+      "DVN Cert olarak 2. taraf denetimlerini tarafsızlık, bağımsızlık ve gizlilik ilkeleriyle yürütür; bulguları ayrıntılı ve uygulanabilir bir denetim raporuyla paylaşırız.",
     faydalar: [
-      "Tedarikçi veya iş ortağının belirlenen standartlara uygunluğunun değerlendirilmesi",
-      "Kalite, çevre, İSG veya sektörel gerekliliklere uyumun kontrolü",
-      "Tedarik zinciri risklerinin azaltılması ve güvenilirliğin artması",
+      "Tedarikçi veya iş ortağının belirlenen standartlara uygunluğunun bağımsızca değerlendirilmesi",
+      "Kalite, çevre, İSG veya sektörel gerekliliklere uyumun yerinde kontrolü",
+      "Tedarik zinciri risklerinin erken tespit edilmesi ve azaltılması",
       "Sözleşme yükümlülüklerinin yerine getirildiğinin doğrulanması",
+      "Tedarikçi seçimi ve değerlendirme süreçlerine nesnel veri sağlanması",
+      "Ayrıntılı denetim raporu ve düzeltici faaliyet takibi",
     ],
     surec: [
       { baslik: "Planlama", aciklama: "Denetim kapsamı, kriterleri ve zaman planı belirlenir." },
       { baslik: "Saha Denetimi", aciklama: "Faaliyetler yerinde gözlemlenir ve ilgili dokümanlar incelenir." },
       { baslik: "Raporlama", aciklama: "Bulgular ve öneriler ayrıntılı bir denetim raporuyla paylaşılır." },
       { baslik: "Takip", aciklama: "Düzeltici ve önleyici faaliyetlerin uygulanması izlenir." },
+    ],
+    sss: [
+      {
+        soru: "2. taraf denetimi nedir?",
+        cevap:
+          "2. taraf denetimi (ikinci taraf denetimi), bir kuruluşun kendi tedarikçilerini, alt yüklenicilerini veya iş ortaklarını; belirlenen standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından değerlendirmesidir. Genellikle \"tedarikçi denetimi\" olarak da bilinir ve müşteri konumundaki kuruluş adına yürütülür.",
+      },
+      {
+        soru: "1. taraf, 2. taraf ve 3. taraf denetim arasındaki fark nedir?",
+        cevap:
+          "1. taraf denetimi, kuruluşun kendi yönetim sistemini değerlendirdiği iç denetimdir. 2. taraf denetimi, bir kuruluşun tedarikçisini veya iş ortağını değerlendirmesidir. 3. taraf denetimi ise bağımsız ve akredite bir belgelendirme kuruluşunun (örneğin ISO 9001 belgelendirmesi için) yaptığı denetimdir.",
+      },
+      {
+        soru: "2. taraf denetimi hangi durumlarda gereklidir?",
+        cevap:
+          "Tedarikçi seçimi ve onayı öncesinde, mevcut tedarikçilerin performansını izlemek için, yeni bir sözleşme veya iş birliği başlamadan önce ya da tedarik zincirinde kalite, çevre ve İSG risklerinin yönetilmesi gerektiğinde 2. taraf denetimi yapılır.",
+      },
+      {
+        soru: "2. taraf (tedarikçi) denetimi nasıl yapılır?",
+        cevap:
+          "Süreç; denetim kapsamı ve kriterlerinin belirlendiği planlama, faaliyetlerin yerinde gözlemlendiği ve dokümanların incelendiği saha denetimi, bulguların paylaşıldığı raporlama ve düzeltici faaliyetlerin izlendiği takip aşamalarından oluşur.",
+      },
+      {
+        soru: "2. taraf denetimi ile belgelendirme denetimi aynı şey midir?",
+        cevap:
+          "Hayır. Belgelendirme (3. taraf) denetimi sonunda akredite bir sertifika düzenlenir. 2. taraf denetiminde ise amaç, tedarikçinizin veya iş ortağınızın sizin belirlediğiniz kriterlere uygunluğunu doğrulamaktır; sonucunda sertifika değil, ayrıntılı bir denetim raporu sunulur.",
+      },
     ],
   },
 ];

@@ -79,7 +79,7 @@ const isoSayfaTanimlari: Record<string, SayfaIcerikTanim> = Object.fromEntries(
 
 /** Hizmet detay sayfaları (/hizmetler/[slug]) için alan üretici. */
 function hizmetAlanlari(h: Hizmet): Alan[] {
-  return [
+  const alanlar: Alan[] = [
     { anahtar: "kisa-aciklama", etiket: "Üst kısa açıklama (sayfa başlığı altında)", tip: "textarea", varsayilan: h.kisaAciklama },
     {
       anahtar: "giris",
@@ -102,6 +102,17 @@ function hizmetAlanlari(h: Hizmet): Alan[] {
       yardim: "Her adım için: '## Başlık' satırı, ardından açıklama. Adımları boş satırla ayırın.",
     },
   ];
+  if (h.sss && h.sss.length > 0) {
+    alanlar.push({
+      anahtar: "sss",
+      etiket: "Sıkça sorulan sorular ('## Soru' formatı)",
+      tip: "textarea-uzun",
+      varsayilan: h.sss.map((s) => `## ${s.soru}\n${s.cevap}`).join("\n\n"),
+      yardim:
+        "Her soru için: '## Soru' satırı, ardından cevabı. Soruları boş satırla ayırın. Google'da zengin sonuç (SSS) olarak görünebilir.",
+    });
+  }
+  return alanlar;
 }
 
 const hizmetSayfaTanimlari: Record<string, SayfaIcerikTanim> = Object.fromEntries(
@@ -255,13 +266,17 @@ export async function hizmetIcerikGetirDB(slug: string): Promise<Hizmet | undefi
   const icerik = await sayfaIcerigiGetir(yol);
   const al = (k: string) => alanDegeri(icerik, yol, k);
 
-  return {
+  const sonuc: Hizmet = {
     ...def,
     kisaAciklama: al("kisa-aciklama"),
     giris: al("giris"),
     faydalar: maddeleriCozumle(al("faydalar")),
     surec: surecCozumle(al("surec-kartlari")),
   };
+  if (def.sss) {
+    sonuc.sss = kartlariCozumle(al("sss")).map((k) => ({ soru: k.baslik, cevap: k.metin }));
+  }
+  return sonuc;
 }
 
 /** Eğitimler sayfasındaki kart başlığından ikon anahtarına çevrim. */

@@ -8,7 +8,7 @@ import IcerikMetin from "../../components/IcerikMetin";
 import { hizmetler, hizmetGetir } from "@/lib/hizmetler";
 import { hizmetIcerikGetirDB } from "@/lib/sayfa-icerigi";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
-import { serviceSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { serviceSchema, breadcrumbSchema, faqSchema, schemaScript } from "@/lib/seo-schemas";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   return sayfaMetadataUret({
     yol: `/hizmetler/${hizmet.slug}`,
-    title: hizmet.baslik,
-    description: hizmet.kisaAciklama,
+    title: hizmet.seoTitle ?? hizmet.baslik,
+    description: hizmet.seoAciklama ?? hizmet.kisaAciklama,
   });
 }
 
@@ -65,6 +65,12 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
           ])
         )}
       />
+      {hizmet.sss && hizmet.sss.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={schemaScript(faqSchema(hizmet.sss))}
+        />
+      )}
 
       <SayfaBaslik
         etiket={hizmet.kod ?? hizmet.kategori}
@@ -254,6 +260,52 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
         </section>
       )}
 
+      {/* Sıkça Sorulan Sorular (FAQPage schema ile) */}
+      {hizmet.sss && hizmet.sss.length > 0 && (
+        <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
+          <div style={{ maxWidth: 820, margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 36 }}>
+              <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+                SIKÇA SORULAN SORULAR
+              </p>
+              <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+                {hizmet.baslik} hakkında merak edilenler
+              </h2>
+            </div>
+
+            <div style={{ display: "grid", gap: 14 }}>
+              {hizmet.sss.map((s, i) => (
+                <details key={i} className="dvn-sss" style={{ background: "white", borderRadius: 12, border: "0.5px solid var(--dvn-gri-300)", overflow: "hidden" }}>
+                  <summary
+                    className="dvn-sss-baslik"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: 16,
+                      padding: "20px 22px",
+                      cursor: "pointer",
+                      fontSize: 15.5,
+                      fontWeight: 500,
+                      color: "var(--dvn-lacivert)",
+                      listStyle: "none",
+                    }}
+                  >
+                    {s.soru}
+                    <svg className="dvn-sss-ok" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
+                      <path d="M6 9l6 6 6-6" stroke="var(--dvn-turuncu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </summary>
+                  <div style={{ padding: "0 22px 22px" }}>
+                    <p style={{ fontSize: 14, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: 0 }}>{s.cevap}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section style={{ background: "white", padding: "0 32px 70px" }}>
         <div
@@ -316,6 +368,11 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
 
       <style>{`
         .dvn-std-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(2,35,152,0.1) !important; }
+        .dvn-sss-baslik::-webkit-details-marker { display: none; }
+        .dvn-sss[open] .dvn-sss-ok { transform: rotate(180deg); }
+        .dvn-sss-ok { transition: transform 0.22s ease; }
+        .dvn-sss[open] { border-color: var(--dvn-altin) !important; }
+        .dvn-sss-baslik:hover { color: var(--dvn-turuncu) !important; }
         @media (max-width: 820px) {
           .dvn-fayda-grid { grid-template-columns: 1fr !important; }
           .dvn-std-kart-grid { grid-template-columns: 1fr !important; }
