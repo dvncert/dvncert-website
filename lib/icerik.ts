@@ -40,6 +40,7 @@ export async function duyurulariGetir(): Promise<Duyuru[]> {
         gorselAlt: duyurularTbl.gorselAlt,
         ilgiliHizmetler: duyurularTbl.ilgiliHizmetler,
         gorselVar: sql<boolean>`${duyurularTbl.gorselVeri} is not null`,
+        guncellenme: duyurularTbl.guncellenme,
       })
       .from(duyurularTbl)
       .where(eq(duyurularTbl.yayinda, true))
@@ -51,7 +52,7 @@ export async function duyurulariGetir(): Promise<Duyuru[]> {
       kategori: r.kategori,
       ozet: r.ozet,
       icerik: r.icerik,
-      gorsel: r.gorselVar ? `/api/gorsel/duyuru/${r.id}` : r.gorsel ?? undefined,
+      gorsel: r.gorselVar ? `/api/gorsel/duyuru/${r.id}?v=${new Date(r.guncellenme).getTime()}` : r.gorsel ?? undefined,
       gorselAlt: r.gorselAlt ?? undefined,
       ilgiliHizmetler: r.ilgiliHizmetler ?? [],
     }));
@@ -83,6 +84,7 @@ export async function bloglariGetir(): Promise<BlogYazisi[]> {
         icerik: blogTbl.icerik,
         ilgiliHizmetler: blogTbl.ilgiliHizmetler,
         gorselVar: sql<boolean>`${blogTbl.gorselVeri} is not null`,
+        guncellenme: blogTbl.guncellenme,
       })
       .from(blogTbl)
       .where(eq(blogTbl.yayinda, true))
@@ -94,7 +96,7 @@ export async function bloglariGetir(): Promise<BlogYazisi[]> {
       tarih: r.tarih,
       kategori: r.kategori,
       yazar: r.yazar ?? undefined,
-      gorsel: r.gorselVar ? `/api/gorsel/blog/${r.id}` : r.gorsel ?? undefined,
+      gorsel: r.gorselVar ? `/api/gorsel/blog/${r.id}?v=${new Date(r.guncellenme).getTime()}` : r.gorsel ?? undefined,
       gorselAlt: r.gorselAlt ?? undefined,
       icerik: r.icerik,
       ilgiliHizmetler: r.ilgiliHizmetler ?? [],

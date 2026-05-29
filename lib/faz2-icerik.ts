@@ -36,6 +36,7 @@ export async function ekipUyeleriniGetir(): Promise<EkipUyesi[]> {
         uzmanlik: ekipUyeleri.uzmanlik,
         fotoAlt: ekipUyeleri.fotoAlt,
         fotoVar: sql<boolean>`${ekipUyeleri.fotoVeri} is not null`,
+        guncellenme: ekipUyeleri.guncellenme,
       })
       .from(ekipUyeleri)
       .where(eq(ekipUyeleri.yayinda, true))
@@ -45,7 +46,7 @@ export async function ekipUyeleriniGetir(): Promise<EkipUyesi[]> {
       ad: r.ad,
       unvan: r.unvan,
       uzmanlik: r.uzmanlik ?? undefined,
-      foto: r.fotoVar ? `/api/gorsel/ekip/${r.id}` : undefined,
+      foto: r.fotoVar ? `/api/gorsel/ekip/${r.id}?v=${new Date(r.guncellenme).getTime()}` : undefined,
       fotoAlt: r.fotoAlt ?? undefined,
     }));
   } catch (e) {
@@ -202,6 +203,7 @@ async function _sayfaSeoGetir(yol: string): Promise<SayfaSeoKayit | undefined> {
           seoDescription: sayfaSeo.seoDescription,
           noIndex: sayfaSeo.noIndex,
           ogVar: sql<boolean>`${sayfaSeo.ogImageVeri} is not null`,
+          guncellenme: sayfaSeo.guncellenme,
         })
         .from(sayfaSeo)
         .where(eq(sayfaSeo.yol, yol))
@@ -212,7 +214,7 @@ async function _sayfaSeoGetir(yol: string): Promise<SayfaSeoKayit | undefined> {
       seoTitle: r.seoTitle ?? undefined,
       seoDescription: r.seoDescription ?? undefined,
       noIndex: r.noIndex,
-      ogImage: r.ogVar ? `/api/gorsel/sayfa-seo/${encodeURIComponent(yol)}` : undefined,
+      ogImage: r.ogVar ? `/api/gorsel/sayfa-seo/${encodeURIComponent(yol)}?v=${new Date(r.guncellenme).getTime()}` : undefined,
     };
   } catch (e) {
     console.error("sayfaSeoGetir DB hatası:", e);

@@ -45,6 +45,7 @@ export default async function SayfaSeoYonetim({
         seoDescription: sayfaSeo.seoDescription,
         noIndex: sayfaSeo.noIndex,
         ogVar: sql<boolean>`${sayfaSeo.ogImageVeri} is not null`,
+        guncellenme: sayfaSeo.guncellenme,
       })
       .from(sayfaSeo)
       .where(eq(sayfaSeo.yol, yol))
@@ -101,7 +102,7 @@ export default async function SayfaSeoYonetim({
             {mevcut?.ogVar && (
               <div style={{ marginBottom: 8 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/api/gorsel/sayfa-seo/${encodeURIComponent(yol)}`} alt="OG görseli" style={{ maxWidth: 240, height: "auto", borderRadius: 6, border: "0.5px solid var(--dvn-gri-300)" }} />
+                <img src={`/api/gorsel/sayfa-seo/${encodeURIComponent(yol)}?v=${new Date(mevcut.guncellenme).getTime()}`} alt="OG görseli" style={{ maxWidth: 240, height: "auto", borderRadius: 6, border: "0.5px solid var(--dvn-gri-300)" }} />
               </div>
             )}
             <input type="file" name="ogImageDosya" accept="image/png,image/jpeg,image/webp" style={{ ...adminInput, padding: 8 }} />

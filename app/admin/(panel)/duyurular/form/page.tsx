@@ -22,6 +22,7 @@ export default async function DuyuruForm({ searchParams }: { searchParams: Promi
             ilgiliHizmetler: duyurular.ilgiliHizmetler,
             yayinda: duyurular.yayinda,
             gorselVar: sql<boolean>`${duyurular.gorselVeri} is not null`,
+            guncellenme: duyurular.guncellenme,
           })
           .from(duyurular)
           .where(eq(duyurular.id, Number(id)))
@@ -63,7 +64,7 @@ export default async function DuyuruForm({ searchParams }: { searchParams: Promi
             <div style={{ marginBottom: 8 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`/api/gorsel/duyuru/${mevcut.id}`}
+                src={`/api/gorsel/duyuru/${mevcut.id}?v=${new Date(mevcut.guncellenme).getTime()}`}
                 alt="Mevcut görsel"
                 style={{ height: 70, width: "auto", borderRadius: 6, border: "0.5px solid var(--dvn-gri-300)" }}
               />

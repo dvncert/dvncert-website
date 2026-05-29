@@ -23,6 +23,7 @@ export default async function BlogForm({ searchParams }: { searchParams: Promise
             ilgiliHizmetler: blogYazilari.ilgiliHizmetler,
             yayinda: blogYazilari.yayinda,
             gorselVar: sql<boolean>`${blogYazilari.gorselVeri} is not null`,
+            guncellenme: blogYazilari.guncellenme,
           })
           .from(blogYazilari)
           .where(eq(blogYazilari.id, Number(id)))
@@ -66,7 +67,7 @@ export default async function BlogForm({ searchParams }: { searchParams: Promise
             <div style={{ marginBottom: 8 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`/api/gorsel/blog/${mevcut.id}`}
+                src={`/api/gorsel/blog/${mevcut.id}?v=${new Date(mevcut.guncellenme).getTime()}`}
                 alt="Mevcut görsel"
                 style={{ height: 70, width: "auto", borderRadius: 6, border: "0.5px solid var(--dvn-gri-300)" }}
               />

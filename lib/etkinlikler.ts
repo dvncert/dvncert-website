@@ -45,6 +45,7 @@ const secim = {
   seoDescription: tbl.seoDescription,
   noIndex: tbl.noIndex,
   gorselVar: sql<boolean>`${tbl.gorselVeri} is not null`,
+  guncellenme: tbl.guncellenme,
 } as const;
 
 type HamSatir = Awaited<ReturnType<typeof temelSorgu>>[number];
@@ -64,7 +65,7 @@ function bicim(r: HamSatir): Etkinlik {
     yer: r.yer,
     ozet: r.ozet,
     icerik: r.icerik,
-    gorsel: r.gorselVar ? `/api/gorsel/etkinlik/${r.id}` : r.gorsel ?? undefined,
+    gorsel: r.gorselVar ? `/api/gorsel/etkinlik/${r.id}?v=${new Date(r.guncellenme).getTime()}` : r.gorsel ?? undefined,
     gorselAlt: r.gorselAlt ?? undefined,
     kayitUrl: r.kayitUrl ?? undefined,
     ucretli: r.ucretli,

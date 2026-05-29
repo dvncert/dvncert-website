@@ -21,6 +21,7 @@ export default async function EkipYonetim({ searchParams }: { searchParams: Prom
       sira: ekipUyeleri.sira,
       yayinda: ekipUyeleri.yayinda,
       fotoVar: sql<boolean>`${ekipUyeleri.fotoVeri} is not null`,
+      guncellenme: ekipUyeleri.guncellenme,
     })
     .from(ekipUyeleri)
     .orderBy(asc(ekipUyeleri.sira), asc(ekipUyeleri.id));
@@ -51,7 +52,7 @@ export default async function EkipYonetim({ searchParams }: { searchParams: Prom
             {duzenlenen?.fotoVar && (
               <div style={{ marginBottom: 8 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/api/gorsel/ekip/${duzenlenen.id}`} alt="Mevcut foto" style={{ width: 90, height: 90, objectFit: "cover", borderRadius: "50%", border: "0.5px solid var(--dvn-gri-300)" }} />
+                <img src={`/api/gorsel/ekip/${duzenlenen.id}?v=${new Date(duzenlenen.guncellenme).getTime()}`} alt="Mevcut foto" style={{ width: 90, height: 90, objectFit: "cover", borderRadius: "50%", border: "0.5px solid var(--dvn-gri-300)" }} />
               </div>
             )}
             <input type="file" name="fotoDosya" accept="image/png,image/jpeg,image/webp" style={{ ...adminInput, padding: 8 }} />
@@ -93,7 +94,7 @@ export default async function EkipYonetim({ searchParams }: { searchParams: Prom
                 <td style={hucre}>
                   {r.fotoVar ? (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img src={`/api/gorsel/ekip/${r.id}`} alt="" style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
+                    <img src={`/api/gorsel/ekip/${r.id}?v=${new Date(r.guncellenme).getTime()}`} alt="" style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
                   ) : (
                     <span style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--dvn-gri-200)", display: "inline-block" }} />
                   )}
