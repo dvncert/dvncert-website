@@ -13,22 +13,53 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: "/logolarimiz",
     title: "Logolarımız",
     description:
-      "DVN Cert kurumsal logosu ve marka kullanım kuralları. Logomuzun doğru kullanımına ilişkin yönergeler ve indirilebilir logo dosyaları.",
+      "DVN Cert kurumsal logosu ve marka kullanım kuralları (TL.11 talimatı). Logo kullanım koşulları, TÜRKAK akreditasyon markası kuralları, indirilebilir logo dosyaları ve talimatın PDF görünümü.",
   });
 }
 
+// TL.11 Rev.02 Marka Logo Kullanım Talimatı esas alınmıştır.
+const TALIMAT_PDF = "/dokumanlar/marka-logo-kullanim-talimati.pdf";
+
 const yapilmasiGerekenler = [
-  "Logoyu orijinal en-boy oranını koruyarak kullanın.",
-  "Logonun çevresinde yeterli boşluk (temiz alan) bırakın.",
-  "Yalnızca tarafımızca sağlanan güncel logo dosyalarını kullanın.",
-  "Logoyu okunabilirliği koruyan, kontrastı yeterli zeminlerde kullanın.",
+  "Logoyu yalnızca belge kapsamı dahilindeki faaliyet alanlarında kullanın.",
+  "Logoyu orijinal renklerinde ve oranlarını koruyarak kullanın; oranlar sabit kalmak şartıyla boyut büyütülüp küçültülebilir.",
+  "Logonun kullanım şekli için Sistem Belgelendirme Müdürlüğü'nden onay alın.",
+  "Yalnızca tarafımızca sağlanan güncel logo dosyalarını, kontrastı yeterli zeminlerde kullanın.",
+  "Belgelendirme statüsüne atıfta bulunurken belgelendirme kuruluşunun şartlarına uyun.",
 ];
 
 const yapilmamasiGerekenler = [
-  "Logonun renklerini, oranlarını veya öğelerini değiştirmeyin.",
-  "Logoyu eğmeyin, döndürmeyin veya gölge/efekt eklemeyin.",
-  "Düşük çözünürlüklü veya bozulmuş kopyalar kullanmayın.",
-  "Logoyu, belgelendirme kapsamı dışında yanıltıcı biçimde kullanmayın.",
+  "Logoyu ürün, ürün ambalajı üzerinde veya ürün uygunluğunu çağrıştıracak şekilde kullanmayın.",
+  "DVN Cert'in sorumluluğu olduğu anlamı çıkacak şekilde kullanmayın.",
+  "Belge kapsamı dışındaki bölüm, bağlı kuruluş veya iştiraklerde kullanmayın.",
+  "Belge ve logoyu üçüncü tarafa devretmeyin.",
+  "Yanıltıcı, belirsiz veya kuruluşun itibarına gölge düşürecek biçimde kullanmayın.",
+  "Belge süresi dolduğunda, askıya alındığında veya geri çekildiğinde logo kullanımına devam etmeyin.",
+];
+
+// DVN Cert logosunun kullanım koşulları matrisi (talimat tablosu).
+const kullanimTablosu = {
+  sutunlar: ["Ürün üzerinde (*a)", "Taşıma kutuları vb. üzerinde (*b)", "Reklam / broşür vb. üzerinde"],
+  satirlar: [
+    { etiket: "Açıklama olmaksızın", degerler: ["Kullanılamaz", "Kullanılamaz", "Kullanılabilir (*d)"] },
+    { etiket: "Açıklama (*c) ile", degerler: ["Kullanılamaz", "Kullanılabilir (*d)", "Kullanılabilir (*d)"] },
+  ],
+  notlar: [
+    "*a. Ürün; elle tutulur, somut bir ürün veya paket/kutu içindeki tek bir ürün olabilir.",
+    "*b. Son kullanıcıya ulaşmadığı düşünülen mukavva vb. malzemeden yapılmış dış ambalaj olabilir.",
+    "*c. \"Bu ürün, ISO 9001 standardına göre belgelendirilen bir kuruluşta üretilmiştir.\" gibi açık bir ifade olmalıdır.",
+    "*d. Talimatta belirtilen diğer şartlara uymak koşuluyla kullanılabilir.",
+  ],
+};
+
+const ornekAciklama =
+  "Bu ürün; DVN Cert tarafından ISO 9001:2015'e göre belgelendirilmiş kalite yönetim sistemine sahip, ABC Ltd. Şti. tarafından üretilmiştir.";
+
+const turkakMaddeleri = [
+  "TÜRKAK Akreditasyon Markası, DVN Cert logosu olmaksızın tek başına kullanılamaz.",
+  "Marka yalnızca alınan belge akreditasyon kapsamında ise kırtasiye, reklam ve tanıtım malzemelerinde kullanılabilir.",
+  "Taşıtlar, binalar, bayraklar ile kart ve kartvizitler üzerinde kullanılmaz.",
+  "Kullanıldığı yerlerde DVN Cert belgelendirme markasından daha baskın veya geri planda olmamalıdır.",
 ];
 
 export default async function LogolarimizSayfasi() {
@@ -80,13 +111,47 @@ export default async function LogolarimizSayfasi() {
 
       <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 40 }}>
+          <div style={{ textAlign: "center", marginBottom: 28 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
               MARKA KULLANIMI
             </p>
             <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
               Logo kullanım kuralları
             </h2>
+            <p style={{ fontSize: 13.5, color: "var(--dvn-gri-500)", margin: "12px auto 0", maxWidth: 720, lineHeight: 1.7 }}>
+              DVN Cert logosu, tetkiklerden başarılı olarak belge almaya hak kazanan firmalar tarafından,
+              aşağıdaki kurallara ve <strong>TL.11 Marka Logo Kullanım Talimatı</strong>&apos;na uygun olarak
+              kullanılabilir.
+            </p>
+          </div>
+
+          {/* Talimat PDF görüntüleme */}
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <a
+              href={TALIMAT_PDF}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                background: "white",
+                color: "var(--dvn-lacivert)",
+                padding: "12px 22px",
+                borderRadius: "var(--dvn-radius-md)",
+                fontWeight: 500,
+                fontSize: 13.5,
+                border: "0.5px solid var(--dvn-gri-300)",
+                boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
+                textDecoration: "none",
+              }}
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="var(--dvn-turuncu)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M14 2v6h6M9 13h6M9 17h6" stroke="var(--dvn-turuncu)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Marka ve Logo Kullanım Talimatını görüntüle (PDF)
+            </a>
           </div>
 
           <div className="dvn-kural-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
@@ -125,9 +190,75 @@ export default async function LogolarimizSayfasi() {
             </div>
           </div>
 
+          {/* Kullanım koşulları tablosu */}
+          <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", marginTop: 20 }}>
+            <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 18px" }}>
+              DVN Cert logosu nerede kullanılabilir?
+            </h3>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13, minWidth: 520 }}>
+                <thead>
+                  <tr>
+                    <th style={{ textAlign: "left", padding: "10px 12px", color: "var(--dvn-gri-500)", fontWeight: 600, borderBottom: "1px solid var(--dvn-gri-300)" }}></th>
+                    {kullanimTablosu.sutunlar.map((s) => (
+                      <th key={s} style={{ textAlign: "left", padding: "10px 12px", color: "var(--dvn-lacivert)", fontWeight: 600, borderBottom: "1px solid var(--dvn-gri-300)" }}>
+                        {s}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {kullanimTablosu.satirlar.map((satir) => (
+                    <tr key={satir.etiket}>
+                      <td style={{ padding: "11px 12px", color: "var(--dvn-lacivert)", fontWeight: 600, borderBottom: "0.5px solid var(--dvn-gri-300)" }}>{satir.etiket}</td>
+                      {satir.degerler.map((deger, j) => {
+                        const olumlu = deger.startsWith("Kullanılabilir");
+                        return (
+                          <td key={j} style={{ padding: "11px 12px", color: olumlu ? "var(--dvn-altin)" : "var(--dvn-turuncu)", fontWeight: 500, borderBottom: "0.5px solid var(--dvn-gri-300)" }}>
+                            {deger}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <ul style={{ listStyle: "none", margin: "16px 0 0", padding: 0, display: "grid", gap: 6 }}>
+              {kullanimTablosu.notlar.map((n, i) => (
+                <li key={i} style={{ fontSize: 11.5, color: "var(--dvn-gri-500)", lineHeight: 1.5 }}>{n}</li>
+              ))}
+            </ul>
+
+            <div style={{ background: "var(--dvn-gri-50)", borderRadius: 10, padding: "14px 16px", marginTop: 18, borderLeft: "3px solid var(--dvn-altin)" }}>
+              <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: "0 0 4px", fontWeight: 600 }}>Örnek açıklama ifadesi</p>
+              <p style={{ fontSize: 13, color: "var(--dvn-gri-700)", margin: 0, lineHeight: 1.6, fontStyle: "italic" }}>“{ornekAciklama}”</p>
+            </div>
+          </div>
+
+          {/* TÜRKAK Akreditasyon Markası */}
+          <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", marginTop: 20 }}>
+            <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 8px" }}>
+              TÜRKAK Akreditasyon Markası kullanımı
+            </h3>
+            <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", margin: "0 0 16px", lineHeight: 1.6 }}>
+              Akreditasyon kapsamındaki belgeler için, TÜRKAK&apos;ın R10.06 logo kullanım şartları ile birlikte
+              aşağıdaki kurallar geçerlidir.
+            </p>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 12 }}>
+              {turkakMaddeleri.map((k, i) => (
+                <li key={i} style={{ display: "flex", gap: 10, fontSize: 13.5, color: "var(--dvn-gri-700)", lineHeight: 1.6 }}>
+                  <span style={{ color: "var(--dvn-lacivert)", flexShrink: 0 }}>•</span>
+                  {k}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <p style={{ textAlign: "center", fontSize: 12.5, color: "var(--dvn-gri-500)", margin: "28px auto 0", maxWidth: 720, lineHeight: 1.6 }}>
-            Belgelendirilen kuruluşların sertifika ve akreditasyon markalarını kullanımına ilişkin ayrıntılı
-            kurallar için lütfen <strong>Politika ve Beyanlar</strong> bölümünü inceleyiniz.
+            Belgenin geçerlilik süresi sona erdiğinde, askıya alındığında veya geri çekildiğinde logo kullanımı derhal
+            durdurulmalıdır. Belge ve logo üçüncü tarafa devredilemez. Ayrıntılar için yukarıdaki{" "}
+            <strong>Marka ve Logo Kullanım Talimatı</strong>&apos;nı (TL.11 Rev.02) inceleyiniz.
           </p>
         </div>
       </section>
