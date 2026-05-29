@@ -351,7 +351,13 @@ function VarsayilanLogoKart({ zeminKoyu }: { zeminKoyu: boolean }) {
           border: zeminKoyu ? "none" : "0.5px solid var(--dvn-gri-300)",
         }}
       >
-        <Image src="/logo.webp" alt="DVN Cert Belgelendirme logosu" width={126} height={84} style={{ height: 84, width: "auto" }} />
+        <Image
+          src={zeminKoyu ? "/logo-beyaz.png" : "/logo.webp"}
+          alt="DVN Cert Belgelendirme logosu"
+          width={152}
+          height={84}
+          style={{ height: 84, width: "auto" }}
+        />
       </div>
       <div>
         <p style={{ fontSize: 14, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>
