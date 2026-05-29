@@ -4,6 +4,13 @@ const nextConfig: NextConfig = {
   // Görsel optimizasyonu: modern formatlar (AVIF/WebP) öncelikli sun.
   images: {
     formats: ["image/avif", "image/webp"],
+    // next/image yerel yollar için query string'i varsayılan olarak reddeder.
+    // DB'den gelen görsellerde ?v=<guncellenmeMs> cache-buster kullanıyoruz —
+    // bu yollara query string'e izin ver. Diğer public yollarda query yok.
+    localPatterns: [
+      { pathname: "/api/gorsel/**" },
+      { pathname: "/**", search: "" },
+    ],
   },
 
   // Logo yüklemeleri için server action gövde limiti (varsayılan 1MB).
