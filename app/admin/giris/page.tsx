@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { AuthError } from "next-auth";
 import { signIn } from "@/auth";
@@ -52,10 +53,14 @@ export default async function AdminGirisSayfasi({
           boxShadow: "0 16px 48px rgba(0,0,0,0.3)",
         }}
       >
-        <h1 style={{ color: "var(--dvn-lacivert)", fontSize: 22, fontWeight: 600, margin: "0 0 4px" }}>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 22 }}>
+          <Image src="/logo.webp" alt="DVN Cert" width={180} height={99} priority style={{ height: 56, width: "auto" }} />
+        </div>
+
+        <h1 style={{ color: "var(--dvn-lacivert)", fontSize: 22, fontWeight: 600, margin: "0 0 4px", textAlign: "center" }}>
           DVN Cert Yönetim
         </h1>
-        <p style={{ color: "var(--dvn-gri-500)", fontSize: 13.5, margin: "0 0 24px" }}>
+        <p style={{ color: "var(--dvn-gri-500)", fontSize: 13.5, margin: "0 0 24px", textAlign: "center" }}>
           Devam etmek için giriş yapın.
         </p>
 

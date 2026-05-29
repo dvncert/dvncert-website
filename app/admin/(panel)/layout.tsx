@@ -9,103 +9,86 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const nav = [
-  { ad: "Panel", href: "/admin" },
-  { ad: "Duyurular", href: "/admin/duyurular" },
-  { ad: "Blog", href: "/admin/blog" },
-  { ad: "Etkinlikler", href: "/admin/etkinlikler" },
-  { ad: "Ekibimiz", href: "/admin/ekip" },
-  { ad: "Akreditasyonlar", href: "/admin/akreditasyonlar" },
-  { ad: "Logolar", href: "/admin/logolar" },
-  { ad: "Dokümanlar", href: "/admin/dokumanlar" },
-  { ad: "Sayfa İçeriği", href: "/admin/icerik" },
-  { ad: "Özel Sayfalar", href: "/admin/sayfalar" },
-  { ad: "S.S.S.", href: "/admin/sss" },
-  { ad: "Yorumlar", href: "/admin/yorumlar" },
-  { ad: "Referanslar", href: "/admin/referanslar" },
-  { ad: "Form Gönderileri", href: "/admin/gonderiler" },
-  { ad: "Üst Menü", href: "/admin/menu" },
-  { ad: "Pop-up", href: "/admin/popup" },
-  { ad: "Sayfa SEO", href: "/admin/sayfa-seo" },
-  { ad: "Site Ayarları", href: "/admin/site-ayarlari" },
-];
-
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
   if (!session?.user) redirect("/admin/giris");
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "var(--dvn-gri-50)" }}>
-      <aside
+    <div style={{ minHeight: "100vh", background: "var(--dvn-gri-50)" }}>
+      <header
         style={{
-          width: 220,
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
           background: "var(--dvn-lacivert)",
           color: "white",
-          padding: "24px 16px",
-          flexShrink: 0,
+          padding: "0 24px",
+          height: 60,
           display: "flex",
-          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 16,
         }}
       >
         <Link
           href="/admin"
-          style={{ display: "block", background: "#fff", borderRadius: 10, padding: "12px 16px", marginBottom: 22 }}
-          aria-label="DVN Cert Yönetim Paneli"
+          style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}
+          aria-label="DVN Cert Yönetim Paneli — Panele dön"
         >
-          <Image
-            src="/logo.webp"
-            alt="DVN Cert"
-            width={150}
-            height={83}
-            priority
-            style={{ width: "100%", height: "auto", display: "block" }}
-          />
+          <span style={{ display: "flex", background: "#fff", borderRadius: 8, padding: "6px 10px" }}>
+            <Image src="/logo.webp" alt="DVN Cert" width={120} height={66} priority style={{ height: 30, width: "auto", display: "block" }} />
+          </span>
+          <span style={{ color: "white", fontSize: 14.5, fontWeight: 600 }}>Yönetim Paneli</span>
         </Link>
-        <nav style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-          {nav.map((n) => (
-            <Link
-              key={n.href}
-              href={n.href}
-              className="dvn-admin-nav"
-              style={{ color: "#cbd5e1", padding: "9px 12px", borderRadius: 8, fontSize: 14, textDecoration: "none" }}
-            >
-              {n.ad}
-            </Link>
-          ))}
-        </nav>
-        <form
-          action={async () => {
-            "use server";
-            await signOut({ redirectTo: "/admin/giris" });
-          }}
-          style={{ marginTop: "auto", paddingTop: 24 }}
-        >
-          <button
-            type="submit"
-            style={{
-              width: "100%",
-              background: "rgba(255,255,255,0.08)",
-              border: "0.5px solid rgba(255,255,255,0.2)",
-              color: "white",
-              padding: "9px 12px",
-              borderRadius: 8,
-              fontSize: 13.5,
-              cursor: "pointer",
+
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <Link
+            href="/"
+            target="_blank"
+            className="dvn-admin-ust-link"
+            style={{ color: "#cbd5e1", fontSize: 13, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            Siteyi Gör
+          </Link>
+          <span style={{ fontSize: 12.5, color: "#9aa5b1", display: "none" }} className="dvn-admin-email">
+            {session.user.email}
+          </span>
+          <form
+            action={async () => {
+              "use server";
+              await signOut({ redirectTo: "/admin/giris" });
             }}
           >
-            Çıkış
-          </button>
-        </form>
-      </aside>
+            <button
+              type="submit"
+              style={{
+                background: "rgba(255,255,255,0.10)",
+                border: "0.5px solid rgba(255,255,255,0.2)",
+                color: "white",
+                padding: "8px 16px",
+                borderRadius: 8,
+                fontSize: 13,
+                cursor: "pointer",
+              }}
+            >
+              Çıkış
+            </button>
+          </form>
+        </div>
+      </header>
 
-      <main style={{ flex: 1, padding: "28px 32px", minWidth: 0 }}>
+      <main style={{ maxWidth: 1180, margin: "0 auto", padding: "28px 24px 60px", minWidth: 0 }}>
         <div style={{ fontSize: 12.5, color: "var(--dvn-gri-500)", marginBottom: 18 }}>
           Giriş: {session.user.email}
         </div>
         {children}
       </main>
 
-      <style>{`.dvn-admin-nav:hover { background: rgba(255,255,255,0.10); color: #fff !important; }`}</style>
+      <style>{`
+        .dvn-admin-ust-link:hover { color: #fff !important; }
+        @media (min-width: 720px) { .dvn-admin-email { display: inline !important; } }
+      `}</style>
     </div>
   );
 }
