@@ -13,9 +13,34 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: "/ekibimiz",
     title: "Ekibimiz",
     description:
-      "DVN Cert'in alanında deneyimli baş denetçi, teknik uzman ve değerlendirme ekibi. Yetkin kadromuzla bağımsız ve tarafsız belgelendirme hizmeti sunuyoruz.",
+      "DVN Cert organizasyon yapısı ve ekibi: Genel Müdür, tarafsızlık ve belgelendirme komiteleri, birim sorumluları, planlama ve denetçi kadrosu.",
   });
 }
+
+// ORG.01 Organizasyon Şeması'ndan derlenmiştir.
+type Pozisyon = { ad: string; altlar?: Pozisyon[] };
+
+const ORG_KOMITELER: Pozisyon[] = [
+  { ad: "Tarafsızlık Komitesi" },
+  { ad: "İtiraz ve Şikayet Komitesi" },
+  { ad: "Belgelendirme Komitesi" },
+  { ad: "Yönetim Temsilcisi" },
+];
+
+const ORG_BIRIMLER: Pozisyon[] = [
+  { ad: "İnsan Kaynakları Sorumlusu" },
+  {
+    ad: "Sistem Belgelendirme Müdürü",
+    altlar: [
+      {
+        ad: "Planlama Sorumlusu",
+        altlar: [{ ad: "Denetçiler / Teknik Uzmanlar" }],
+      },
+    ],
+  },
+  { ad: "Müşteri İlişkileri Sorumlusu" },
+  { ad: "Muhasebe Müdürü" },
+];
 
 function basHarfler(metin: string) {
   return metin
@@ -24,6 +49,88 @@ function basHarfler(metin: string) {
     .slice(0, 2)
     .join("")
     .toUpperCase();
+}
+
+function Cizgi({ y = 22 }: { y?: number }) {
+  return <div style={{ width: 1, height: y, background: "var(--dvn-gri-300)", margin: "0 auto" }} />;
+}
+
+function BolumBasligi({ etiket }: { etiket: string }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "28px 0 18px" }}>
+      <div style={{ flex: 1, height: 1, background: "var(--dvn-gri-300)" }} />
+      <span style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 600, letterSpacing: "1.4px" }}>{etiket}</span>
+      <div style={{ flex: 1, height: 1, background: "var(--dvn-gri-300)" }} />
+    </div>
+  );
+}
+
+function BirimKart({ p }: { p: Pozisyon }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch" }}>
+      <div
+        style={{
+          background: "white",
+          border: "0.5px solid var(--dvn-gri-300)",
+          borderTop: "3px solid var(--dvn-turuncu)",
+          borderRadius: 10,
+          padding: "16px 14px",
+          textAlign: "center",
+          boxShadow: "0 4px 14px rgba(2,35,152,0.06)",
+          fontSize: 13.5,
+          fontWeight: 600,
+          color: "var(--dvn-lacivert)",
+          lineHeight: 1.35,
+          minHeight: 64,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {p.ad}
+      </div>
+      {p.altlar?.map((alt) => (
+        <div key={alt.ad}>
+          <Cizgi />
+          <div
+            style={{
+              background: "var(--dvn-gri-50)",
+              border: "0.5px solid var(--dvn-gri-300)",
+              borderRadius: 10,
+              padding: "11px 12px",
+              textAlign: "center",
+              fontSize: 12.5,
+              fontWeight: 600,
+              color: "var(--dvn-lacivert)",
+              lineHeight: 1.35,
+            }}
+          >
+            {alt.ad}
+          </div>
+          {alt.altlar?.map((alt2) => (
+            <div key={alt2.ad}>
+              <Cizgi />
+              <div
+                style={{
+                  background: "var(--dvn-gri-50)",
+                  border: "0.5px solid var(--dvn-gri-300)",
+                  borderRadius: 10,
+                  padding: "11px 12px",
+                  textAlign: "center",
+                  fontSize: 12.5,
+                  fontWeight: 600,
+                  color: "var(--dvn-lacivert)",
+                  lineHeight: 1.35,
+                }}
+              >
+                {alt2.ad}
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default async function EkibimizSayfasi() {
@@ -60,9 +167,9 @@ export default async function EkibimizSayfasi() {
         kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Ekibimiz" }]}
       />
 
-      <KapakGorsel alt="DVN Cert uzman denetçi ve değerlendirme ekibi" ikon="denetim" etiket="Uzman ve bağımsız denetçi kadromuz" oncelik />
+      <KapakGorsel alt="DVN Cert organizasyon yapısı ve uzman ekibi" ikon="denetim" etiket="Yetkin ve bağımsız organizasyon yapısı" oncelik />
 
-      <section style={{ background: "white", padding: "60px 32px 36px" }}>
+      <section style={{ background: "white", padding: "60px 32px 30px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 10px" }}>
             UZMAN KADRO
@@ -71,20 +178,112 @@ export default async function EkibimizSayfasi() {
             Yetkinlik, deneyim ve tarafsızlık
           </h2>
           <p style={{ fontSize: 15, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: 0 }}>
-            Denetçi ve teknik uzmanlarımız, ilgili standartların gerekliliklerine hakim; düzenli eğitim ve
-            yeterlilik değerlendirmeleriyle yetkinlikleri sürekli izlenen profesyonellerden oluşur. Karar
-            süreçlerimiz, tarafsızlığı güvence altına alan bir yapı içinde yürütülür.
+            DVN Cert organizasyon yapısı; karar süreçlerinde tarafsızlığı güvence altına alan komiteler ve
+            operasyonel birimlerden oluşur. Denetçi ve teknik uzmanlarımız düzenli eğitim ve yeterlilik
+            değerlendirmeleriyle yetkinlikleri sürekli izlenen profesyonellerden oluşur.
           </p>
         </div>
       </section>
 
-      <section style={{ background: "white", padding: "0 32px 60px" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          {ekip.length === 0 ? (
-            <p style={{ textAlign: "center", color: "var(--dvn-gri-500)", fontSize: 14, fontStyle: "italic" }}>
-              Ekip kadrosu yakında bu sayfada paylaşılacaktır.
+      {/* ORGANİZASYON ŞEMASI */}
+      <section style={{ background: "var(--dvn-gri-50)", padding: "20px 32px 60px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 36 }}>
+            <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+              ORGANİZASYON ŞEMASI
             </p>
-          ) : (
+            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+              Yapımız ve görev dağılımı
+            </h2>
+          </div>
+
+          {/* Üst yönetim */}
+          <div
+            style={{
+              background: "var(--dvn-gradient-lacivert)",
+              color: "white",
+              borderRadius: 14,
+              padding: "22px 30px",
+              textAlign: "center",
+              boxShadow: "0 12px 32px rgba(2,35,152,0.22)",
+              maxWidth: 320,
+              margin: "0 auto",
+            }}
+          >
+            <div style={{ fontSize: 11, color: "var(--dvn-altin-acik)", letterSpacing: "1.6px", fontWeight: 500, marginBottom: 4 }}>
+              ÜST YÖNETİM
+            </div>
+            <div style={{ fontSize: 19, fontWeight: 600, letterSpacing: 0.3 }}>Genel Müdür</div>
+          </div>
+
+          <Cizgi y={28} />
+
+          {/* Komiteler & Yönetim Temsilcisi */}
+          <BolumBasligi etiket="DANIŞMA & KOMİTELER" />
+          <div
+            className="dvn-org-tier"
+            style={{ display: "grid", gridTemplateColumns: `repeat(${ORG_KOMITELER.length}, 1fr)`, gap: 14 }}
+          >
+            {ORG_KOMITELER.map((k) => (
+              <div
+                key={k.ad}
+                style={{
+                  background: "white",
+                  border: "0.5px solid var(--dvn-gri-300)",
+                  borderTop: "3px solid var(--dvn-altin)",
+                  borderRadius: 10,
+                  padding: "14px 12px",
+                  textAlign: "center",
+                  boxShadow: "0 4px 14px rgba(2,35,152,0.05)",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: "var(--dvn-lacivert)",
+                  lineHeight: 1.35,
+                  minHeight: 60,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {k.ad}
+              </div>
+            ))}
+          </div>
+
+          {/* Operasyonel birimler */}
+          <BolumBasligi etiket="OPERASYONEL BİRİMLER" />
+          <div
+            className="dvn-org-tier"
+            style={{
+              display: "grid",
+              gridTemplateColumns: `repeat(${ORG_BIRIMLER.length}, 1fr)`,
+              gap: 14,
+              alignItems: "start",
+            }}
+          >
+            {ORG_BIRIMLER.map((b) => (
+              <BirimKart key={b.ad} p={b} />
+            ))}
+          </div>
+
+          <p style={{ textAlign: "center", fontSize: 12, color: "var(--dvn-gri-500)", margin: "32px auto 0", maxWidth: 700, lineHeight: 1.6 }}>
+            Kaynak: <strong>ORG.01 Organizasyon Şeması</strong>. Tarafsızlık ve karar bağımsızlığı, komiteler aracılığıyla yapısal olarak güvence altına alınır.
+          </p>
+        </div>
+      </section>
+
+      {/* Ekip üyeleri (DB) — yalnızca yüklenmişse */}
+      {ekip.length > 0 && (
+        <section style={{ background: "white", padding: "60px 32px" }}>
+          <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 32 }}>
+              <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+                EKİBİMİZİ TANIYIN
+              </p>
+              <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+                DVN Cert çalışanları
+              </h2>
+            </div>
             <div className="dvn-ekip-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
               {ekip.map((kisi) => (
                 <div
@@ -154,11 +353,11 @@ export default async function EkibimizSayfasi() {
                 </div>
               ))}
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
-      <section style={{ background: "var(--dvn-gri-50)", padding: "50px 32px 70px" }}>
+      <section style={{ background: ekip.length > 0 ? "var(--dvn-gri-50)" : "white", padding: "50px 32px 70px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 22, fontWeight: 500, margin: "0 0 10px" }}>
             Ekibimize katılmak ister misiniz?
@@ -189,9 +388,11 @@ export default async function EkibimizSayfasi() {
       <style>{`
         @media (max-width: 820px) {
           .dvn-ekip-grid { grid-template-columns: 1fr 1fr !important; }
+          .dvn-org-tier { grid-template-columns: 1fr 1fr !important; }
         }
-        @media (max-width: 560px) {
+        @media (max-width: 480px) {
           .dvn-ekip-grid { grid-template-columns: 1fr !important; }
+          .dvn-org-tier { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </main>
