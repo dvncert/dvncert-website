@@ -5,6 +5,7 @@ import KapakGorsel from "../components/KapakGorsel";
 import { ekipUyeleriniGetir } from "@/lib/faz2-icerik";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 import { breadcrumbSchema, itemListSchema, schemaScript } from "@/lib/seo-schemas";
+import { ORG_KOMITELER, ORG_BIRIMLER, type Pozisyon } from "@/lib/org-semasi";
 
 export const revalidate = 300;
 
@@ -16,31 +17,6 @@ export async function generateMetadata(): Promise<Metadata> {
       "DVN Cert organizasyon yapısı ve ekibi: Genel Müdür, tarafsızlık ve belgelendirme komiteleri, birim sorumluları, planlama ve denetçi kadrosu.",
   });
 }
-
-// ORG.01 Organizasyon Şeması'ndan derlenmiştir.
-type Pozisyon = { ad: string; altlar?: Pozisyon[] };
-
-const ORG_KOMITELER: Pozisyon[] = [
-  { ad: "Tarafsızlık Komitesi" },
-  { ad: "İtiraz ve Şikayet Komitesi" },
-  { ad: "Belgelendirme Komitesi" },
-  { ad: "Yönetim Temsilcisi" },
-];
-
-const ORG_BIRIMLER: Pozisyon[] = [
-  { ad: "İnsan Kaynakları Sorumlusu" },
-  {
-    ad: "Sistem Belgelendirme Müdürü",
-    altlar: [
-      {
-        ad: "Planlama Sorumlusu",
-        altlar: [{ ad: "Denetçiler / Teknik Uzmanlar" }],
-      },
-    ],
-  },
-  { ad: "Müşteri İlişkileri Sorumlusu" },
-  { ad: "Muhasebe Müdürü" },
-];
 
 function basHarfler(metin: string) {
   return metin

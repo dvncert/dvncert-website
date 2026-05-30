@@ -6,6 +6,7 @@ import { ekipUyeleri } from "@/lib/db/schema";
 import { ekipKaydet, ekipSil } from "../actions";
 import { Alan, SayfaBaslik, adminInput, adminKart, adminTablo, btnBirincil, btnIkincil } from "../_ui";
 import SilButonu from "../_SilButonu";
+import { ORG_USTYONETIM, ORG_KOMITELER, ORG_BIRIM_POZISYONLARI, ORG_POZISYONLARI } from "@/lib/org-semasi";
 
 const hucre: CSSProperties = { padding: "10px 12px", textAlign: "left", verticalAlign: "middle" };
 
@@ -41,8 +42,28 @@ export default async function EkipYonetim({ searchParams }: { searchParams: Prom
             <Alan etiket="Ad Soyad">
               <input name="ad" required defaultValue={duzenlenen?.ad ?? ""} style={adminInput} />
             </Alan>
-            <Alan etiket="Ünvan / Rol">
-              <input name="unvan" required defaultValue={duzenlenen?.unvan ?? ""} placeholder="Baş Denetçi / Genel Müdür..." style={adminInput} />
+            <Alan etiket="Pozisyon (ORG.01 şemasından)">
+              <select name="unvan" required defaultValue={duzenlenen?.unvan ?? ""} style={adminInput}>
+                <option value="" disabled>Pozisyon seçiniz…</option>
+                <optgroup label="Üst Yönetim">
+                  <option value={ORG_USTYONETIM}>{ORG_USTYONETIM}</option>
+                </optgroup>
+                <optgroup label="Danışma & Komiteler">
+                  {ORG_KOMITELER.map((k) => (
+                    <option key={k.ad} value={k.ad}>{k.ad}</option>
+                  ))}
+                </optgroup>
+                <optgroup label="Operasyonel Birimler">
+                  {ORG_BIRIM_POZISYONLARI.map((ad) => (
+                    <option key={ad} value={ad}>{ad}</option>
+                  ))}
+                </optgroup>
+                {duzenlenen?.unvan && !ORG_POZISYONLARI.includes(duzenlenen.unvan) && (
+                  <optgroup label="Mevcut kayıt (şema dışı)">
+                    <option value={duzenlenen.unvan}>{duzenlenen.unvan}</option>
+                  </optgroup>
+                )}
+              </select>
             </Alan>
           </div>
           <Alan etiket="Uzmanlık alanı (kısa açıklama)">
