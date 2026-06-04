@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
-import SikayetFormu from "../components/SikayetFormu";
 import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
@@ -109,7 +108,7 @@ export default function SikayetVeGoruslerSayfasi() {
         </div>
       </section>
 
-      {/* Form */}
+      {/* Başvuru */}
       <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px 70px" }}>
         <div
           style={{
@@ -118,17 +117,44 @@ export default function SikayetVeGoruslerSayfasi() {
             background: "white",
             border: "0.5px solid var(--dvn-gri-300)",
             borderRadius: 16,
-            padding: "34px 32px",
+            padding: "40px 32px",
             boxShadow: "0 8px 32px rgba(2,35,152,0.06)",
+            textAlign: "center",
           }}
         >
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
             BAŞVURU FORMU
           </p>
-          <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 22, fontWeight: 500, margin: "0 0 24px", lineHeight: 1.3 }}>
+          <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 22, fontWeight: 500, margin: "0 0 14px", lineHeight: 1.3 }}>
             Talebinizi iletin
           </h2>
-          <SikayetFormu />
+          <p style={{ fontSize: 14.5, color: "var(--dvn-gri-500)", lineHeight: 1.7, margin: "0 auto 28px", maxWidth: 520 }}>
+            Şikayet, itiraz, öneri ve görüşlerinizi DVN Cert Belge Yönetim Sistemi (DBYS) üzerinden
+            iletebilirsiniz. Aşağıdaki butona tıklayarak başvuru formuna ulaşabilirsiniz.
+          </p>
+          <a
+            href="https://dbys.dvncert.com/sikayet"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "var(--dvn-gradient-turuncu)",
+              color: "white",
+              padding: "14px 32px",
+              borderRadius: "var(--dvn-radius-md)",
+              fontWeight: 500,
+              fontSize: 14.5,
+              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
+              textDecoration: "none",
+            }}
+          >
+            Başvuru formuna git
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
         </div>
       </section>
 
