@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { and, eq, gte, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { formGonderileri } from "@/lib/db/schema";
+import { iletisimEpostaGonder } from "@/lib/email";
 
 export type FormGonderiPayload = {
   tip: "iletisim" | "sikayet" | "kariyer";
@@ -83,9 +84,22 @@ export async function formGonderAction(payload: FormGonderiPayload): Promise<{ o
       ip: ip ?? null,
       userAgent: ua ?? null,
     });
-    return { ok: true };
   } catch (e) {
     console.error("formGonderAction DB hatası:", e);
     return { ok: false };
   }
+
+  // İletişim formu mesajını info@dvncert.com'a e-posta olarak ilet.
+  // E-posta başarısız olsa bile gönderi DB'ye yazıldığı için { ok: true } döneriz.
+  if (payload.tip === "iletisim") {
+    await iletisimEpostaGonder({
+      ad: payload.ad,
+      email: payload.email,
+      telefon: payload.telefon,
+      konu: payload.konu,
+      mesaj: payload.mesaj,
+    });
+  }
+
+  return { ok: true };
 }
