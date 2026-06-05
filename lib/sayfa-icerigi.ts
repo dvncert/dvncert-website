@@ -191,6 +191,77 @@ export const SAYFA_ICERIK: Record<string, SayfaIcerikTanim> = {
       { anahtar: "cta-metin", etiket: "Alt CTA — alt metin", tip: "input", varsayilan: "Kurumunuza özel veya genel katılımlı eğitim programları için bizimle iletişime geçin." },
     ],
   },
+  "/kariyer": {
+    ad: "Kariyer",
+    alanlar: [
+      { anahtar: "kapak-etiket", etiket: "Kapak görseli üstündeki etiket", tip: "input", varsayilan: "Ekibimize katılın" },
+
+      { anahtar: "neden-etiket", etiket: "Neden DVN Cert — üst etiket", tip: "input", varsayilan: "NEDEN DVN CERT?" },
+      { anahtar: "neden-baslik", etiket: "Neden DVN Cert — başlık", tip: "input", varsayilan: "Kariyerinizi güçlü temeller üzerine kurun" },
+      {
+        anahtar: "neden-kartlari",
+        etiket: "Neden DVN Cert — kartlar ('## Başlık' formatı)",
+        tip: "textarea-uzun",
+        varsayilan:
+          "## Uzmanlaşma\nISO yönetim sistemleri ve denetim alanında derinleşin, sektörün en güncel uygulamalarıyla çalışın.\n\n## Sürekli Gelişim\nDüzenli eğitim ve yeterlilik programlarıyla yetkinliklerinizi sürekli geliştirin.\n\n## Bağımsız Kültür\nTarafsızlık ve dürüstlüğün esas olduğu, etik değerlere bağlı bir çalışma ortamı.",
+        yardim: "Her kart için: '## Başlık' satırı, ardından açıklama. Kartları boş satırla ayırın. İkonlar sırayla otomatik atanır.",
+      },
+
+      { anahtar: "basvuru-etiket", etiket: "Başvuru bölümü — üst etiket", tip: "input", varsayilan: "BAŞVURU" },
+      { anahtar: "basvuru-baslik", etiket: "Başvuru bölümü — başlık", tip: "input", varsayilan: "Size uygun başvuru yolunu seçin" },
+
+      { anahtar: "denetci-etiket", etiket: "Denetçi kartı — üst etiket", tip: "input", varsayilan: "DENETİM KADROSU" },
+      { anahtar: "denetci-baslik", etiket: "Denetçi kartı — başlık", tip: "input", varsayilan: "Denetçi ve Teknik Uzman" },
+      {
+        anahtar: "denetci-aciklama",
+        etiket: "Denetçi kartı — açıklama",
+        tip: "textarea",
+        varsayilan:
+          "Saha denetimlerinde ve teknik değerlendirmelerde görev alacak denetçi ve teknik uzmanları aramaktayız. Başvurular online sistemimiz (DBYS) üzerinden alınır.",
+      },
+      {
+        anahtar: "denetci-nitelikler",
+        etiket: "Denetçi kartı — aranan nitelikler (her satır 1 madde)",
+        tip: "textarea-uzun",
+        varsayilan:
+          "İlgili mühendislik veya teknik alanlarda sektör deneyimi\nISO 9001, 14001, 45001 veya 50001 standartlarına hâkimiyet\nBaş denetçi / denetçi eğitimi tercih sebebidir\nDenetimler için seyahat edebilme esnekliği",
+        yardim: "Her satır = 1 madde.",
+      },
+      {
+        anahtar: "denetci-dbys-url",
+        etiket: "Denetçi 'Başvur' butonu — DBYS başvuru linki",
+        tip: "input",
+        varsayilan: siteConfig.kariyer.denetciBasvuruUrl,
+        yardim: "DBYS başvuru sayfasının tam adresi (https://...). Boş bırakılırsa buton info@dvncert.com'a e-posta açar.",
+      },
+      { anahtar: "denetci-buton", etiket: "Denetçi kartı — buton metni", tip: "input", varsayilan: "Başvur" },
+
+      { anahtar: "idari-etiket", etiket: "İdari kart — üst etiket", tip: "input", varsayilan: "İDARİ VE OFİS" },
+      { anahtar: "idari-baslik", etiket: "İdari kart — başlık", tip: "input", varsayilan: "İdari ve Ofis Pozisyonları" },
+      {
+        anahtar: "idari-aciklama",
+        etiket: "İdari kart — açıklama",
+        tip: "textarea",
+        varsayilan:
+          "Belgelendirme süreçlerinin işleyişinde görev alacak takım arkadaşları arıyoruz. Aşağıdaki pozisyonlar için başvuru formunu doldurabilirsiniz.",
+      },
+      {
+        anahtar: "idari-pozisyonlar",
+        etiket: "İdari pozisyon listesi (her satır 1 pozisyon)",
+        tip: "textarea-uzun",
+        varsayilan: siteConfig.kariyer.idariPozisyonlar.join("\n"),
+        yardim: "Her satır = 1 pozisyon. Bu liste hem kartta hem başvuru formundaki açılır menüde görünür.",
+      },
+
+      { anahtar: "form-baslik", etiket: "Başvuru formu — başlık", tip: "input", varsayilan: "İdari pozisyon başvurusu" },
+      {
+        anahtar: "form-aciklama",
+        etiket: "Başvuru formu — açıklama",
+        tip: "textarea",
+        varsayilan: "Denetçi ve teknik uzman başvuruları için lütfen yukarıdaki denetim kadrosu bölümünü kullanın.",
+      },
+    ],
+  },
 };
 
 // ---------- Erişim katmanı ----------
@@ -318,5 +389,57 @@ export async function isoIcerikGetirDB(slug: string): Promise<IsoIcerik | undefi
     icFaydalar: maddeleriCozumle(icHam),
     pazarFaydalar: maddeleriCozumle(pazarHam),
     faydalarKapanis: al("faydalar-kapanis"),
+  };
+}
+
+// ---------- Kariyer sayfası için DB-aware getirme ----------
+
+export type KariyerIcerik = {
+  kapakEtiket: string;
+  nedenEtiket: string;
+  nedenBaslik: string;
+  nedenKartlari: IsoKart[];
+  basvuruEtiket: string;
+  basvuruBaslik: string;
+  denetciEtiket: string;
+  denetciBaslik: string;
+  denetciAciklama: string;
+  denetciNitelikler: string[];
+  denetciDbysUrl: string;
+  denetciButon: string;
+  idariEtiket: string;
+  idariBaslik: string;
+  idariAciklama: string;
+  idariPozisyonlar: string[];
+  formBaslik: string;
+  formAciklama: string;
+};
+
+/** /kariyer sayfasının statik + DB override içeriklerinin birleşmiş hali. */
+export async function kariyerIcerikGetirDB(): Promise<KariyerIcerik> {
+  const yol = "/kariyer";
+  const icerik = await sayfaIcerigiGetir(yol);
+  const al = (k: string) => alanDegeri(icerik, yol, k);
+
+  return {
+    kapakEtiket: al("kapak-etiket"),
+    nedenEtiket: al("neden-etiket"),
+    nedenBaslik: al("neden-baslik"),
+    nedenKartlari: kartlariCozumle(al("neden-kartlari")),
+    basvuruEtiket: al("basvuru-etiket"),
+    basvuruBaslik: al("basvuru-baslik"),
+    denetciEtiket: al("denetci-etiket"),
+    denetciBaslik: al("denetci-baslik"),
+    denetciAciklama: al("denetci-aciklama"),
+    denetciNitelikler: maddeleriCozumle(al("denetci-nitelikler")),
+    // URL alanı varsayılanı "" olabilir; alanDegeri boşsa varsayılana düşer → yine "".
+    denetciDbysUrl: (icerik["denetci-dbys-url"] ?? siteConfig.kariyer.denetciBasvuruUrl).trim(),
+    denetciButon: al("denetci-buton"),
+    idariEtiket: al("idari-etiket"),
+    idariBaslik: al("idari-baslik"),
+    idariAciklama: al("idari-aciklama"),
+    idariPozisyonlar: maddeleriCozumle(al("idari-pozisyonlar")),
+    formBaslik: al("form-baslik"),
+    formAciklama: al("form-aciklama"),
   };
 }

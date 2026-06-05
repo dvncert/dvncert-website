@@ -1,4 +1,4 @@
-import { desc } from "drizzle-orm";
+import { desc, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { formGonderileri } from "@/lib/db/schema";
 import { SayfaBaslik, adminKart, btnIkincil, adminInput } from "../_ui";
@@ -16,7 +16,24 @@ function tarihBicim(d: Date | string): string {
 }
 
 export default async function GonderilerListe() {
-  const rows = await db.select().from(formGonderileri).orderBy(desc(formGonderileri.olusturulma));
+  // bytea dosyaVeri'yi listeye çekmeyiz; yalnızca var/yok bilgisini alırız.
+  const rows = await db
+    .select({
+      id: formGonderileri.id,
+      tip: formGonderileri.tip,
+      ad: formGonderileri.ad,
+      email: formGonderileri.email,
+      telefon: formGonderileri.telefon,
+      konu: formGonderileri.konu,
+      mesaj: formGonderileri.mesaj,
+      ekVeri: formGonderileri.ekVeri,
+      durum: formGonderileri.durum,
+      olusturulma: formGonderileri.olusturulma,
+      dosyaAdi: formGonderileri.dosyaAdi,
+      dosyaVar: sql<boolean>`${formGonderileri.dosyaVeri} is not null`,
+    })
+    .from(formGonderileri)
+    .orderBy(desc(formGonderileri.olusturulma));
 
   return (
     <div>
@@ -73,6 +90,17 @@ export default async function GonderilerListe() {
 
             {r.mesaj && (
               <p style={{ fontSize: 13.5, color: "var(--dvn-gri-700)", lineHeight: 1.7, margin: 0, whiteSpace: "pre-wrap" }}>{r.mesaj}</p>
+            )}
+
+            {r.dosyaVar && (
+              <p style={{ fontSize: 13, margin: "10px 0 0", display: "flex", alignItems: "center", gap: 6 }}>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z M14 2v6h6" stroke="var(--dvn-turuncu)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <a href={`/api/dosya/basvuru/${r.id}`} target="_blank" rel="noopener noreferrer" style={{ color: "var(--dvn-turuncu)", fontWeight: 500 }}>
+                  {r.dosyaAdi || "Yüklenen dosyayı indir"}
+                </a>
+              </p>
             )}
 
             {r.ekVeri && Object.keys(r.ekVeri).length > 0 && (

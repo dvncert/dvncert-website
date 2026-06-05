@@ -103,3 +103,81 @@ export async function iletisimEpostaGonder(p: IletisimEposta): Promise<boolean> 
     return false;
   }
 }
+
+export type KariyerEposta = {
+  ad?: string;
+  email?: string;
+  telefon?: string;
+  pozisyon?: string;
+  mesaj?: string;
+};
+
+/**
+ * Kariyer (idari pozisyon) başvurusunu info@dvncert.com'a iletir; yüklenen CV
+ * dosyası varsa ek olarak ekler. Reply doğrudan başvurana gider.
+ * Anahtar yoksa/başarısızsa false döner — çağıranı bloklamaz.
+ */
+export async function kariyerEpostaGonder(
+  p: KariyerEposta,
+  dosya?: { veri: Buffer; ad: string },
+): Promise<boolean> {
+  const resend = resendClient();
+  const from = process.env.RESEND_FROM;
+  if (!resend || !from) return false;
+
+  const alici = process.env.ILETISIM_ALICI || siteConfig.email;
+  const pozisyon = p.pozisyon?.trim() || "İdari pozisyon başvurusu";
+
+  const satir = (etiket: string, deger?: string) =>
+    deger?.trim()
+      ? `<tr><td style="padding:6px 12px;font-weight:600;color:#022398;vertical-align:top">${esc(etiket)}</td><td style="padding:6px 12px;color:#333">${esc(deger).replace(/\n/g, "<br>")}</td></tr>`
+      : "";
+
+  const html = `
+    <div style="font-family:Arial,Helvetica,sans-serif;max-width:600px;margin:0 auto">
+      <h2 style="color:#022398;font-size:18px;border-bottom:2px solid #f58220;padding-bottom:8px">
+        Yeni Kariyer Başvurusu
+      </h2>
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        ${satir("Pozisyon", p.pozisyon)}
+        ${satir("Ad Soyad", p.ad)}
+        ${satir("E-posta", p.email)}
+        ${satir("Telefon", p.telefon)}
+        ${satir("Ön Yazı", p.mesaj)}
+        ${satir("CV / Dosya", dosya ? dosya.ad : "(yüklenmedi)")}
+      </table>
+      <p style="font-size:12px;color:#888;margin-top:20px">
+        Bu başvuru ${esc(siteConfig.url)}/kariyer sayfasından gönderildi.${dosya ? " CV dosyası ektedir." : ""}
+      </p>
+    </div>`;
+
+  const text = [
+    `Pozisyon: ${p.pozisyon ?? ""}`,
+    `Ad Soyad: ${p.ad ?? ""}`,
+    `E-posta: ${p.email ?? ""}`,
+    `Telefon: ${p.telefon ?? ""}`,
+    `CV / Dosya: ${dosya ? dosya.ad : "(yüklenmedi)"}`,
+    "",
+    p.mesaj ?? "",
+  ].join("\n");
+
+  try {
+    const { error } = await resend.emails.send({
+      from,
+      to: alici,
+      subject: `[Kariyer] ${pozisyon}`,
+      html,
+      text,
+      ...(p.email?.trim() ? { replyTo: p.email.trim() } : {}),
+      ...(dosya ? { attachments: [{ filename: dosya.ad, content: dosya.veri }] } : {}),
+    });
+    if (error) {
+      console.error("kariyerEpostaGonder Resend hatası:", error);
+      return false;
+    }
+    return true;
+  } catch (e) {
+    console.error("kariyerEpostaGonder hatası:", e);
+    return false;
+  }
+}

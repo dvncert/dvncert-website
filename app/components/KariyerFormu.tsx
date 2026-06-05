@@ -3,43 +3,51 @@
 import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
-import { formGonderAction } from "../actions/form-gonder";
+import { kariyerBasvuruGonderAction } from "../actions/form-gonder";
 import SpamKorumasi from "./SpamKorumasi";
 
+const MAKS_BAYT = 4 * 1024 * 1024; // 4MB
+const IZINLI_UZANTI = ["pdf", "doc", "docx", "xls", "xlsx"];
+
 /**
- * İdari/ofis pozisyonları için kariyer başvuru formu. Gönderim veritabanına
- * yazılır ve admin panelindeki "Form Gönderileri" gelen kutusunda görünür.
+ * İdari/ofis pozisyonları için kariyer başvuru formu. CV dosyası (PDF/DOCX/XLSX)
+ * yüklenir; gönderim veritabanına yazılır, admin panelindeki "Form Gönderileri"
+ * gelen kutusunda görünür ve dosya oradan indirilebilir. Pozisyon listesi
+ * admin panelinden (İçerik editörü) yönetilir ve prop olarak gelir.
  */
-export default function KariyerFormu() {
+export default function KariyerFormu({ pozisyonlar }: { pozisyonlar: string[] }) {
   const [gonderildi, setGonderildi] = useState(false);
   const [gonderiliyor, setGonderiliyor] = useState(false);
-  const [hata, setHata] = useState(false);
+  const [hata, setHata] = useState<string | null>(null);
 
   async function gonder(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const pozisyon = String(data.get("pozisyon") ?? "");
-    const cv = String(data.get("cv") ?? "");
+
+    // İstemci tarafı dosya doğrulaması (sunucu da ayrıca kontrol eder)
+    const cv = data.get("cv");
+    if (cv instanceof File && cv.size > 0) {
+      const uzanti = (cv.name.split(".").pop() ?? "").toLowerCase();
+      if (!IZINLI_UZANTI.includes(uzanti)) {
+        setHata("Yalnızca PDF, Word (.doc/.docx) veya Excel (.xls/.xlsx) dosyaları yükleyebilirsiniz.");
+        return;
+      }
+      if (cv.size > MAKS_BAYT) {
+        setHata("Dosya boyutu 4 MB'ı aşamaz.");
+        return;
+      }
+    }
+
     setGonderiliyor(true);
-    setHata(false);
-    const sonuc = await formGonderAction({
-      tip: "kariyer",
-      ad: String(data.get("ad") ?? ""),
-      email: String(data.get("email") ?? ""),
-      telefon: String(data.get("telefon") ?? ""),
-      konu: pozisyon,
-      mesaj: String(data.get("mesaj") ?? ""),
-      ekVeri: { pozisyon, cv },
-      _honeypot: String(data.get("website") ?? ""),
-      _ts: Number(data.get("_ts") ?? 0),
-    });
+    setHata(null);
+    const sonuc = await kariyerBasvuruGonderAction(data);
     setGonderiliyor(false);
     if (sonuc.ok) {
       setGonderildi(true);
       form.reset();
     } else {
-      setHata(true);
+      setHata(sonuc.hata ?? "Gönderilemedi. Lütfen tekrar deneyin.");
     }
   }
 
@@ -52,7 +60,7 @@ export default function KariyerFormu() {
           <option value="" disabled>
             Pozisyon seçiniz
           </option>
-          {siteConfig.kariyer.idariPozisyonlar.map((p) => (
+          {pozisyonlar.map((p) => (
             <option key={p} value={p}>
               {p}
             </option>
@@ -78,8 +86,13 @@ export default function KariyerFormu() {
           <input name="telefon" type="tel" placeholder="+90 5xx xxx xx xx" style={inputStili} />
         </label>
         <label style={alanStili}>
-          <span style={etiketStili}>CV / Profil bağlantısı</span>
-          <input name="cv" type="url" placeholder="LinkedIn, Drive vb. bağlantı" style={inputStili} />
+          <span style={etiketStili}>CV / Özgeçmiş (PDF, Word, Excel)</span>
+          <input
+            name="cv"
+            type="file"
+            accept=".pdf,.doc,.docx,.xls,.xlsx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            style={{ ...inputStili, padding: 9 }}
+          />
         </label>
       </div>
 
@@ -131,7 +144,7 @@ export default function KariyerFormu() {
       )}
       {hata && (
         <p style={{ fontSize: 13, color: "var(--dvn-turuncu)", margin: 0 }}>
-          Gönderilemedi. Lütfen tekrar deneyin veya {siteConfig.email} adresine yazın.
+          {hata} Sorun sürerse {siteConfig.email} adresine yazabilirsiniz.
         </p>
       )}
 

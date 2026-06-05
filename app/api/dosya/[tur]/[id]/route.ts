@@ -1,10 +1,11 @@
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { akreditasyonBelgeleri, logoDosyalari, dokumanlar } from "@/lib/db/schema";
+import { akreditasyonBelgeleri, logoDosyalari, dokumanlar, formGonderileri } from "@/lib/db/schema";
+import { auth } from "@/auth";
 
 /**
  * Veritabanında saklanan binary dosyaları (PDF / DOCX / XLSX / görsel vb.) sunar.
- * /api/dosya/{tur}/{id}  — tur: akreditasyon | logo | dokuman
+ * /api/dosya/{tur}/{id}  — tur: akreditasyon | logo | dokuman | basvuru
  *
  * Görseller için /api/gorsel rotası kullanılır (WebP'e çevrilmiş kapaklar).
  * Bu rota orijinal binary'yi olduğu gibi indirilebilir biçimde döner.
@@ -13,6 +14,12 @@ export async function GET(_req: Request, { params }: { params: Promise<{ tur: st
   const { tur, id } = await params;
   const n = Number(id);
   if (!Number.isFinite(n)) return new Response("Geçersiz id", { status: 400 });
+
+  // Kariyer başvurusu CV'leri kişisel veridir — yalnızca admin oturumuyla erişilir.
+  if (tur === "basvuru") {
+    const oturum = await auth();
+    if (!oturum) return new Response("Bulunamadı", { status: 404 });
+  }
 
   let satir: { v: Buffer | null; mime: string | null; ad?: string | null } | undefined;
   if (tur === "akreditasyon") {
@@ -37,6 +44,15 @@ export async function GET(_req: Request, { params }: { params: Promise<{ tur: st
         .select({ v: dokumanlar.dosyaVeri, mime: dokumanlar.dosyaMime, ad: dokumanlar.dosyaAdi })
         .from(dokumanlar)
         .where(eq(dokumanlar.id, n))
+        .limit(1)
+    )[0];
+  } else if (tur === "basvuru") {
+    // Kariyer başvurusunda yüklenen CV (yalnızca admin panelinden erişilir).
+    satir = (
+      await db
+        .select({ v: formGonderileri.dosyaVeri, mime: formGonderileri.dosyaMime, ad: formGonderileri.dosyaAdi })
+        .from(formGonderileri)
+        .where(eq(formGonderileri.id, n))
         .limit(1)
     )[0];
   } else {

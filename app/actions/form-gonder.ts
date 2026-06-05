@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { and, eq, gte, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { formGonderileri } from "@/lib/db/schema";
-import { iletisimEpostaGonder } from "@/lib/email";
+import { iletisimEpostaGonder, kariyerEpostaGonder } from "@/lib/email";
 
 export type FormGonderiPayload = {
   tip: "iletisim" | "sikayet" | "kariyer";
@@ -100,6 +100,107 @@ export async function formGonderAction(payload: FormGonderiPayload): Promise<{ o
       mesaj: payload.mesaj,
     });
   }
+
+  return { ok: true };
+}
+
+// ============ KARİYER BAŞVURUSU (dosya yüklemeli) ============
+
+const KARIYER_MAKS_BAYT = 4 * 1024 * 1024; // 4MB (Vercel serverless gövde limiti ~4.5MB)
+const KARIYER_IZINLI_MIME = new Set([
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "application/vnd.ms-excel",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+]);
+const KARIYER_IZINLI_UZANTI = new Set(["pdf", "doc", "docx", "xls", "xlsx"]);
+
+function fdStr(fd: FormData, k: string): string {
+  const v = fd.get(k);
+  return typeof v === "string" ? v.trim() : "";
+}
+
+/**
+ * İdari pozisyon kariyer başvurusu — CV dosyası (PDF/DOCX/XLSX) yüklemeli.
+ * Dosya formGonderileri'ye bytea olarak yazılır; admin panelden indirilebilir
+ * ve (Resend yapılandırılmışsa) info@dvncert.com'a ek olarak gönderilir.
+ * Spam koruması iletişim formuyla aynıdır.
+ */
+export async function kariyerBasvuruGonderAction(
+  formData: FormData,
+): Promise<{ ok: boolean; hata?: string }> {
+  // 1) Honeypot
+  if (fdStr(formData, "website") !== "") return SPAM_OK;
+
+  // 2) Zaman kontrolü
+  const ts = Number(formData.get("_ts") ?? 0);
+  if (ts && Number.isFinite(ts)) {
+    const gecen = Date.now() - ts;
+    if (gecen < 2000) return SPAM_OK;
+    if (gecen > 1000 * 60 * 60 * 6) return { ok: false, hata: "Form süresi doldu, lütfen sayfayı yenileyip tekrar deneyin." };
+  }
+
+  // 3) IP rate limit
+  const ip = await istemciIp();
+  if (ip) {
+    const sayi = await ipGonderiSayisi(ip, 10);
+    if (sayi >= 5) return { ok: false, hata: "Çok fazla deneme. Lütfen birkaç dakika sonra tekrar deneyin." };
+  }
+
+  // 4) Dosya doğrulama (opsiyonel ama varsa geçerli olmalı)
+  let dosya: { veri: Buffer; mime: string; ad: string } | undefined;
+  const dosyaEntry = formData.get("cv");
+  if (dosyaEntry instanceof File && dosyaEntry.size > 0) {
+    if (dosyaEntry.size > KARIYER_MAKS_BAYT) {
+      return { ok: false, hata: "Dosya boyutu 4 MB'ı aşamaz." };
+    }
+    const uzanti = (dosyaEntry.name.split(".").pop() ?? "").toLowerCase();
+    const mime = dosyaEntry.type || "";
+    if (!KARIYER_IZINLI_MIME.has(mime) && !KARIYER_IZINLI_UZANTI.has(uzanti)) {
+      return { ok: false, hata: "Yalnızca PDF, Word (.doc/.docx) veya Excel (.xls/.xlsx) dosyaları yüklenebilir." };
+    }
+    dosya = {
+      veri: Buffer.from(await dosyaEntry.arrayBuffer()),
+      mime: mime || "application/octet-stream",
+      ad: dosyaEntry.name,
+    };
+  }
+
+  const pozisyon = fdStr(formData, "pozisyon");
+  const ad = fdStr(formData, "ad");
+  const email = fdStr(formData, "email");
+  const telefon = fdStr(formData, "telefon");
+  const mesaj = fdStr(formData, "mesaj");
+
+  const h = await headers();
+  const ua = h.get("user-agent");
+
+  try {
+    await db.insert(formGonderileri).values({
+      tip: "kariyer",
+      ad: ad || null,
+      email: email || null,
+      telefon: telefon || null,
+      konu: pozisyon || null,
+      mesaj: mesaj || null,
+      ekVeri: { pozisyon },
+      dosyaVeri: dosya?.veri ?? null,
+      dosyaMime: dosya?.mime ?? null,
+      dosyaAdi: dosya?.ad ?? null,
+      ip: ip ?? null,
+      userAgent: ua ?? null,
+    });
+  } catch (e) {
+    console.error("kariyerBasvuruGonderAction DB hatası:", e);
+    return { ok: false, hata: "Gönderilemedi. Lütfen tekrar deneyin." };
+  }
+
+  // E-posta (Resend yoksa sessizce atlanır).
+  await kariyerEpostaGonder(
+    { ad, email, telefon, pozisyon, mesaj },
+    dosya ? { veri: dosya.veri, ad: dosya.ad } : undefined,
+  );
 
   return { ok: true };
 }

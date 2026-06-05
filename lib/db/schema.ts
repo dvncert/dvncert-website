@@ -328,6 +328,10 @@ export const formGonderileri = pgTable("form_gonderileri", {
   konu: text("konu"),
   mesaj: text("mesaj"),
   ekVeri: jsonb("ek_veri").$type<Record<string, unknown>>(),
+  /** Kariyer başvurusunda yüklenen CV/dosya (PDF/DOCX/XLSX). */
+  dosyaVeri: bytea("dosya_veri"),
+  dosyaMime: varchar("dosya_mime", { length: 100 }),
+  dosyaAdi: varchar("dosya_adi", { length: 255 }),
   durum: varchar("durum", { length: 30 }).default("yeni").notNull(), // yeni | okundu | cozuldu
   /** Rate-limit + spam izleme için. */
   ip: varchar("ip", { length: 45 }),
