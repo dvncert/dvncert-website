@@ -519,6 +519,32 @@ export async function sayfaIcerikSifirla(fd: FormData) {
   redirect(`/admin/icerik?yol=${encodeURIComponent(yol)}`);
 }
 
+/** Sayfa kapak görseli yükle (WebP'e çevrilir, sayfaSeo.kapakVeri'ye yazılır). */
+export async function sayfaKapakKaydet(fd: FormData) {
+  const yol = s(fd, "yol");
+  if (!yol) throw new Error("Sayfa yolu zorunludur.");
+  // Kapak ~1280×380 gösterilir; retina için 2x'e kadar saklarız (oran korunur).
+  const kapak = await gorselWebp(fd.get("kapakDosya"), 2560, 760, 84);
+  if (kapak) {
+    await db
+      .insert(sayfaSeo)
+      .values({ yol, kapakVeri: kapak, guncellenme: new Date() })
+      .onConflictDoUpdate({ target: sayfaSeo.yol, set: { kapakVeri: kapak, guncellenme: new Date() } });
+  }
+  updateTag("sayfa-kapak");
+  revalidatePath(yol);
+  redirect(`/admin/icerik?yol=${encodeURIComponent(yol)}&ok=1`);
+}
+
+/** Sayfa kapak görselini kaldır. */
+export async function sayfaKapakSil(fd: FormData) {
+  const yol = s(fd, "yol");
+  await db.update(sayfaSeo).set({ kapakVeri: null, guncellenme: new Date() }).where(eq(sayfaSeo.yol, yol));
+  updateTag("sayfa-kapak");
+  revalidatePath(yol);
+  redirect(`/admin/icerik?yol=${encodeURIComponent(yol)}`);
+}
+
 // ============ SSS SORULARI ============
 export async function sssKaydet(fd: FormData) {
   const id = s(fd, "id");

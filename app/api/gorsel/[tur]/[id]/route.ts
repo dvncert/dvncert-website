@@ -4,9 +4,9 @@ import { duyurular, blogYazilari, referanslar, egitimEtkinlikleri, ekipUyeleri, 
 
 /**
  * Veritabanında saklanan görselleri (WebP) sunar.
- * /api/gorsel/{tur}/{id}  — tur: referans | duyuru | blog | etkinlik | ekip | popup | sayfa-seo
+ * /api/gorsel/{tur}/{id}  — tur: referans | duyuru | blog | etkinlik | ekip | popup | sayfa-seo | sayfa-kapak
  *
- * sayfa-seo türü için {id} yerine URL-encoded yol (örn. %2Fekibimiz) gelir.
+ * sayfa-seo / sayfa-kapak türleri için {id} yerine URL-encoded yol (örn. %2Fkariyer) gelir.
  */
 export async function GET(_req: Request, { params }: { params: Promise<{ tur: string; id: string }> }) {
   const { tur, id } = await params;
@@ -15,6 +15,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ tur: st
   if (tur === "sayfa-seo") {
     const yol = decodeURIComponent(id);
     veri = (await db.select({ v: sayfaSeo.ogImageVeri }).from(sayfaSeo).where(eq(sayfaSeo.yol, yol)).limit(1))[0]?.v;
+  } else if (tur === "sayfa-kapak") {
+    const yol = decodeURIComponent(id);
+    veri = (await db.select({ v: sayfaSeo.kapakVeri }).from(sayfaSeo).where(eq(sayfaSeo.yol, yol)).limit(1))[0]?.v;
   } else {
     const n = Number(id);
     if (!Number.isFinite(n)) return new Response("Geçersiz id", { status: 400 });

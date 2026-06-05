@@ -279,6 +279,8 @@ export const sayfaSeo = pgTable("sayfa_seo", {
   noIndex: boolean("no_index").default(false).notNull(),
   /** OG/Twitter görseli (WebP, opsiyonel). */
   ogImageVeri: bytea("og_image_veri"),
+  /** Sayfa içi kapak görseli (WebP, opsiyonel) — /api/gorsel/sayfa-kapak/{yol}. */
+  kapakVeri: bytea("kapak_veri"),
   guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
 });
 

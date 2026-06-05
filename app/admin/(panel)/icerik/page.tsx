@@ -1,8 +1,8 @@
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { sayfaBloklari } from "@/lib/db/schema";
+import { sayfaBloklari, sayfaSeo } from "@/lib/db/schema";
 import { SAYFA_ICERIK } from "@/lib/sayfa-icerigi";
-import { sayfaIcerikKaydet, sayfaIcerikSifirla } from "../actions";
+import { sayfaIcerikKaydet, sayfaIcerikSifirla, sayfaKapakKaydet, sayfaKapakSil } from "../actions";
 import { Alan, SayfaBaslik, adminInput, adminKart, btnBirincil, btnIkincil } from "../_ui";
 
 export default async function SayfaIcerikYonetim({
@@ -20,6 +20,17 @@ export default async function SayfaIcerikYonetim({
     .from(sayfaBloklari)
     .where(eq(sayfaBloklari.yol, yol));
   const mevcut = Object.fromEntries(rows.map((r) => [r.anahtar, r.deger]));
+
+  // Kapak görseli yüklenebilen sayfalar için mevcut görsel durumu.
+  const kapak = tanim.kapak
+    ? (
+        await db
+          .select({ var: sql<boolean>`${sayfaSeo.kapakVeri} is not null`, guncellenme: sayfaSeo.guncellenme })
+          .from(sayfaSeo)
+          .where(eq(sayfaSeo.yol, yol))
+          .limit(1)
+      )[0]
+    : undefined;
 
   return (
     <div style={{ maxWidth: 820 }}>
@@ -48,6 +59,42 @@ export default async function SayfaIcerikYonetim({
           </div>
         </Alan>
       </form>
+
+      {tanim.kapak && (
+        <div style={{ ...adminKart, marginBottom: 20 }}>
+          <h2 style={{ fontSize: 15, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 4px" }}>
+            Kapak Görseli
+          </h2>
+          <p style={{ fontSize: 12.5, color: "var(--dvn-gri-500)", margin: "0 0 14px", lineHeight: 1.6 }}>
+            Sayfanın üst kapak alanındaki görsel. Önerilen ölçü <strong>1280×380 px</strong> (yatay, ~3.4:1).
+            PNG / JPG / WebP yükleyin; otomatik WebP&apos;e çevrilir. Görsel yokken marka renkli yer tutucu gösterilir.
+          </p>
+
+          {kapak?.var && (
+            <div style={{ marginBottom: 12 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/api/gorsel/sayfa-kapak/${encodeURIComponent(yol)}?v=${new Date(kapak.guncellenme).getTime()}`}
+                alt="Mevcut kapak görseli"
+                style={{ maxWidth: 420, width: "100%", height: "auto", borderRadius: 8, border: "0.5px solid var(--dvn-gri-300)" }}
+              />
+            </div>
+          )}
+
+          <form action={sayfaKapakKaydet} encType="multipart/form-data" style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+            <input type="hidden" name="yol" value={yol} />
+            <input type="file" name="kapakDosya" accept="image/png,image/jpeg,image/webp" required style={{ ...adminInput, padding: 8, flexGrow: 1, minWidth: 220 }} />
+            <button type="submit" style={btnBirincil}>{kapak?.var ? "Görseli Değiştir" : "Görseli Yükle"}</button>
+          </form>
+
+          {kapak?.var && (
+            <form action={sayfaKapakSil} style={{ marginTop: 10 }}>
+              <input type="hidden" name="yol" value={yol} />
+              <button type="submit" style={{ ...btnIkincil, padding: "6px 12px", fontSize: 12.5 }}>Görseli kaldır</button>
+            </form>
+          )}
+        </div>
+      )}
 
       <form action={sayfaIcerikKaydet}>
         <input type="hidden" name="yol" value={yol} />

@@ -9,9 +9,9 @@
  */
 
 import { unstable_cache } from "next/cache";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db, dbHazir } from "./db";
-import { sayfaBloklari } from "./db/schema";
+import { sayfaBloklari, sayfaSeo } from "./db/schema";
 import { siteConfig } from "./site-config";
 import { isoIcerikler, type IsoIcerik, type IsoKart } from "./iso-icerik";
 import { hizmetGetir, type Hizmet, type SurecAdimi } from "./hizmetler";
@@ -30,6 +30,8 @@ export type Alan = {
 export type SayfaIcerikTanim = {
   ad: string;
   alanlar: Alan[];
+  /** Bu sayfa için admin'den kapak görseli yüklenebilir mi? */
+  kapak?: boolean;
 };
 
 /** ISO sayfaları için ortak alan üretici — lib/iso-icerik.ts'teki statik veriyi varsayılan olarak alır. */
@@ -193,6 +195,7 @@ export const SAYFA_ICERIK: Record<string, SayfaIcerikTanim> = {
   },
   "/kariyer": {
     ad: "Kariyer",
+    kapak: true,
     alanlar: [
       { anahtar: "kapak-etiket", etiket: "Kapak görseli üstündeki etiket", tip: "input", varsayilan: "Ekibimize katılın" },
 
@@ -443,3 +446,34 @@ export async function kariyerIcerikGetirDB(): Promise<KariyerIcerik> {
     formAciklama: al("form-aciklama"),
   };
 }
+
+// ---------- Sayfa kapak görseli (admin'den yüklenir) ----------
+
+async function _kapakGetir(yol: string): Promise<string | null> {
+  if (!dbHazir) return null;
+  try {
+    const row = (
+      await db
+        .select({ var: sql<boolean>`${sayfaSeo.kapakVeri} is not null`, guncellenme: sayfaSeo.guncellenme })
+        .from(sayfaSeo)
+        .where(eq(sayfaSeo.yol, yol))
+        .limit(1)
+    )[0];
+    if (!row?.var) return null;
+    const v = new Date(row.guncellenme).getTime();
+    return `/api/gorsel/sayfa-kapak/${encodeURIComponent(yol)}?v=${v}`;
+  } catch (e) {
+    console.error("sayfa kapak DB hatası:", e);
+    return null;
+  }
+}
+
+/**
+ * Verilen sayfa için admin'den yüklenmiş kapak görselinin src'sini döner
+ * (cache-buster query'li), yoksa null. 10 dk önbellekli; kaydedince
+ * updateTag('sayfa-kapak') ile temizlenir.
+ */
+export const sayfaKapakGetir = unstable_cache(_kapakGetir, ["sayfa-kapak-v1"], {
+  revalidate: 600,
+  tags: ["sayfa-kapak"],
+});

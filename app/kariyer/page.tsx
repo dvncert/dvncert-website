@@ -5,7 +5,7 @@ import KapakGorsel from "../components/KapakGorsel";
 import KariyerFormu from "../components/KariyerFormu";
 import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
-import { kariyerIcerikGetirDB } from "@/lib/sayfa-icerigi";
+import { kariyerIcerikGetirDB, sayfaKapakGetir } from "@/lib/sayfa-icerigi";
 
 export const metadata: Metadata = {
   title: "Kariyer",
@@ -22,7 +22,10 @@ const nedenIkonlar: ReactNode[] = [
 ];
 
 export default async function KariyerSayfasi() {
-  const icerik = await kariyerIcerikGetirDB();
+  const [icerik, kapakSrc] = await Promise.all([
+    kariyerIcerikGetirDB(),
+    sayfaKapakGetir("/kariyer"),
+  ]);
   const denetciLink = icerik.denetciDbysUrl;
 
   return (
@@ -44,7 +47,7 @@ export default async function KariyerSayfasi() {
         kirintilar={[{ etiket: "Kariyer" }]}
       />
 
-      <KapakGorsel alt="DVN Cert kariyer fırsatları" ikon="denetim" etiket={icerik.kapakEtiket} oncelik />
+      <KapakGorsel src={kapakSrc ?? undefined} alt="DVN Cert kariyer fırsatları" ikon="denetim" etiket={icerik.kapakEtiket} oncelik />
 
       {/* Neden DVN Cert */}
       <section style={{ background: "white", padding: "60px 32px" }}>
