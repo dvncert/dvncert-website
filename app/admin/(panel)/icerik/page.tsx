@@ -8,7 +8,7 @@ import { Alan, SayfaBaslik, adminInput, adminKart, btnBirincil, btnIkincil } fro
 export default async function SayfaIcerikYonetim({
   searchParams,
 }: {
-  searchParams: Promise<{ yol?: string; ok?: string }>;
+  searchParams: Promise<{ yol?: string; ok?: string; kapakok?: string; kapakhata?: string }>;
 }) {
   const sp = await searchParams;
   const yollar = Object.keys(SAYFA_ICERIK);
@@ -68,7 +68,21 @@ export default async function SayfaIcerikYonetim({
           <p style={{ fontSize: 12.5, color: "var(--dvn-gri-500)", margin: "0 0 14px", lineHeight: 1.6 }}>
             Sayfanın üst kapak alanındaki görsel. Önerilen ölçü <strong>1280×380 px</strong> (yatay, ~3.4:1).
             PNG / JPG / WebP yükleyin; otomatik WebP&apos;e çevrilir. Görsel yokken marka renkli yer tutucu gösterilir.
+            <br />
+            <strong style={{ color: "var(--dvn-turuncu)" }}>Önemli:</strong> Dosyayı seçtikten sonra bu kartın
+            kendi <strong>&quot;Görseli Yükle&quot;</strong> butonuna basın — aşağıdaki &quot;Tümünü Kaydet&quot; yalnızca metinleri kaydeder.
           </p>
+
+          {sp.kapakok && (
+            <div style={{ background: "#ecfdf5", border: "0.5px solid #a7f3d0", color: "#065f46", padding: "9px 13px", borderRadius: 9, fontSize: 12.5, marginBottom: 12 }}>
+              ✓ Kapak görseli yüklendi. Sayfada 1-2 dakika içinde görünür.
+            </div>
+          )}
+          {sp.kapakhata === "bos" && (
+            <div style={{ background: "#fef2f2", border: "0.5px solid #fecaca", color: "#991b1b", padding: "9px 13px", borderRadius: 9, fontSize: 12.5, marginBottom: 12 }}>
+              ⚠ Görsel kaydedilmedi: dosya seçilmemiş. Lütfen aşağıdan bir görsel seçip &quot;Görseli Yükle&quot;ye basın.
+            </div>
+          )}
 
           {kapak?.var && (
             <div style={{ marginBottom: 12 }}>

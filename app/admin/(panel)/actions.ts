@@ -525,15 +525,17 @@ export async function sayfaKapakKaydet(fd: FormData) {
   if (!yol) throw new Error("Sayfa yolu zorunludur.");
   // Kapak ~1280×380 gösterilir; retina için 2x'e kadar saklarız (oran korunur).
   const kapak = await gorselWebp(fd.get("kapakDosya"), 2560, 760, 84);
-  if (kapak) {
-    await db
-      .insert(sayfaSeo)
-      .values({ yol, kapakVeri: kapak, guncellenme: new Date() })
-      .onConflictDoUpdate({ target: sayfaSeo.yol, set: { kapakVeri: kapak, guncellenme: new Date() } });
+  if (!kapak) {
+    // Dosya seçilmemiş / boş gelmiş — yanıltıcı "kaydedildi" göstermeyelim.
+    redirect(`/admin/icerik?yol=${encodeURIComponent(yol)}&kapakhata=bos`);
   }
+  await db
+    .insert(sayfaSeo)
+    .values({ yol, kapakVeri: kapak, guncellenme: new Date() })
+    .onConflictDoUpdate({ target: sayfaSeo.yol, set: { kapakVeri: kapak, guncellenme: new Date() } });
   updateTag("sayfa-kapak");
   revalidatePath(yol);
-  redirect(`/admin/icerik?yol=${encodeURIComponent(yol)}&ok=1`);
+  redirect(`/admin/icerik?yol=${encodeURIComponent(yol)}&kapakok=1`);
 }
 
 /** Sayfa kapak görselini kaldır. */
