@@ -145,14 +145,14 @@ export default async function KariyerSayfasi() {
                     {icerik.denetciButon} →
                   </a>
                 ) : (
-                  <>
-                    <a href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Denetçi / Teknik Uzman Başvurusu")}`} style={ctaStili}>
-                      {icerik.denetciButon} →
-                    </a>
-                    <p style={{ fontSize: 11.5, color: "#9aa5b1", margin: "12px 0 0" }}>
-                      Online başvuru sistemimiz (DBYS) çok yakında devreye girecek.
-                    </p>
-                  </>
+                  <a href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Denetçi / Teknik Uzman Başvurusu")}`} style={ctaStili}>
+                    {icerik.denetciButon} →
+                  </a>
+                )}
+                {icerik.denetciNot && (
+                  <p style={{ fontSize: 11.5, color: "#9aa5b1", margin: "12px 0 0", lineHeight: 1.5 }}>
+                    {icerik.denetciNot}
+                  </p>
                 )}
               </div>
             </div>

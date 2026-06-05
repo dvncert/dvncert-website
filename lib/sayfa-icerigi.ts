@@ -238,6 +238,13 @@ export const SAYFA_ICERIK: Record<string, SayfaIcerikTanim> = {
         yardim: "DBYS başvuru sayfasının tam adresi (https://...). Boş bırakılırsa buton info@dvncert.com'a e-posta açar.",
       },
       { anahtar: "denetci-buton", etiket: "Denetçi kartı — buton metni", tip: "input", varsayilan: "Başvur" },
+      {
+        anahtar: "denetci-not",
+        etiket: "Denetçi kartı — buton altı not",
+        tip: "textarea",
+        varsayilan: "Bilgileriniz atamanız gerçekleşmediği sürece kullanılmaz ve ilgili taraflarla paylaşılmaz.",
+        yardim: "Buton altında küçük puntoyla görünür. Boş bırakılırsa hiç gösterilmez.",
+      },
 
       { anahtar: "idari-etiket", etiket: "İdari kart — üst etiket", tip: "input", varsayilan: "İDARİ VE OFİS" },
       { anahtar: "idari-baslik", etiket: "İdari kart — başlık", tip: "input", varsayilan: "İdari ve Ofis Pozisyonları" },
@@ -410,6 +417,7 @@ export type KariyerIcerik = {
   denetciNitelikler: string[];
   denetciDbysUrl: string;
   denetciButon: string;
+  denetciNot: string;
   idariEtiket: string;
   idariBaslik: string;
   idariAciklama: string;
@@ -438,6 +446,7 @@ export async function kariyerIcerikGetirDB(): Promise<KariyerIcerik> {
     // URL alanı varsayılanı "" olabilir; alanDegeri boşsa varsayılana düşer → yine "".
     denetciDbysUrl: (icerik["denetci-dbys-url"] ?? siteConfig.kariyer.denetciBasvuruUrl).trim(),
     denetciButon: al("denetci-buton"),
+    denetciNot: al("denetci-not"),
     idariEtiket: al("idari-etiket"),
     idariBaslik: al("idari-baslik"),
     idariAciklama: al("idari-aciklama"),
