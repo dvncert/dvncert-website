@@ -18,7 +18,6 @@ export default function robots(): MetadataRoute.Robots {
           "/admin/*",
           "/api/*",
           "/_next/*",
-          "/musteri-giris",
           "/teklif-onay/*",
           "/musteri-onay/*",
           "/private/*",

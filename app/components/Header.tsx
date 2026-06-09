@@ -196,9 +196,11 @@ export default function Header({ ekstraOgeler = [] }: { ekstraOgeler?: EkstraOge
               </svg>
             </Link>
 
-            {/* Müşteri Girişi */}
+            {/* Müşteri Girişi — DBYS portal login */}
             <Link
-              href="/musteri-giris"
+              href="https://dbys.dvncert.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 background: "rgba(255,255,255,0.12)",
                 border: "1px solid rgba(255,255,255,0.4)",
