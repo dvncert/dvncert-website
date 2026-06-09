@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
+import DokumanGoruntule from "../components/DokumanGoruntule";
 import { dokumanlariGetir } from "@/lib/faz2-icerik";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 import { breadcrumbSchema, collectionPageSchema, schemaScript } from "@/lib/seo-schemas";
@@ -154,29 +155,7 @@ export default async function DokumanlarSayfasi() {
                         </div>
 
                         {d.dosya ? (
-                          <a
-                            href={d.dosya}
-                            download={d.dosyaAdi || undefined}
-                            className="dvn-dok-indir"
-                            style={{
-                              flexShrink: 0,
-                              display: "inline-flex",
-                              alignItems: "center",
-                              gap: 6,
-                              background: "var(--dvn-gradient-turuncu)",
-                              color: "white",
-                              padding: "9px 16px",
-                              borderRadius: "var(--dvn-radius-md)",
-                              fontWeight: 500,
-                              fontSize: 12.5,
-                              textDecoration: "none",
-                            }}
-                          >
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            İndir
-                          </a>
+                          <DokumanGoruntule src={d.dosya} baslik={d.baslik} />
                         ) : (
                           <span
                             style={{
@@ -207,7 +186,7 @@ export default async function DokumanlarSayfasi() {
       <style>{`
         @media (max-width: 560px) {
           .dvn-dok-satir { flex-wrap: wrap; }
-          .dvn-dok-satir .dvn-dok-indir { width: 100%; justify-content: center; }
+          .dvn-dok-satir .dvn-dok-goruntule { width: 100%; justify-content: center; }
         }
       `}</style>
     </main>
