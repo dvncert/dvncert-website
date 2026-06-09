@@ -160,8 +160,10 @@ export async function yorumSil(fd: FormData) {
 export async function referansKaydet(fd: FormData) {
   const id = s(fd, "id");
 
-  // Yüklenen logo dosyasını WebP'e çevir (varsa)
-  const logoVeri = await gorselWebp(fd.get("logoDosya"), 400, 200, 90);
+  // Yüklenen logo dosyasını WebP'e çevir (varsa). Logo şeritte 150×56 gösterilir;
+  // retina (2x) için ~300px yeterli — kaynağı küçük tutar, next/image ayrıca
+  // gösterim boyutuna küçültüp sıkıştırır.
+  const logoVeri = await gorselWebp(fd.get("logoDosya"), 320, 120, 82);
 
   const temel = {
     ad: s(fd, "ad"),

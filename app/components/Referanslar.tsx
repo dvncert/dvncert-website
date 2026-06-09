@@ -29,6 +29,10 @@ export default async function Referanslar() {
         <div className="dvn-ref-track" style={{ "--sure": `${sure}s` } as CSSProperties}>
           {liste.map((r, i) => {
             const ikincilKopya = i >= referanslar.length;
+            // Yerel logolar (yüklenen /api/gorsel/... veya /public yolları) next/image
+            // ile gösterim boyutuna (150px, retina için 2x) küçültülüp sıkıştırılır.
+            // Dış URL'ler optimize edilemez; oldukları gibi sunulur.
+            const harici = /^https?:\/\//.test(r.logo);
             const icerik = (
               <div style={{ position: "relative", width: 150, height: 56 }}>
                 <Image
@@ -38,7 +42,7 @@ export default async function Referanslar() {
                   sizes="150px"
                   style={{ objectFit: "contain" }}
                   className="dvn-referans-logo"
-                  unoptimized
+                  unoptimized={harici}
                 />
               </div>
             );
