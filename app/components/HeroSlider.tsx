@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const slaytlar = [
@@ -242,6 +242,12 @@ function DenetimMockup() {
 export default function HeroSlider() {
   const [aktif, setAktif] = useState(0);
   const [duraklat, setDuraklat] = useState(false);
+  // İlk (LCP) slayt animasyonsuz, anında boyanır; giriş animasyonu yalnızca
+  // sonraki slayt geçişlerinde çalışır — opacity:0 başlangıcı LCP'yi geciktirmesin.
+  const ilkRef = useRef(true);
+  useEffect(() => {
+    ilkRef.current = false;
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -273,7 +279,7 @@ export default function HeroSlider() {
         <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative", zIndex: 2 }}>
           <div
             key={aktif}
-            className="dvn-slayt dvn-fade-up"
+            className={`dvn-slayt${ilkRef.current ? "" : " dvn-fade-up"}`}
             style={{
               display: "grid",
               gridTemplateColumns: "1.4fr 1fr",
