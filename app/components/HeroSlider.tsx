@@ -416,6 +416,13 @@ export default function HeroSlider() {
               font-size: 26px !important;
             }
           }
+          /* Telefonlarda dekoratif SVG mockup gizlenir: ağır çizimin yavaş
+             CPU'da boyanma maliyetini kaldırıp hero metnini anında LCP yapar. */
+          @media (max-width: 640px) {
+            .dvn-slayt-gorsel {
+              display: none !important;
+            }
+          }
         `}</style>
       </section>
 
