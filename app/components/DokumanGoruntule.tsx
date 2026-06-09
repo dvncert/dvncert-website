@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import DokumanCanvas from "./DokumanCanvas";
 
 /**
  * Dokümanı site içi tam ekran görüntüleyicide açar (indirme yok).
- * PDF, tarayıcının yerleşik görüntüleyicisinde `#toolbar=0` ile gösterilir —
- * indir/yazdır araç çubuğu gizlenir. Sağ tık ve metin seçimi engellenir.
+ * PDF, sayfa sayfa <canvas>'a çizilir (DokumanCanvas) — metin katmanı yoktur,
+ * bu yüzden metin seçilemez/kopyalanamaz ve indir/yazdır araç çubuğu yoktur.
  *
  * Not: Web'de mutlak indirme/kopyalama engeli yoktur (ekran görüntüsü, DevTools,
- * doğrudan URL). Bu bileşen sıradan indirmeyi/kopyalamayı caydırır.
+ * doğrudan URL). Bu bileşen metin kopyalamayı ve sıradan indirmeyi engeller.
  */
 export default function DokumanGoruntule({ src, baslik }: { src: string; baslik: string }) {
   const [acik, setAcik] = useState(false);
@@ -26,9 +27,6 @@ export default function DokumanGoruntule({ src, baslik }: { src: string; baslik:
       window.removeEventListener("keydown", escDinle);
     };
   }, [acik]);
-
-  // toolbar/navpanes/statusbar=0 → yerleşik PDF görüntüleyicide indir/yazdır kontrolleri gizlenir.
-  const goruntuSrc = `${src}#toolbar=0&navpanes=0&statusbar=0&view=FitH`;
 
   return (
     <>
@@ -111,11 +109,7 @@ export default function DokumanGoruntule({ src, baslik }: { src: string; baslik:
               </svg>
             </button>
           </div>
-          <iframe
-            src={goruntuSrc}
-            title={baslik}
-            style={{ flex: 1, width: "100%", border: "none", borderRadius: 10, background: "white" }}
-          />
+          <DokumanCanvas src={src} />
         </div>
       )}
     </>
