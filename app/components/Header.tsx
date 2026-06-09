@@ -268,6 +268,7 @@ export default function Header({ ekstraOgeler = [] }: { ekstraOgeler?: EkstraOge
               alt="DVN Cert Belgelendirme - Bağımsız uygunluk değerlendirme kuruluşu"
               width={96}
               height={64}
+              priority
               style={{ height: 64, width: "auto", display: "block" }}
             />
           </Link>
