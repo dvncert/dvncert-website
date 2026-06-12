@@ -158,18 +158,20 @@ export const hizmetler: Hizmet[] = [
   {
     slug: "2-taraf-denetimleri",
     kategori: "Denetim",
-    baslik: "2. Taraf Denetimleri",
-    seoTitle: "2. Taraf Denetimi (Tedarikçi Denetimi) Hizmeti",
+    baslik: "Tedarikçi Denetimi (2. Taraf Denetimi)",
+    seoTitle: "Tedarikçi Denetimi (2. Taraf Denetimi) Hizmeti",
     seoAciklama:
-      "Tedarikçi ve iş ortaklarınızı standartlara, sözleşme ve yasal gerekliliklere uygunluk açısından bağımsız 2. taraf (tedarikçi) denetimiyle değerlendiriyoruz.",
+      "Tedarikçilerinizi ve iş ortaklarınızı standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından bağımsız 2. taraf (tedarikçi) denetimiyle yerinde değerlendiriyoruz; tedarik zinciri risklerini erken görün.",
     kisaAciklama:
       "Tedarikçi ve iş ortaklarınızı standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından bağımsızca değerlendiriyoruz.",
     ikon: "denetim",
     giris:
-      "2. taraf denetimi (ikinci taraf denetimi); bir kuruluşun kendi tedarikçilerini, alt yüklenicilerini veya iş ortaklarını belirlenen standartlara, sözleşme şartlarına ya da yasal gerekliliklere uygunluk açısından değerlendirmesidir. Uygulamada çoğu zaman \"tedarikçi denetimi\" olarak da anılır.\n\n" +
-      "1. taraf denetimi kuruluşun kendi iç denetimini, 3. taraf denetimi ise bağımsız ve akredite bir belgelendirme kuruluşunun yaptığı denetimi ifade eder. 2. taraf denetimi bu ikisinin arasında konumlanır: müşteri konumundaki kuruluş adına, tedarik zincirindeki bir tarafın yerinde ve nesnel biçimde değerlendirilmesini sağlar.\n\n" +
+      "Tedarikçi denetimi (2. taraf denetimi / ikinci taraf denetimi); bir kuruluşun kendi tedarikçilerini, alt yüklenicilerini veya iş ortaklarını belirlenen standartlara, sözleşme şartlarına ya da yasal gerekliliklere uygunluk açısından değerlendirmesidir. Uygulamada çoğu zaman \"tedarikçi denetimi\" olarak anılır; tedarik zincirindeki riskleri yönetmenin en etkili yollarından biridir.\n\n" +
+      "1. taraf denetimi kuruluşun kendi iç denetimini, 3. taraf denetimi ise bağımsız ve akredite bir belgelendirme kuruluşunun yaptığı denetimi ifade eder. 2. taraf denetimi bu ikisinin arasında konumlanır: müşteri konumundaki kuruluş adına, tedarik zincirindeki bir tarafın yerinde ve nesnel biçimde değerlendirilmesini sağlar. Aradaki farkları [1., 2. ve 3. taraf denetim farkları](/blog/2-taraf-denetimi-nedir) yazımızda ayrıntılı ele aldık.\n\n" +
       "Bu hizmet; işletmelerin tedarikçi performansını objektif ölçütlerle değerlendirmesine, tedarik zinciri risklerini önceden tespit etmesine ve sözleşmesel yükümlülüklerin yerine getirildiğini doğrulamasına yardımcı olur. Özellikle kalite, çevre, iş sağlığı ve güvenliği ile sektörel uygunluk gereksinimlerinin kritik olduğu tedarik ilişkilerinde güvence sağlar.\n\n" +
-      "DVN Cert olarak 2. taraf denetimlerini tarafsızlık, bağımsızlık ve gizlilik ilkeleriyle yürütür; bulguları ayrıntılı ve uygulanabilir bir denetim raporuyla paylaşırız.",
+      "Denetim; tedarikçi seçimi ve onayı öncesinde, mevcut tedarikçilerin performansını izlemek için veya yeni bir sözleşme başlamadan önce planlanabilir. Sürecin adım adım nasıl yürütüldüğünü [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) ve hangi başlıkların değerlendirildiğini [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazılarımızda bulabilirsiniz.\n\n" +
+      "Aynı bağımsız denetim yaklaşımını kendi zincir mağaza, bayi ve franchise ağınıza uygulamak için [şube ve mağaza denetimi](/hizmetler/sube-denetimi) hizmetimizi inceleyebilirsiniz.\n\n" +
+      "DVN Cert olarak 2. taraf denetimlerini tarafsızlık, bağımsızlık ve gizlilik ilkeleriyle yürütür; bulguları ayrıntılı, önceliklendirilmiş ve uygulanabilir bir denetim raporuyla paylaşırız.",
     faydalar: [
       "Tedarikçi veya iş ortağının belirlenen standartlara uygunluğunun bağımsızca değerlendirilmesi",
       "Kalite, çevre, İSG veya sektörel gerekliliklere uyumun yerinde kontrolü",
@@ -177,6 +179,8 @@ export const hizmetler: Hizmet[] = [
       "Sözleşme yükümlülüklerinin yerine getirildiğinin doğrulanması",
       "Tedarikçi seçimi ve değerlendirme süreçlerine nesnel veri sağlanması",
       "Ayrıntılı denetim raporu ve düzeltici faaliyet takibi",
+      "Yerinde veya uzaktan (online) denetim seçenekleriyle esnek planlama",
+      "Marka itibarının ve müşteri güveninin korunması",
     ],
     surec: [
       { baslik: "Planlama", aciklama: "Denetim kapsamı, kriterleri ve zaman planı belirlenir." },
@@ -209,6 +213,83 @@ export const hizmetler: Hizmet[] = [
         soru: "2. taraf denetimi ile belgelendirme denetimi aynı şey midir?",
         cevap:
           "Hayır. Belgelendirme (3. taraf) denetimi sonunda akredite bir sertifika düzenlenir. 2. taraf denetiminde ise amaç, tedarikçinizin veya iş ortağınızın sizin belirlediğiniz kriterlere uygunluğunu doğrulamaktır; sonucunda sertifika değil, ayrıntılı bir denetim raporu sunulur.",
+      },
+      {
+        soru: "Tedarikçi denetimi ne kadar sürer?",
+        cevap:
+          "Süre; tedarikçinin büyüklüğüne, denetim kapsamına ve değerlendirilecek süreç sayısına göre değişir. Tek bir tesisin saha denetimi genellikle 1-2 gün sürer; planlama ve raporlama bu sürenin dışındadır. Kapsam netleştikten sonra net bir zaman planı paylaşılır.",
+      },
+      {
+        soru: "Denetim raporu neler içerir?",
+        cevap:
+          "Rapor; denetim kapsamı ve kriterleri, tespit edilen bulgular ve uygunsuzluklar, bunların önem/öncelik seviyeleri, destekleyici kanıtlar ve önerilen düzeltici faaliyetleri içerir. Amaç, tedarikçinin uygunluk durumunu nesnel ve uygulanabilir biçimde ortaya koymaktır.",
+      },
+      {
+        soru: "Uzaktan (online) tedarikçi denetimi mümkün müdür?",
+        cevap:
+          "Evet. Doküman incelemesi ve görüşmeler video konferans ve ekran paylaşımıyla uzaktan yürütülebilir. Ancak üretim ve saha koşullarının yerinde gözlemlenmesi gereken durumlarda yerinde denetim önerilir; çoğu zaman yerinde ve uzaktan adımları birleştiren karma bir yaklaşım uygulanır.",
+      },
+      {
+        soru: "Tedarikçi denetimi hangi kriterlere göre yapılır?",
+        cevap:
+          "Denetim, kuruluşunuzun belirlediği şartlar ve kontrol listeleri doğrultusunda yapılır. Kriterler; ilgili ISO standartları (ör. ISO 9001 kalite, ISO 14001 çevre, ISO 45001 İSG), sektörel gereklilikler, sözleşme şartları ve yasal yükümlülüklerden oluşabilir. Değerlendirme başlıkları için tedarikçi denetimi kontrol listesi yazımıza bakabilirsiniz.",
+      },
+    ],
+  },
+  {
+    slug: "sube-denetimi",
+    kategori: "Denetim",
+    baslik: "Şube ve Mağaza Denetimi",
+    seoTitle: "Şube, Mağaza ve Bayi Denetimi Hizmeti",
+    seoAciklama:
+      "Zincir işletmeler, bayi ve franchise ağları için bağımsız şube ve mağaza denetimi: marka standartlarına, hizmet kalitesine, hijyen ve operasyonel kurallara uyumu yerinde değerlendiriyoruz.",
+    kisaAciklama:
+      "Zincir mağaza, bayi ve franchise ağlarınızdaki şubeleri; marka standartlarına, hizmet kalitesine ve operasyonel kurallara uygunluk açısından bağımsızca denetliyoruz.",
+    ikon: "denetim",
+    giris:
+      "Şube denetimi (mağaza denetimi); zincir işletmelerin, bayi ve franchise ağlarının kendi şubelerini veya iş ortaklarının işlettiği birimleri belirlenen marka standartlarına, operasyonel prosedürlere, hijyen ve güvenlik kurallarına uygunluk açısından bağımsız olarak değerlendirmesidir.\n\n" +
+      "Çok şubeli yapılarda hizmet kalitesini her noktada aynı seviyede tutmak markaların en büyük zorluklarından biridir. Bağımsız bir göz tarafından yapılan düzenli şube denetimleri; standartlardan sapmaları erken tespit eder, şubeler arası tutarlılığı artırır ve müşteri deneyimini korur.\n\n" +
+      "Şube denetimi, tedarik zincirindeki tarafları değerlendiren [tedarikçi denetimi (2. taraf denetimi)](/hizmetler/2-taraf-denetimleri) yaklaşımının; kendi şube, bayi ve franchise ağınıza uygulanmış hâlidir. Özellikle bayi ve franchise ilişkilerinde, markanın belirlediği kriterlere uyumun bağımsızca doğrulanması değerlidir.\n\n" +
+      "DVN Cert olarak şube ve mağaza denetimlerini, kuruluşunuzun belirlediği kontrol listeleri ve marka standartları doğrultusunda; tarafsızlık ve gizlilik ilkeleriyle yürütür, bulguları puanlanmış ve fotoğraflı bir denetim raporuyla paylaşırız. Şube denetiminin nasıl planlandığını [şube ve mağaza denetimi rehberi](/blog/sube-magaza-denetimi-rehberi) yazımızda ele aldık.",
+    faydalar: [
+      "Tüm şubelerde tutarlı hizmet kalitesi ve marka deneyimi",
+      "Marka standartlarından ve operasyonel prosedürlerden sapmaların erken tespiti",
+      "Hijyen, iş sağlığı ve güvenliği ile yasal gerekliliklere uyumun yerinde kontrolü",
+      "Bayi ve franchise ağında sözleşme şartlarına uyumun bağımsız doğrulanması",
+      "Şubeler arası karşılaştırılabilir, puanlanmış performans verisi",
+      "Fotoğraflı ve önceliklendirilmiş rapor ile düzeltici faaliyet takibi",
+    ],
+    surec: [
+      { baslik: "Kriterlerin Belirlenmesi", aciklama: "Marka standartları, kontrol listesi ve puanlama kriterleri birlikte netleştirilir." },
+      { baslik: "Saha Denetimi", aciklama: "Şubeler yerinde ziyaret edilir; operasyon, hijyen ve müşteri deneyimi gözlemlenir." },
+      { baslik: "Raporlama", aciklama: "Bulgular puanlanmış, fotoğraflı ve şube bazında karşılaştırmalı raporla paylaşılır." },
+      { baslik: "Takip", aciklama: "Düzeltici faaliyetlerin uygulanması izlenir, gerektiğinde tekrar denetim yapılır." },
+    ],
+    sss: [
+      {
+        soru: "Şube denetimi nedir?",
+        cevap:
+          "Şube denetimi (mağaza denetimi), çok şubeli bir işletmenin veya franchise/bayi ağının; şubelerini marka standartlarına, operasyonel prosedürlere ve hijyen-güvenlik kurallarına uygunluk açısından bağımsız olarak değerlendirmesidir.",
+      },
+      {
+        soru: "Şube denetimi ile gizli müşteri (mystery shopper) aynı şey midir?",
+        cevap:
+          "Hayır. Gizli müşteri kimliğini gizleyerek yalnızca müşteri deneyimini ölçer. Şube denetimi ise kimliği açık, kontrol listesine dayalı; operasyon, hijyen, güvenlik, stok ve marka uyumu gibi alanları kapsamlı ve kanıta dayalı biçimde değerlendiren yapılandırılmış bir denetimdir.",
+      },
+      {
+        soru: "Bayi ve franchise denetimi de bu kapsamda mıdır?",
+        cevap:
+          "Evet. Markanın belirlediği standartlara uyumun bağımsızca doğrulanması gereken bayi, franchise ve yetkili servis ağları şube denetimi kapsamında değerlendirilir.",
+      },
+      {
+        soru: "Şubeler hangi kriterlere göre denetlenir?",
+        cevap:
+          "Denetim, kuruluşunuzun belirlediği marka standartları ve kontrol listeleri doğrultusunda yapılır. Operasyonel süreçler, hijyen ve gıda güvenliği, iş sağlığı ve güvenliği, görsel/marka uyumu ve müşteri deneyimi tipik denetim başlıklarıdır.",
+      },
+      {
+        soru: "Denetim raporu neler içerir?",
+        cevap:
+          "Rapor; şube bazında puanlama, tespit edilen uygunsuzluklar, destekleyici fotoğraflar, öncelik seviyeleri ve önerilen düzeltici faaliyetleri içerir. Birden çok şubenin karşılaştırılabildiği özet tablolar da sunulur.",
       },
     ],
   },
