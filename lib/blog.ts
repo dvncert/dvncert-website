@@ -35,6 +35,98 @@ export type BlogYazisi = {
 
 export const blogYazilari: BlogYazisi[] = [
   {
+    slug: "gida-tedarikci-denetimi",
+    baslik: "Gıda Tedarikçi Denetimi: Gıda Güvenliği ve Hijyen Kriterleri",
+    ozet:
+      "Gıda tedarikçi denetimi; hammadde, ambalaj ve fason üreticilerin gıda güvenliği, hijyen ve izlenebilirlik kriterlerine uygunluğunu doğrular. Denetim başlıklarını ve referans standartları açıklıyoruz.",
+    tarih: "2026-06-13",
+    kategori: "Denetim",
+    icerik:
+      "Gıda sektöründe bir tek tedarikçi kaynaklı sorun bile tüm zincire ve marka itibarına zarar verebilir. Bu nedenle gıda tedarikçilerinin bağımsız bir gözle denetlenmesi, gıda güvenliğinin en kritik halkalarından biridir.\n\n" +
+      "## Gıda tedarikçi denetimi nedir?\n\n" +
+      "Gıda tedarikçi denetimi, bir gıda işletmesinin hammadde, katkı, ambalaj veya fason üretim tedarikçilerini; gıda güvenliği, hijyen ve yasal gerekliliklere uygunluk açısından değerlendirdiği bir 2. taraf (tedarikçi) denetimidir. Amaç, satın alınan ürün ve hizmetlerin güvenli ve istenen kalitede olduğunu üretim öncesinde doğrulamaktır.\n\n" +
+      "## Neden önemlidir?\n\n" +
+      "Gıda güvenliği zincirin en zayıf halkası kadar güçlüdür. Tedarikçi denetimi; kontaminasyon ve tağşiş risklerini erken tespit etmenizi, yasal sorumluluğunuzu yönetmenizi ve müşteri ile perakende zincirlerinin tedarikçi onay şartlarını karşılamanızı sağlar.\n\n" +
+      "## Denetimde değerlendirilen başlıklar\n\n" +
+      "- HACCP planı ve kritik kontrol noktalarının uygulanması\n" +
+      "- Personel hijyeni, tesis temizliği ve sanitasyon programları\n" +
+      "- Haşere kontrolü, alerjen yönetimi ve çapraz bulaşma önlemleri\n" +
+      "- Hammadde kabul, depolama ve soğuk zincir koşulları\n" +
+      "- İzlenebilirlik, parti takibi ve geri çağırma (recall) hazırlığı\n" +
+      "- Su, atık ve yasal gıda mevzuatına uyum\n\n" +
+      "## Hangi standartlar referans alınır?\n\n" +
+      "- ISO 22000 gıda güvenliği yönetim sistemi\n" +
+      "- FSSC 22000\n" +
+      "- BRCGS ve IFS Food (perakende zincirlerinin sık talep ettiği kriterler)\n" +
+      "- Codex Alimentarius ilkeleri ve ulusal gıda mevzuatı\n\n" +
+      "Bu denetimler, kuruluşunuzun belirlediği kriterler ve ilgili standartların gereklilikleri doğrultusunda yürütülür; sonucunda akredite bir sertifika değil, ayrıntılı bir tedarikçi denetim raporu sunulur.\n\n" +
+      "## Gıda tedarik zincirinde 2. taraf denetiminin rolü\n\n" +
+      "Beyana veya yalnızca belgeye dayanmak gıdada yeterli değildir; üretim koşullarının yerinde gözlemlenmesi gerekir. Risk temelli bir yaklaşımla kritik tedarikçileri daha sık denetlemek, tedarik zinciri güvenliğini sürdürmenin en etkili yoludur.\n\n" +
+      "Gıda tedarikçilerinizi bağımsız değerlendirmek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri) inceleyebilir; denetim başlıklarının tamamı için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımıza bakabilirsiniz.",
+    ilgiliHizmetler: ["2-taraf-denetimleri"],
+  },
+  {
+    slug: "tekstil-tedarikci-denetimi",
+    baslik: "Tekstil ve Hazır Giyim Tedarikçi Denetimi: Kalite ve Sosyal Uygunluk",
+    ozet:
+      "Tekstil ve hazır giyim ihracatında alıcılar tedarikçilerden hem kalite hem de sosyal uygunluk bekler. Tekstil tedarikçi denetiminin kalite, sosyal uygunluk ve çevre başlıklarını ele alıyoruz.",
+    tarih: "2026-06-13",
+    kategori: "Denetim",
+    icerik:
+      "Türkiye'nin en güçlü ihracat sektörlerinden biri olan tekstil ve hazır giyimde, uluslararası alıcılar tedarikçilerini yalnızca kaliteyle değil; çalışan hakları, etik ve çevre kriterleriyle de değerlendirir. Bu nedenle tekstil tedarikçi denetimi çok boyutludur.\n\n" +
+      "## Tekstil tedarikçi denetimi nedir?\n\n" +
+      "Tekstil tedarikçi denetimi; konfeksiyon, dokuma, örme, boya-apre veya fason üreticilerin kalite, sosyal uygunluk ve çevre kriterlerine uygunluğunu değerlendiren bir 2. taraf (tedarikçi) denetimidir. Marka ve perakendecilerin fason üretim ağlarını kontrol etmesinde yaygın olarak kullanılır.\n\n" +
+      "## İhracatta sosyal uygunluğun önemi\n\n" +
+      "Avrupa ve global alıcılar, tedarik zincirlerinde insan hakları ve etik iş uygulamalarını giderek daha sıkı şart koşuyor. Sosyal uygunluk gereklilikleri karşılanmadığında siparişler iptal olabilir; bu yüzden bağımsız denetim, ihracat sürekliliği için kritik hâle gelmiştir.\n\n" +
+      "## Kalite denetimi başlıkları\n\n" +
+      "- Dikiş, ölçü, renk ve aksesuar kalite kontrolü\n" +
+      "- Üretim süreçlerinin ve kalite kontrol noktalarının yeterliliği\n" +
+      "- AQL örnekleme ile son ürün kontrolü\n" +
+      "- Kapasite, teslim performansı ve fason ağ yönetimi\n\n" +
+      "## Sosyal uygunluk ve etik başlıklar\n\n" +
+      "- Çalışma saatleri, ücret ve yasal istihdam uygunluğu\n" +
+      "- Çocuk işçi ve zorla çalıştırma yasaklarına uyum\n" +
+      "- İş sağlığı ve güvenliği ile çalışan refahı\n" +
+      "- BSCI, Sedex/SMETA gibi sosyal uygunluk kriterleri doğrultusunda değerlendirme\n\n" +
+      "## Çevre ve kimyasal yönetimi\n\n" +
+      "- Kimyasal madde yönetimi ve yasaklı madde (RSL) kontrolü\n" +
+      "- OEKO-TEX ve ZDHC benzeri kriterlere uyum\n" +
+      "- Atık su, enerji ve atık yönetimi\n\n" +
+      "Bu denetimler, alıcı/müşteri kriterleri ve ilgili standartların gereklilikleri doğrultusunda yürütülür; çıktı bir tedarikçi denetim raporudur.\n\n" +
+      "## Tekstil tedarik zincirinde denetimin rolü\n\n" +
+      "Tekstilde üretim çoğunlukla geniş bir fason ağına yayılır; bu da her halkanın bağımsız denetimini zorunlu kılar. Düzenli denetim, hem kalite tutarlılığını hem de sosyal uygunluğu güvence altına alır.\n\n" +
+      "Tekstil tedarikçilerinizi değerlendirmek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri); denetim başlıkları için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımızı inceleyebilirsiniz.",
+    ilgiliHizmetler: ["2-taraf-denetimleri"],
+  },
+  {
+    slug: "otomotiv-tedarikci-denetimi",
+    baslik: "Otomotiv Tedarikçi Denetimi: IATF 16949 ve VDA 6.3 Bakışı",
+    ozet:
+      "Otomotiv tedarik zincirinde sıfır hata beklenir. Otomotiv tedarikçi denetiminin IATF 16949, VDA 6.3 proses denetimi, PPAP ve APQP gibi temel başlıklarını açıklıyoruz.",
+    tarih: "2026-06-13",
+    kategori: "Denetim",
+    icerik:
+      "Otomotiv sektörü, tedarik zinciri kalite gerekliliklerinin en sıkı olduğu alanlardan biridir. Ana sanayi (OEM) ve üst kademe tedarikçiler, alt tedarikçilerini sistematik denetimlerle değerlendirir.\n\n" +
+      "## Otomotiv tedarikçi denetimi nedir?\n\n" +
+      "Otomotiv tedarikçi denetimi; bir OEM'in veya üst kademe tedarikçinin (Tier 1/Tier 2) alt tedarikçilerini kalite, proses yeterliliği ve teslim güvenilirliği açısından değerlendirdiği bir 2. taraf (tedarikçi) denetimidir. Amaç, seri üretimde tutarlı kalite ve sıfır hata hedefini güvence altına almaktır.\n\n" +
+      "## IATF 16949 ve otomotiv kalite zinciri\n\n" +
+      "IATF 16949, otomotiv sektörünün kalite yönetim sistemi standardıdır ve tedarikçi geliştirme ile alt tedarikçi yönetimini açıkça şart koşar. Tedarikçi denetimleri, bu zincirdeki gerekliliklerin alt halkalara kadar aktarıldığını doğrular.\n\n" +
+      "## VDA 6.3 proses denetimi nedir?\n\n" +
+      "VDA 6.3, Alman otomotiv endüstrisinin geliştirdiği bir proses denetimi yöntemidir. Ürünün geliştirilmesinden seri üretime kadar her aşamadaki prosesleri risk temelli olarak değerlendirir ve tedarikçi denetimlerinde yaygın bir referanstır.\n\n" +
+      "## Denetimde değerlendirilen başlıklar\n\n" +
+      "- APQP (ileri ürün kalite planlaması) ve proje yönetimi\n" +
+      "- PPAP (üretim parçası onay prosesi) dokümantasyonu\n" +
+      "- FMEA ile risk analizi ve önleyici yaklaşım\n" +
+      "- Proses kontrol planları ve SPC ile süreç yeterliliği\n" +
+      "- İzlenebilirlik, hata izolasyonu ve uygunsuz ürün yönetimi\n" +
+      "- Ölçüm sistemleri analizi (MSA) ve kalibrasyon\n\n" +
+      "Bu denetimler, müşteri/OEM gereklilikleri ve ilgili otomotiv standartlarının kriterleri doğrultusunda yürütülür; sonucunda ayrıntılı bir tedarikçi denetim raporu sunulur.\n\n" +
+      "## Otomotiv tedarik zincirinde 2. taraf denetiminin rolü\n\n" +
+      "Otomotivde tek bir hatalı parti, geri çağırma ve ciddi maliyetlere yol açabilir. Risk temelli ve düzenli tedarikçi denetimleri; sorunları seri üretime ulaşmadan önce tespit ederek tedarik zincirinin güvenilirliğini korur.\n\n" +
+      "Otomotiv tedarikçilerinizi değerlendirmek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri); süreç ayrıntıları için [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımızı inceleyebilirsiniz.",
+    ilgiliHizmetler: ["2-taraf-denetimleri"],
+  },
+  {
     slug: "2-taraf-denetimi-nedir",
     baslik: "2. Taraf Denetimi Nedir? 1., 2. ve 3. Taraf Denetim Farkları",
     ozet:
