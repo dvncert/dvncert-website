@@ -197,8 +197,10 @@ export function courseSchema(params: {
   aciklama: string;
   url: string;
   sure?: string;
+  /** Sunum biçimleri: "online" ve/veya "onsite" — Course rich result için hasCourseInstance üretir. */
+  yontemler?: ("online" | "onsite")[];
 }) {
-  return {
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Course",
     name: params.ad,
@@ -209,6 +211,14 @@ export function courseSchema(params: {
     },
     timeRequired: params.sure,
   };
+  if (params.yontemler && params.yontemler.length > 0) {
+    schema.hasCourseInstance = params.yontemler.map((m) => ({
+      "@type": "CourseInstance",
+      courseMode: m,
+      courseWorkload: params.sure,
+    }));
+  }
+  return schema;
 }
 
 /**

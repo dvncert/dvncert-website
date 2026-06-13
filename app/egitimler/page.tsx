@@ -4,8 +4,9 @@ import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import HizmetIkon from "../components/HizmetIkon";
 import { courseSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
-import { sayfaIcerigiGetir, alanDegeri, egitimIkonu } from "@/lib/sayfa-icerigi";
+import { sayfaIcerigiGetir, alanDegeri } from "@/lib/sayfa-icerigi";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
+import { egitimGruplari } from "@/lib/egitimler";
 
 const YOL = "/egitimler";
 
@@ -14,29 +15,16 @@ export const revalidate = 300;
 export async function generateMetadata(): Promise<Metadata> {
   return sayfaMetadataUret({
     yol: YOL,
-    title: "Eğitimler",
+    title: "ISO Eğitimleri (Temel, İç Tetkikçi, Baş Denetçi)",
     description:
-      "DVN Cert ISO yönetim sistemleri eğitim programları: ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 eğitimleri. Çevrim içi veya yüz yüze, genel katılıma açık.",
+      "DVN Cert ISO eğitimleri: ISO 9001, 14001, 45001, 50001 ve ISO 19011 temel, iç tetkikçi ve baş denetçi eğitimleri. Çevrim içi veya yüz yüze, genel katılıma açık.",
   });
-}
-
-function egitimKartlariCozumle(metin: string): { baslik: string; icerik: string; ikon: string }[] {
-  if (!metin.trim()) return [];
-  return metin
-    .split(/\n\s*\n/)
-    .filter((b) => b.trim())
-    .map((b) => {
-      const satirlar = b.split("\n");
-      const baslik = (satirlar[0] ?? "").replace(/^##\s*/, "").trim();
-      const icerik = satirlar.slice(1).join("\n").trim();
-      return { baslik, icerik, ikon: egitimIkonu(baslik) };
-    });
 }
 
 export default async function EgitimlerSayfasi() {
   const icerik = await sayfaIcerigiGetir(YOL);
   const al = (anahtar: string) => alanDegeri(icerik, YOL, anahtar);
-  const egitimler = egitimKartlariCozumle(al("egitim-kartlari"));
+  const gruplar = egitimGruplari();
 
   return (
     <main>
@@ -45,17 +33,22 @@ export default async function EgitimlerSayfasi() {
         dangerouslySetInnerHTML={schemaScript(
           breadcrumbSchema([
             { ad: "Ana Sayfa", url: "/" },
-            { ad: "Hizmetler", url: "/hizmetler" },
             { ad: "Eğitimler", url: "/egitimler" },
           ]),
         )}
       />
-      {egitimler.map((e) => (
+      {gruplar.flatMap((g) => g.egitimler).map((e) => (
         <script
-          key={e.baslik}
+          key={e.slug}
           type="application/ld+json"
           dangerouslySetInnerHTML={schemaScript(
-            courseSchema({ ad: e.baslik, aciklama: e.icerik, url: "/egitimler" }),
+            courseSchema({
+              ad: e.baslik,
+              aciklama: e.kisaAciklama,
+              url: `/egitimler/${e.slug}`,
+              sure: e.sure,
+              yontemler: ["online", "onsite"],
+            }),
           )}
         />
       ))}
@@ -63,7 +56,7 @@ export default async function EgitimlerSayfasi() {
       <SayfaBaslik
         etiket="HİZMETLERİMİZ"
         baslik="Eğitimler"
-        aciklama="Uluslararası belgelendirme deneyimimizden edindiğimiz bilgi birikimini profesyonel eğitim programlarımızla paylaşıyoruz."
+        aciklama="Uluslararası belgelendirme deneyimimizden edindiğimiz bilgi birikimini, genel katılıma açık profesyonel eğitim programlarımızla paylaşıyoruz."
         kirintilar={[{ etiket: "Hizmetler", href: "/hizmetler" }, { etiket: "Eğitimler" }]}
       />
 
@@ -84,90 +77,70 @@ export default async function EgitimlerSayfasi() {
         </div>
       </section>
 
-      {/* Eğitim kartları */}
+      {/* Eğitim grupları */}
       <section style={{ background: "white", padding: "0 32px 60px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div className="dvn-egitim-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
-            {egitimler.map((e) => (
-              <div
-                key={e.baslik}
-                style={{
-                  display: "flex",
-                  gap: 18,
-                  background: "var(--dvn-gri-50)",
-                  borderRadius: 14,
-                  padding: "26px 24px",
-                  border: "0.5px solid var(--dvn-gri-300)",
-                }}
-              >
-                <div
-                  style={{
-                    flexShrink: 0,
-                    width: 54,
-                    height: 54,
-                    borderRadius: 12,
-                    background: "var(--dvn-gradient-lacivert)",
-                    color: "var(--dvn-altin-acik)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
-                  }}
-                >
-                  <HizmetIkon ad={e.ikon} size={27} />
-                </div>
-                <div>
-                  <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16, fontWeight: 600, margin: "0 0 8px", lineHeight: 1.35 }}>
-                    {e.baslik}
-                  </h3>
-                  <p style={{ fontSize: 13.5, color: "var(--dvn-gri-500)", lineHeight: 1.65, margin: 0 }}>{e.icerik}</p>
-                </div>
+        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexDirection: "column", gap: 44 }}>
+          {gruplar.map((grup) => (
+            <div key={grup.standart}>
+              <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 18, fontWeight: 600, margin: "0 0 16px", paddingBottom: 10, borderBottom: "0.5px solid var(--dvn-gri-300)" }}>
+                {grup.standart} Eğitimleri
+              </h3>
+              <div className="dvn-egitim-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+                {grup.egitimler.map((e) => (
+                  <Link
+                    key={e.slug}
+                    href={`/egitimler/${e.slug}`}
+                    className="dvn-egitim-kart"
+                    style={{ display: "flex", flexDirection: "column", gap: 12, background: "var(--dvn-gri-50)", borderRadius: 14, padding: "22px 22px", border: "0.5px solid var(--dvn-gri-300)", textDecoration: "none", color: "inherit", transition: "all 0.3s ease" }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                      <div style={{ flexShrink: 0, width: 46, height: 46, borderRadius: 11, background: "var(--dvn-gradient-lacivert)", color: "var(--dvn-altin-acik)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 16px rgba(2,35,152,0.15)" }}>
+                        <HizmetIkon ad={e.ikon} size={23} />
+                      </div>
+                      <span style={{ fontSize: 11, fontWeight: 600, color: "var(--dvn-turuncu)", letterSpacing: "0.5px" }}>{e.sure} · {e.seviye}</span>
+                    </div>
+                    <div>
+                      <h4 style={{ color: "var(--dvn-lacivert)", fontSize: 15, fontWeight: 600, margin: "0 0 6px", lineHeight: 1.35 }}>{e.baslik}</h4>
+                      <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", lineHeight: 1.6, margin: 0 }}>{e.kisaAciklama}</p>
+                    </div>
+                    <span style={{ marginTop: "auto", display: "inline-flex", alignItems: "center", gap: 5, fontSize: 13, fontWeight: 500, color: "var(--dvn-turuncu)" }}>
+                      İncele
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </Link>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA — genel katılıma açık (kurum bazlı eğitim yapılmaz) */}
       <section style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
-        <div
-          style={{
-            maxWidth: 1100,
-            margin: "0 auto",
-            background: "var(--dvn-gradient-lacivert)",
-            borderRadius: 18,
-            padding: "40px 36px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: 20,
-          }}
-        >
+        <div style={{ maxWidth: 1100, margin: "0 auto", background: "var(--dvn-gradient-lacivert)", borderRadius: 18, padding: "40px 36px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20 }}>
           <div>
-            <h2 style={{ color: "white", fontSize: 21, fontWeight: 500, margin: "0 0 6px" }}>{al("cta-baslik")}</h2>
-            <p style={{ color: "#9aa5b1", fontSize: 13.5, margin: 0 }}>{al("cta-metin")}</p>
+            <h2 style={{ color: "white", fontSize: 21, fontWeight: 500, margin: "0 0 6px" }}>Eğitim tarihlerini öğrenin</h2>
+            <p style={{ color: "#9aa5b1", fontSize: 13.5, margin: 0 }}>Genel katılıma açık eğitim programlarımızın takvimi ve kayıt için bizimle iletişime geçin.</p>
           </div>
-          <Link
-            href="/iletisim"
-            style={{
-              background: "var(--dvn-gradient-turuncu)",
-              color: "white",
-              padding: "13px 26px",
-              borderRadius: "var(--dvn-radius-md)",
-              fontWeight: 500,
-              fontSize: 14,
-              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Bize Ulaşın →
-          </Link>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <Link href="/etkinlikler" style={{ background: "var(--dvn-gradient-turuncu)", color: "white", padding: "13px 24px", borderRadius: "var(--dvn-radius-md)", fontWeight: 500, fontSize: 14, boxShadow: "0 8px 20px rgba(245,130,32,0.3)", whiteSpace: "nowrap" }}>
+              Eğitim Takvimi →
+            </Link>
+            <Link href="/iletisim" style={{ background: "rgba(255,255,255,0.08)", border: "0.5px solid rgba(255,255,255,0.2)", color: "white", padding: "13px 24px", borderRadius: "var(--dvn-radius-md)", fontWeight: 500, fontSize: 14, whiteSpace: "nowrap" }}>
+              Bize Ulaşın
+            </Link>
+          </div>
         </div>
       </section>
 
       <style>{`
-        @media (max-width: 760px) {
+        .dvn-egitim-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(2,35,152,0.1) !important; }
+        @media (max-width: 900px) {
+          .dvn-egitim-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 600px) {
           .dvn-egitim-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

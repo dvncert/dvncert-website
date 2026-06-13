@@ -169,6 +169,9 @@ export const SAYFA_ICERIK: Record<string, SayfaIcerikTanim> = {
   },
   ...isoSayfaTanimlari,
   ...hizmetSayfaTanimlari,
+  // NOT: Eğitim kartları ve detay sayfaları artık lib/egitimler.ts'ten beslenir.
+  // Burada yalnızca hub giriş metinleri düzenlenebilir. Tüm eğitimler GENEL
+  // KATILIMA AÇIKTIR; kurum bazlı eğitim metni eklenmemelidir.
   "/egitimler": {
     ad: "Eğitimler",
     alanlar: [
@@ -179,18 +182,8 @@ export const SAYFA_ICERIK: Record<string, SayfaIcerikTanim> = {
         etiket: "Giriş — paragraf",
         tip: "textarea-uzun",
         varsayilan:
-          "DVN Cert olarak, uluslararası standartlarda belgelendirme deneyimimizden edindiğimiz bilgi birikimini profesyonel eğitim programlarımızla paylaşarak kurumların yönetim sistemi bilgi seviyesini artırmayı hedefliyoruz. Eğitimlerimiz çevrim içi veya yüz yüze gerçekleştirilmekte olup genel katılıma açıktır.",
+          "DVN Cert olarak, uluslararası belgelendirme deneyimimizden edindiğimiz bilgi birikimini profesyonel eğitim programlarımızla paylaşıyoruz. Tüm eğitimlerimiz çevrim içi veya yüz yüze düzenlenir ve genel katılıma açıktır; bireysel olarak kayıt olabilirsiniz.",
       },
-      {
-        anahtar: "egitim-kartlari",
-        etiket: "Eğitim kartları ('## Başlık' formatı)",
-        tip: "textarea-uzun",
-        varsayilan:
-          "## ISO 9001 Kalite Yönetim Sistemi Eğitimi\nTemel kavramlar, madde bazlı gereklilikler ve uygulama örnekleri.\n\n## ISO 14001 Çevre Yönetim Sistemi Eğitimi\nÇevre boyutları, risk ve fırsat yönetimi ve mevzuat uyumu.\n\n## ISO 45001 İş Sağlığı ve Güvenliği Yönetim Sistemi Eğitimi\nTehlike tanımlama, risk değerlendirme ve İSG performans yönetimi.\n\n## ISO 50001 Enerji Yönetim Sistemi Eğitimi\nEnerji performans göstergeleri, enerji verimliliği ve sürekli iyileştirme.",
-        yardim: "Her eğitim için: '## Başlık' satırı, ardından açıklama. Eğitimleri boş satırla ayırın. İkonlar başlığa göre otomatik atanır.",
-      },
-      { anahtar: "cta-baslik", etiket: "Alt CTA — başlık", tip: "input", varsayilan: "Eğitim talebinde bulunun" },
-      { anahtar: "cta-metin", etiket: "Alt CTA — alt metin", tip: "input", varsayilan: "Kurumunuza özel veya genel katılımlı eğitim programları için bizimle iletişime geçin." },
     ],
   },
   "/kariyer": {

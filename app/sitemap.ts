@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { hizmetler } from "@/lib/hizmetler";
+import { egitimler } from "@/lib/egitimler";
 import { duyurular } from "@/lib/duyurular";
 import { blogYazilari } from "@/lib/blog";
 
@@ -61,6 +62,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  // ===== EĞİTİM DETAY SAYFALARI (otomatik) =====
+  const egitimSayfalari: MetadataRoute.Sitemap = egitimler.map((e) => ({
+    url: `${url}/egitimler/${e.slug}`,
+    lastModified: bugun,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
   // ===== DUYURU DETAY SAYFALARI (otomatik) =====
   const duyuruSayfalari: MetadataRoute.Sitemap = duyurular.map((d) => ({
     url: `${url}/duyurular/${d.slug}`,
@@ -77,5 +86,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...sabitSayfalar, ...hizmetSayfalari, ...duyuruSayfalari, ...blogSayfalari];
+  return [...sabitSayfalar, ...hizmetSayfalari, ...egitimSayfalari, ...duyuruSayfalari, ...blogSayfalari];
 }
