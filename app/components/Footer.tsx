@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import BultenFormu from "./BultenFormu";
 
 export default function Footer() {
   const yil = new Date().getFullYear();
@@ -45,6 +46,9 @@ export default function Footer() {
             <a href="mailto:info@dvncert.com" style={{ fontSize: 11, color: "#94a3b8", display: "block", marginBottom: 6 }}>✉ info@dvncert.com</a>
             <a href="tel:+905300448037" style={{ fontSize: 11, color: "#94a3b8", display: "block", marginBottom: 6 }}>☎ +90 530 044 80 37</a>
             <p style={{ fontSize: 11, color: "#94a3b8", margin: 0 }}>📍 Güzelyalı Mah. Eyüp Sultan Cad. No:32/A Pendik / İstanbul</p>
+            <p style={{ fontSize: 11.5, color: "var(--dvn-altin-acik)", fontWeight: 500, margin: "18px 0 0" }}>Bültenimize abone olun</p>
+            <p style={{ fontSize: 11, color: "#94a3b8", margin: "2px 0 0" }}>Duyuru ve içeriklerden haberdar olun.</p>
+            <BultenFormu />
           </div>
 
           <div>
@@ -54,6 +58,8 @@ export default function Footer() {
               <Link href="/ekibimiz" style={{ fontSize: 12, color: "#94a3b8" }}>Ekibimiz</Link>
               <Link href="/akreditasyonlarimiz" style={{ fontSize: 12, color: "#94a3b8" }}>Akreditasyonlarımız</Link>
               <Link href="/politika-ve-beyanlar" style={{ fontSize: 12, color: "#94a3b8" }}>Politika ve Beyanlar</Link>
+              <Link href="/belgelendirme-kurallari" style={{ fontSize: 12, color: "#94a3b8" }}>Belgelendirme Kuralları</Link>
+              <Link href="/marka-ve-logo-kullanimi" style={{ fontSize: 12, color: "#94a3b8" }}>Marka ve Logo Kullanımı</Link>
               <Link href="/kariyer" style={{ fontSize: 12, color: "#94a3b8" }}>Kariyer</Link>
               <Link href="/blog" style={{ fontSize: 12, color: "#94a3b8" }}>Blog</Link>
             </div>
@@ -66,7 +72,9 @@ export default function Footer() {
               <Link href="/hizmetler/iso-14001" style={{ fontSize: 12, color: "#94a3b8" }}>ISO 14001</Link>
               <Link href="/hizmetler/iso-45001" style={{ fontSize: 12, color: "#94a3b8" }}>ISO 45001</Link>
               <Link href="/hizmetler/iso-50001" style={{ fontSize: 12, color: "#94a3b8" }}>ISO 50001</Link>
+              <Link href="/hizmetler/2-taraf-denetimleri" style={{ fontSize: 12, color: "#94a3b8" }}>Tedarikçi Denetimi</Link>
               <Link href="/egitimler" style={{ fontSize: 12, color: "#94a3b8" }}>Eğitimler</Link>
+              <Link href="/belgelendirme-sureci" style={{ fontSize: 12, color: "#94a3b8" }}>Belgelendirme Süreci</Link>
             </div>
           </div>
 
@@ -77,6 +85,7 @@ export default function Footer() {
               <Link href="https://dbys.dvncert.com/basvuru" target="_blank" style={{ fontSize: 12, color: "#94a3b8" }}>Başvuru Yap</Link>
               <Link href="/sertifika-sorgula" style={{ fontSize: 12, color: "#94a3b8" }}>Sertifika Sorgula</Link>
               <Link href="/sikayet-ve-gorusler" style={{ fontSize: 12, color: "#94a3b8" }}>Şikayet ve Görüşler</Link>
+              <Link href="/itiraz-ve-sikayet" style={{ fontSize: 12, color: "#94a3b8" }}>İtiraz ve Şikayet Süreci</Link>
               <Link href="/sss" style={{ fontSize: 12, color: "#94a3b8" }}>Sıkça Sorulan Sorular</Link>
             </div>
           </div>

@@ -5,6 +5,7 @@ import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
 import HizmetIkon from "../../components/HizmetIkon";
 import IcerikMetin from "../../components/IcerikMetin";
+import EgitimKayitFormu from "../../components/EgitimKayitFormu";
 import { egitimler, egitimGetir } from "@/lib/egitimler";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { blogGetir } from "@/lib/blog";
@@ -266,6 +267,22 @@ export default async function EgitimDetaySayfasi({ params }: Params) {
           </div>
         </section>
       )}
+
+      {/* Ön kayıt formu */}
+      <section style={{ background: "white", padding: "60px 32px" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto", background: "var(--dvn-gri-50)", borderRadius: 16, padding: "32px 28px", border: "0.5px solid var(--dvn-gri-300)" }}>
+          <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+            ÖN KAYIT
+          </p>
+          <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 21, fontWeight: 500, margin: "0 0 6px", lineHeight: 1.3 }}>
+            {egitim.baslik} için ön kayıt
+          </h2>
+          <p style={{ fontSize: 14, color: "var(--dvn-gri-500)", lineHeight: 1.7, margin: "0 0 22px" }}>
+            Genel katılıma açık bu eğitimin tarihleri ve kayıt bilgileri için ön kayıt oluşturun; sizinle iletişime geçelim.
+          </p>
+          <EgitimKayitFormu egitimAdi={egitim.baslik} egitimSlug={egitim.slug} />
+        </div>
+      </section>
 
       {/* CTA */}
       <section style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>

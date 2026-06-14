@@ -17,6 +17,7 @@ export default function YasalSayfa({
   aciklama,
   guncelleme,
   bolumler,
+  etiket = "YASAL",
 }: {
   baslik: string;
   /** Breadcrumb için, ör. "/kvkk" */
@@ -25,6 +26,8 @@ export default function YasalSayfa({
   /** Son güncelleme tarihi, ör. "22 Mayıs 2026" */
   guncelleme: string;
   bolumler: YasalBolum[];
+  /** Sayfa başlığı üstündeki küçük etiket (varsayılan "YASAL"). */
+  etiket?: string;
 }) {
   return (
     <main>
@@ -38,7 +41,7 @@ export default function YasalSayfa({
         )}
       />
 
-      <SayfaBaslik etiket="YASAL" baslik={baslik} aciklama={aciklama} kirintilar={[{ etiket: baslik }]} />
+      <SayfaBaslik etiket={etiket} baslik={baslik} aciklama={aciklama} kirintilar={[{ etiket: baslik }]} />
 
       <section style={{ background: "white", padding: "50px 32px 70px" }}>
         <div style={{ maxWidth: 820, margin: "0 auto" }}>

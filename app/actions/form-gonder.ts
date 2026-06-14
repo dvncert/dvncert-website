@@ -7,7 +7,7 @@ import { formGonderileri } from "@/lib/db/schema";
 import { iletisimEpostaGonder, kariyerEpostaGonder } from "@/lib/email";
 
 export type FormGonderiPayload = {
-  tip: "iletisim" | "sikayet" | "kariyer";
+  tip: "iletisim" | "sikayet" | "kariyer" | "sertifika-dogrulama" | "egitim-kayit" | "bulten";
   ad?: string;
   email?: string;
   telefon?: string;

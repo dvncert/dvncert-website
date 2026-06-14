@@ -31,6 +31,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Hizmetler hub (detaylar aşağıda otomatik)
     { url: `${url}/hizmetler`, lastModified: bugun, changeFrequency: "monthly", priority: 0.95 },
+    { url: `${url}/belgelendirme-sureci`, lastModified: bugun, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${url}/sertifika-sorgula`, lastModified: bugun, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${url}/belgelendirme-kurallari`, lastModified: bugun, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${url}/marka-ve-logo-kullanimi`, lastModified: bugun, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${url}/itiraz-ve-sikayet`, lastModified: bugun, changeFrequency: "yearly", priority: 0.5 },
 
     // Eğitim & kariyer
     { url: `${url}/egitimler`, lastModified: bugun, changeFrequency: "weekly", priority: 0.85 },
@@ -39,8 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // İletişim
     { url: `${url}/iletisim`, lastModified: bugun, changeFrequency: "monthly", priority: 0.8 },
     { url: `${url}/sikayet-ve-gorusler`, lastModified: bugun, changeFrequency: "yearly", priority: 0.5 },
-    // NOT: /sertifika-sorgula sayfası henüz yok; sitemap'in 404'e işaret etmemesi
-    // için çıkarıldı. Sayfa yapıldığında buraya eklenecek.
 
     // Bilgi sayfaları (duyuru detayları aşağıda otomatik)
     { url: `${url}/duyurular`, lastModified: bugun, changeFrequency: "weekly", priority: 0.75 },
