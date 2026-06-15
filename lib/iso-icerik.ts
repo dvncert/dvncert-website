@@ -79,7 +79,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "Kalite politikası",
     metaTitle: "ISO 9001:2015 Kalite Yönetim Sistemi Belgelendirmesi | DVN Cert",
     metaDescription:
-      "TÜRKAK akreditasyon kapsamında ISO 9001:2015 belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım belgelendirme rehberi.",
+      "ISO 9001:2015 kalite yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım belgelendirme rehberi.",
     keywords: [
       "ISO 9001 belgesi",
       "ISO 9001:2015",
@@ -94,7 +94,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     ],
     ogTitle: "ISO 9001:2015 Kalite Yönetim Sistemi Belgelendirmesi",
     ogDescription:
-      "TÜRKAK akreditasyon kapsamında ISO 9001:2015 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
+      "ISO 9001:2015 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
     nedirParagraflar: [
       "ISO 9001, kuruluşların kalite yönetim sistemi kurmasını ve sürdürmesini sağlayan uluslararası bir standarttır. Uluslararası Standartlar Örgütü (ISO) tarafından yayımlanan bu standart, dünyada en yaygın kullanılan yönetim sistemi standardıdır.",
       "ISO 9001 belgesi, bir kuruluşun ürünlerini ve hizmetlerini tutarlı bir kalitede üretebildiğini, müşteri beklentilerini karşılayabildiğini ve süreçlerini sürekli iyileştirebildiğini gösteren resmi bir dokümandır. Bu belge, akredite belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
@@ -180,7 +180,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "Çevre politikası",
     metaTitle: "ISO 14001:2015 Çevre Yönetim Sistemi Belgelendirmesi | DVN Cert",
     metaDescription:
-      "TÜRKAK akreditasyon kapsamında ISO 14001:2015 çevre yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım rehber.",
+      "ISO 14001:2015 çevre yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım rehber.",
     keywords: [
       "ISO 14001 belgesi",
       "ISO 14001:2015",
@@ -195,7 +195,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     ],
     ogTitle: "ISO 14001:2015 Çevre Yönetim Sistemi Belgelendirmesi",
     ogDescription:
-      "TÜRKAK akreditasyon kapsamında ISO 14001:2015 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
+      "ISO 14001:2015 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
     nedirParagraflar: [
       "ISO 14001, kuruluşların çevresel sorumluluklarını sistematik bir şekilde yönetmesini sağlayan uluslararası çevre yönetim sistemi standardıdır. Uluslararası Standartlar Örgütü (ISO) tarafından yayımlanan standart, faaliyetlerin çevre üzerindeki etkilerini kontrol altına almayı ve çevre performansını sürekli iyileştirmeyi amaçlar.",
       "ISO 14001 belgesi, bir kuruluşun çevresel etkilerini tanımladığını, yasal yükümlülüklerine uyduğunu ve kirliliği önlemeye yönelik bir yönetim sistemi kurduğunu gösteren resmi bir dokümandır. Bu belge, akredite belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
@@ -281,7 +281,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "İş sağlığı ve güvenliği politikası",
     metaTitle: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi Belgelendirmesi | DVN Cert",
     metaDescription:
-      "TÜRKAK akreditasyon kapsamında ISO 45001:2018 iş sağlığı ve güvenliği yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar ve adım adım rehber.",
+      "ISO 45001:2018 iş sağlığı ve güvenliği yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar ve adım adım rehber.",
     keywords: [
       "ISO 45001 belgesi",
       "ISO 45001:2018",
@@ -296,7 +296,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     ],
     ogTitle: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi Belgelendirmesi",
     ogDescription:
-      "TÜRKAK akreditasyon kapsamında ISO 45001:2018 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
+      "ISO 45001:2018 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
     nedirParagraflar: [
       "ISO 45001, çalışanların sağlığını ve güvenliğini korumayı, iş kazalarını ve meslek hastalıklarını önlemeyi amaçlayan uluslararası iş sağlığı ve güvenliği (İSG) yönetim sistemi standardıdır. Uluslararası Standartlar Örgütü (ISO) tarafından yayımlanan standart, güvenli ve sağlıklı bir çalışma ortamının sistematik biçimde oluşturulmasını sağlar.",
       "ISO 45001 belgesi, bir kuruluşun işyeri tehlikelerini belirlediğini, İSG risklerini değerlendirip kontrol altına aldığını ve yasal yükümlülüklerine uyduğunu gösteren resmi bir dokümandır. Bu belge, akredite belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
@@ -382,7 +382,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "Enerji politikası",
     metaTitle: "ISO 50001:2018 Enerji Yönetim Sistemi Belgelendirmesi | DVN Cert",
     metaDescription:
-      "TÜRKAK akreditasyon kapsamında ISO 50001:2018 enerji yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım rehber.",
+      "ISO 50001:2018 enerji yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım rehber.",
     keywords: [
       "ISO 50001 belgesi",
       "ISO 50001:2018",
@@ -397,7 +397,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     ],
     ogTitle: "ISO 50001:2018 Enerji Yönetim Sistemi Belgelendirmesi",
     ogDescription:
-      "TÜRKAK akreditasyon kapsamında ISO 50001:2018 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
+      "ISO 50001:2018 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
     nedirParagraflar: [
       "ISO 50001, kuruluşların enerji performansını sistematik bir şekilde yönetmesini ve sürekli iyileştirmesini sağlayan uluslararası enerji yönetim sistemi standardıdır. Uluslararası Standartlar Örgütü (ISO) tarafından yayımlanan standart, enerji verimliliğini artırmayı, enerji tüketimini ve maliyetlerini azaltmayı amaçlar.",
       "ISO 50001 belgesi, bir kuruluşun enerji kullanımını izleyip analiz ettiğini, enerji performansı göstergeleri belirlediğini ve enerji verimliliğini artırmaya yönelik bir yönetim sistemi kurduğunu gösteren resmi bir dokümandır. Bu belge, akredite belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",

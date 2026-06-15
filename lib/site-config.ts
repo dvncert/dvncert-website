@@ -10,9 +10,9 @@ export const siteConfig = {
   adUzun: "DVN Cert Belgelendirme",
   slogan: "Bağımsız, tarafsız ve doğrulanabilir belgelendirme yaklaşımı",
   aciklamaKisa:
-    "ISO 9001, 14001, 45001 ve 50001 yönetim sistemleri belgelendirmesinde TÜRKAK akreditasyonu ile güvence altında şeffaf süreç.",
+    "ISO 9001, 14001, 45001 ve 50001 yönetim sistemleri için bağımsız, tarafsız ve izlenebilir belgelendirme, denetim ve eğitim süreçleri.",
   aciklamaUzun:
-    "DVN Cert, bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşudur. ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri belgelendirmesinde TÜRKAK akreditasyon kapsamı dahilinde hizmet verir. Şeffaf süreç, uzman denetçi kadrosu ve uluslararası geçerli sertifikalar ile kuruluşların güvenilirliğini artırır.",
+    "DVN Cert, bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşudur. ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri için belgelendirme, ikinci taraf denetim ve eğitim süreçlerini açık kriterler, izlenebilir kayıtlar ve yetkin denetçi kadrosu ile yürütür.",
 
   // URL ve dil
   url: "https://dvncert.com",
@@ -62,8 +62,11 @@ export const siteConfig = {
   // Akreditasyon bilgileri
   akreditasyon: {
     kurulus: "TÜRKAK",
-    kapsam: ["ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018", "ISO 50001:2018"],
-    referansNumarasi: "AB-XXXX-YS", // İleride gerçek numarayı koyacağız
+    durum: "Akreditasyon süreci devam etmektedir.",
+    not:
+      "Akredite sertifikalandırma hizmeti, TÜRKAK süreci tamamlandıktan ve kapsam resmen duyurulduktan sonra sunulacaktır.",
+    hedefKapsam: ["ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018", "ISO 50001:2018"],
+    referansNumarasi: "", // Resmi numara oluştuğunda yayınlanmalıdır.
   },
 
   // Coğrafi koordinatlar (Pendik için yaklaşık)

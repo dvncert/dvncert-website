@@ -2,199 +2,144 @@ import Link from "next/link";
 
 const hizmetler = [
   {
+    kod: "ISO",
     baslik: "Sistem Belgelendirme",
-    aciklama: "ISO 9001, 14001, 45001 ve 50001 yönetim sistemleri belgelendirmesi ile kuruluşların uluslararası standartlara uyumunu değerlendiriyoruz.",
+    aciklama:
+      "ISO 9001, 14001, 45001 ve 50001 yönetim sistemleri için başvuru, denetim planlama ve belge durumu süreçleri.",
+    maddeler: ["Kapsam teyidi", "Aşama 1 / Aşama 2", "Belge durumu takibi"],
     link: "/hizmetler/sistem-belgelendirme",
-    renk: "altin",
-    icon: (
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-        <path d="M9 12l2 2 4-4" stroke="#D4A93F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.84 0 3.55.55 4.98 1.5" stroke="#E8C870" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M22 4l-10 10-3-3" stroke="#FFA050" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
   },
   {
-    baslik: "2. Taraf Denetimleri",
-    aciklama: "Tedarikçi değerlendirmeleri ve müşteri odaklı denetimlerle işletmelerin süreçlerinin güvenilirliğini ve sürdürülebilirliğini sağlıyoruz.",
+    kod: "2T",
+    baslik: "İkinci Taraf Denetimleri",
+    aciklama:
+      "Tedarikçi, şube ve operasyon denetimlerinde kurumunuza özel kontrol kriterleriyle saha değerlendirmesi.",
+    maddeler: ["Tedarikçi riski", "Saha kontrolü", "Raporlama"],
     link: "/hizmetler/2-taraf-denetimleri",
-    renk: "turuncu",
-    icon: (
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#E8C870" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <rect x="9" y="3" width="6" height="4" rx="1" stroke="#FFA050" strokeWidth="1.8" />
-        <path d="M9 14l2 2 4-4" stroke="#F58220" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
   },
   {
+    kod: "EDU",
     baslik: "Eğitim Hizmetleri",
-    aciklama: "Yönetim sistemleri, iç denetçi ve uygulama eğitimleri ile kuruluşların yetkinliklerini geliştiriyor, sürekli iyileştirme kültürünü destekliyoruz.",
+    aciklama:
+      "Yönetim sistemi, iç denetçi ve uygulama eğitimleriyle ekiplerin standart gerekliliklerini sahada yorumlaması.",
+    maddeler: ["İç denetçi", "Uygulama eğitimi", "Kuruma özel içerik"],
     link: "/egitimler",
-    renk: "altin",
-    icon: (
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" stroke="#E8C870" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M6 12v5c3 3 9 3 12 0v-5" stroke="#FFA050" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
   },
 ];
 
 export default function Hizmetler() {
   return (
-    <section
-      style={{
-        background: "linear-gradient(180deg, var(--dvn-gri-50) 0%, var(--dvn-gri-200) 100%)",
-        padding: "60px 32px",
-      }}
-    >
+    <section style={{ background: "white", padding: "64px 32px" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 36 }}>
-          <p
-            style={{
-              fontSize: 11,
-              color: "var(--dvn-turuncu)",
-              fontWeight: 500,
-              letterSpacing: "1.5px",
-              margin: "0 0 8px",
-            }}
-          >
-            HİZMETLERİMİZ
-          </p>
-          <h2
-            style={{
-              color: "var(--dvn-lacivert)",
-              fontSize: 26,
-              fontWeight: 500,
-              margin: 0,
-              lineHeight: 1.3,
-            }}
-          >
-            Kuruluşunuza değer katan profesyonel çözümler
-          </h2>
+        <div className="dvn-hizmet-baslik">
+          <span className="dvn-bolum-etiket">HİZMETLERİMİZ</span>
+          <h2>Kuruluşunuzun karar vermesini kolaylaştıran üç ana akış</h2>
+          <p>Her hizmette hedef; kapsamı netleştirmek, kanıtı kayıt altına almak ve sonucu anlaşılır raporlamaktır.</p>
         </div>
 
-        <div
-          className="dvn-hizmet-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 20,
-          }}
-        >
-          {hizmetler.map((h, i) => (
-            <Link
-              key={i}
-              href={h.link}
-              className="dvn-hizmet-kart"
-              style={{
-                background: "white",
-                borderRadius: 14,
-                padding: "30px 26px",
-                boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
-                position: "relative",
-                overflow: "hidden",
-                display: "block",
-                textDecoration: "none",
-                color: "inherit",
-                transition: "all 0.3s ease",
-                borderTop: h.renk === "altin" ? "3px solid #D4A93F" : "3px solid #F58220",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: -30,
-                  right: -30,
-                  width: 100,
-                  height: 100,
-                  background: h.renk === "altin" ? "rgba(212,169,63,0.08)" : "rgba(245,130,32,0.08)",
-                  borderRadius: "50%",
-                }}
-              />
-
-              <div
-                style={{
-                  width: 64,
-                  height: 64,
-                  background: "var(--dvn-gradient-lacivert)",
-                  borderRadius: 12,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: 18,
-                  boxShadow: "0 6px 16px rgba(2,35,152,0.15)",
-                  position: "relative",
-                  zIndex: 1,
-                }}
-              >
-                {h.icon}
-              </div>
-
-              <h3
-                style={{
-                  color: "var(--dvn-lacivert)",
-                  fontSize: 17,
-                  margin: "0 0 10px",
-                  fontWeight: 500,
-                  lineHeight: 1.3,
-                  position: "relative",
-                  zIndex: 1,
-                }}
-              >
-                {h.baslik}
-              </h3>
-              <p
-                style={{
-                  fontSize: 13,
-                  color: "var(--dvn-gri-500)",
-                  lineHeight: 1.6,
-                  margin: "0 0 16px",
-                  position: "relative",
-                  zIndex: 1,
-                }}
-              >
-                {h.aciklama}
-              </p>
-
-              <span
-                style={{
-                  fontSize: 13,
-                  color: h.renk === "altin" ? "var(--dvn-altin)" : "var(--dvn-turuncu)",
-                  fontWeight: 500,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  position: "relative",
-                  zIndex: 1,
-                }}
-              >
-                Detayları gör
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5 12h14M13 5l7 7-7 7"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+        <div className="dvn-hizmet-grid-yeni">
+          {hizmetler.map((h) => (
+            <Link key={h.link} href={h.link} className="dvn-hizmet-kart-yeni">
+              <div className="dvn-hizmet-kod">{h.kod}</div>
+              <h3>{h.baslik}</h3>
+              <p>{h.aciklama}</p>
+              <ul>
+                {h.maddeler.map((m) => (
+                  <li key={m}>{m}</li>
+                ))}
+              </ul>
+              <span>Detayları gör</span>
             </Link>
           ))}
         </div>
       </div>
 
       <style>{`
-        .dvn-hizmet-kart:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(2,35,152,0.12) !important;
+        .dvn-hizmet-baslik {
+          max-width: 720px;
+          margin-bottom: 34px;
+        }
+        .dvn-hizmet-baslik h2 {
+          color: var(--dvn-lacivert);
+          font-size: 28px;
+          font-weight: 600;
+          line-height: 1.25;
+          margin: 0 0 10px;
+        }
+        .dvn-hizmet-baslik p {
+          color: var(--dvn-gri-500);
+          font-size: 14.5px;
+          line-height: 1.7;
+          margin: 0;
+        }
+        .dvn-hizmet-grid-yeni {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          border: 1px solid var(--dvn-gri-300);
+          border-radius: 10px;
+          overflow: hidden;
+        }
+        .dvn-hizmet-kart-yeni {
+          display: flex;
+          flex-direction: column;
+          min-height: 340px;
+          padding: 30px 28px;
+          color: inherit;
+          background: white;
+          border-right: 1px solid var(--dvn-gri-300);
+          text-decoration: none;
+        }
+        .dvn-hizmet-kart-yeni:last-child { border-right: 0; }
+        .dvn-hizmet-kart-yeni:hover {
+          background: var(--dvn-gri-50);
+          color: inherit;
+        }
+        .dvn-hizmet-kod {
+          width: max-content;
+          min-width: 54px;
+          color: var(--dvn-turuncu);
+          border-bottom: 2px solid var(--dvn-altin);
+          padding-bottom: 8px;
+          font-size: 13px;
+          font-weight: 800;
+          letter-spacing: 0.8px;
+          margin-bottom: 24px;
+        }
+        .dvn-hizmet-kart-yeni h3 {
+          color: var(--dvn-lacivert);
+          font-size: 21px;
+          font-weight: 600;
+          line-height: 1.25;
+          margin: 0 0 12px;
+        }
+        .dvn-hizmet-kart-yeni p {
+          color: var(--dvn-gri-500);
+          font-size: 14px;
+          line-height: 1.7;
+          margin: 0 0 18px;
+        }
+        .dvn-hizmet-kart-yeni ul {
+          list-style: none;
+          padding: 0;
+          margin: auto 0 22px;
+          display: grid;
+          gap: 8px;
+        }
+        .dvn-hizmet-kart-yeni li {
+          color: var(--dvn-gri-700);
+          font-size: 13.5px;
+          border-top: 1px solid var(--dvn-gri-200);
+          padding-top: 8px;
+        }
+        .dvn-hizmet-kart-yeni span {
+          color: var(--dvn-turuncu);
+          font-size: 13.5px;
+          font-weight: 700;
         }
         @media (max-width: 900px) {
-          .dvn-hizmet-grid {
-            grid-template-columns: 1fr !important;
-          }
+          .dvn-hizmet-grid-yeni { grid-template-columns: 1fr; }
+          .dvn-hizmet-kart-yeni { border-right: 0; border-bottom: 1px solid var(--dvn-gri-300); min-height: auto; }
+          .dvn-hizmet-kart-yeni:last-child { border-bottom: 0; }
         }
       `}</style>
     </section>

@@ -121,7 +121,7 @@ export default async function PolitikaVeBeyanlarSayfasi() {
             </svg>
             <p style={{ fontSize: 13, color: "var(--dvn-gri-700)", margin: 0, lineHeight: 1.6 }}>
               Yukarıdaki metinler özet niteliğindedir. Onaylı ve güncel politika dokümanlarının tam metnine{" "}
-              <Link href="/dokumanlar" style={{ color: "var(--dvn-turuncu)", fontWeight: 500 }}>Dökümanlar</Link>{" "}
+              <Link href="/dokumanlar" style={{ color: "var(--dvn-turuncu)", fontWeight: 500 }}>Dokümanlar</Link>{" "}
               bölümünden ulaşabilir veya{" "}
               <Link href="/iletisim" style={{ color: "var(--dvn-turuncu)", fontWeight: 500 }}>bizimle iletişime</Link>{" "}
               geçebilirsiniz.

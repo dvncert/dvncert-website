@@ -142,7 +142,7 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `${stdKod} ${veri.sistemAdiBuyuk} Belgelendirmesi`,
-    description: `TÜRKAK akreditasyon kapsamında ${stdKod} ${sistem.i} belgelendirmesi.`,
+    description: `${stdKod} ${sistem.i} belgelendirmesi için başvuru, denetim ve belge durumu süreçleri.`,
     provider: { "@type": "Organization", name: "DVN Cert Belgelendirme", url: "https://dvncert.com" },
     serviceType: "Sistem Belgelendirme",
     areaServed: { "@type": "Country", name: "Türkiye" },

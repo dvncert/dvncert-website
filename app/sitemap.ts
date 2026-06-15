@@ -15,52 +15,53 @@ import { blogYazilari } from "@/lib/blog";
  */
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const bugun = new Date();
+  const siteGuncelleme = new Date("2026-06-15");
+  const yasalGuncelleme = new Date("2026-01-01");
   const url = siteConfig.url;
 
   // ===== SABİT SAYFALAR =====
   const sabitSayfalar: MetadataRoute.Sitemap = [
-    { url: `${url}`, lastModified: bugun, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${url}`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 1.0 },
 
     // Kurumsal
-    { url: `${url}/hakkimizda`, lastModified: bugun, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${url}/ekibimiz`, lastModified: bugun, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${url}/akreditasyonlarimiz`, lastModified: bugun, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${url}/politika-ve-beyanlar`, lastModified: bugun, changeFrequency: "yearly", priority: 0.6 },
-    { url: `${url}/logolarimiz`, lastModified: bugun, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${url}/hakkimizda`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${url}/ekibimiz`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${url}/akreditasyonlarimiz`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${url}/politika-ve-beyanlar`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.6 },
+    { url: `${url}/logolarimiz`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.5 },
 
     // Hizmetler hub (detaylar aşağıda otomatik)
-    { url: `${url}/hizmetler`, lastModified: bugun, changeFrequency: "monthly", priority: 0.95 },
-    { url: `${url}/belgelendirme-sureci`, lastModified: bugun, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${url}/sertifika-sorgula`, lastModified: bugun, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${url}/belgelendirme-kurallari`, lastModified: bugun, changeFrequency: "yearly", priority: 0.5 },
-    { url: `${url}/marka-ve-logo-kullanimi`, lastModified: bugun, changeFrequency: "yearly", priority: 0.5 },
-    { url: `${url}/itiraz-ve-sikayet`, lastModified: bugun, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${url}/hizmetler`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.95 },
+    { url: `${url}/belgelendirme-sureci`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${url}/sertifika-sorgula`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${url}/belgelendirme-kurallari`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${url}/marka-ve-logo-kullanimi`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${url}/itiraz-ve-sikayet`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.5 },
 
     // Eğitim & kariyer
-    { url: `${url}/egitimler`, lastModified: bugun, changeFrequency: "weekly", priority: 0.85 },
-    { url: `${url}/kariyer`, lastModified: bugun, changeFrequency: "weekly", priority: 0.75 },
+    { url: `${url}/egitimler`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${url}/kariyer`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 0.75 },
 
     // İletişim
-    { url: `${url}/iletisim`, lastModified: bugun, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${url}/sikayet-ve-gorusler`, lastModified: bugun, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${url}/iletisim`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${url}/sikayet-ve-gorusler`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.5 },
 
     // Bilgi sayfaları (duyuru detayları aşağıda otomatik)
-    { url: `${url}/duyurular`, lastModified: bugun, changeFrequency: "weekly", priority: 0.75 },
-    { url: `${url}/blog`, lastModified: bugun, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${url}/dokumanlar`, lastModified: bugun, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${url}/sss`, lastModified: bugun, changeFrequency: "monthly", priority: 0.65 },
+    { url: `${url}/duyurular`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 0.75 },
+    { url: `${url}/blog`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${url}/dokumanlar`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${url}/sss`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.65 },
 
     // Yasal
-    { url: `${url}/kvkk`, lastModified: bugun, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${url}/gizlilik`, lastModified: bugun, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${url}/cerez-politikasi`, lastModified: bugun, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${url}/kvkk`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${url}/gizlilik`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${url}/cerez-politikasi`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   // ===== HİZMET DETAY SAYFALARI (otomatik) =====
   const hizmetSayfalari: MetadataRoute.Sitemap = hizmetler.map((h) => ({
     url: `${url}/hizmetler/${h.slug}`,
-    lastModified: bugun,
+    lastModified: siteGuncelleme,
     changeFrequency: "monthly",
     priority: 0.9,
   }));
@@ -68,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ===== EĞİTİM DETAY SAYFALARI (otomatik) =====
   const egitimSayfalari: MetadataRoute.Sitemap = egitimler.map((e) => ({
     url: `${url}/egitimler/${e.slug}`,
-    lastModified: bugun,
+    lastModified: siteGuncelleme,
     changeFrequency: "monthly",
     priority: 0.85,
   }));

@@ -12,7 +12,7 @@ export const revalidate = 300;
 export async function generateMetadata(): Promise<Metadata> {
   return sayfaMetadataUret({
     yol: "/dokumanlar",
-    title: "Dökümanlar",
+    title: "Dokümanlar",
     description:
       "DVN Cert belgelendirme politikaları, talimatları, prosedürleri ve başvuru formları. İhtiyaç duyduğunuz dokümanlara bu sayfadan ulaşabilirsiniz.",
   });
@@ -41,7 +41,7 @@ export default async function DokumanlarSayfasi() {
         dangerouslySetInnerHTML={schemaScript(
           breadcrumbSchema([
             { ad: "Ana Sayfa", url: "/" },
-            { ad: "Dökümanlar", url: "/dokumanlar" },
+            { ad: "Dokümanlar", url: "/dokumanlar" },
           ]),
         )}
       />
@@ -49,7 +49,7 @@ export default async function DokumanlarSayfasi() {
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaScript(
           collectionPageSchema({
-            baslik: "Dökümanlar",
+            baslik: "Dokümanlar",
             aciklama: "DVN Cert belgelendirme politikaları, talimatları, prosedürleri ve başvuru formları.",
             url: "/dokumanlar",
           }),
@@ -58,12 +58,12 @@ export default async function DokumanlarSayfasi() {
 
       <SayfaBaslik
         etiket="NEDEN DVN CERT"
-        baslik="Dökümanlar"
+        baslik="Dokümanlar"
         aciklama="Belgelendirme süreçlerimize ilişkin politika, talimat, prosedür ve formlar."
-        kirintilar={[{ etiket: "Neden DVN Cert" }, { etiket: "Dökümanlar" }]}
+        kirintilar={[{ etiket: "Neden DVN Cert" }, { etiket: "Dokümanlar" }]}
       />
 
-      <KapakGorsel alt="DVN Cert belgelendirme dökümanları" etiket="Politika, prosedür, talimat ve formlar" oncelik />
+      <KapakGorsel alt="DVN Cert belgelendirme dokümanları" etiket="Politika, prosedür, talimat ve formlar" oncelik />
 
       <section style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 920, margin: "0 auto" }}>

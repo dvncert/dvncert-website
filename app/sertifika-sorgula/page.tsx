@@ -73,7 +73,7 @@ export default function SertifikaSorgulaSayfasi() {
 
       <section style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", flexWrap: "wrap", gap: 10 }}>
-          <Link href="/akreditasyonlarimiz" style={baglantiStili}>Akreditasyonlarımız →</Link>
+          <Link href="/akreditasyonlarimiz" style={baglantiStili}>Akreditasyon Durumu →</Link>
           <Link href="/belgelendirme-kurallari" style={baglantiStili}>Belgelendirme Kuralları →</Link>
           <Link href="/iletisim" style={baglantiStili}>Bize Ulaşın →</Link>
         </div>

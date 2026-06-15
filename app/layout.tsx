@@ -16,7 +16,7 @@ import { popupGetir } from "@/lib/popup";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.adUzun} - TÜRKAK Akreditasyonu ile ISO Belgelendirme`,
+    default: `${siteConfig.adUzun} - ISO Belgelendirme, Denetim ve Eğitim`,
     template: `%s | ${siteConfig.adUzun}`,
   },
   description: siteConfig.aciklamaKisa,
@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   creator: siteConfig.adUzun,
   publisher: siteConfig.adUzun,
   applicationName: siteConfig.adUzun,
-  generator: "Next.js",
 
   // Robots
   robots: {
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: siteConfig.url,
-    title: `${siteConfig.adUzun} - TÜRKAK Akreditasyonu ile ISO Belgelendirme`,
+    title: `${siteConfig.adUzun} - ISO Belgelendirme, Denetim ve Eğitim`,
     description: siteConfig.aciklamaKisa,
     siteName: siteConfig.adUzun,
     // og:image, kök dizindeki opengraph-image.tsx tarafından otomatik üretilir.
@@ -54,7 +53,7 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.adUzun} - TÜRKAK Akreditasyonu ile ISO Belgelendirme`,
+    title: `${siteConfig.adUzun} - ISO Belgelendirme, Denetim ve Eğitim`,
     description: siteConfig.aciklamaKisa,
     // twitter:image, kök dizindeki twitter-image.tsx tarafından otomatik üretilir.
   },

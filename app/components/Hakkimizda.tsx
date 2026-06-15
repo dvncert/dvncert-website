@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const guclerimiz = [
   "Bağımsız ve tarafsız değerlendirme",
-  `${siteConfig.akreditasyon.kurulus} akreditasyonu ile güvence`,
+  "Akreditasyon durumu hakkında açık bilgilendirme",
   "Uzman ve deneyimli denetçi kadrosu",
   "Şeffaf, izlenebilir ve hızlı süreç",
 ];
@@ -44,7 +44,7 @@ export default function Hakkimizda() {
               lineHeight: 1.3,
             }}
           >
-            Bağımsız, tarafsız ve doğrulanabilir belgelendirme yaklaşımı
+            Belgelendirme kararlarında açık kriterler ve izlenebilir kayıtlar
           </h2>
           <p
             style={{
@@ -110,7 +110,7 @@ export default function Hakkimizda() {
           </Link>
         </div>
 
-        {/* Sağ kolon: akreditasyon kapsamı kartı */}
+        {/* Sağ kolon: akreditasyon durumu kartı */}
         <div
           style={{
             background: "var(--dvn-gradient-lacivert)",
@@ -144,17 +144,17 @@ export default function Hakkimizda() {
                 margin: "0 0 6px",
               }}
             >
-              AKREDİTASYON KAPSAMI
+              AKREDİTASYON DURUMU
             </p>
             <h3 style={{ color: "white", fontSize: 19, fontWeight: 500, margin: "0 0 4px", lineHeight: 1.3 }}>
-              {siteConfig.akreditasyon.kurulus} akreditasyonu altında
+              {siteConfig.akreditasyon.kurulus} süreci takip ediliyor
             </h3>
             <p style={{ fontSize: 12.5, color: "#9aa5b1", margin: "0 0 22px", lineHeight: 1.6 }}>
-              Yönetim sistemleri belgelendirmesinde uluslararası geçerli sertifikalar.
+              {siteConfig.akreditasyon.not}
             </p>
 
             <div style={{ display: "grid", gap: 10 }}>
-              {siteConfig.akreditasyon.kapsam.map((standart, i) => (
+              {siteConfig.akreditasyon.hedefKapsam.map((standart, i) => (
                 <div
                   key={i}
                   style={{

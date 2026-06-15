@@ -12,9 +12,9 @@ export const revalidate = 300;
 export async function generateMetadata(): Promise<Metadata> {
   return sayfaMetadataUret({
     yol: "/akreditasyonlarimiz",
-    title: "Akreditasyonlarımız",
+    title: "Akreditasyon Durumu",
     description:
-      "DVN Cert, TÜRKAK akreditasyonu kapsamında ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri belgelendirmesi yapar. Akreditasyon kapsamımızın ayrıntıları.",
+      "DVN Cert'in TÜRKAK akreditasyon süreci, hedeflenen ISO yönetim sistemi kapsamı ve süreç tamamlanana kadar geçerli bilgilendirme notları.",
   });
 }
 
@@ -53,19 +53,19 @@ export default async function AkreditasyonlarimizSayfasi() {
         dangerouslySetInnerHTML={schemaScript(
           breadcrumbSchema([
             { ad: "Ana Sayfa", url: "/" },
-            { ad: "Akreditasyonlarımız", url: "/akreditasyonlarimiz" },
+            { ad: "Akreditasyon Durumu", url: "/akreditasyonlarimiz" },
           ])
         )}
       />
 
       <SayfaBaslik
         etiket="KURUMSAL"
-        baslik="Akreditasyonlarımız"
-        aciklama={`${akreditasyon.kurulus} akreditasyonu, verdiğimiz belgelerin bağımsızlığını, yetkinliğini ve uluslararası geçerliliğini güvence altına alır.`}
-        kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Akreditasyonlarımız" }]}
+        baslik="Akreditasyon Durumu"
+        aciklama={`${akreditasyon.kurulus} akreditasyon sürecimiz devam etmektedir. Resmi kapsam tamamlanana kadar akredite sertifikalandırma hizmeti sunulmamaktadır.`}
+        kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Akreditasyon Durumu" }]}
       />
 
-      <KapakGorsel alt={`${akreditasyon.kurulus} akreditasyonu ile ISO belgelendirme`} ikon="sistem" etiket={`${akreditasyon.kurulus} akreditasyon kapsamımız`} oncelik />
+      <KapakGorsel alt={`${akreditasyon.kurulus} akreditasyon süreci bilgilendirmesi`} etiket={`${akreditasyon.kurulus} süreci ve hedef kapsam`} oncelik />
 
       {/* Akreditasyon nedir + bilgi kartı */}
       <section style={{ background: "white", padding: "60px 32px" }}>
@@ -75,19 +75,17 @@ export default async function AkreditasyonlarimizSayfasi() {
         >
           <div>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 10px" }}>
-              AKREDİTASYON NEDİR?
+              MEVCUT DURUM
             </p>
             <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: "0 0 16px", lineHeight: 1.3 }}>
-              Belgelendirmenin güvencesi
+              Süreç tamamlanana kadar açık bilgilendirme
             </h2>
             <p style={{ fontSize: 14.5, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: "0 0 14px" }}>
-              Akreditasyon, bir belgelendirme kuruluşunun belirli standartlarda denetim ve belgelendirme yapmaya
-              yetkin olduğunun, ulusal akreditasyon kurumu tarafından bağımsız olarak doğrulanmasıdır.
+              {akreditasyon.durum} Bu sayfa, sürecin kurum içindeki takip durumunu ve hedeflenen yönetim
+              sistemi standartlarını şeffaf biçimde paylaşmak için hazırlanmıştır.
             </p>
             <p style={{ fontSize: 14.5, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: 0 }}>
-              {akreditasyon.kurulus} ({akreditasyon.kurulus === "TÜRKAK" ? "Türk Akreditasyon Kurumu" : "Akreditasyon Kurumu"})
-              tarafından akredite edilmiş bir kuruluş olarak düzenlediğimiz sertifikalar, uluslararası karşılıklı
-              tanıma anlaşmaları kapsamında geçerlidir.
+              {akreditasyon.not} Resmi numara ve kapsam oluştuğunda bu sayfa ve ilgili duyurular güncellenecektir.
             </p>
           </div>
 
@@ -103,18 +101,18 @@ export default async function AkreditasyonlarimizSayfasi() {
           >
             <div style={{ display: "grid", gap: 18 }}>
               <div>
-                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>AKREDİTASYON KURUMU</p>
+                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>TAKİP EDİLEN KURUM</p>
                 <p style={{ fontSize: 18, fontWeight: 600, color: "var(--dvn-altin-acik)", margin: 0 }}>{akreditasyon.kurulus}</p>
               </div>
               <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.1)" }} />
               <div>
-                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>AKREDİTASYON NUMARASI</p>
-                <p style={{ fontSize: 16, fontWeight: 500, color: "white", margin: 0 }}>{akreditasyon.referansNumarasi}</p>
+                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>DURUM</p>
+                <p style={{ fontSize: 16, fontWeight: 500, color: "white", margin: 0 }}>{akreditasyon.durum}</p>
               </div>
               <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.1)" }} />
               <div>
-                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>KAPSAM</p>
-                <p style={{ fontSize: 16, fontWeight: 500, color: "white", margin: 0 }}>{akreditasyon.kapsam.length} yönetim sistemi standardı</p>
+                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>HEDEF KAPSAM</p>
+                <p style={{ fontSize: 16, fontWeight: 500, color: "white", margin: 0 }}>{akreditasyon.hedefKapsam.length} yönetim sistemi standardı</p>
               </div>
             </div>
           </div>
@@ -126,10 +124,10 @@ export default async function AkreditasyonlarimizSayfasi() {
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
-              AKREDİTASYON KAPSAMIMIZ
+              HEDEF KAPSAM
             </p>
             <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
-              Belgelendirme yaptığımız standartlar
+              Süreçte takip edilen standartlar
             </h2>
           </div>
 
@@ -137,7 +135,7 @@ export default async function AkreditasyonlarimizSayfasi() {
             className="dvn-std-grid"
             style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}
           >
-            {akreditasyon.kapsam.map((std) => {
+            {akreditasyon.hedefKapsam.map((std) => {
               const bilgi = standartAciklamalari[std];
               return (
                 <div

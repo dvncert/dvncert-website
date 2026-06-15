@@ -28,7 +28,7 @@ export default function PopupModal({ popup }: { popup: PopupVeri }) {
     let zamanlayici: ReturnType<typeof setTimeout> | undefined;
     try {
       if (localStorage.getItem(ANAHTAR) !== String(popup.guncellenmeMs)) {
-        zamanlayici = setTimeout(() => setGorunur(true), 1200);
+        zamanlayici = setTimeout(() => setGorunur(true), 7000);
       }
     } catch {
       /* localStorage erişilemezse pop-up gösterilmez */
@@ -40,14 +40,11 @@ export default function PopupModal({ popup }: { popup: PopupVeri }) {
 
   useEffect(() => {
     if (!gorunur) return;
-    const oncekiOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     const escDinle = (e: KeyboardEvent) => {
       if (e.key === "Escape") kapat();
     };
     window.addEventListener("keydown", escDinle);
     return () => {
-      document.body.style.overflow = oncekiOverflow;
       window.removeEventListener("keydown", escDinle);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -79,13 +76,10 @@ export default function PopupModal({ popup }: { popup: PopupVeri }) {
       onClick={kapat}
       style={{
         position: "fixed",
-        inset: 0,
+        right: 18,
+        bottom: 88,
         zIndex: 10000,
-        background: "rgba(2,18,64,0.55)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 16,
+        width: "min(420px, calc(100vw - 32px))",
       }}
     >
       <div
@@ -93,12 +87,13 @@ export default function PopupModal({ popup }: { popup: PopupVeri }) {
         style={{
           position: "relative",
           width: "100%",
-          maxWidth: 440,
-          maxHeight: "calc(100dvh - 32px)",
+          maxHeight: "calc(100dvh - 112px)",
           overflowY: "auto",
           background: "white",
-          borderRadius: 16,
-          boxShadow: "0 24px 70px rgba(2,35,152,0.35)",
+          border: "1px solid var(--dvn-gri-300)",
+          borderTop: "3px solid var(--dvn-altin)",
+          borderRadius: 12,
+          boxShadow: "0 18px 48px rgba(2,35,152,0.22)",
         }}
       >
         <button
@@ -114,8 +109,8 @@ export default function PopupModal({ popup }: { popup: PopupVeri }) {
             height: 34,
             borderRadius: "50%",
             border: "none",
-            background: "rgba(2,18,64,0.45)",
-            color: "white",
+            background: "var(--dvn-gri-100)",
+            color: "var(--dvn-gri-700)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -137,7 +132,7 @@ export default function PopupModal({ popup }: { popup: PopupVeri }) {
           ))}
 
         {(popup.baslik || popup.metin || (popup.butonYazi && url)) && (
-          <div style={{ padding: "24px 26px 28px" }}>
+          <div style={{ padding: "24px 26px 26px" }}>
             {popup.baslik && (
               <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 20, fontWeight: 600, margin: "0 0 10px", lineHeight: 1.3 }}>
                 {popup.baslik}
@@ -162,7 +157,7 @@ export default function PopupModal({ popup }: { popup: PopupVeri }) {
                   fontWeight: 500,
                   fontSize: 14,
                   textDecoration: "none",
-                  boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
+                  boxShadow: "0 8px 20px rgba(245,130,32,0.18)",
                 }}
               >
                 {popup.butonYazi}

@@ -40,16 +40,17 @@ export const duyurular: Duyuru[] = [
       "Bu kapsamda, International Accreditation Service (IAS) tarafından yayımlanan yanıltıcı akreditasyon beyanları listesinin sektörel farkındalık amacıyla paylaşıldığı belirtilmektedir. DVN Cert, belgelendirme süreçlerinde dürüstlük ilkesine bağlı kalınacağı ve sektördeki bilgi kirliliğinin önlenmesine katkı sağlanacağı taahhüdünde bulunmaktadır.",
   },
   {
-    slug: "iso-50001-akreditasyon-kapsami-genisledi",
-    baslik: "ISO 50001 Enerji Yönetim Sistemi akreditasyon kapsamımız genişledi",
-    tarih: "2025-12-18",
+    slug: "akreditasyon-sureci-bilgilendirmesi",
+    baslik: "Akreditasyon Süreci Bilgilendirmesi",
+    tarih: "2026-05-01",
     kategori: "Akreditasyon",
     ozet:
-      "Akreditasyon kapsamımıza ISO 50001:2018 Enerji Yönetim Sistemi belgelendirmesi de eklenmiştir. Artık dört yönetim sisteminde tam kapsamlı hizmet veriyoruz.",
+      "TÜRKAK akreditasyon sürecimiz devam etmektedir. Süreç tamamlanana kadar akredite sertifikalandırma hizmeti verildiğine dair bir beyan kullanılmamaktadır.",
     icerik:
-      "Akreditasyon kapsamımıza ISO 50001:2018 Enerji Yönetim Sistemi belgelendirmesi resmi olarak eklenmiştir.\n\n" +
-      "Bu gelişmeyle birlikte ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 standartlarının tamamında akredite belgelendirme hizmeti sunabiliyoruz. Enerji verimliliğini önceliklendiren kuruluşlar, enerji performanslarını uluslararası geçerli bir belgeyle ortaya koyabilecekler.",
-    ilgiliHizmetler: ["iso-50001", "sistem-belgelendirme"],
+      "DVN Cert'in TÜRKAK akreditasyon süreci devam etmektedir.\n\n" +
+      "Bu süreç içerisinde akredite sertifikalandırma hizmeti verildiğine dair bir beyan kullanılmamaktadır. Resmi kapsam ve akreditasyon numarası oluştuğunda duyurularımız, akreditasyon sayfamız ve hizmet metinlerimiz güncellenecektir.\n\n" +
+      "Başvuru veya mevcut belge doğrulama süreçleri hakkında bilgi almak isteyen kuruluşlar iletişim kanallarımız üzerinden ekibimize ulaşabilir.",
+    ilgiliHizmetler: ["sistem-belgelendirme"],
   },
   {
     slug: "iso-9001-ic-denetci-egitimi",

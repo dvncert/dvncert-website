@@ -1,202 +1,79 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-
-const istatistikler = [
+const guvenMaddeleri = [
   {
-    sayi: 500,
-    sembol: "+",
-    aciklama: "Yıllık tetkik kapasitesi",
-    renk: "altin",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    ),
+    baslik: "Akreditasyon durumu açık yazılır",
+    metin: "Süreç, kapsam ve belge beyanları kullanıcıyı yanıltmayacak şekilde ayrıştırılır.",
   },
   {
-    sayi: 15,
-    sembol: "+ yıl",
-    aciklama: "Sektör tecrübesi",
-    renk: "turuncu",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M12 7v5l3 2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    ),
+    baslik: "Denetim kanıtları kayıt altındadır",
+    metin: "Başvuru, planlama, denetim bulguları ve karar adımları izlenebilir kayıtlarla yürütülür.",
   },
   {
-    sayi: 4,
-    sembol: " standart",
-    aciklama: "Akreditasyon kapsamı",
-    renk: "altin",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M9 12l2 2 4-4M12 2L4 6v6c0 5.5 3.5 10 8 12 4.5-2 8-6.5 8-12V6l-8-4z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    baslik: "Sertifika durumu doğrulanabilir",
+    metin: "Düzenlenen belgelerin güncel durumu çevrim içi sorgulama ekranından kontrol edilebilir.",
   },
   {
-    sayi: 25,
-    sembol: "+",
-    aciklama: "Uzman denetçi kadrosu",
-    renk: "turuncu",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
+    baslik: "Başvuru süreci dijitaldir",
+    metin: "Başvuru talebi, belge sorgulama ve iletişim adımları tek bir akışta takip edilebilir.",
   },
 ];
 
-function SayacKart({
-  hedefSayi,
-  sembol,
-  aciklama,
-  renk,
-  icon,
-  baslat,
-}: {
-  hedefSayi: number;
-  sembol: string;
-  aciklama: string;
-  renk: string;
-  icon: React.ReactNode;
-  baslat: boolean;
-}) {
-  // Başlangıç değeri hedef sayı: SSR/ilk render ve Open Graph paylaşımlarında
-  // "0+" yerine gerçek rakam görünür. Animasyon ekranda görününce çalışır.
-  const [mevcutSayi, setMevcutSayi] = useState(hedefSayi);
-  const animasyonYapildi = useRef(false);
-
-  useEffect(() => {
-    if (!baslat) return;
-    // Animasyon yalnızca bir kez çalışsın.
-    if (animasyonYapildi.current) return;
-    animasyonYapildi.current = true;
-
-    // Tetiklenince önce 0'a düşür, sonra hedefe doğru say.
-    setMevcutSayi(0);
-
-    const sure = 2000;
-    const adimSayisi = 60;
-    const adimSure = sure / adimSayisi;
-    const adimDeger = hedefSayi / adimSayisi;
-    let aktifAdim = 0;
-
-    const timer = setInterval(() => {
-      aktifAdim++;
-      const yeniDeger = Math.min(Math.round(adimDeger * aktifAdim), hedefSayi);
-      setMevcutSayi(yeniDeger);
-
-      if (aktifAdim >= adimSayisi) {
-        setMevcutSayi(hedefSayi);
-        clearInterval(timer);
-      }
-    }, adimSure);
-
-    return () => clearInterval(timer);
-  }, [baslat, hedefSayi]);
-
-  const altinMi = renk === "altin";
-
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "8px 12px" }}>
-      <div
-        style={{
-          width: 52,
-          height: 52,
-          background: altinMi
-            ? "linear-gradient(135deg, rgba(212,169,63,0.15), rgba(212,169,63,0.05))"
-            : "linear-gradient(135deg, rgba(245,130,32,0.15), rgba(245,130,32,0.05))",
-          borderRadius: 10,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: altinMi ? "var(--dvn-altin)" : "var(--dvn-turuncu)",
-          flexShrink: 0,
-        }}
-      >
-        {icon}
-      </div>
-      <div>
-        <p style={{ fontSize: 26, fontWeight: 500, color: "var(--dvn-lacivert)", margin: 0, lineHeight: 1 }}>
-          {mevcutSayi}
-          <span style={{ color: altinMi ? "var(--dvn-altin)" : "var(--dvn-turuncu)" }}>{sembol}</span>
-        </p>
-        <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: "4px 0 0", fontWeight: 500 }}>
-          {aciklama}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export default function Istatistikler() {
-  const [gorundu, setGorundu] = useState(false);
-  const bolumRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setGorundu(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (bolumRef.current) {
-      observer.observe(bolumRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section ref={bolumRef} style={{ background: "var(--dvn-gri-50)", padding: "40px 32px" }}>
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: "0 auto",
-          background: "white",
-          borderRadius: 16,
-          padding: "26px 28px",
-          boxShadow: "0 8px 32px rgba(2,35,152,0.06)",
-          border: "0.5px solid var(--dvn-gri-300)",
-        }}
-      >
-        <div
-          className="dvn-istatistik-grid"
-          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}
-        >
-          {istatistikler.map((stat, i) => (
-            <SayacKart
-              key={i}
-              hedefSayi={stat.sayi}
-              sembol={stat.sembol}
-              aciklama={stat.aciklama}
-              renk={stat.renk}
-              icon={stat.icon}
-              baslat={gorundu}
-            />
-          ))}
-        </div>
+    <section style={{ background: "var(--dvn-gri-50)", padding: "42px 32px" }}>
+      <div className="dvn-guven-grid" style={{ maxWidth: 1280, margin: "0 auto" }}>
+        {guvenMaddeleri.map((madde, i) => (
+          <div key={madde.baslik} className="dvn-guven-madde">
+            <span>{String(i + 1).padStart(2, "0")}</span>
+            <h2>{madde.baslik}</h2>
+            <p>{madde.metin}</p>
+          </div>
+        ))}
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
-          .dvn-istatistik-grid {
-            grid-template-columns: 1fr 1fr !important;
-          }
+        .dvn-guven-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          border: 1px solid var(--dvn-gri-300);
+          background: white;
+          border-radius: 10px;
+          overflow: hidden;
         }
-        @media (max-width: 500px) {
-          .dvn-istatistik-grid {
-            grid-template-columns: 1fr !important;
-          }
+        .dvn-guven-madde {
+          padding: 24px 22px;
+          border-right: 1px solid var(--dvn-gri-300);
+          min-height: 170px;
+        }
+        .dvn-guven-madde:last-child { border-right: 0; }
+        .dvn-guven-madde span {
+          display: block;
+          color: var(--dvn-turuncu);
+          font-size: 12px;
+          font-weight: 700;
+          margin-bottom: 18px;
+        }
+        .dvn-guven-madde h2 {
+          color: var(--dvn-lacivert);
+          font-size: 17px;
+          font-weight: 600;
+          line-height: 1.35;
+          margin: 0 0 10px;
+        }
+        .dvn-guven-madde p {
+          color: var(--dvn-gri-500);
+          font-size: 13.5px;
+          line-height: 1.65;
+          margin: 0;
+        }
+        @media (max-width: 980px) {
+          .dvn-guven-grid { grid-template-columns: 1fr 1fr; }
+          .dvn-guven-madde:nth-child(2) { border-right: 0; }
+          .dvn-guven-madde:nth-child(-n + 2) { border-bottom: 1px solid var(--dvn-gri-300); }
+        }
+        @media (max-width: 560px) {
+          .dvn-guven-grid { grid-template-columns: 1fr; }
+          .dvn-guven-madde { border-right: 0; border-bottom: 1px solid var(--dvn-gri-300); min-height: auto; }
+          .dvn-guven-madde:last-child { border-bottom: 0; }
         }
       `}</style>
     </section>

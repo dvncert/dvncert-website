@@ -57,7 +57,7 @@ const ornekAciklama =
 
 const turkakMaddeleri = [
   "TÜRKAK Akreditasyon Markası, DVN Cert logosu olmaksızın tek başına kullanılamaz.",
-  "Marka yalnızca alınan belge akreditasyon kapsamında ise kırtasiye, reklam ve tanıtım malzemelerinde kullanılabilir.",
+  "Marka kullanımı yalnızca belgenin üzerinde yer alan yetki, kapsam ve kullanım koşullarıyla uyumlu olmalıdır.",
   "Taşıtlar, binalar, bayraklar ile kart ve kartvizitler üzerinde kullanılmaz.",
   "Kullanıldığı yerlerde DVN Cert belgelendirme markasından daha baskın veya geri planda olmamalıdır.",
 ];

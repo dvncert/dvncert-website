@@ -1,5 +1,5 @@
 /**
- * DVN Cert - Dökümanlar (merkezi veri)
+ * DVN Cert - Dokümanlar (merkezi veri)
  *
  * Yayımlanan politika, talimat, prosedür ve formların listesi.
  * Dosyalar /public/dokumanlar/ altına eklendikçe ilgili kaydın `dosya`

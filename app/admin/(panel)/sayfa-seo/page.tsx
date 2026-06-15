@@ -9,13 +9,13 @@ import { Alan, SayfaBaslik, adminInput, adminKart, btnBirincil } from "../_ui";
  * elinde — açılır listede olmayan bir yolu doğrudan girip kaydedebilirsin.
  */
 const SAYFA_LISTESI: { yol: string; ad: string; varsayilanTitle: string; varsayilanDesc: string }[] = [
-  { yol: "/", ad: "Ana sayfa", varsayilanTitle: "DVN Cert Belgelendirme - TÜRKAK Akreditasyonu ile ISO Belgelendirme", varsayilanDesc: "ISO 9001, 14001, 45001 ve 50001 belgelendirmesinde TÜRKAK akreditasyonu ile güvence." },
+  { yol: "/", ad: "Ana sayfa", varsayilanTitle: "DVN Cert Belgelendirme - ISO Belgelendirme, Denetim ve Eğitim", varsayilanDesc: "ISO 9001, 14001, 45001 ve 50001 için bağımsız, tarafsız ve izlenebilir süreç yönetimi." },
   { yol: "/hakkimizda", ad: "Hakkımızda", varsayilanTitle: "Hakkımızda | DVN Cert", varsayilanDesc: "" },
   { yol: "/ekibimiz", ad: "Ekibimiz", varsayilanTitle: "Ekibimiz | DVN Cert", varsayilanDesc: "DVN Cert'in alanında deneyimli baş denetçi ve teknik uzman kadrosu." },
-  { yol: "/akreditasyonlarimiz", ad: "Akreditasyonlarımız", varsayilanTitle: "Akreditasyonlarımız | DVN Cert", varsayilanDesc: "TÜRKAK akreditasyon kapsamı ve belgelendirme yaptığımız standartlar." },
+  { yol: "/akreditasyonlarimiz", ad: "Akreditasyon Durumu", varsayilanTitle: "Akreditasyon Durumu | DVN Cert", varsayilanDesc: "TÜRKAK akreditasyon süreci, hedef kapsam ve güncel bilgilendirme." },
   { yol: "/politika-ve-beyanlar", ad: "Politika ve Beyanlar", varsayilanTitle: "Politika ve Beyanlar | DVN Cert", varsayilanDesc: "" },
   { yol: "/logolarimiz", ad: "Logolarımız", varsayilanTitle: "Logolarımız | DVN Cert", varsayilanDesc: "" },
-  { yol: "/dokumanlar", ad: "Dokümanlar", varsayilanTitle: "Dökümanlar | DVN Cert", varsayilanDesc: "" },
+  { yol: "/dokumanlar", ad: "Dokümanlar", varsayilanTitle: "Dokümanlar | DVN Cert", varsayilanDesc: "" },
   { yol: "/sss", ad: "S.S.S.", varsayilanTitle: "S.S.S. | DVN Cert", varsayilanDesc: "" },
   { yol: "/iletisim", ad: "İletişim", varsayilanTitle: "İletişim | DVN Cert", varsayilanDesc: "" },
   { yol: "/kariyer", ad: "Kariyer", varsayilanTitle: "Kariyer | DVN Cert", varsayilanDesc: "" },

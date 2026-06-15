@@ -1,5 +1,4 @@
 import Image from "next/image";
-import HizmetIkon from "./HizmetIkon";
 
 /**
  * Sayfa başlığının altında yer alan tam genişlik kapak görseli.
@@ -12,24 +11,20 @@ import HizmetIkon from "./HizmetIkon";
  *
  * Görseller WebP formatında /public/gorseller/ altında tutulmalıdır.
  */
-export default function KapakGorsel({
-  src,
-  alt,
-  ikon,
-  etiket,
-  oncelik = false,
-}: {
+export default function KapakGorsel(props: {
   /** /gorseller/...webp — boşsa yer tutucu gösterilir */
   src?: string;
   /** SEO ve erişilebilirlik için zorunlu açıklama */
   alt: string;
-  /** Yer tutucuda gösterilecek HizmetIkon anahtarı (yoksa marka amblemi) */
+  /** Eski çağrılarla uyumluluk için tutulur; yer tutucuda ikon gösterilmez. */
   ikon?: string;
   /** Yer tutucuda gösterilecek metin */
   etiket?: string;
   /** Ekranın üst kısmındaysa (LCP) preload için true ver */
   oncelik?: boolean;
 }) {
+  const { src, alt, etiket, oncelik = false } = props;
+
   return (
     <section style={{ background: "white", padding: "28px 32px 0" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
@@ -68,51 +63,41 @@ export default function KapakGorsel({
                 overflow: "hidden",
               }}
             >
-              {/* Dekoratif ışıltılar */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-30%",
-                  right: "-10%",
-                  width: "45%",
-                  height: "120%",
-                  background: "radial-gradient(circle, rgba(212,169,63,0.18) 0%, transparent 65%)",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "-30%",
-                  left: "-5%",
-                  width: "40%",
-                  height: "110%",
-                  background: "radial-gradient(circle, rgba(245,130,32,0.12) 0%, transparent 65%)",
-                }}
-              />
-
               <div
                 style={{
                   position: "relative",
                   zIndex: 1,
-                  width: 84,
-                  height: 84,
-                  borderRadius: 20,
-                  background: "rgba(255,255,255,0.06)",
-                  border: "0.5px solid rgba(255,255,255,0.12)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--dvn-altin-acik)",
+                  width: "min(78%, 720px)",
+                  background: "rgba(255,255,255,0.94)",
+                  borderRadius: 10,
+                  padding: "24px 28px",
+                  boxShadow: "0 20px 60px rgba(0,0,0,0.28)",
                 }}
               >
-                {ikon ? (
-                  <HizmetIkon ad={ikon} size={42} />
-                ) : (
-                  <svg width="42" height="42" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2l8 4v6c0 5.5-3.5 10-8 12-4.5-2-8-6.5-8-12V6l8-4z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                )}
+                <div style={{ display: "flex", justifyContent: "space-between", gap: 18, alignItems: "center", borderBottom: "1px solid var(--dvn-gri-300)", paddingBottom: 14 }}>
+                  <span style={{ color: "var(--dvn-turuncu)", fontSize: 12, fontWeight: 700, letterSpacing: 1.1 }}>DVN CERT</span>
+                  <span style={{ color: "var(--dvn-gri-500)", fontSize: 12 }}>Süreç dokümanı</span>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 20, paddingTop: 18 }}>
+                  <div>
+                    <div style={{ height: 10, width: "82%", background: "var(--dvn-lacivert)", borderRadius: 4, marginBottom: 12 }} />
+                    <div style={{ height: 8, width: "94%", background: "var(--dvn-gri-300)", borderRadius: 4, marginBottom: 8 }} />
+                    <div style={{ height: 8, width: "72%", background: "var(--dvn-gri-300)", borderRadius: 4, marginBottom: 18 }} />
+                    <div style={{ display: "grid", gap: 8 }}>
+                      {[0, 1, 2].map((i) => (
+                        <div key={i} style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                          <span style={{ width: 18, height: 18, borderRadius: 4, background: "var(--dvn-altin-soluk)", border: "1px solid var(--dvn-altin)" }} />
+                          <span style={{ height: 7, flex: 1, background: "var(--dvn-gri-200)", borderRadius: 4 }} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{ background: "var(--dvn-gri-50)", border: "1px solid var(--dvn-gri-300)", borderRadius: 8, padding: 14 }}>
+                    <div style={{ color: "var(--dvn-gri-500)", fontSize: 11, marginBottom: 8 }}>Durum</div>
+                    <div style={{ color: "var(--dvn-lacivert)", fontSize: 18, fontWeight: 700, lineHeight: 1.2 }}>İzlenebilir kayıt</div>
+                    <div style={{ marginTop: 18, height: 6, width: "100%", background: "var(--dvn-altin)", borderRadius: 3 }} />
+                  </div>
+                </div>
               </div>
 
               {etiket && (

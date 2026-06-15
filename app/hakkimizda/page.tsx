@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: YOL,
     title: "Hakkımızda",
     description:
-      "DVN Cert; bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşudur. Misyonumuz, vizyonumuz ve değerlerimizle TÜRKAK akreditasyonu altında güvenilir belgelendirme sunuyoruz.",
+      "DVN Cert; bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşudur. Misyonumuz, vizyonumuz, değerlerimiz ve izlenebilir belgelendirme yaklaşımımız.",
   });
 }
 
