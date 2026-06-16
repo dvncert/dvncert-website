@@ -279,7 +279,7 @@ export default async function AkreditasyonlarimizSayfasi() {
               DVN Cert tarafından düzenlenmiş bir belgenin güncel durumunu çevrim içi sorgulayabilirsiniz.
             </p>
           </div>
-          <Link href="/sertifika-sorgula" className="dvn-btn-primary" style={{ padding: "12px 24px", fontSize: 13.5, whiteSpace: "nowrap" }}>
+          <Link href="https://tbds.turkak.org.tr" target="_blank" rel="noopener noreferrer" className="dvn-btn-primary" style={{ padding: "12px 24px", fontSize: 13.5, whiteSpace: "nowrap" }}>
             Sertifika Sorgula →
           </Link>
         </div>

@@ -9,6 +9,7 @@ import CookieConsent from "./components/CookieConsent";
 import WhatsAppButton from "./components/WhatsAppButton";
 import SosyalSabitButon from "./components/SosyalSabitButon";
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollReset from "./components/ScrollReset";
 import ChromeGate from "./components/ChromeGate";
 import PopupModal from "./components/PopupModal";
 import { popupGetir } from "@/lib/popup";
@@ -127,6 +128,7 @@ export default async function RootLayout({
         />
       </head>
       <body style={{ background: "#fafbfc", color: "#022398" }}>
+        <ScrollReset />
         <ChromeGate>
           <a href="#ana-icerik" className="dvn-skip-link">
             İçeriğe geç

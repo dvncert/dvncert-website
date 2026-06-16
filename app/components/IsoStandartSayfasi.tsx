@@ -450,10 +450,10 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
             </p>
             <p style={{ ...P, margin: 0 }}>
               {`DVN Cert tarafından düzenlenen sertifikalar, `}
-              <Link href="/sertifika-sorgula" style={ilkLink}>
-                online sertifika sorgulama hizmetimiz
+              <Link href="https://tbds.turkak.org.tr" target="_blank" rel="noopener noreferrer" style={ilkLink}>
+                TÜRKAK Belge Doğrulama Sistemi (TBDS)
               </Link>
-              {` üzerinden anlık olarak doğrulanabilir.`}
+              {` üzerinden doğrulanabilir.`}
             </p>
           </Akordeon>
 

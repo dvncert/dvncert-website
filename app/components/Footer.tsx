@@ -86,7 +86,7 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <Link href="/iletisim" style={{ fontSize: 12, color: "#94a3b8" }}>Bize Ulaşın</Link>
               <Link href="https://dbys.dvncert.com/basvuru" target="_blank" style={{ fontSize: 12, color: "#94a3b8" }}>Başvuru Yap</Link>
-              <Link href="/sertifika-sorgula" style={{ fontSize: 12, color: "#94a3b8" }}>Sertifika Sorgula</Link>
+              <Link href="https://tbds.turkak.org.tr" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#94a3b8" }}>Sertifika Sorgula</Link>
               <Link href="/sikayet-ve-gorusler" style={{ fontSize: 12, color: "#94a3b8" }}>Şikayet ve Görüşler</Link>
               <Link href="/itiraz-ve-sikayet" style={{ fontSize: 12, color: "#94a3b8" }}>İtiraz ve Şikayet Süreci</Link>
               <Link href="/sss" style={{ fontSize: 12, color: "#94a3b8" }}>Sıkça Sorulan Sorular</Link>
