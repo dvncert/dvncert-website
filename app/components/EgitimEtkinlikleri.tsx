@@ -131,11 +131,27 @@ export default async function EgitimEtkinlikleri() {
       </div>
 
       <style>{`
-        .dvn-etkinlik-kart:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(2,35,152,0.12) !important;
-          border-color: var(--dvn-turuncu-acik) !important;
+        .dvn-etkinlik-kart {
+          position: relative;
+          overflow: hidden;
         }
+        .dvn-etkinlik-kart::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 4px;
+          background: var(--dvn-gradient-altin);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+        .dvn-etkinlik-kart:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 18px 38px rgba(2,35,152,0.14) !important;
+          border-color: rgba(212,169,63,0.4) !important;
+          background: #fff !important;
+        }
+        .dvn-etkinlik-kart:hover::before { transform: scaleX(1); }
         @media (max-width: 900px) {
           .dvn-etkinlik-grid { grid-template-columns: 1fr !important; }
         }

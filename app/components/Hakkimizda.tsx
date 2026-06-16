@@ -44,7 +44,8 @@ export default function Hakkimizda() {
               lineHeight: 1.3,
             }}
           >
-            Belgelendirme kararlarında açık kriterler ve izlenebilir kayıtlar
+            Belgelendirme kararlarında açık kriterler ve{" "}
+            <span className="dvn-gradyan-metin--koyu">izlenebilir kayıtlar</span>
           </h2>
           <p
             style={{
@@ -88,21 +89,7 @@ export default function Hakkimizda() {
             ))}
           </ul>
 
-          <Link
-            href="/hakkimizda"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              background: "var(--dvn-gradient-turuncu)",
-              color: "white",
-              padding: "11px 22px",
-              borderRadius: "var(--dvn-radius-md)",
-              fontWeight: 500,
-              fontSize: 13,
-              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
-            }}
-          >
+          <Link href="/hakkimizda" className="dvn-btn-primary">
             Daha fazla bilgi
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
               <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -111,28 +98,9 @@ export default function Hakkimizda() {
         </div>
 
         {/* Sağ kolon: akreditasyon durumu kartı */}
-        <div
-          style={{
-            background: "var(--dvn-gradient-lacivert)",
-            borderRadius: 16,
-            padding: "32px 30px",
-            color: "white",
-            boxShadow: "0 12px 40px rgba(2,35,152,0.18)",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              top: -40,
-              right: -40,
-              width: 140,
-              height: 140,
-              background: "rgba(212,169,63,0.14)",
-              borderRadius: "50%",
-            }}
-          />
+        <div className="dvn-hakkimizda-kart">
+          <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
+          <span className="dvn-glow-orb dvn-glow-orb--altin dvn-hakkimizda-orb" aria-hidden />
 
           <div style={{ position: "relative", zIndex: 1 }}>
             <p
@@ -157,6 +125,7 @@ export default function Hakkimizda() {
               {siteConfig.akreditasyon.hedefKapsam.map((standart, i) => (
                 <div
                   key={i}
+                  data-standart
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -199,6 +168,33 @@ export default function Hakkimizda() {
       </div>
 
       <style>{`
+        .dvn-hakkimizda-kart {
+          position: relative;
+          overflow: hidden;
+          background: var(--dvn-gradient-lacivert);
+          border-radius: 18px;
+          padding: 34px 30px;
+          color: #fff;
+          box-shadow: 0 18px 50px rgba(2, 35, 152, 0.26), 0 0 0 1px rgba(212, 169, 63, 0.16);
+          animation: dvn-float 9s ease-in-out infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .dvn-hakkimizda-kart { animation: none; }
+        }
+        .dvn-hakkimizda-orb {
+          top: -120px;
+          right: -90px;
+          width: 280px;
+          height: 280px;
+          opacity: 0.5;
+        }
+        .dvn-hakkimizda-kart [data-standart] {
+          transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .dvn-hakkimizda-kart [data-standart]:hover {
+          background: rgba(255, 255, 255, 0.12) !important;
+          transform: translateX(4px);
+        }
         @media (max-width: 900px) {
           .dvn-hakkimizda-grid {
             grid-template-columns: 1fr !important;

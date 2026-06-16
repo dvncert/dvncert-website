@@ -138,10 +138,26 @@ export default async function Duyurular() {
       </div>
 
       <style>{`
-        .dvn-duyuru-kart:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(2,35,152,0.12) !important;
+        .dvn-duyuru-kart {
+          position: relative;
+          overflow: hidden;
         }
+        .dvn-duyuru-kart::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 4px;
+          background: var(--dvn-gradient-turuncu);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+        .dvn-duyuru-kart:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 18px 38px rgba(2,35,152,0.14) !important;
+          border-color: rgba(212,169,63,0.4) !important;
+        }
+        .dvn-duyuru-kart:hover::before { transform: scaleX(1); }
         @media (max-width: 900px) {
           .dvn-duyuru-grid {
             grid-template-columns: 1fr !important;

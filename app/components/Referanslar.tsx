@@ -17,10 +17,11 @@ export default async function Referanslar() {
   const liste = [...referanslar, ...referanslar];
 
   return (
-    <section style={{ background: "var(--dvn-gri-50)", padding: "56px 0" }}>
-      <div style={{ textAlign: "center", marginBottom: 32, padding: "0 32px" }}>
+    <section className="dvn-ref-bolum">
+      <span className="dvn-glow-orb dvn-glow-orb--lacivert dvn-ref-orb" aria-hidden />
+      <div style={{ textAlign: "center", marginBottom: 32, padding: "0 32px", position: "relative" }}>
         <span className="dvn-bolum-etiket">REFERANSLARIMIZ</span>
-        <h2 className="dvn-bolum-baslik" style={{ fontSize: 25 }}>
+        <h2 className="dvn-bolum-baslik" style={{ fontSize: 28 }}>
           Bize güvenen kurumlar
         </h2>
       </div>
@@ -69,7 +70,21 @@ export default async function Referanslar() {
       </div>
 
       <style>{`
+        .dvn-ref-bolum {
+          position: relative;
+          overflow: hidden;
+          padding: 60px 0;
+          background: linear-gradient(180deg, var(--dvn-gri-50) 0%, #ffffff 100%);
+        }
+        .dvn-ref-orb {
+          top: -160px;
+          right: 8%;
+          width: 380px;
+          height: 380px;
+          opacity: 0.16;
+        }
         .dvn-ref-marquee {
+          position: relative;
           overflow: hidden;
           width: 100%;
           -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
@@ -87,13 +102,20 @@ export default async function Referanslar() {
           flex-shrink: 0;
           margin-right: 18px;
           background: white;
-          border: 0.5px solid var(--dvn-gri-300);
-          border-radius: 12px;
+          border: 1px solid var(--dvn-gri-300);
+          border-radius: 14px;
           padding: 16px 22px;
           display: flex;
           align-items: center;
           justify-content: center;
           text-decoration: none;
+          box-shadow: var(--dvn-shadow-sm);
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .dvn-ref-hucre:hover {
+          transform: translateY(-5px);
+          border-color: rgba(212, 169, 63, 0.5);
+          box-shadow: 0 16px 32px rgba(2, 35, 152, 0.12);
         }
         .dvn-referans-logo { filter: grayscale(1); opacity: 0.7; transition: filter 0.25s ease, opacity 0.25s ease; }
         .dvn-ref-hucre:hover .dvn-referans-logo { filter: grayscale(0); opacity: 1; }
