@@ -70,7 +70,7 @@ export default function BelgelendirmeSureciSayfasi() {
 
       <KapakGorsel src="/gorseller/sayfalar/belgelendirme-sureci.webp" alt="ISO belgelendirme süreci - DVN Cert" ikon="sistem" etiket="Belgelendirme Süreci" oncelik />
 
-      <section style={{ background: "white", padding: "56px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "56px 32px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto" }}>
           <p style={{ fontSize: 15.5, color: "var(--dvn-gri-700)", lineHeight: 1.85, margin: "0 0 16px" }}>
             ISO belgelendirme; yönetim sisteminizin ilgili standardın gerekliliklerini karşıladığının bağımsız ve
@@ -89,20 +89,20 @@ export default function BelgelendirmeSureciSayfasi() {
       </section>
 
       {/* Adımlar */}
-      <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div style={{ maxWidth: 820, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
               ADIM ADIM SÜREÇ
             </p>
-            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 27, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
               Başvurudan belgeye 7 adım
             </h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             {adimlar.map((a, i) => (
-              <div key={i} style={{ display: "flex", gap: 18, background: "white", borderRadius: 14, padding: "22px 24px", border: "0.5px solid var(--dvn-gri-300)" }}>
-                <span style={{ flexShrink: 0, width: 40, height: 40, borderRadius: "50%", background: "var(--dvn-gradient-turuncu)", color: "white", fontSize: 16, fontWeight: 600, display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 16px rgba(245,130,32,0.3)" }}>
+              <div key={i} className="dvn-adim-kart" style={{ display: "flex", gap: 18, background: "white", borderRadius: 14, padding: "22px 24px", border: "0.5px solid var(--dvn-gri-300)" }}>
+                <span className="dvn-adim-no" style={{ flexShrink: 0, width: 40, height: 40, borderRadius: "50%", background: "var(--dvn-gradient-turuncu)", color: "white", fontSize: 16, fontWeight: 600, display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 16px rgba(245,130,32,0.3)" }}>
                   {i + 1}
                 </span>
                 <div>
@@ -116,7 +116,7 @@ export default function BelgelendirmeSureciSayfasi() {
       </section>
 
       {/* SSS */}
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 820, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
@@ -151,17 +151,19 @@ export default function BelgelendirmeSureciSayfasi() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: "white", padding: "0 32px 70px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", background: "var(--dvn-gradient-lacivert)", borderRadius: 18, padding: "40px 36px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20 }}>
-          <div>
-            <h2 style={{ color: "white", fontSize: 21, fontWeight: 500, margin: "0 0 6px" }}>Belgelendirme için teklif alın</h2>
-            <p style={{ color: "#9aa5b1", fontSize: 13.5, margin: 0 }}>Online başvuru sistemimizle dakikalar içinde başvurunuzu oluşturun.</p>
+      <section className="dvn-reveal" style={{ background: "white", padding: "0 32px 70px" }}>
+        <div style={{ position: "relative", overflow: "hidden", maxWidth: 1100, margin: "0 auto", background: "var(--dvn-gradient-lacivert)", borderRadius: 18, padding: "44px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20, boxShadow: "0 18px 50px rgba(2,35,152,0.24), 0 0 0 1px rgba(212,169,63,0.16)" }}>
+          <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
+          <span className="dvn-glow-orb dvn-glow-orb--altin" aria-hidden style={{ top: -110, right: "12%", width: 280, height: 280, opacity: 0.4 }} />
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <h2 style={{ color: "white", fontSize: 23, fontWeight: 600, margin: "0 0 6px" }}>Belgelendirme için teklif alın</h2>
+            <p style={{ color: "#cbd5e1", fontSize: 13.5, margin: 0 }}>Online başvuru sistemimizle dakikalar içinde başvurunuzu oluşturun.</p>
           </div>
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <Link href="https://dbys.dvncert.com/basvuru" target="_blank" style={{ background: "var(--dvn-gradient-turuncu)", color: "white", padding: "13px 24px", borderRadius: "var(--dvn-radius-md)", fontWeight: 500, fontSize: 14, boxShadow: "0 8px 20px rgba(245,130,32,0.3)", whiteSpace: "nowrap" }}>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap", position: "relative", zIndex: 1 }}>
+            <Link href="https://dbys.dvncert.com/basvuru" target="_blank" className="dvn-btn-primary" style={{ padding: "13px 24px", fontSize: 14, whiteSpace: "nowrap" }}>
               Başvuru Yap →
             </Link>
-            <Link href="/iletisim" style={{ background: "rgba(255,255,255,0.08)", border: "0.5px solid rgba(255,255,255,0.2)", color: "white", padding: "13px 24px", borderRadius: "var(--dvn-radius-md)", fontWeight: 500, fontSize: 14, whiteSpace: "nowrap" }}>
+            <Link href="/iletisim" style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.28)", color: "white", padding: "13px 24px", borderRadius: "var(--dvn-radius-md)", fontWeight: 500, fontSize: 14, whiteSpace: "nowrap", backdropFilter: "blur(10px)" }}>
               Bize Ulaşın
             </Link>
           </div>
@@ -169,6 +171,16 @@ export default function BelgelendirmeSureciSayfasi() {
       </section>
 
       <style>{`
+        .dvn-adim-kart {
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .dvn-adim-kart:hover {
+          transform: translateX(6px);
+          box-shadow: 0 14px 32px rgba(2,35,152,0.12);
+          border-color: rgba(212,169,63,0.4);
+        }
+        .dvn-adim-no { transition: transform 0.3s ease; }
+        .dvn-adim-kart:hover .dvn-adim-no { transform: scale(1.12); }
         .dvn-sss-baslik::-webkit-details-marker { display: none; }
         .dvn-sss[open] .dvn-sss-ok { transform: rotate(180deg); }
         .dvn-sss-ok { transition: transform 0.22s ease; }

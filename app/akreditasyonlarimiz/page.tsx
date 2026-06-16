@@ -68,7 +68,7 @@ export default async function AkreditasyonlarimizSayfasi() {
       <KapakGorsel src="/gorseller/sayfalar/akreditasyon.webp" alt={`${akreditasyon.kurulus} akreditasyon süreci bilgilendirmesi`} etiket={`${akreditasyon.kurulus} süreci ve hedef kapsam`} oncelik />
 
       {/* Akreditasyon nedir + bilgi kartı */}
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div
           className="dvn-akr-ust"
           style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 40, alignItems: "center" }}
@@ -92,14 +92,18 @@ export default async function AkreditasyonlarimizSayfasi() {
           {/* Bilgi kartı */}
           <div
             style={{
+              position: "relative",
+              overflow: "hidden",
               background: "var(--dvn-gradient-lacivert)",
               borderRadius: 16,
-              padding: "30px 28px",
+              padding: "32px 28px",
               color: "white",
-              boxShadow: "0 12px 40px rgba(2,35,152,0.18)",
+              boxShadow: "0 16px 46px rgba(2,35,152,0.24), 0 0 0 1px rgba(212,169,63,0.16)",
             }}
           >
-            <div style={{ display: "grid", gap: 18 }}>
+            <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
+            <span className="dvn-glow-orb dvn-glow-orb--altin" aria-hidden style={{ top: -100, right: -60, width: 220, height: 220, opacity: 0.4 }} />
+            <div style={{ display: "grid", gap: 18, position: "relative", zIndex: 1 }}>
               <div>
                 <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>TAKİP EDİLEN KURUM</p>
                 <p style={{ fontSize: 18, fontWeight: 600, color: "var(--dvn-altin-acik)", margin: 0 }}>{akreditasyon.kurulus}</p>
@@ -120,13 +124,13 @@ export default async function AkreditasyonlarimizSayfasi() {
       </section>
 
       {/* Kapsamdaki standartlar */}
-      <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
               HEDEF KAPSAM
             </p>
-            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
               Süreçte takip edilen standartlar
             </h2>
           </div>
@@ -140,6 +144,7 @@ export default async function AkreditasyonlarimizSayfasi() {
               return (
                 <div
                   key={std}
+                  className="dvn-std-kart"
                   style={{
                     background: "white",
                     borderRadius: 14,
@@ -152,6 +157,7 @@ export default async function AkreditasyonlarimizSayfasi() {
                   }}
                 >
                   <div
+                    className="dvn-std-ikon"
                     style={{
                       flexShrink: 0,
                       width: 54,
@@ -248,7 +254,7 @@ export default async function AkreditasyonlarimizSayfasi() {
       )}
 
       {/* Sertifika doğrulama yönlendirmesi */}
-      <section style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
         <div
           style={{
             maxWidth: 1100,
@@ -257,6 +263,7 @@ export default async function AkreditasyonlarimizSayfasi() {
             borderRadius: 16,
             padding: "32px 34px",
             border: "0.5px solid var(--dvn-gri-300)",
+            boxShadow: "var(--dvn-shadow-md)",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -265,32 +272,35 @@ export default async function AkreditasyonlarimizSayfasi() {
           }}
         >
           <div>
-            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 19, fontWeight: 500, margin: "0 0 6px" }}>
+            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 19, fontWeight: 600, margin: "0 0 6px" }}>
               Bir sertifikanın geçerliliğini doğrulayın
             </h2>
             <p style={{ color: "var(--dvn-gri-500)", fontSize: 13.5, margin: 0 }}>
               DVN Cert tarafından düzenlenmiş bir belgenin güncel durumunu çevrim içi sorgulayabilirsiniz.
             </p>
           </div>
-          <Link
-            href="/sertifika-sorgula"
-            style={{
-              background: "var(--dvn-gradient-turuncu)",
-              color: "white",
-              padding: "12px 24px",
-              borderRadius: "var(--dvn-radius-md)",
-              fontWeight: 500,
-              fontSize: 13.5,
-              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
-              whiteSpace: "nowrap",
-            }}
-          >
+          <Link href="/sertifika-sorgula" className="dvn-btn-primary" style={{ padding: "12px 24px", fontSize: 13.5, whiteSpace: "nowrap" }}>
             Sertifika Sorgula →
           </Link>
         </div>
       </section>
 
       <style>{`
+        .dvn-std-kart {
+          position: relative;
+          transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+        }
+        .dvn-std-kart:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 18px 40px rgba(2,35,152,0.13) !important;
+          border-left-color: var(--dvn-turuncu) !important;
+        }
+        .dvn-std-ikon { transition: transform 0.32s ease, background 0.32s ease, color 0.32s ease; }
+        .dvn-std-kart:hover .dvn-std-ikon {
+          background: var(--dvn-gradient-altin) !important;
+          color: #fff !important;
+          transform: scale(1.08) rotate(-3deg);
+        }
         @media (max-width: 820px) {
           .dvn-akr-ust { grid-template-columns: 1fr !important; }
           .dvn-std-grid { grid-template-columns: 1fr !important; }

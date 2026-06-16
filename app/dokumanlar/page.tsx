@@ -65,7 +65,7 @@ export default async function DokumanlarSayfasi() {
 
       <KapakGorsel src="/gorseller/sayfalar/dokumanlar.webp" alt="DVN Cert belgelendirme dokümanları" etiket="Politika, prosedür, talimat ve formlar" oncelik />
 
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 920, margin: "0 auto" }}>
           <div
             style={{
@@ -184,6 +184,15 @@ export default async function DokumanlarSayfasi() {
       </section>
 
       <style>{`
+        .dvn-dok-satir {
+          transition: transform 0.26s ease, border-color 0.26s ease, box-shadow 0.26s ease, background 0.26s ease;
+        }
+        .dvn-dok-satir:hover {
+          transform: translateX(5px);
+          background: #fff;
+          border-color: rgba(212,169,63,0.45);
+          box-shadow: 0 12px 28px rgba(2,35,152,0.1);
+        }
         @media (max-width: 560px) {
           .dvn-dok-satir { flex-wrap: wrap; }
           .dvn-dok-satir .dvn-dok-goruntule { width: 100%; justify-content: center; }

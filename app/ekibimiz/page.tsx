@@ -145,12 +145,12 @@ export default async function EkibimizSayfasi() {
 
       <KapakGorsel src="/gorseller/sayfalar/ekibimiz.webp" alt="DVN Cert organizasyon yapısı ve uzman ekibi" ikon="denetim" etiket="Yetkin ve bağımsız organizasyon yapısı" oncelik />
 
-      <section style={{ background: "white", padding: "60px 32px 30px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px 30px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 10px" }}>
             UZMAN KADRO
           </p>
-          <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: "0 0 16px", lineHeight: 1.3 }}>
+          <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: "0 0 16px", lineHeight: 1.3, display: "inline-block" }}>
             Yetkinlik, deneyim ve tarafsızlık
           </h2>
           <p style={{ fontSize: 15, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: 0 }}>
@@ -162,7 +162,7 @@ export default async function EkibimizSayfasi() {
       </section>
 
       {/* ORGANİZASYON ŞEMASI */}
-      <section style={{ background: "var(--dvn-gri-50)", padding: "20px 32px 60px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "20px 32px 60px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
@@ -250,7 +250,7 @@ export default async function EkibimizSayfasi() {
 
       {/* Ekip üyeleri (DB) — yalnızca yüklenmişse */}
       {ekip.length > 0 && (
-        <section style={{ background: "white", padding: "60px 32px" }}>
+        <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
           <div style={{ maxWidth: 1280, margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: 32 }}>
               <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
@@ -264,6 +264,7 @@ export default async function EkibimizSayfasi() {
               {ekip.map((kisi) => (
                 <div
                   key={kisi.id}
+                  className="dvn-ekip-kart"
                   style={{
                     background: "var(--dvn-gri-50)",
                     borderRadius: 14,
@@ -341,27 +342,35 @@ export default async function EkibimizSayfasi() {
           <p style={{ fontSize: 14, color: "var(--dvn-gri-500)", lineHeight: 1.7, margin: "0 0 22px" }}>
             Denetçi ve uzman kadromuzu güçlendirecek profesyonellerle tanışmak isteriz.
           </p>
-          <Link
-            href="/kariyer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              background: "var(--dvn-gradient-turuncu)",
-              color: "white",
-              padding: "12px 26px",
-              borderRadius: "var(--dvn-radius-md)",
-              fontWeight: 500,
-              fontSize: 14,
-              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
-            }}
-          >
+          <Link href="/kariyer" className="dvn-btn-primary" style={{ padding: "12px 26px", fontSize: 14 }}>
             Kariyer fırsatları →
           </Link>
         </div>
       </section>
 
       <style>{`
+        .dvn-ekip-kart {
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease, background 0.32s ease;
+        }
+        .dvn-ekip-kart::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: var(--dvn-gradient-altin);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+        .dvn-ekip-kart:hover {
+          transform: translateY(-6px);
+          background: #fff;
+          border-color: rgba(212,169,63,0.4);
+          box-shadow: 0 20px 44px rgba(2,35,152,0.13);
+        }
+        .dvn-ekip-kart:hover::before { transform: scaleX(1); }
         @media (max-width: 820px) {
           .dvn-ekip-grid { grid-template-columns: 1fr 1fr !important; }
           .dvn-org-tier { grid-template-columns: 1fr 1fr !important; }
