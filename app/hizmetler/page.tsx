@@ -53,7 +53,7 @@ export default function HizmetlerSayfasi() {
       <KapakGorsel src="/gorseller/sayfalar/hizmetler.webp" alt="DVN Cert belgelendirme hizmetleri" ikon="sistem" etiket="Belgelendirme Hizmetlerimiz" oncelik />
 
       {/* Ana hizmetler */}
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div className="dvn-anahizmet-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {anaHizmetler.map((h) => (
@@ -74,6 +74,7 @@ export default function HizmetlerSayfasi() {
                 }}
               >
                 <div
+                  className="dvn-hub-ikon"
                   style={{
                     width: 60,
                     height: 60,
@@ -106,13 +107,13 @@ export default function HizmetlerSayfasi() {
       </section>
 
       {/* ISO standartları */}
-      <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
               SİSTEM BELGELENDİRME
             </p>
-            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
               Belgelendirme yaptığımız ISO standartları
             </h2>
           </div>
@@ -138,6 +139,7 @@ export default function HizmetlerSayfasi() {
                 }}
               >
                 <div
+                  className="dvn-hub-ikon"
                   style={{
                     flexShrink: 0,
                     width: 52,
@@ -168,7 +170,28 @@ export default function HizmetlerSayfasi() {
       </section>
 
       <style>{`
-        .dvn-hub-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(2,35,152,0.12) !important; }
+        .dvn-hub-kart {
+          position: relative;
+          overflow: hidden;
+        }
+        .dvn-hub-kart::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: var(--dvn-gradient-turuncu);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+        .dvn-hub-kart:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 44px rgba(2,35,152,0.14) !important;
+          border-color: rgba(212,169,63,0.45) !important;
+        }
+        .dvn-hub-kart:hover::before { transform: scaleX(1); }
+        .dvn-hub-ikon { transition: transform 0.32s ease, background 0.32s ease; }
+        .dvn-hub-kart:hover .dvn-hub-ikon { transform: scale(1.08) rotate(-3deg); }
         @media (max-width: 900px) {
           .dvn-anahizmet-grid { grid-template-columns: 1fr !important; }
           .dvn-iso-grid { grid-template-columns: 1fr !important; }

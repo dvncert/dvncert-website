@@ -78,7 +78,7 @@ export default function IletisimSayfasi() {
       <KapakGorsel src="/gorseller/sayfalar/iletisim.webp" alt="DVN Cert iletişim" ikon="denetim" etiket="Sorularınız için bize yazın" oncelik />
 
       {/* Bilgi + Form */}
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div
           className="dvn-iletisim-grid"
           style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 40, alignItems: "start" }}
@@ -97,6 +97,7 @@ export default function IletisimSayfasi() {
                 const icerik = (
                   <>
                     <span
+                      className="dvn-iletisim-ikon"
                       style={{
                         flexShrink: 0,
                         width: 44,
@@ -131,11 +132,11 @@ export default function IletisimSayfasi() {
                 };
 
                 return b.href ? (
-                  <a key={b.baslik} href={b.href} style={kartStili}>
+                  <a key={b.baslik} href={b.href} className="dvn-iletisim-kart" style={kartStili}>
                     {icerik}
                   </a>
                 ) : (
-                  <div key={b.baslik} style={kartStili}>
+                  <div key={b.baslik} className="dvn-iletisim-kart" style={kartStili}>
                     {icerik}
                   </div>
                 );
@@ -145,34 +146,32 @@ export default function IletisimSayfasi() {
             {/* Başvuru yönlendirmesi */}
             <div
               style={{
+                position: "relative",
+                overflow: "hidden",
                 marginTop: 20,
                 background: "var(--dvn-gradient-lacivert)",
-                borderRadius: 12,
-                padding: "20px 22px",
+                borderRadius: 14,
+                padding: "22px 24px",
+                boxShadow: "0 14px 36px rgba(2,35,152,0.2), 0 0 0 1px rgba(212,169,63,0.16)",
               }}
             >
-              <p style={{ color: "white", fontSize: 14, fontWeight: 500, margin: "0 0 4px" }}>Belgelendirme başvurusu mu yapacaksınız?</p>
-              <p style={{ color: "#9aa5b1", fontSize: 12.5, margin: "0 0 14px", lineHeight: 1.6 }}>
-                Online başvuru sistemimiz ile dakikalar içinde başvurunuzu oluşturabilirsiniz.
-              </p>
-              <a
-                href={`${siteConfig.dbysUrl}/basvuru`}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 6,
-                  background: "var(--dvn-gradient-turuncu)",
-                  color: "white",
-                  padding: "10px 20px",
-                  borderRadius: "var(--dvn-radius-md)",
-                  fontWeight: 500,
-                  fontSize: 13,
-                }}
-              >
-                Başvuru Yap →
-              </a>
+              <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
+              <span className="dvn-glow-orb dvn-glow-orb--altin" aria-hidden style={{ top: -90, right: -50, width: 200, height: 200, opacity: 0.4 }} />
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <p style={{ color: "white", fontSize: 14, fontWeight: 600, margin: "0 0 4px" }}>Belgelendirme başvurusu mu yapacaksınız?</p>
+                <p style={{ color: "#cbd5e1", fontSize: 12.5, margin: "0 0 14px", lineHeight: 1.6 }}>
+                  Online başvuru sistemimiz ile dakikalar içinde başvurunuzu oluşturabilirsiniz.
+                </p>
+                <a
+                  href={`${siteConfig.dbysUrl}/basvuru`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dvn-btn-primary"
+                  style={{ padding: "10px 20px", fontSize: 13 }}
+                >
+                  Başvuru Yap →
+                </a>
+              </div>
             </div>
           </div>
 
@@ -198,7 +197,7 @@ export default function IletisimSayfasi() {
       </section>
 
       {/* Harita */}
-      <section style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ borderRadius: 16, overflow: "hidden", border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 8px 32px rgba(2,35,152,0.06)", lineHeight: 0 }}>
             <iframe
@@ -216,6 +215,21 @@ export default function IletisimSayfasi() {
       </section>
 
       <style>{`
+        .dvn-iletisim-kart {
+          transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+        }
+        .dvn-iletisim-kart:hover {
+          transform: translateX(4px);
+          background: #fff !important;
+          border-color: rgba(212,169,63,0.45) !important;
+          box-shadow: 0 12px 28px rgba(2,35,152,0.1);
+        }
+        .dvn-iletisim-ikon { transition: transform 0.28s ease, background 0.28s ease, color 0.28s ease; }
+        .dvn-iletisim-kart:hover .dvn-iletisim-ikon {
+          background: var(--dvn-gradient-altin) !important;
+          color: #fff !important;
+          transform: scale(1.08);
+        }
         @media (max-width: 900px) {
           .dvn-iletisim-grid { grid-template-columns: 1fr !important; }
         }
