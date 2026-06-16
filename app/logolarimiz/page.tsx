@@ -83,7 +83,7 @@ export default async function LogolarimizSayfasi() {
         kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Logolarımız" }]}
       />
 
-      <KapakGorsel alt="DVN Cert kurumsal logo ve marka kullanımı" etiket="Marka ve logo kullanım kuralları" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/logolarimiz.webp" alt="DVN Cert kurumsal logo ve marka kullanımı" etiket="Marka ve logo kullanım kuralları" oncelik />
 
       <section style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>

@@ -50,7 +50,7 @@ export default function HizmetlerSayfasi() {
         kirintilar={[{ etiket: "Hizmetler" }]}
       />
 
-      <KapakGorsel alt="DVN Cert belgelendirme hizmetleri" ikon="sistem" etiket="Belgelendirme Hizmetlerimiz" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/hizmetler.webp" alt="DVN Cert belgelendirme hizmetleri" ikon="sistem" etiket="Belgelendirme Hizmetlerimiz" oncelik />
 
       {/* Ana hizmetler */}
       <section style={{ background: "white", padding: "60px 32px" }}>

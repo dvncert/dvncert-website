@@ -75,7 +75,7 @@ export default function IletisimSayfasi() {
         kirintilar={[{ etiket: "İletişim" }]}
       />
 
-      <KapakGorsel alt="DVN Cert iletişim" ikon="denetim" etiket="Sorularınız için bize yazın" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/iletisim.webp" alt="DVN Cert iletişim" ikon="denetim" etiket="Sorularınız için bize yazın" oncelik />
 
       {/* Bilgi + Form */}
       <section style={{ background: "white", padding: "60px 32px" }}>

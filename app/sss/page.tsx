@@ -59,7 +59,7 @@ export default async function SSSSayfasi() {
         kirintilar={[{ etiket: "Neden DVN Cert" }, { etiket: "S.S.S." }]}
       />
 
-      <KapakGorsel alt="DVN Cert sıkça sorulan sorular" etiket="Belgelendirme hakkında merak edilenler" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/sss.webp" alt="DVN Cert sıkça sorulan sorular" etiket="Belgelendirme hakkında merak edilenler" oncelik />
 
       <section style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 820, margin: "0 auto", display: "grid", gap: 14 }}>

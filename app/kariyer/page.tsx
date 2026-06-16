@@ -47,7 +47,7 @@ export default async function KariyerSayfasi() {
         kirintilar={[{ etiket: "Kariyer" }]}
       />
 
-      <KapakGorsel src={kapakSrc ?? undefined} alt="DVN Cert kariyer fırsatları" ikon="denetim" etiket={icerik.kapakEtiket} oncelik />
+      <KapakGorsel src={kapakSrc ?? "/gorseller/sayfalar/kariyer.webp"} alt="DVN Cert kariyer fırsatları" ikon="denetim" etiket={icerik.kapakEtiket} oncelik />
 
       {/* Neden DVN Cert */}
       <section style={{ background: "white", padding: "60px 32px" }}>

@@ -68,7 +68,7 @@ export default function BelgelendirmeSureciSayfasi() {
         kirintilar={[{ etiket: "Belgelendirme Süreci" }]}
       />
 
-      <KapakGorsel alt="ISO belgelendirme süreci - DVN Cert" ikon="sistem" etiket="Belgelendirme Süreci" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/belgelendirme-sureci.webp" alt="ISO belgelendirme süreci - DVN Cert" ikon="sistem" etiket="Belgelendirme Süreci" oncelik />
 
       <section style={{ background: "white", padding: "56px 32px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto" }}>

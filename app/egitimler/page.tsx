@@ -60,7 +60,7 @@ export default async function EgitimlerSayfasi() {
         kirintilar={[{ etiket: "Hizmetler", href: "/hizmetler" }, { etiket: "Eğitimler" }]}
       />
 
-      <KapakGorsel alt="DVN Cert ISO yönetim sistemleri eğitimleri" ikon="egitim" etiket="ISO Yönetim Sistemleri Eğitimleri" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/egitimler.webp" alt="DVN Cert ISO yönetim sistemleri eğitimleri" ikon="egitim" etiket="ISO Yönetim Sistemleri Eğitimleri" oncelik />
 
       {/* Giriş */}
       <section style={{ background: "white", padding: "60px 32px 36px" }}>

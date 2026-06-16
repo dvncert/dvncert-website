@@ -65,7 +65,7 @@ export default async function AkreditasyonlarimizSayfasi() {
         kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Akreditasyon Durumu" }]}
       />
 
-      <KapakGorsel alt={`${akreditasyon.kurulus} akreditasyon süreci bilgilendirmesi`} etiket={`${akreditasyon.kurulus} süreci ve hedef kapsam`} oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/akreditasyon.webp" alt={`${akreditasyon.kurulus} akreditasyon süreci bilgilendirmesi`} etiket={`${akreditasyon.kurulus} süreci ve hedef kapsam`} oncelik />
 
       {/* Akreditasyon nedir + bilgi kartı */}
       <section style={{ background: "white", padding: "60px 32px" }}>

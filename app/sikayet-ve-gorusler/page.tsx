@@ -47,7 +47,7 @@ export default function SikayetVeGoruslerSayfasi() {
         kirintilar={[{ etiket: "İletişim", href: "/iletisim" }, { etiket: "Şikayet ve Görüşler" }]}
       />
 
-      <KapakGorsel alt="DVN Cert şikayet ve görüş bildirimi" etiket="Görüş, öneri, şikayet ve itirazlarınız" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/sikayet.webp" alt="DVN Cert şikayet ve görüş bildirimi" etiket="Görüş, öneri, şikayet ve itirazlarınız" oncelik />
 
       {/* Giriş */}
       <section style={{ background: "white", padding: "60px 32px 36px" }}>

@@ -63,7 +63,7 @@ export default async function DokumanlarSayfasi() {
         kirintilar={[{ etiket: "Neden DVN Cert" }, { etiket: "Dokümanlar" }]}
       />
 
-      <KapakGorsel alt="DVN Cert belgelendirme dokümanları" etiket="Politika, prosedür, talimat ve formlar" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/dokumanlar.webp" alt="DVN Cert belgelendirme dokümanları" etiket="Politika, prosedür, talimat ve formlar" oncelik />
 
       <section style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 920, margin: "0 auto" }}>

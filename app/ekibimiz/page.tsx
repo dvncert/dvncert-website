@@ -143,7 +143,7 @@ export default async function EkibimizSayfasi() {
         kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Ekibimiz" }]}
       />
 
-      <KapakGorsel alt="DVN Cert organizasyon yapısı ve uzman ekibi" ikon="denetim" etiket="Yetkin ve bağımsız organizasyon yapısı" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/ekibimiz.webp" alt="DVN Cert organizasyon yapısı ve uzman ekibi" ikon="denetim" etiket="Yetkin ve bağımsız organizasyon yapısı" oncelik />
 
       <section style={{ background: "white", padding: "60px 32px 30px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>

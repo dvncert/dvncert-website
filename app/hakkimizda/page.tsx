@@ -69,7 +69,7 @@ export default async function HakkimizdaSayfasi() {
         kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Hakkımızda" }]}
       />
 
-      <KapakGorsel alt="DVN Cert - bağımsız belgelendirme kuruluşu" etiket="Bağımsız ve tarafsız belgelendirme kuruluşu" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/hakkimizda.webp" alt="DVN Cert - bağımsız belgelendirme kuruluşu" etiket="Bağımsız ve tarafsız belgelendirme kuruluşu" oncelik />
 
       {/* Giriş */}
       <section style={{ background: "white", padding: "60px 32px" }}>

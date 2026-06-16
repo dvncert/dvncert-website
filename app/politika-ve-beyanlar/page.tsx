@@ -57,7 +57,7 @@ export default async function PolitikaVeBeyanlarSayfasi() {
         kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Politika ve Beyanlar" }]}
       />
 
-      <KapakGorsel alt="DVN Cert politika ve beyanları" etiket="Tarafsızlık, gizlilik ve kalite ilkelerimiz" oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/politika.webp" alt="DVN Cert politika ve beyanları" etiket="Tarafsızlık, gizlilik ve kalite ilkelerimiz" oncelik />
 
       <section style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
