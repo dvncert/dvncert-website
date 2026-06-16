@@ -36,21 +36,43 @@ export default function Istatistikler() {
           grid-template-columns: repeat(4, 1fr);
           border: 1px solid var(--dvn-gri-300);
           background: white;
-          border-radius: 10px;
+          border-radius: 14px;
           overflow: hidden;
+          box-shadow: var(--dvn-shadow-md);
         }
         .dvn-guven-madde {
-          padding: 24px 22px;
+          position: relative;
+          padding: 26px 22px;
           border-right: 1px solid var(--dvn-gri-300);
-          min-height: 170px;
+          min-height: 178px;
+          transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .dvn-guven-madde::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: var(--dvn-gradient-turuncu);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.35s ease;
+        }
+        .dvn-guven-madde:hover::before { transform: scaleX(1); }
+        .dvn-guven-madde:hover {
+          background: linear-gradient(180deg, #fff 0%, var(--dvn-gri-50) 100%);
         }
         .dvn-guven-madde:last-child { border-right: 0; }
         .dvn-guven-madde span {
-          display: block;
+          display: inline-block;
           color: var(--dvn-turuncu);
-          font-size: 12px;
-          font-weight: 700;
-          margin-bottom: 18px;
+          font-size: 22px;
+          font-weight: 800;
+          margin-bottom: 16px;
+          background: var(--dvn-gradient-turuncu);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
         }
         .dvn-guven-madde h2 {
           color: var(--dvn-lacivert);

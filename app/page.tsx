@@ -12,14 +12,14 @@ export default function AnaSayfa() {
   return (
     <main>
       <HeroSlider />
-      <Istatistikler />
-      <Hizmetler />
-      <Hakkimizda />
-      <Referanslar />
-      <MusteriYorumlari />
-      <Duyurular />
-      <EgitimEtkinlikleri />
-      <AnaSayfaSSS />
+      <div className="dvn-reveal"><Istatistikler /></div>
+      <div className="dvn-reveal"><Hizmetler /></div>
+      <div className="dvn-reveal"><Hakkimizda /></div>
+      <div className="dvn-reveal"><Referanslar /></div>
+      <div className="dvn-reveal"><MusteriYorumlari /></div>
+      <div className="dvn-reveal"><Duyurular /></div>
+      <div className="dvn-reveal"><EgitimEtkinlikleri /></div>
+      <div className="dvn-reveal"><AnaSayfaSSS /></div>
     </main>
   );
 }

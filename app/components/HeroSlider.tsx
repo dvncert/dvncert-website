@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
@@ -13,10 +14,23 @@ export default function HeroSlider() {
   return (
     <>
       <section className="dvn-hero-yeni">
+        <Image
+          src="/gorseller/dvn-cert-kurumsal-kapak.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="dvn-hero-gorsel"
+        />
+        <div className="dvn-hero-kaplama" />
+        <div className="dvn-grid-desen" aria-hidden />
+        <span className="dvn-glow-orb dvn-glow-orb--altin dvn-hero-orb-1" aria-hidden />
+        <span className="dvn-glow-orb dvn-glow-orb--turuncu dvn-hero-orb-2" aria-hidden />
+        <span className="dvn-glow-orb dvn-glow-orb--lacivert dvn-hero-orb-3" aria-hidden />
         <div className="dvn-hero-icerik">
           <div className="dvn-hero-metin">
             <p className="dvn-hero-eyebrow">ISO belgelendirme, ikinci taraf denetim ve eğitim</p>
-            <h1>Belgelendirme sürecinizi açık, izlenebilir ve ölçülü yönetin</h1>
+            <h1>Belgelendirme sürecinizi <span className="dvn-vurgu">açık, izlenebilir</span> ve ölçülü yönetin</h1>
             <p className="dvn-hero-aciklama">
               DVN Cert, yönetim sistemi belgelendirme süreçlerinde tarafsız değerlendirme,
               net kayıt yönetimi ve sahaya uygulanabilir denetim yaklaşımı sunar.
@@ -41,9 +55,10 @@ export default function HeroSlider() {
           </div>
 
           <div className="dvn-hero-panel" aria-label="Belgelendirme süreci özeti">
+            <div className="dvn-panel-rozet">Canlı süreç görünümü</div>
             <div className="dvn-panel-ust">
               <span>DVN CERT</span>
-              <strong>Süreç Dosyası</strong>
+              <strong>Belgelendirme Akışı</strong>
             </div>
             <div className="dvn-panel-cizgi" />
             <div className="dvn-panel-kapsam">

@@ -76,34 +76,60 @@ export default function Hizmetler() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           border: 1px solid var(--dvn-gri-300);
-          border-radius: 10px;
+          border-radius: 14px;
           overflow: hidden;
+          box-shadow: var(--dvn-shadow-md);
         }
         .dvn-hizmet-kart-yeni {
+          position: relative;
           display: flex;
           flex-direction: column;
           min-height: 340px;
-          padding: 30px 28px;
+          padding: 32px 28px;
           color: inherit;
           background: white;
           border-right: 1px solid var(--dvn-gri-300);
           text-decoration: none;
+          transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        .dvn-hizmet-kart-yeni::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(120% 80% at 50% 0%, rgba(245, 130, 32, 0.08), transparent 60%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          pointer-events: none;
         }
         .dvn-hizmet-kart-yeni:last-child { border-right: 0; }
         .dvn-hizmet-kart-yeni:hover {
-          background: var(--dvn-gri-50);
+          background: white;
           color: inherit;
+          transform: translateY(-6px);
+          box-shadow: 0 20px 44px rgba(2, 35, 152, 0.14), 0 0 0 1px rgba(212, 169, 63, 0.2);
+          z-index: 1;
         }
+        .dvn-hizmet-kart-yeni:hover::after { opacity: 1; }
         .dvn-hizmet-kod {
           width: max-content;
           min-width: 54px;
-          color: var(--dvn-turuncu);
-          border-bottom: 2px solid var(--dvn-altin);
-          padding-bottom: 8px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 8px 14px;
+          border-radius: 8px;
+          background: var(--dvn-gradient-lacivert);
+          color: #fff;
           font-size: 13px;
           font-weight: 800;
           letter-spacing: 0.8px;
           margin-bottom: 24px;
+          box-shadow: 0 6px 16px rgba(2, 35, 152, 0.22);
+          transition: transform 0.3s ease;
+        }
+        .dvn-hizmet-kart-yeni:hover .dvn-hizmet-kod {
+          background: var(--dvn-gradient-turuncu);
+          transform: scale(1.05);
         }
         .dvn-hizmet-kart-yeni h3 {
           color: var(--dvn-lacivert);

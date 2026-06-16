@@ -86,20 +86,74 @@ html {
    ========================================== */
 
 .dvn-hero-yeni {
-  background:
-    linear-gradient(180deg, rgba(2, 35, 152, 0.96), rgba(1, 26, 112, 0.98)),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: auto, 48px 48px, 48px 48px;
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(580px, 76vh, 800px);
   color: white;
-  padding: 64px 32px 70px;
+  padding: 84px 32px 78px;
+  display: flex;
+  align-items: center;
+  background: #010f43;
+}
+
+.dvn-hero-gorsel {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.92) contrast(1.04) brightness(0.86);
+}
+
+.dvn-hero-kaplama {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(1, 15, 67, 0.94) 0%, rgba(2, 35, 152, 0.82) 42%, rgba(2, 35, 152, 0.28) 76%, rgba(1, 15, 67, 0.2) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(1, 15, 67, 0.4));
+}
+
+/* Hero glow orb katmanı */
+.dvn-hero-orb-1 {
+  top: -120px;
+  right: -60px;
+  width: 520px;
+  height: 520px;
+}
+
+.dvn-hero-orb-2 {
+  bottom: -160px;
+  left: -80px;
+  width: 480px;
+  height: 480px;
+  animation-delay: -6s;
+}
+
+.dvn-hero-orb-3 {
+  top: 30%;
+  left: 38%;
+  width: 360px;
+  height: 360px;
+  opacity: 0.4;
+  animation-delay: -10s;
+}
+
+/* Hero başlığında parlayan vurgu */
+.dvn-hero-metin h1 .dvn-vurgu {
+  background: linear-gradient(100deg, var(--dvn-altin-acik) 0%, var(--dvn-turuncu-acik) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent;
+  animation: dvn-gradyan-kay 7s ease-in-out infinite;
 }
 
 .dvn-hero-icerik {
+  position: relative;
+  z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
+  width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.75fr);
+  grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.62fr);
   gap: 56px;
   align-items: center;
 }
@@ -115,28 +169,28 @@ html {
 
 .dvn-hero-metin h1 {
   color: white;
-  font-size: 44px;
-  font-weight: 500;
-  line-height: 1.12;
-  max-width: 760px;
+  font-size: clamp(36px, 4.5vw, 62px);
+  font-weight: 600;
+  line-height: 1.05;
+  max-width: 820px;
   margin: 0 0 18px;
 }
 
 .dvn-hero-aciklama {
-  color: #d8dee9;
-  font-size: 16px;
+  color: #e8edf7;
+  font-size: 17px;
   line-height: 1.7;
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 0 22px;
 }
 
 .dvn-hero-uyari {
   max-width: 720px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(232, 200, 112, 0.35);
-  border-left: 4px solid var(--dvn-altin-acik);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-left: 4px solid var(--dvn-turuncu);
   border-radius: 8px;
-  color: #edf2f7;
+  color: #f8fafc;
   padding: 14px 16px;
   font-size: 13.5px;
   line-height: 1.55;
@@ -162,11 +216,34 @@ html {
 }
 
 .dvn-hero-panel {
-  background: #ffffff;
+  position: relative;
+  background: rgba(255, 255, 255, 0.96);
   color: var(--dvn-gri-800);
-  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 14px;
   padding: 28px;
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.26);
+  box-shadow:
+    0 24px 70px rgba(1, 18, 72, 0.42),
+    0 0 0 1px rgba(212, 169, 63, 0.18),
+    0 0 60px rgba(212, 169, 63, 0.12);
+  backdrop-filter: blur(12px);
+  animation: dvn-float 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dvn-hero-panel { animation: none; }
+}
+
+.dvn-panel-rozet {
+  display: inline-flex;
+  align-items: center;
+  background: #0f766e;
+  color: white;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
 .dvn-panel-ust,
@@ -258,7 +335,8 @@ html {
 }
 
 .dvn-hero-serit {
-  background: #ffffff;
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, var(--dvn-gri-50) 100%);
   border-bottom: 1px solid var(--dvn-gri-300);
   display: flex;
   justify-content: center;
@@ -268,6 +346,19 @@ html {
   color: var(--dvn-gri-700);
   font-size: 13px;
   font-weight: 600;
+  overflow: hidden;
+}
+
+.dvn-hero-serit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--dvn-altin), var(--dvn-turuncu), transparent);
+  background-size: 200% 100%;
+  animation: dvn-gradyan-kay 6s linear infinite;
 }
 
 .dvn-hero-serit span {
@@ -286,6 +377,9 @@ html {
 }
 
 @media (max-width: 980px) {
+  .dvn-hero-yeni {
+    min-height: auto;
+  }
   .dvn-hero-icerik {
     grid-template-columns: 1fr;
     gap: 34px;
@@ -297,10 +391,10 @@ html {
 
 @media (max-width: 640px) {
   .dvn-hero-yeni {
-    padding: 46px 18px 50px;
+    padding: 48px 18px 50px;
   }
   .dvn-hero-metin h1 {
-    font-size: 28px;
+    font-size: 34px;
   }
   .dvn-hero-panel {
     padding: 20px;
@@ -314,6 +408,103 @@ html {
     padding: 14px 18px;
   }
   .dvn-hero-serit span:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* ==========================================
+   SAYFA KAPAK GORSELI
+   ========================================== */
+
+.dvn-kapak {
+  background: white;
+  padding: 26px 32px 0;
+}
+
+.dvn-kapak-ic {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.dvn-kapak-govde {
+  position: relative;
+  width: 100%;
+  min-height: clamp(230px, 29vw, 380px);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(2, 35, 152, 0.14);
+  background: var(--dvn-lacivert);
+}
+
+.dvn-kapak-img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.dvn-kapak-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(1, 18, 72, 0.84), rgba(2, 35, 152, 0.46) 50%, rgba(2, 35, 152, 0.06)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(1, 18, 72, 0.22));
+}
+
+.dvn-kapak-metin {
+  position: absolute;
+  left: clamp(22px, 4vw, 54px);
+  bottom: clamp(24px, 4vw, 48px);
+  z-index: 1;
+  max-width: min(620px, calc(100% - 44px));
+}
+
+.dvn-kapak-marka {
+  display: inline-flex;
+  color: var(--dvn-altin-acik);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  margin-bottom: 10px;
+}
+
+.dvn-kapak-metin p {
+  color: white;
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.14;
+  margin: 0;
+}
+
+.dvn-kapak-veri {
+  position: absolute;
+  right: clamp(18px, 3vw, 36px);
+  bottom: clamp(18px, 3vw, 34px);
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  min-width: 220px;
+}
+
+.dvn-kapak-veri span {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--dvn-lacivert);
+  border-radius: 6px;
+  padding: 8px 11px;
+  font-size: 12.5px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(1, 18, 72, 0.18);
+}
+
+@media (max-width: 760px) {
+  .dvn-kapak {
+    padding: 18px 16px 0;
+  }
+  .dvn-kapak-govde {
+    min-height: 260px;
+  }
+  .dvn-kapak-overlay {
+    background: linear-gradient(180deg, rgba(1, 18, 72, 0.62), rgba(1, 18, 72, 0.86));
+  }
+  .dvn-kapak-veri {
     display: none;
   }
 }
@@ -491,4 +682,149 @@ img {
 .dvn-skip-link:focus {
   top: 12px;
   color: #ffffff;
+}
+
+/* ==========================================
+   MODERN TASARIM ALTYAPISI (Robok tarzı)
+   Glow orb'lar, cam efekti, gradyan metin,
+   scroll-reveal ve hareket animasyonları.
+   Marka renkleri (lacivert/altın/turuncu) korunur.
+   ========================================== */
+
+/* --- Animasyon keyframe'leri --- */
+@keyframes dvn-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes dvn-glow-kay {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  33%  { transform: translate3d(4%, -3%, 0) scale(1.08); }
+  66%  { transform: translate3d(-3%, 4%, 0) scale(0.96); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes dvn-gradyan-kay {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes dvn-nabiz {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes dvn-yukari-belir {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dvn-serit-kay {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* --- Işıltılı glow orb (arka plan ışık topları) --- */
+.dvn-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  pointer-events: none;
+  will-change: transform;
+  animation: dvn-glow-kay 16s ease-in-out infinite;
+}
+
+.dvn-glow-orb--altin {
+  background: radial-gradient(circle, rgba(212, 169, 63, 0.85), transparent 68%);
+}
+
+.dvn-glow-orb--turuncu {
+  background: radial-gradient(circle, rgba(245, 130, 32, 0.78), transparent 68%);
+}
+
+.dvn-glow-orb--lacivert {
+  background: radial-gradient(circle, rgba(2, 39, 171, 0.9), transparent 68%);
+}
+
+/* --- İnce tech grid / nokta deseni --- */
+.dvn-grid-desen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 78%);
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 78%);
+}
+
+/* --- Cam efektli (glassmorphism) yüzey --- */
+.dvn-glass {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* --- Gradyan metin (başlıklar için altın/turuncu ışıltı) --- */
+.dvn-gradyan-metin {
+  background: linear-gradient(100deg, #ffffff 0%, #ffffff 38%, var(--dvn-altin-acik) 70%, var(--dvn-turuncu-acik) 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent;
+  animation: dvn-gradyan-kay 8s ease-in-out infinite;
+}
+
+.dvn-gradyan-metin--koyu {
+  background: linear-gradient(100deg, var(--dvn-lacivert) 0%, var(--dvn-lacivert-acik) 45%, var(--dvn-turuncu) 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent;
+  animation: dvn-gradyan-kay 8s ease-in-out infinite;
+}
+
+/* --- Yumuşak süzülme animasyonu --- */
+.dvn-suzul {
+  animation: dvn-float 7s ease-in-out infinite;
+}
+
+/* --- Scroll ile beliren bölümler (JS gerektirmez) ---
+   Tarayıcı view()-timeline'ı desteklemiyorsa içerik
+   normal görünür kalır; yalnızca destekleyen tarayıcıda
+   kayarak belirir. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .dvn-reveal {
+      opacity: 0;
+      animation: dvn-yukari-belir linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+  }
+}
+
+/* --- Parlayan kenarlı modern buton (ana CTA üzeri ışıltı) --- */
+.dvn-btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.dvn-btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.dvn-btn-primary:hover::after {
+  transform: translateX(120%);
 }
