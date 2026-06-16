@@ -2,14 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
-const surecAdimlari = [
-  "Başvuru ve kapsam teyidi",
-  "Sözleşme ve planlama",
-  "Aşama 1 doküman inceleme",
-  "Aşama 2 saha denetimi",
-  "Karar ve belge durumu",
-];
-
 export default function HeroSlider() {
   return (
     <>
@@ -51,29 +43,6 @@ export default function HeroSlider() {
               <Link href="/hizmetler" className="dvn-hero-link">
                 Hizmetleri incele
               </Link>
-            </div>
-          </div>
-
-          <div className="dvn-hero-panel" aria-label="Belgelendirme süreci özeti">
-            <div className="dvn-panel-rozet">Canlı süreç görünümü</div>
-            <div className="dvn-panel-ust">
-              <span>DVN CERT</span>
-              <strong>Belgelendirme Akışı</strong>
-            </div>
-            <div className="dvn-panel-cizgi" />
-            <div className="dvn-panel-kapsam">
-              {siteConfig.akreditasyon.hedefKapsam.map((std) => (
-                <span key={std}>{std}</span>
-              ))}
-            </div>
-            <ol className="dvn-panel-adimlar">
-              {surecAdimlari.map((adim) => (
-                <li key={adim}>{adim}</li>
-              ))}
-            </ol>
-            <div className="dvn-panel-alt">
-              <span>Belge durumu çevrim içi doğrulanabilir</span>
-              <Link href="/belgelendirme-sureci">Süreci gör</Link>
             </div>
           </div>
         </div>
