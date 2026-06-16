@@ -1,8 +1,32 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
+
+const ikonlar: Record<string, ReactNode> = {
+  belge: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="12" cy="8" r="6" />
+      <path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5" />
+    </svg>
+  ),
+  denetim: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+      <rect x="9" y="3" width="6" height="4" rx="1" />
+      <path d="m9 14 2 2 4-4" />
+    </svg>
+  ),
+  egitim: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+      <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+      <path d="M22 10v5" />
+    </svg>
+  ),
+};
 
 const hizmetler = [
   {
-    kod: "ISO",
+    ikon: "belge",
     baslik: "Sistem Belgelendirme",
     aciklama:
       "ISO 9001, 14001, 45001 ve 50001 yönetim sistemleri için başvuru, denetim planlama ve belge durumu süreçleri.",
@@ -10,7 +34,7 @@ const hizmetler = [
     link: "/hizmetler/sistem-belgelendirme",
   },
   {
-    kod: "2T",
+    ikon: "denetim",
     baslik: "İkinci Taraf Denetimleri",
     aciklama:
       "Tedarikçi, şube ve operasyon denetimlerinde kurumunuza özel kontrol kriterleriyle saha değerlendirmesi.",
@@ -18,7 +42,7 @@ const hizmetler = [
     link: "/hizmetler/2-taraf-denetimleri",
   },
   {
-    kod: "EDU",
+    ikon: "egitim",
     baslik: "Eğitim Hizmetleri",
     aciklama:
       "Yönetim sistemi, iç denetçi ve uygulama eğitimleriyle ekiplerin standart gerekliliklerini sahada yorumlaması.",
@@ -40,7 +64,7 @@ export default function Hizmetler() {
         <div className="dvn-hizmet-grid-yeni">
           {hizmetler.map((h) => (
             <Link key={h.link} href={h.link} className="dvn-hizmet-kart-yeni">
-              <div className="dvn-hizmet-kod">{h.kod}</div>
+              <div className="dvn-hizmet-ikon">{ikonlar[h.ikon]}</div>
               <h3>{h.baslik}</h3>
               <p>{h.aciklama}</p>
               <ul>
@@ -110,26 +134,37 @@ export default function Hizmetler() {
           z-index: 1;
         }
         .dvn-hizmet-kart-yeni:hover::after { opacity: 1; }
-        .dvn-hizmet-kod {
-          width: max-content;
-          min-width: 54px;
+        .dvn-hizmet-ikon {
+          position: relative;
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: 8px 14px;
-          border-radius: 8px;
+          border-radius: 16px;
           background: var(--dvn-gradient-lacivert);
           color: #fff;
-          font-size: 13px;
-          font-weight: 800;
-          letter-spacing: 0.8px;
           margin-bottom: 24px;
-          box-shadow: 0 6px 16px rgba(2, 35, 152, 0.22);
-          transition: transform 0.3s ease;
+          box-shadow: 0 10px 24px rgba(2, 35, 152, 0.28);
+          transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
         }
-        .dvn-hizmet-kart-yeni:hover .dvn-hizmet-kod {
+        .dvn-hizmet-ikon::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 16px;
+          background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 60%);
+          pointer-events: none;
+        }
+        .dvn-hizmet-ikon svg {
+          width: 30px;
+          height: 30px;
+        }
+        .dvn-hizmet-kart-yeni:hover .dvn-hizmet-ikon {
           background: var(--dvn-gradient-turuncu);
-          transform: scale(1.05);
+          transform: scale(1.08) rotate(-3deg);
+          box-shadow: 0 14px 30px rgba(245, 130, 32, 0.35);
         }
         .dvn-hizmet-kart-yeni h3 {
           color: var(--dvn-lacivert);
