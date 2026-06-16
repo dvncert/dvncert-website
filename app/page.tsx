@@ -1,6 +1,7 @@
 import HeroSlider from "./components/HeroSlider";
 import Istatistikler from "./components/Istatistikler";
 import Hizmetler from "./components/Hizmetler";
+import SertifikaSorgula from "./components/SertifikaSorgula";
 import Hakkimizda from "./components/Hakkimizda";
 import Referanslar from "./components/Referanslar";
 import MusteriYorumlari from "./components/MusteriYorumlari";
@@ -14,6 +15,7 @@ export default function AnaSayfa() {
       <HeroSlider />
       <div className="dvn-reveal"><Istatistikler /></div>
       <div className="dvn-reveal"><Hizmetler /></div>
+      <div className="dvn-reveal"><SertifikaSorgula /></div>
       <div className="dvn-reveal"><Hakkimizda /></div>
       <div className="dvn-reveal"><Referanslar /></div>
       <div className="dvn-reveal"><MusteriYorumlari /></div>
