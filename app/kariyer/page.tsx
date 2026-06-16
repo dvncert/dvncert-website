@@ -50,21 +50,22 @@ export default async function KariyerSayfasi() {
       <KapakGorsel src={kapakSrc ?? "/gorseller/sayfalar/kariyer.webp"} alt="DVN Cert kariyer fırsatları" ikon="denetim" etiket={icerik.kapakEtiket} oncelik />
 
       {/* Neden DVN Cert */}
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
               {icerik.nedenEtiket}
             </p>
-            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
               {icerik.nedenBaslik}
             </h2>
           </div>
 
           <div className="dvn-neden-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {icerik.nedenKartlari.map((n, i) => (
-              <div key={n.baslik || i} style={{ background: "var(--dvn-gri-50)", borderRadius: 14, padding: "28px 24px", border: "0.5px solid var(--dvn-gri-300)" }}>
+              <div key={n.baslik || i} className="dvn-neden-kart" style={{ background: "var(--dvn-gri-50)", borderRadius: 14, padding: "28px 24px", border: "0.5px solid var(--dvn-gri-300)" }}>
                 <div
+                  className="dvn-neden-ikon"
                   style={{
                     width: 52,
                     height: 52,
@@ -89,13 +90,13 @@ export default async function KariyerSayfasi() {
       </section>
 
       {/* İki başvuru yolu */}
-      <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
               {icerik.basvuruEtiket}
             </p>
-            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
               {icerik.basvuruBaslik}
             </h2>
           </div>
@@ -199,7 +200,7 @@ export default async function KariyerSayfasi() {
       </section>
 
       {/* İdari başvuru formu */}
-      <section id="basvuru-formu" style={{ background: "white", padding: "60px 32px 70px", scrollMarginTop: 120 }}>
+      <section id="basvuru-formu" className="dvn-reveal" style={{ background: "white", padding: "60px 32px 70px", scrollMarginTop: 120 }}>
         <div
           style={{
             maxWidth: 760,
@@ -225,6 +226,30 @@ export default async function KariyerSayfasi() {
       </section>
 
       <style>{`
+        .dvn-neden-kart {
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease, background 0.32s ease;
+        }
+        .dvn-neden-kart::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: var(--dvn-gradient-turuncu);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+        .dvn-neden-kart:hover {
+          transform: translateY(-6px);
+          background: #fff;
+          border-color: rgba(212,169,63,0.4);
+          box-shadow: 0 20px 44px rgba(2,35,152,0.13);
+        }
+        .dvn-neden-kart:hover::before { transform: scaleX(1); }
+        .dvn-neden-ikon { transition: transform 0.32s ease, background 0.32s ease; }
+        .dvn-neden-kart:hover .dvn-neden-ikon { transform: scale(1.08) rotate(-3deg); }
         @media (max-width: 820px) {
           .dvn-neden-grid { grid-template-columns: 1fr !important; }
           .dvn-basvuru-grid { grid-template-columns: 1fr !important; }

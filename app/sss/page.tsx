@@ -61,7 +61,7 @@ export default async function SSSSayfasi() {
 
       <KapakGorsel src="/gorseller/sayfalar/sss.webp" alt="DVN Cert sıkça sorulan sorular" etiket="Belgelendirme hakkında merak edilenler" oncelik />
 
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 820, margin: "0 auto", display: "grid", gap: 14 }}>
           {sorular.map((s, i) => (
             <details key={i} className="dvn-sss" style={{ background: "var(--dvn-gri-50)", borderRadius: 12, border: "0.5px solid var(--dvn-gri-300)", overflow: "hidden" }}>
@@ -94,34 +94,27 @@ export default async function SSSSayfasi() {
           {/* İletişim yönlendirmesi */}
           <div
             style={{
+              position: "relative",
+              overflow: "hidden",
               marginTop: 16,
               background: "var(--dvn-gradient-lacivert)",
               borderRadius: 14,
-              padding: "28px 30px",
+              padding: "30px 32px",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
               flexWrap: "wrap",
               gap: 16,
+              boxShadow: "0 16px 44px rgba(2,35,152,0.22), 0 0 0 1px rgba(212,169,63,0.16)",
             }}
           >
-            <div>
-              <h2 style={{ color: "white", fontSize: 18, fontWeight: 500, margin: "0 0 4px" }}>Sorunuzu burada bulamadınız mı?</h2>
-              <p style={{ color: "#9aa5b1", fontSize: 13.5, margin: 0 }}>Ekibimiz tüm sorularınızı yanıtlamaktan memnuniyet duyar.</p>
+            <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
+            <span className="dvn-glow-orb dvn-glow-orb--altin" aria-hidden style={{ top: -90, right: "10%", width: 240, height: 240, opacity: 0.38 }} />
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <h2 style={{ color: "white", fontSize: 19, fontWeight: 600, margin: "0 0 4px" }}>Sorunuzu burada bulamadınız mı?</h2>
+              <p style={{ color: "#cbd5e1", fontSize: 13.5, margin: 0 }}>Ekibimiz tüm sorularınızı yanıtlamaktan memnuniyet duyar.</p>
             </div>
-            <Link
-              href="/iletisim"
-              style={{
-                background: "var(--dvn-gradient-turuncu)",
-                color: "white",
-                padding: "12px 24px",
-                borderRadius: "var(--dvn-radius-md)",
-                fontWeight: 500,
-                fontSize: 13.5,
-                boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
-                whiteSpace: "nowrap",
-              }}
-            >
+            <Link href="/iletisim" className="dvn-btn-primary" style={{ padding: "12px 24px", fontSize: 13.5, whiteSpace: "nowrap", position: "relative", zIndex: 1 }}>
               Bize Ulaşın →
             </Link>
           </div>
@@ -129,10 +122,26 @@ export default async function SSSSayfasi() {
       </section>
 
       <style>{`
+        .dvn-sss {
+          position: relative;
+          transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .dvn-sss::before {
+          content: "";
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 4px;
+          background: var(--dvn-gradient-turuncu);
+          transform: scaleY(0);
+          transform-origin: top;
+          transition: transform 0.3s ease;
+          z-index: 1;
+        }
+        .dvn-sss[open] { border-color: rgba(212,169,63,0.5) !important; box-shadow: var(--dvn-shadow-md); }
+        .dvn-sss[open]::before { transform: scaleY(1); }
         .dvn-sss-baslik::-webkit-details-marker { display: none; }
         .dvn-sss[open] .dvn-sss-ok { transform: rotate(180deg); }
         .dvn-sss-ok { transition: transform 0.22s ease; }
-        .dvn-sss[open] { border-color: var(--dvn-altin) !important; }
         .dvn-sss-baslik:hover { color: var(--dvn-turuncu) !important; }
       `}</style>
     </main>

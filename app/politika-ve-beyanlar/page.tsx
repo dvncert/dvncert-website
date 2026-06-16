@@ -59,7 +59,7 @@ export default async function PolitikaVeBeyanlarSayfasi() {
 
       <KapakGorsel src="/gorseller/sayfalar/politika.webp" alt="DVN Cert politika ve beyanları" etiket="Tarafsızlık, gizlilik ve kalite ilkelerimiz" oncelik />
 
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div
             className="dvn-pol-grid"
@@ -68,6 +68,7 @@ export default async function PolitikaVeBeyanlarSayfasi() {
             {politikalar.map((p, i) => (
               <div
                 key={i}
+                className="dvn-pol-kart"
                 style={{
                   background: "var(--dvn-gri-50)",
                   borderRadius: 14,
@@ -77,6 +78,7 @@ export default async function PolitikaVeBeyanlarSayfasi() {
               >
                 <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 14 }}>
                   <div
+                    className="dvn-pol-ikon"
                     style={{
                       flexShrink: 0,
                       width: 46,
@@ -131,6 +133,30 @@ export default async function PolitikaVeBeyanlarSayfasi() {
       </section>
 
       <style>{`
+        .dvn-pol-kart {
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease, background 0.32s ease;
+        }
+        .dvn-pol-kart::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: var(--dvn-gradient-turuncu);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+        .dvn-pol-kart:hover {
+          transform: translateY(-5px);
+          background: #fff;
+          border-color: rgba(212,169,63,0.4);
+          box-shadow: 0 18px 40px rgba(2,35,152,0.12);
+        }
+        .dvn-pol-kart:hover::before { transform: scaleX(1); }
+        .dvn-pol-ikon { transition: transform 0.32s ease, background 0.32s ease; }
+        .dvn-pol-kart:hover .dvn-pol-ikon { transform: scale(1.08) rotate(-3deg); }
         @media (max-width: 820px) {
           .dvn-pol-grid { grid-template-columns: 1fr !important; }
         }

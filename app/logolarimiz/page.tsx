@@ -85,13 +85,13 @@ export default async function LogolarimizSayfasi() {
 
       <KapakGorsel src="/gorseller/sayfalar/logolarimiz.webp" alt="DVN Cert kurumsal logo ve marka kullanımı" etiket="Marka ve logo kullanım kuralları" oncelik />
 
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ marginBottom: 32 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
               LOGO DOSYALARI
             </p>
-            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 27, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
               DVN Cert kurumsal logosu
             </h2>
           </div>
@@ -109,13 +109,13 @@ export default async function LogolarimizSayfasi() {
         </div>
       </section>
 
-      <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 28 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
               MARKA KULLANIMI
             </p>
-            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
               Logo kullanım kuralları
             </h2>
             <p style={{ fontSize: 13.5, color: "var(--dvn-gri-500)", margin: "12px auto 0", maxWidth: 720, lineHeight: 1.7 }}>
@@ -155,7 +155,7 @@ export default async function LogolarimizSayfasi() {
           </div>
 
           <div className="dvn-kural-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
-            <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", borderTop: "3px solid var(--dvn-altin)" }}>
+            <div className="dvn-kural-kart" style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", borderTop: "3px solid var(--dvn-altin)" }}>
               <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 18px", display: "flex", alignItems: "center", gap: 8 }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="var(--dvn-altin)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
@@ -172,7 +172,7 @@ export default async function LogolarimizSayfasi() {
               </ul>
             </div>
 
-            <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", borderTop: "3px solid var(--dvn-turuncu)" }}>
+            <div className="dvn-kural-kart" style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", borderTop: "3px solid var(--dvn-turuncu)" }}>
               <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 18px", display: "flex", alignItems: "center", gap: 8 }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M15 9l-6 6M9 9l6 6M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="var(--dvn-turuncu)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
@@ -264,6 +264,14 @@ export default async function LogolarimizSayfasi() {
       </section>
 
       <style>{`
+        .dvn-logo-kart, .dvn-kural-kart {
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .dvn-logo-kart:hover, .dvn-kural-kart:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 18px 40px rgba(2,35,152,0.12) !important;
+          border-color: rgba(212,169,63,0.4);
+        }
         @media (max-width: 820px) {
           .dvn-logo-grid { grid-template-columns: 1fr !important; }
           .dvn-kural-grid { grid-template-columns: 1fr !important; }
@@ -278,7 +286,7 @@ function LogoKart({ logo }: { logo: LogoDosyasi }) {
   const onizlemeUrl = logo.dosya;
   const previewable = onizlemeUrl && (logo.dosyaMime?.startsWith("image/") ?? false);
   return (
-    <div style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)" }}>
+    <div className="dvn-logo-kart" style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)" }}>
       <div
         style={{
           background: zeminKoyu ? "var(--dvn-gradient-lacivert)" : "var(--dvn-gri-50)",
@@ -337,7 +345,7 @@ function LogoKart({ logo }: { logo: LogoDosyasi }) {
 
 function VarsayilanLogoKart({ zeminKoyu }: { zeminKoyu: boolean }) {
   return (
-    <div style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)" }}>
+    <div className="dvn-logo-kart" style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)" }}>
       <div
         style={{
           background: zeminKoyu ? "var(--dvn-gradient-lacivert)" : "var(--dvn-gri-50)",
