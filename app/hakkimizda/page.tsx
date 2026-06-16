@@ -72,12 +72,12 @@ export default async function HakkimizdaSayfasi() {
       <KapakGorsel src="/gorseller/sayfalar/hakkimizda.webp" alt="DVN Cert - bağımsız belgelendirme kuruluşu" etiket="Bağımsız ve tarafsız belgelendirme kuruluşu" oncelik />
 
       {/* Giriş */}
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto" }}>
           <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 10px" }}>
             {al("giris-etiket")}
           </p>
-          <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 26, fontWeight: 500, margin: "0 0 18px", lineHeight: 1.3 }}>
+          <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: "0 0 18px", lineHeight: 1.3, display: "inline-block" }}>
             {al("giris-baslik")}
           </h2>
           <p style={{ fontSize: 15, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: 0 }}>
@@ -87,7 +87,7 @@ export default async function HakkimizdaSayfasi() {
       </section>
 
       {/* Misyon & Vizyon */}
-      <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div
           className="dvn-mv-grid"
           style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}
@@ -98,6 +98,7 @@ export default async function HakkimizdaSayfasi() {
           ].map((mv) => (
             <div
               key={mv.etiket}
+              className="dvn-ic-mv-kart"
               style={{
                 background: "white",
                 borderRadius: 16,
@@ -117,7 +118,7 @@ export default async function HakkimizdaSayfasi() {
       </section>
 
       {/* Değerlerimiz */}
-      <section style={{ background: "white", padding: "60px 32px" }}>
+      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
@@ -132,6 +133,7 @@ export default async function HakkimizdaSayfasi() {
             {degerler.map((d, i) => (
               <div
                 key={i}
+                className="dvn-ic-deger-kart"
                 style={{
                   background: "var(--dvn-gri-50)",
                   borderRadius: 14,
@@ -140,6 +142,7 @@ export default async function HakkimizdaSayfasi() {
                 }}
               >
                 <div
+                  className="dvn-ic-deger-ikon"
                   style={{
                     width: 52,
                     height: 52,
@@ -168,41 +171,38 @@ export default async function HakkimizdaSayfasi() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
         <div
           style={{
+            position: "relative",
+            overflow: "hidden",
             maxWidth: 1100,
             margin: "0 auto",
             background: "var(--dvn-gradient-lacivert)",
             borderRadius: 18,
-            padding: "40px 36px",
+            padding: "44px 40px",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             flexWrap: "wrap",
             gap: 20,
+            boxShadow: "0 18px 50px rgba(2,35,152,0.24), 0 0 0 1px rgba(212,169,63,0.16)",
           }}
         >
-          <div>
-            <h2 style={{ color: "white", fontSize: 21, fontWeight: 500, margin: "0 0 6px" }}>
+          <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
+          <span className="dvn-glow-orb dvn-glow-orb--altin" aria-hidden style={{ top: -110, right: "10%", width: 280, height: 280, opacity: 0.4 }} />
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <h2 style={{ color: "white", fontSize: 23, fontWeight: 600, margin: "0 0 6px" }}>
               {al("cta-baslik")}
             </h2>
-            <p style={{ color: "#9aa5b1", fontSize: 13.5, margin: 0 }}>
+            <p style={{ color: "#cbd5e1", fontSize: 13.5, margin: 0 }}>
               {al("cta-metin")}
             </p>
           </div>
           <Link
             href="/iletisim"
-            style={{
-              background: "var(--dvn-gradient-turuncu)",
-              color: "white",
-              padding: "13px 26px",
-              borderRadius: "var(--dvn-radius-md)",
-              fontWeight: 500,
-              fontSize: 14,
-              boxShadow: "0 8px 20px rgba(245,130,32,0.3)",
-              whiteSpace: "nowrap",
-            }}
+            className="dvn-btn-primary"
+            style={{ padding: "13px 26px", fontSize: 14, position: "relative", zIndex: 1, whiteSpace: "nowrap" }}
           >
             Bize Ulaşın →
           </Link>
@@ -210,6 +210,42 @@ export default async function HakkimizdaSayfasi() {
       </section>
 
       <style>{`
+        .dvn-ic-mv-kart {
+          transition: transform 0.32s ease, box-shadow 0.32s ease;
+        }
+        .dvn-ic-mv-kart:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 44px rgba(2,35,152,0.14) !important;
+        }
+        .dvn-ic-deger-kart {
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease, background 0.32s ease;
+        }
+        .dvn-ic-deger-kart::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 3px;
+          background: var(--dvn-gradient-turuncu);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s ease;
+        }
+        .dvn-ic-deger-kart:hover {
+          transform: translateY(-6px);
+          background: #fff;
+          border-color: rgba(212,169,63,0.4);
+          box-shadow: 0 20px 44px rgba(2,35,152,0.13);
+        }
+        .dvn-ic-deger-kart:hover::before { transform: scaleX(1); }
+        .dvn-ic-deger-ikon {
+          transition: transform 0.32s ease, background 0.32s ease;
+        }
+        .dvn-ic-deger-kart:hover .dvn-ic-deger-ikon {
+          background: var(--dvn-gradient-turuncu) !important;
+          transform: scale(1.08) rotate(-3deg);
+        }
         @media (max-width: 820px) {
           .dvn-mv-grid { grid-template-columns: 1fr !important; }
           .dvn-deger-grid { grid-template-columns: 1fr 1fr !important; }
