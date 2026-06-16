@@ -135,7 +135,7 @@ export default async function Duyurular() {
           display: grid;
           grid-template-columns: 1.25fr 1fr;
           gap: 22px;
-          align-items: stretch;
+          align-items: start;
         }
 
         /* Ortak kapak */
@@ -154,7 +154,7 @@ export default async function Duyurular() {
           height: 120px;
           color: rgba(255,255,255,0.16);
         }
-        .dvn-haber-img { object-fit: cover; transition: transform 0.5s ease; }
+        .dvn-haber-img { object-fit: cover; object-position: center; transition: transform 0.5s ease; }
         .dvn-haber-rozet {
           position: absolute;
           top: 14px;
@@ -184,7 +184,7 @@ export default async function Duyurular() {
           box-shadow: var(--dvn-shadow-md);
           transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
         }
-        .dvn-haber-one .dvn-haber-kapak.buyuk { min-height: 280px; flex: 1; }
+        .dvn-haber-one .dvn-haber-kapak.buyuk { aspect-ratio: 16 / 9; width: 100%; }
         .dvn-haber-one-govde { padding: 26px 28px 30px; }
         .dvn-haber-one-govde h3 {
           color: var(--dvn-lacivert);
