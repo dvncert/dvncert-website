@@ -29,23 +29,14 @@ export default function SayfaBaslik({
     <section
       style={{
         background: "var(--dvn-gradient-lacivert)",
-        padding: "44px 32px",
+        padding: "48px 32px",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Dekoratif daire */}
-      <div
-        style={{
-          position: "absolute",
-          top: -60,
-          right: -40,
-          width: 220,
-          height: 220,
-          background: "radial-gradient(circle, rgba(212,169,63,0.16) 0%, transparent 70%)",
-          borderRadius: "50%",
-        }}
-      />
+      <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
+      <span className="dvn-glow-orb dvn-glow-orb--altin" aria-hidden style={{ top: -130, right: -50, width: 320, height: 320, opacity: 0.4 }} />
+      <span className="dvn-glow-orb dvn-glow-orb--turuncu" aria-hidden style={{ bottom: -160, left: "12%", width: 280, height: 280, opacity: 0.28 }} />
 
       <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Breadcrumb */}
