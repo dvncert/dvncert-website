@@ -7,21 +7,24 @@ export default function Footer() {
 
   return (
     <footer>
-      <div style={{ background: "var(--dvn-gradient-lacivert)", padding: "30px 32px" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20 }}>
+      <div className="dvn-footer-cta" style={{ background: "var(--dvn-gradient-lacivert)", padding: "38px 32px", position: "relative", overflow: "hidden" }}>
+        <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
+        <span className="dvn-glow-orb dvn-glow-orb--altin" aria-hidden style={{ top: -120, right: "12%", width: 300, height: 300, opacity: 0.35 }} />
+        <span className="dvn-glow-orb dvn-glow-orb--turuncu" aria-hidden style={{ bottom: -140, left: -40, width: 260, height: 260, opacity: 0.25 }} />
+        <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20, position: "relative", zIndex: 1 }}>
           <div>
-            <h2 style={{ color: "white", fontSize: 20, fontWeight: 500, margin: "0 0 6px" }}>
-              Belgelendirme süreciniz için <span style={{ color: "var(--dvn-turuncu-acik)" }}>ücretsiz teklif</span> alın
+            <h2 style={{ color: "white", fontSize: 23, fontWeight: 600, margin: "0 0 6px" }}>
+              Belgelendirme süreciniz için <span className="dvn-altin-vurgu">ücretsiz teklif</span> alın
             </h2>
-            <p style={{ color: "#cbd5e1", fontSize: 13, margin: 0 }}>Online başvuru sistemimiz ile dakikalar içinde başvurunuzu oluşturun.</p>
+            <p style={{ color: "#cbd5e1", fontSize: 13.5, margin: 0 }}>Online başvuru sistemimiz ile dakikalar içinde başvurunuzu oluşturun.</p>
           </div>
-          <Link href="https://dbys.dvncert.com/basvuru" target="_blank" style={{ background: "var(--dvn-gradient-turuncu)", color: "white", padding: "12px 24px", borderRadius: 8, fontWeight: 500, fontSize: 13, boxShadow: "0 8px 20px rgba(245,130,32,0.3)" }}>
+          <Link href="https://dbys.dvncert.com/basvuru" target="_blank" className="dvn-btn-primary" style={{ padding: "13px 26px", fontSize: 14 }}>
             Hemen başvur →
           </Link>
         </div>
       </div>
 
-      <div style={{ background: "var(--dvn-lacivert-koyu)", padding: "40px 32px 24px", color: "#94a3b8" }}>
+      <div className="dvn-footer-alt" style={{ background: "var(--dvn-lacivert-koyu)", padding: "40px 32px 24px", color: "#94a3b8", position: "relative" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 32 }}>
           <div>
             <div
@@ -100,6 +103,26 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .dvn-footer-alt::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--dvn-altin), var(--dvn-turuncu), transparent);
+          background-size: 200% 100%;
+          animation: dvn-gradyan-kay 7s linear infinite;
+        }
+        .dvn-footer-alt a {
+          transition: color 0.2s ease, transform 0.2s ease;
+          width: fit-content;
+        }
+        .dvn-footer-alt a:hover {
+          color: var(--dvn-turuncu-acik) !important;
+          transform: translateX(3px);
+        }
+      `}</style>
     </footer>
   );
 }

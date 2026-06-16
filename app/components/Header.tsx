@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HizmetIkon from "./HizmetIkon";
 
 type EkstraOge = { id: number; baslik: string; href: string; yeniSekme: boolean };
@@ -171,11 +171,19 @@ export default function Header({ ekstraOgeler = [] }: { ekstraOgeler?: EkstraOge
   const [kurumsalAcikMobil, setKurumsalAcikMobil] = useState(false);
   const [hizmetlerAcikMobil, setHizmetlerAcikMobil] = useState(false);
   const [iletisimAcikMobil, setIletisimAcikMobil] = useState(false);
+  const [kaydirildi, setKaydirildi] = useState(false);
+
+  useEffect(() => {
+    const izle = () => setKaydirildi(window.scrollY > 8);
+    izle();
+    window.addEventListener("scroll", izle, { passive: true });
+    return () => window.removeEventListener("scroll", izle);
+  }, []);
 
   return (
-    <header style={{ position: "sticky", top: 0, zIndex: 100, background: "white" }}>
+    <header className={`dvn-header${kaydirildi ? " kaydirildi" : ""}`}>
       {/* Üst bilgi şeridi - tam genişlik zemin, içerik 1280 ortalı */}
-      <div style={{ background: "var(--dvn-lacivert)", padding: "8px 32px", fontSize: 12, color: "#9aa5b1" }}>
+      <div style={{ background: "var(--dvn-gradient-lacivert)", padding: "8px 32px", fontSize: 12, color: "#9aa5b1" }}>
         <div
           style={{
             maxWidth: 1280,
@@ -280,7 +288,7 @@ export default function Header({ ekstraOgeler = [] }: { ekstraOgeler?: EkstraOge
       </div>
 
       {/* Ana navigasyon - tam genişlik zemin, içerik 1280 ortalı (slider ile hizalı) */}
-      <div style={{ background: "white", padding: "14px 32px", borderBottom: "0.5px solid var(--dvn-gri-300)" }}>
+      <div className="dvn-header-nav-row" style={{ padding: "12px 32px" }}>
         <div
           style={{
             maxWidth: 1280,
@@ -463,14 +471,8 @@ export default function Header({ ekstraOgeler = [] }: { ekstraOgeler?: EkstraOge
             <Link
               href="https://dbys.dvncert.com/basvuru"
               target="_blank"
-              style={{
-                background: "var(--dvn-turuncu)",
-                color: "white",
-                padding: "9px 18px",
-                borderRadius: "var(--dvn-radius-md)",
-                fontWeight: 500,
-                boxShadow: "0 4px 12px rgba(245,130,32, 0.25)",
-              }}
+              className="dvn-btn-primary dvn-cta"
+              style={{ padding: "9px 18px" }}
             >
               Başvuru Yap
             </Link>
@@ -726,6 +728,50 @@ export default function Header({ ekstraOgeler = [] }: { ekstraOgeler?: EkstraOge
       )}
 
       <style>{`
+        .dvn-header {
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          transition: box-shadow 0.3s ease;
+        }
+        .dvn-header.kaydirildi {
+          box-shadow: 0 8px 30px rgba(2, 35, 152, 0.1);
+        }
+        .dvn-header-nav-row {
+          background: rgba(255, 255, 255, 0.82);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          border-bottom: 1px solid var(--dvn-gri-300);
+          transition: background 0.3s ease;
+        }
+        .dvn-header.kaydirildi .dvn-header-nav-row {
+          background: rgba(255, 255, 255, 0.94);
+        }
+
+        /* Üst düzey nav linklerine animasyonlu alt çizgi */
+        .dvn-desktop-menu > a:not(.dvn-cta),
+        .dvn-desktop-menu > .dvn-dd > .dvn-dd-tetik {
+          position: relative;
+        }
+        .dvn-desktop-menu > a:not(.dvn-cta)::after,
+        .dvn-desktop-menu > .dvn-dd > .dvn-dd-tetik::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -6px;
+          height: 2px;
+          border-radius: 2px;
+          background: var(--dvn-gradient-turuncu);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.25s ease;
+        }
+        .dvn-desktop-menu > a:not(.dvn-cta):hover::after,
+        .dvn-desktop-menu > .dvn-dd:hover > .dvn-dd-tetik::after {
+          transform: scaleX(1);
+        }
+
         @media (max-width: 1100px) {
           .dvn-desktop-menu {
             display: none !important;

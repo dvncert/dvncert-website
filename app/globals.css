@@ -882,6 +882,15 @@ img {
   animation: dvn-gradyan-kay 8s ease-in-out infinite;
 }
 
+/* Koyu zeminde kısa ifadeler için altın→turuncu vurgu */
+.dvn-altin-vurgu {
+  background: linear-gradient(100deg, var(--dvn-altin-acik) 0%, var(--dvn-turuncu-acik) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent;
+}
+
 .dvn-gradyan-metin--koyu {
   background: linear-gradient(100deg, var(--dvn-lacivert) 0%, var(--dvn-lacivert-acik) 45%, var(--dvn-turuncu) 100%);
   background-size: 220% auto;
