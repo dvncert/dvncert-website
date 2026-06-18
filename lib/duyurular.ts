@@ -40,6 +40,8 @@ export const duyurular: Duyuru[] = [
       "TÜRKAK, ISO/IEC 17021-1 alanında Avrupa Akreditasyon Birliği (EA) ve Uluslararası Akreditasyon Forumu (IAF) ile çok taraflı tanınırlık anlaşmalarına (MLA) taraftır. Bu sayede DVN Cert tarafından düzenlenen yönetim sistemi belgeleri uluslararası geçerlilik ve tanınırlık taşır.\n\n" +
       "Akreditasyonumuzun resmi durumunu [TÜRKAK akredite kuruluş sorgulama](https://asist.turkak.org.tr/tr/accreditation/accreditationagencysearch) üzerinden; akreditasyon kapsamımızın ayrıntılarını ve sertifikamızın indirilebilir kopyasını ise [Akreditasyonumuz](/akreditasyonlarimiz) sayfasından inceleyebilirsiniz.\n\n" +
       "Bu önemli aşamada emeği geçen tüm ekibimize ve bize güvenen paydaşlarımıza teşekkür ederiz.",
+    gorsel: "/gorseller/duyurular/turkak-akreditasyon.webp",
+    gorselAlt: "DVN Cert TÜRKAK akreditasyonu — TS EN ISO/IEC 17021-1:2015, Akreditasyon No AB-0209-YS",
     ilgiliHizmetler: ["sistem-belgelendirme"],
   },
   {
