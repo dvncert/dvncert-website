@@ -86,7 +86,7 @@ export default async function AkreditasyonlarimizSayfasi() {
             </p>
             <p style={{ fontSize: 14.5, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: "0 0 22px" }}>
               {akreditasyon.not} Akreditasyonun resmi durumunu{" "}
-              <a href="https://tbds.turkak.org.tr" target="_blank" rel="noopener noreferrer" style={{ color: "var(--dvn-turuncu)", fontWeight: 500 }}>TÜRKAK TBDS</a>{" "}
+              <a href="https://asist.turkak.org.tr/tr/accreditation/accreditationagencysearch" target="_blank" rel="noopener noreferrer" style={{ color: "var(--dvn-turuncu)", fontWeight: 500 }}>TÜRKAK akredite kuruluş sorgulama</a>{" "}
               üzerinden de teyit edebilirsiniz.
             </p>
             <a href={akreditasyon.belgeUrl} target="_blank" rel="noopener noreferrer" className="dvn-btn-primary" style={{ padding: "13px 24px", fontSize: 14 }}>
