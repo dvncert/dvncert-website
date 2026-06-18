@@ -28,6 +28,21 @@ export type Duyuru = {
 
 export const duyurular: Duyuru[] = [
   {
+    slug: "turkak-akreditasyonumuzu-aldik",
+    baslik: "TÜRKAK Akreditasyonumuzu Aldık",
+    tarih: "2026-06-18",
+    kategori: "Akreditasyon",
+    ozet:
+      "DVN Cert, TÜRKAK tarafından TS EN ISO/IEC 17021-1:2015 kapsamında akredite edilmiştir (Akreditasyon No: AB-0209-YS). ISO 9001, 14001, 45001 ve 50001 belgelendirme hizmetlerimiz artık akreditasyon kapsamındadır.",
+    icerik:
+      "DVN Cert olarak, Türk Akreditasyon Kurumu (TÜRKAK) tarafından **18 Haziran 2026** tarihinde, TS EN ISO/IEC 17021-1:2015 standardı kapsamında akredite edildiğimizi paylaşmaktan büyük mutluluk duyuyoruz.\n\n" +
+      "**AB-0209-YS** numaralı akreditasyonumuz; ISO 9001:2015 Kalite, ISO 14001:2015 Çevre, ISO 45001:2018 İş Sağlığı ve Güvenliği ve ISO 50001:2018 Enerji Yönetim Sistemleri belgelendirmelerini kapsamaktadır. Sertifikamız 18.06.2030 tarihine kadar geçerlidir.\n\n" +
+      "TÜRKAK, ISO/IEC 17021-1 alanında Avrupa Akreditasyon Birliği (EA) ve Uluslararası Akreditasyon Forumu (IAF) ile çok taraflı tanınırlık anlaşmalarına (MLA) taraftır. Bu sayede DVN Cert tarafından düzenlenen yönetim sistemi belgeleri uluslararası geçerlilik ve tanınırlık taşır.\n\n" +
+      "Akreditasyonumuzun resmi durumunu [TÜRKAK akredite kuruluş sorgulama](https://asist.turkak.org.tr/tr/accreditation/accreditationagencysearch) üzerinden; akreditasyon kapsamımızın ayrıntılarını ve sertifikamızın indirilebilir kopyasını ise [Akreditasyonumuz](/akreditasyonlarimiz) sayfasından inceleyebilirsiniz.\n\n" +
+      "Bu önemli aşamada emeği geçen tüm ekibimize ve bize güvenen paydaşlarımıza teşekkür ederiz.",
+    ilgiliHizmetler: ["sistem-belgelendirme"],
+  },
+  {
     slug: "yaniltici-akreditasyon-beyanlari-hakkinda",
     baslik: "Yanıltıcı Akreditasyon Beyanları Hakkında",
     tarih: "2026-01-30",
@@ -38,19 +53,6 @@ export const duyurular: Duyuru[] = [
       "DVN Cert yönetimi, belgelendirme sektörünün güven ve uluslararası tanınırlık üzerine kurulu olduğunu vurgulayarak, şeffaflık ve etik ilkelere bağlılığını ifade etmektedir.\n\n" +
       "Kuruluşumuz, akreditasyon ekosisteminde yer alan kurumların (IAS, TÜRKAK gibi) itibarını korumak amacıyla; akreditasyonu bulunmadığı halde usulsüz logo kullanımı yapan firmalara karşı dikkatli olunması gerektiğini hatırlatmaktadır.\n\n" +
       "Bu kapsamda, International Accreditation Service (IAS) tarafından yayımlanan yanıltıcı akreditasyon beyanları listesinin sektörel farkındalık amacıyla paylaşıldığı belirtilmektedir. DVN Cert, belgelendirme süreçlerinde dürüstlük ilkesine bağlı kalınacağı ve sektördeki bilgi kirliliğinin önlenmesine katkı sağlanacağı taahhüdünde bulunmaktadır.",
-  },
-  {
-    slug: "akreditasyon-sureci-bilgilendirmesi",
-    baslik: "Akreditasyon Süreci Bilgilendirmesi",
-    tarih: "2026-05-01",
-    kategori: "Akreditasyon",
-    ozet:
-      "TÜRKAK akreditasyon sürecimiz devam etmektedir. Süreç tamamlanana kadar akredite sertifikalandırma hizmeti verildiğine dair bir beyan kullanılmamaktadır.",
-    icerik:
-      "DVN Cert'in TÜRKAK akreditasyon süreci devam etmektedir.\n\n" +
-      "Bu süreç içerisinde akredite sertifikalandırma hizmeti verildiğine dair bir beyan kullanılmamaktadır. Resmi kapsam ve akreditasyon numarası oluştuğunda duyurularımız, akreditasyon sayfamız ve hizmet metinlerimiz güncellenecektir.\n\n" +
-      "Başvuru veya mevcut belge doğrulama süreçleri hakkında bilgi almak isteyen kuruluşlar iletişim kanallarımız üzerinden ekibimize ulaşabilir.",
-    ilgiliHizmetler: ["sistem-belgelendirme"],
   },
   {
     slug: "iso-9001-ic-denetci-egitimi",
