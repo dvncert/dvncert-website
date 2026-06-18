@@ -1,8 +1,10 @@
 /**
- * DVN Cert - İçerik senkronu (lib/blog.ts -> DB), yalnızca-ekleme, build-güvenli.
+ * DVN Cert - İçerik senkronu (lib/blog.ts + lib/duyurular.ts -> DB),
+ * yalnızca-ekleme, build-güvenli.
  *
- * NEDEN: Public bloglar prod'da DB'den beslenir (dbHazir=true). lib/blog.ts'e
- * eklenen yeni yazıların canlıda görünmesi için DB'ye de eklenmesi gerekir.
+ * NEDEN: Public blog ve duyurular prod'da DB'den beslenir (dbHazir=true).
+ * lib'e eklenen yeni yazı/duyuruların canlıda görünmesi için DB'ye de
+ * eklenmesi gerekir.
  * Bu script production build'inde (Vercel) prebuild olarak otomatik çalışır ve
  * DB'de olmayan blogları ekler — böylece "main'e push" deploy akışı, içeriği de
  * canlıya taşır.
@@ -33,8 +35,9 @@ async function main() {
 
   // Dinamik importlar: dotenv config()'ten SONRA -> POSTGRES_URL hazır
   const { db } = await import("../lib/db");
-  const { blogYazilari: blogTbl } = await import("../lib/db/schema");
+  const { blogYazilari: blogTbl, duyurular: duyuruTbl } = await import("../lib/db/schema");
   const { blogYazilari } = await import("../lib/blog");
+  const { duyurular: duyuruStatik } = await import("../lib/duyurular");
 
   const mevcut = await db.select({ slug: blogTbl.slug }).from(blogTbl);
   const mevcutSet = new Set(mevcut.map((r) => r.slug));
@@ -61,7 +64,33 @@ async function main() {
       .onConflictDoNothing({ target: blogTbl.slug });
   }
 
-  for (const b of eklenecek) console.log(`[sync-content]  + ${b.slug} (${b.tarih})`);
+  for (const b of eklenecek) console.log(`[sync-content]  + blog ${b.slug} (${b.tarih})`);
+
+  // Duyurular (yalnızca-ekleme). Mevcut kayıtlara DOKUNULMAZ (onConflictDoNothing).
+  const mevcutD = await db.select({ slug: duyuruTbl.slug }).from(duyuruTbl);
+  const mevcutDSet = new Set(mevcutD.map((r) => r.slug));
+  const eklenecekD = duyuruStatik.filter((d) => !mevcutDSet.has(d.slug));
+  console.log(
+    `[sync-content] DB duyuru: ${mevcutD.length} | lib: ${duyuruStatik.length} | eklenecek: ${eklenecekD.length}`,
+  );
+  for (const d of duyuruStatik) {
+    await db
+      .insert(duyuruTbl)
+      .values({
+        slug: d.slug,
+        baslik: d.baslik,
+        tarih: d.tarih,
+        kategori: d.kategori,
+        ozet: d.ozet,
+        icerik: d.icerik,
+        gorsel: d.gorsel ?? null,
+        gorselAlt: d.gorselAlt ?? null,
+        ilgiliHizmetler: d.ilgiliHizmetler ?? [],
+      })
+      .onConflictDoNothing({ target: duyuruTbl.slug });
+  }
+  for (const d of eklenecekD) console.log(`[sync-content]  + duyuru ${d.slug} (${d.tarih})`);
+
   console.log("[sync-content] Tamam.");
 }
 
