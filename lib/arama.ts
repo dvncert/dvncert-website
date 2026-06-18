@@ -23,7 +23,7 @@ const statikSayfalar: AramaSonucu[] = [
   { baslik: "Hizmetlerimiz", ozet: "Belgelendirme ve denetim hizmetlerimiz.", url: "/hizmetler", tip: "Sayfa" },
   { baslik: "Hakkımızda", ozet: "DVN Cert hakkında kurumsal bilgi.", url: "/hakkimizda", tip: "Sayfa" },
   { baslik: "Ekibimiz", ozet: "Denetçi ve uzman kadromuz.", url: "/ekibimiz", tip: "Sayfa" },
-  { baslik: "Akreditasyon Durumu", ozet: "TÜRKAK akreditasyon süreci ve hedef kapsam bilgilendirmesi.", url: "/akreditasyonlarimiz", tip: "Sayfa" },
+  { baslik: "Akreditasyonumuz", ozet: "TÜRKAK akreditasyonu (AB-0209-YS): ISO 9001, 14001, 45001, 50001 akreditasyon kapsamı ve sertifika.", url: "/akreditasyonlarimiz", tip: "Sayfa" },
   { baslik: "Politika ve Beyanlar", ozet: "Tarafsızlık, gizlilik ve kalite politikalarımız.", url: "/politika-ve-beyanlar", tip: "Sayfa" },
   { baslik: "Logolarımız", ozet: "DVN Cert ve akreditasyon logoları kullanımı.", url: "/logolarimiz", tip: "Sayfa" },
   { baslik: "Eğitimler", ozet: "ISO yönetim sistemleri eğitimleri.", url: "/egitimler", tip: "Sayfa" },

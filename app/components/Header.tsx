@@ -29,7 +29,7 @@ const kurumsalMenu = [
     ),
   },
   {
-    baslik: "Akreditasyon Durumu",
+    baslik: "Akreditasyonumuz",
     href: "/akreditasyonlarimiz",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none">

@@ -12,7 +12,7 @@ const SAYFA_LISTESI: { yol: string; ad: string; varsayilanTitle: string; varsayi
   { yol: "/", ad: "Ana sayfa", varsayilanTitle: "DVN Cert Belgelendirme - ISO Belgelendirme, Denetim ve Eğitim", varsayilanDesc: "ISO 9001, 14001, 45001 ve 50001 için bağımsız, tarafsız ve izlenebilir süreç yönetimi." },
   { yol: "/hakkimizda", ad: "Hakkımızda", varsayilanTitle: "Hakkımızda | DVN Cert", varsayilanDesc: "" },
   { yol: "/ekibimiz", ad: "Ekibimiz", varsayilanTitle: "Ekibimiz | DVN Cert", varsayilanDesc: "DVN Cert'in alanında deneyimli baş denetçi ve teknik uzman kadrosu." },
-  { yol: "/akreditasyonlarimiz", ad: "Akreditasyon Durumu", varsayilanTitle: "Akreditasyon Durumu | DVN Cert", varsayilanDesc: "TÜRKAK akreditasyon süreci, hedef kapsam ve güncel bilgilendirme." },
+  { yol: "/akreditasyonlarimiz", ad: "Akreditasyonumuz", varsayilanTitle: "Akreditasyonumuz | DVN Cert", varsayilanDesc: "TÜRKAK akreditasyonu (AB-0209-YS): ISO 9001, 14001, 45001 ve 50001 akreditasyon kapsamı ve sertifikamız." },
   { yol: "/politika-ve-beyanlar", ad: "Politika ve Beyanlar", varsayilanTitle: "Politika ve Beyanlar | DVN Cert", varsayilanDesc: "" },
   { yol: "/logolarimiz", ad: "Logolarımız", varsayilanTitle: "Logolarımız | DVN Cert", varsayilanDesc: "" },
   { yol: "/dokumanlar", ad: "Dokümanlar", varsayilanTitle: "Dokümanlar | DVN Cert", varsayilanDesc: "" },

@@ -59,14 +59,20 @@ export const siteConfig = {
     instagram: "",
   },
 
-  // Akreditasyon bilgileri
+  // Akreditasyon bilgileri (TÜRKAK — yayımlandı: 18.06.2026)
   akreditasyon: {
     kurulus: "TÜRKAK",
-    durum: "Akreditasyon süreci devam etmektedir.",
+    akredite: true,
+    no: "AB-0209-YS",
+    standart: "TS EN ISO/IEC 17021-1:2015",
+    tarih: "18.06.2026",
+    gecerlilik: "18.06.2030",
+    belgeUrl: "/dokumanlar/akreditasyon-sertifikasi.pdf",
+    durum: "TÜRKAK tarafından akredite edilmiştir.",
     not:
-      "Akredite sertifikalandırma hizmeti, TÜRKAK süreci tamamlandıktan ve kapsam resmen duyurulduktan sonra sunulacaktır.",
+      "DVN Cert, TÜRKAK tarafından TS EN ISO/IEC 17021-1:2015 kapsamında akredite edilmiştir (Akreditasyon No: AB-0209-YS). Sertifika 18.06.2030 tarihine kadar geçerlidir.",
     hedefKapsam: ["ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018", "ISO 50001:2018"],
-    referansNumarasi: "", // Resmi numara oluştuğunda yayınlanmalıdır.
+    referansNumarasi: "AB-0209-YS",
   },
 
   // Coğrafi koordinatlar (Pendik için yaklaşık)

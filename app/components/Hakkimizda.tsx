@@ -112,10 +112,10 @@ export default function Hakkimizda() {
                 margin: "0 0 6px",
               }}
             >
-              AKREDİTASYON DURUMU
+              AKREDİTASYON · {siteConfig.akreditasyon.no}
             </p>
             <h3 style={{ color: "white", fontSize: 19, fontWeight: 500, margin: "0 0 4px", lineHeight: 1.3 }}>
-              {siteConfig.akreditasyon.kurulus} süreci takip ediliyor
+              {siteConfig.akreditasyon.kurulus} tarafından akredite edildik
             </h3>
             <p style={{ fontSize: 12.5, color: "#9aa5b1", margin: "0 0 22px", lineHeight: 1.6 }}>
               {siteConfig.akreditasyon.not}

@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: "/akreditasyonlarimiz",
     title: "Akreditasyon Durumu",
     description:
-      "DVN Cert'in TÜRKAK akreditasyon süreci, hedeflenen ISO yönetim sistemi kapsamı ve süreç tamamlanana kadar geçerli bilgilendirme notları.",
+      "DVN Cert, TÜRKAK tarafından TS EN ISO/IEC 17021-1:2015 kapsamında akredite edilmiştir (Akreditasyon No: AB-0209-YS). ISO 9001, 14001, 45001 ve 50001 akreditasyon kapsamı ve sertifikamız.",
   });
 }
 
@@ -60,12 +60,12 @@ export default async function AkreditasyonlarimizSayfasi() {
 
       <SayfaBaslik
         etiket="KURUMSAL"
-        baslik="Akreditasyon Durumu"
-        aciklama={`${akreditasyon.kurulus} akreditasyon sürecimiz devam etmektedir. Resmi kapsam tamamlanana kadar akredite sertifikalandırma hizmeti sunulmamaktadır.`}
-        kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Akreditasyon Durumu" }]}
+        baslik="Akreditasyonumuz"
+        aciklama={`DVN Cert, ${akreditasyon.kurulus} tarafından ${akreditasyon.standart} kapsamında akredite edilmiştir (Akreditasyon No: ${akreditasyon.no}).`}
+        kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Akreditasyonumuz" }]}
       />
 
-      <KapakGorsel src="/gorseller/sayfalar/akreditasyon.webp" alt={`${akreditasyon.kurulus} akreditasyon süreci bilgilendirmesi`} etiket={`${akreditasyon.kurulus} süreci ve hedef kapsam`} oncelik />
+      <KapakGorsel src="/gorseller/sayfalar/akreditasyon.webp" alt={`${akreditasyon.kurulus} akreditasyon sertifikası — DVN Cert`} etiket={`${akreditasyon.kurulus} akreditasyonu · ${akreditasyon.no}`} oncelik />
 
       {/* Akreditasyon nedir + bilgi kartı */}
       <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
@@ -75,18 +75,26 @@ export default async function AkreditasyonlarimizSayfasi() {
         >
           <div>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 10px" }}>
-              MEVCUT DURUM
+              AKREDİTE BELGELENDİRME KURULUŞU
             </p>
-            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: "0 0 16px", lineHeight: 1.3 }}>
-              Süreç tamamlanana kadar açık bilgilendirme
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: "0 0 16px", lineHeight: 1.3, display: "inline-block" }}>
+              {akreditasyon.kurulus} tarafından akredite edildik
             </h2>
             <p style={{ fontSize: 14.5, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: "0 0 14px" }}>
-              {akreditasyon.durum} Bu sayfa, sürecin kurum içindeki takip durumunu ve hedeflenen yönetim
-              sistemi standartlarını şeffaf biçimde paylaşmak için hazırlanmıştır.
+              DVN Cert, {akreditasyon.kurulus} tarafından <strong style={{ color: "var(--dvn-lacivert)" }}>{akreditasyon.standart}</strong> standardına göre,
+              ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri kapsamında akredite edilmiştir.
             </p>
-            <p style={{ fontSize: 14.5, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: 0 }}>
-              {akreditasyon.not} Resmi numara ve kapsam oluştuğunda bu sayfa ve ilgili duyurular güncellenecektir.
+            <p style={{ fontSize: 14.5, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: "0 0 22px" }}>
+              {akreditasyon.not} Akreditasyonun resmi durumunu{" "}
+              <a href="https://tbds.turkak.org.tr" target="_blank" rel="noopener noreferrer" style={{ color: "var(--dvn-turuncu)", fontWeight: 500 }}>TÜRKAK TBDS</a>{" "}
+              üzerinden de teyit edebilirsiniz.
             </p>
+            <a href={akreditasyon.belgeUrl} target="_blank" rel="noopener noreferrer" className="dvn-btn-primary" style={{ padding: "13px 24px", fontSize: 14 }}>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Akreditasyon Sertifikasını İndir (PDF)
+            </a>
           </div>
 
           {/* Bilgi kartı */}
@@ -103,20 +111,25 @@ export default async function AkreditasyonlarimizSayfasi() {
           >
             <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
             <span className="dvn-glow-orb dvn-glow-orb--altin" aria-hidden style={{ top: -100, right: -60, width: 220, height: 220, opacity: 0.4 }} />
-            <div style={{ display: "grid", gap: 18, position: "relative", zIndex: 1 }}>
+            <div style={{ display: "grid", gap: 16, position: "relative", zIndex: 1 }}>
               <div>
-                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>TAKİP EDİLEN KURUM</p>
+                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>AKREDİTASYON KURUMU</p>
                 <p style={{ fontSize: 18, fontWeight: 600, color: "var(--dvn-altin-acik)", margin: 0 }}>{akreditasyon.kurulus}</p>
               </div>
               <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.1)" }} />
               <div>
-                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>DURUM</p>
-                <p style={{ fontSize: 16, fontWeight: 500, color: "white", margin: 0 }}>{akreditasyon.durum}</p>
+                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>AKREDİTASYON NO</p>
+                <p style={{ fontSize: 18, fontWeight: 600, color: "white", margin: 0, letterSpacing: "0.5px" }}>{akreditasyon.no}</p>
               </div>
               <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.1)" }} />
               <div>
-                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>HEDEF KAPSAM</p>
-                <p style={{ fontSize: 16, fontWeight: 500, color: "white", margin: 0 }}>{akreditasyon.hedefKapsam.length} yönetim sistemi standardı</p>
+                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>STANDART</p>
+                <p style={{ fontSize: 15, fontWeight: 500, color: "white", margin: 0 }}>{akreditasyon.standart}</p>
+              </div>
+              <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.1)" }} />
+              <div>
+                <p style={{ fontSize: 11, color: "#9aa5b1", margin: "0 0 4px", letterSpacing: "0.5px" }}>GEÇERLİLİK</p>
+                <p style={{ fontSize: 15, fontWeight: 500, color: "white", margin: 0 }}>{akreditasyon.tarih} – {akreditasyon.gecerlilik}</p>
               </div>
             </div>
           </div>
@@ -128,10 +141,10 @@ export default async function AkreditasyonlarimizSayfasi() {
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
-              HEDEF KAPSAM
+              AKREDİTASYON KAPSAMI
             </p>
             <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
-              Süreçte takip edilen standartlar
+              Akredite olduğumuz standartlar
             </h2>
           </div>
 
