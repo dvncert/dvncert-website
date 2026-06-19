@@ -33,7 +33,7 @@ export const dokumanGruplari: DokumanGrubu[] = [
     grup: "Talimatlar",
     dokumanlar: [
       { kod: "TL.01 Rev01", baslik: "Ücretlendirme Talimatı", tip: "PDF", dosya: "" },
-      { kod: "TL.11 Rev01", baslik: "Marka ve Logo Kullanım Talimatı", tip: "PDF", dosya: "" },
+      { kod: "TL.11 Rev02", baslik: "Marka ve Logo Kullanım Talimatı", tip: "PDF", dosya: "/dokumanlar/marka-logo-kullanim-talimati.pdf" },
       { kod: "TL.12 Rev01", baslik: "Belgelendirme Kuralları Talimatı", tip: "PDF", dosya: "" },
     ],
   },
