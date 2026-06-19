@@ -20,6 +20,16 @@ const nextConfig: NextConfig = {
     },
   },
 
+  // Kaldırılan yasal sayfalar için kalıcı (301) yönlendirmeler.
+  // Marka/logo içeriği /logolarimiz'de; belgelendirme kuralları TL.12
+  // talimatı olarak /dokumanlar altında yayımlanıyor.
+  async redirects() {
+    return [
+      { source: "/marka-ve-logo-kullanimi", destination: "/logolarimiz", permanent: true },
+      { source: "/belgelendirme-kurallari", destination: "/dokumanlar", permanent: true },
+    ];
+  },
+
   // Temel güvenlik başlıkları (CSP eklenmedi: inline stil/script ve GA'yı
   // bozma riski yüksek; HSTS includeSubDomains'siz tutuldu).
   async headers() {

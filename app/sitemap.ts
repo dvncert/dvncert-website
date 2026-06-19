@@ -34,8 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${url}/hizmetler`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.95 },
     { url: `${url}/belgelendirme-sureci`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.85 },
     { url: `${url}/sertifika-sorgula`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${url}/belgelendirme-kurallari`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.5 },
-    { url: `${url}/marka-ve-logo-kullanimi`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.5 },
     { url: `${url}/itiraz-ve-sikayet`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.5 },
 
     // Eğitim & kariyer

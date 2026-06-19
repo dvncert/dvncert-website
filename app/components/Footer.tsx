@@ -61,8 +61,6 @@ export default function Footer() {
               <Link href="/ekibimiz" style={{ fontSize: 12, color: "#94a3b8" }}>Ekibimiz</Link>
               <Link href="/akreditasyonlarimiz" style={{ fontSize: 12, color: "#94a3b8" }}>Akreditasyonumuz</Link>
               <Link href="/politika-ve-beyanlar" style={{ fontSize: 12, color: "#94a3b8" }}>Politika ve Beyanlar</Link>
-              <Link href="/belgelendirme-kurallari" style={{ fontSize: 12, color: "#94a3b8" }}>Belgelendirme Kuralları</Link>
-              <Link href="/marka-ve-logo-kullanimi" style={{ fontSize: 12, color: "#94a3b8" }}>Marka ve Logo Kullanımı</Link>
               <Link href="/kariyer" style={{ fontSize: 12, color: "#94a3b8" }}>Kariyer</Link>
               <Link href="/blog" style={{ fontSize: 12, color: "#94a3b8" }}>Blog</Link>
             </div>

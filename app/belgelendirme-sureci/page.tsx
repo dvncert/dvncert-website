@@ -144,7 +144,7 @@ export default function BelgelendirmeSureciSayfasi() {
 
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
             <Link href="/blog/belgelendirme-denetimine-hazirlik" style={baglantiRozet}>Belgelendirme denetimine hazırlık →</Link>
-            <Link href="/belgelendirme-kurallari" style={baglantiRozet}>Belgelendirme kuralları →</Link>
+            <Link href="/dokumanlar" style={baglantiRozet}>Belgelendirme kuralları →</Link>
             <Link href="https://tbds.turkak.org.tr" target="_blank" rel="noopener noreferrer" style={baglantiRozet}>Sertifika sorgula →</Link>
           </div>
         </div>
