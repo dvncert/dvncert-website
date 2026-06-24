@@ -6,6 +6,7 @@ import { duyurular } from "@/lib/duyurular";
 import { blogYazilari } from "@/lib/blog";
 import { etkinlikleriGetir } from "@/lib/etkinlikler";
 import { ozelSayfaSluglari } from "@/lib/ozel-sayfa";
+import { blogKategorileri } from "@/lib/icerik";
 
 /**
  * Otomatik sitemap üretimi.
@@ -91,6 +92,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  // ===== BLOG KATEGORİ SAYFALARI (otomatik) =====
+  const kategoriler = await blogKategorileri();
+  const kategoriSayfalari: MetadataRoute.Sitemap = kategoriler.map((k) => ({
+    url: `${url}/blog/kategori/${k.slug}`,
+    lastModified: siteGuncelleme,
+    changeFrequency: "weekly",
+    priority: 0.55,
+  }));
+
   // ===== ETKİNLİK DETAYLARI (DB; noIndex hariç) =====
   const etkinlikler = await etkinlikleriGetir();
   const etkinlikSayfalari: MetadataRoute.Sitemap = etkinlikler
@@ -117,6 +127,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...egitimSayfalari,
     ...duyuruSayfalari,
     ...blogSayfalari,
+    ...kategoriSayfalari,
     ...etkinlikSayfalari,
     ...ozelSayfaSayfalari,
   ];

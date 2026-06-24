@@ -5,7 +5,7 @@ import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
 import { metniBaglantiyaCevir } from "../../components/IcerikMetin";
 import { tarihiBicimle } from "@/lib/duyurular";
-import { bloglariGetir, blogDetay } from "@/lib/icerik";
+import { bloglariGetir, blogDetay, kategoriSlug } from "@/lib/icerik";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { siteConfig } from "@/lib/site-config";
 import { blogPostingSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
@@ -168,8 +168,8 @@ export default async function BlogDetaySayfasi({ params }: Params) {
             </div>
           )}
 
-          {/* Geri dön */}
-          <div style={{ marginTop: 36, paddingTop: 24, borderTop: "0.5px solid var(--dvn-gri-300)" }}>
+          {/* Kategori + geri dön */}
+          <div style={{ marginTop: 36, paddingTop: 24, borderTop: "0.5px solid var(--dvn-gri-300)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
             <Link
               href="/blog"
               style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13.5, fontWeight: 500, color: "var(--dvn-turuncu)" }}
@@ -179,6 +179,14 @@ export default async function BlogDetaySayfasi({ params }: Params) {
               </svg>
               Tüm yazılara dön
             </Link>
+            {yazi.kategori && (
+              <Link
+                href={`/blog/kategori/${kategoriSlug(yazi.kategori)}`}
+                style={{ fontSize: 13, fontWeight: 500, color: "var(--dvn-lacivert)", background: "var(--dvn-altin-soluk)", border: "0.5px solid var(--dvn-gri-300)", borderRadius: 999, padding: "8px 16px", textDecoration: "none" }}
+              >
+                Kategori: {yazi.kategori} →
+              </Link>
+            )}
           </div>
         </div>
       </article>

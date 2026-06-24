@@ -111,6 +111,45 @@ export async function blogDetay(slug: string): Promise<BlogYazisi | undefined> {
   return (await bloglariGetir()).find((b) => b.slug === slug);
 }
 
+/** Kategori adını URL-güvenli slug'a çevirir (Türkçe karakter duyarlı). */
+export function kategoriSlug(kategori: string): string {
+  return kategori
+    .trim()
+    .toLocaleLowerCase("tr-TR")
+    .replace(/ı/g, "i")
+    .replace(/ş/g, "s")
+    .replace(/ğ/g, "g")
+    .replace(/ü/g, "u")
+    .replace(/ö/g, "o")
+    .replace(/ç/g, "c")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export type BlogKategori = { ad: string; slug: string; adet: number };
+
+/** Yayındaki yazılardan benzersiz kategorileri (slug + adet) üretir; çoktan aza. */
+export async function blogKategorileri(): Promise<BlogKategori[]> {
+  const yazilar = await bloglariGetir();
+  const harita = new Map<string, BlogKategori>();
+  for (const y of yazilar) {
+    if (!y.kategori) continue;
+    const slug = kategoriSlug(y.kategori);
+    const mevcut = harita.get(slug);
+    if (mevcut) mevcut.adet++;
+    else harita.set(slug, { ad: y.kategori, slug, adet: 1 });
+  }
+  return [...harita.values()].sort((a, b) => b.adet - a.adet || a.ad.localeCompare(b.ad, "tr"));
+}
+
+/** Belirli bir kategori slug'ına ait yazılar + kategorinin görünen adı. */
+export async function kategoriBloglariGetir(
+  slug: string,
+): Promise<{ ad: string; yazilar: BlogYazisi[] }> {
+  const yazilar = (await bloglariGetir()).filter((y) => kategoriSlug(y.kategori) === slug);
+  return { ad: yazilar[0]?.kategori ?? "", yazilar };
+}
+
 // ---------- Müşteri yorumları ----------
 export async function yorumlariGetir(): Promise<MusteriYorumu[]> {
   if (!dbHazir) return yorumlarStatik;
