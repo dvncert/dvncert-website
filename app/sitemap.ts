@@ -4,6 +4,8 @@ import { hizmetler } from "@/lib/hizmetler";
 import { egitimler } from "@/lib/egitimler";
 import { duyurular } from "@/lib/duyurular";
 import { blogYazilari } from "@/lib/blog";
+import { etkinlikleriGetir } from "@/lib/etkinlikler";
+import { ozelSayfaSluglari } from "@/lib/ozel-sayfa";
 
 /**
  * Otomatik sitemap üretimi.
@@ -14,7 +16,7 @@ import { blogYazilari } from "@/lib/blog";
  * üretilir — yeni hizmet/duyuru eklendiğinde sitemap kendiliğinden güncellenir.
  */
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteGuncelleme = new Date("2026-06-15");
   const yasalGuncelleme = new Date("2026-01-01");
   const url = siteConfig.url;
@@ -38,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Eğitim & kariyer
     { url: `${url}/egitimler`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${url}/etkinlikler`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 0.7 },
     { url: `${url}/kariyer`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 0.75 },
 
     // İletişim
@@ -88,5 +91,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...sabitSayfalar, ...hizmetSayfalari, ...egitimSayfalari, ...duyuruSayfalari, ...blogSayfalari];
+  // ===== ETKİNLİK DETAYLARI (DB; noIndex hariç) =====
+  const etkinlikler = await etkinlikleriGetir();
+  const etkinlikSayfalari: MetadataRoute.Sitemap = etkinlikler
+    .filter((e) => !e.noIndex)
+    .map((e) => ({
+      url: `${url}/etkinlikler/${e.slug}`,
+      lastModified: e.baslangic,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    }));
+
+  // ===== ADMIN'DEN OLUŞTURULAN ÖZEL SAYFALAR (DB) =====
+  const ozelSayfalar = await ozelSayfaSluglari();
+  const ozelSayfaSayfalari: MetadataRoute.Sitemap = ozelSayfalar.map((slug) => ({
+    url: `${url}/${slug}`,
+    lastModified: siteGuncelleme,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  return [
+    ...sabitSayfalar,
+    ...hizmetSayfalari,
+    ...egitimSayfalari,
+    ...duyuruSayfalari,
+    ...blogSayfalari,
+    ...etkinlikSayfalari,
+    ...ozelSayfaSayfalari,
+  ];
 }

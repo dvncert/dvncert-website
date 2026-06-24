@@ -24,12 +24,6 @@ export default function robots(): MetadataRoute.Robots {
           "*.json",
         ],
       },
-      // Google ek izinleri
-      {
-        userAgent: "Googlebot",
-        allow: "/",
-        disallow: ["/admin", "/api"],
-      },
       // GPT/AI tarayıcıları (isteğe bağlı - şu an izin veriyoruz)
       {
         userAgent: "GPTBot",

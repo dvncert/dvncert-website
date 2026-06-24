@@ -26,7 +26,7 @@ export const sssSorular: SSSorusu[] = [
   {
     soru: "DVN Cert'i diğer belgelendirme kuruluşlarından ayıran özellikler nelerdir?",
     cevap:
-      "DVN Cert; tarafsızlık, yetkinlik, kayıt izlenebilirliği ve açık süreç yönetimine önem veren bağımsız bir belgelendirme kuruluşudur. TÜRKAK akreditasyon sürecimiz devam etmektedir; süreç tamamlanana kadar akredite sertifikalandırma hizmeti sunduğumuza dair bir beyan kullanılmaz. Deneyimli denetçi kadromuz ve sektör uzmanlığımızla kuruluşların yönetim sistemlerini daha etkili hale getirecek uygulanabilir geri bildirimler sunmayı hedefleriz.",
+      "DVN Cert; tarafsızlık, yetkinlik, kayıt izlenebilirliği ve açık süreç yönetimine önem veren bağımsız bir belgelendirme kuruluşudur. TÜRKAK tarafından TS EN ISO/IEC 17021-1:2015 kapsamında akredite edilmiştir (Akreditasyon No: AB-0209-YS). Deneyimli denetçi kadromuz ve sektör uzmanlığımızla kuruluşların yönetim sistemlerini daha etkili hale getirecek uygulanabilir geri bildirimler sunmayı hedefleriz.",
   },
   {
     soru: "Belgelendirme sonrası ne gibi yükümlülüklerimiz olacak?",

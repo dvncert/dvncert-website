@@ -32,15 +32,13 @@ export default function SertifikaSorgula() {
 
         <div className="dvn-sorgu-aksiyon">
           <Link
-            href="https://tbds.turkak.org.tr"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/sertifika-sorgula"
             className="dvn-btn-primary"
             style={{ padding: "14px 28px", fontSize: 14.5 }}
           >
-            TÜRKAK TBDS&apos;de Sorgula →
+            Sertifika Sorgula →
           </Link>
-          <span className="dvn-sorgu-not">tbds.turkak.org.tr</span>
+          <span className="dvn-sorgu-not">TÜRKAK TBDS + belge doğrulama talebi</span>
         </div>
       </div>
 

@@ -323,7 +323,7 @@ export const blogYazilari: BlogYazisi[] = [
       "- Departmanlar arası tutarlılık ve daha güçlü kurum kültürü\n" +
       "- Risklerin bütünsel olarak ele alınması\n\n" +
       "## Hangi standartlar entegre edilebilir?\n\n" +
-      "En yaygın entegrasyon ISO 9001, ISO 14001 ve ISO 45001 üçlüsüdür. Enerji yoğun kuruluşlar buna ISO 50001 enerji yönetim sistemini de ekleyebilir. DVN Cert, bu standartlarda belgelendirme, ikinci taraf denetim ve eğitim süreçlerini açık kriterlerle yürütür; TÜRKAK akreditasyon süreci tamamlandığında resmi kapsam ayrıca duyurulacaktır.\n\n" +
+      "En yaygın entegrasyon ISO 9001, ISO 14001 ve ISO 45001 üçlüsüdür. Enerji yoğun kuruluşlar buna ISO 50001 enerji yönetim sistemini de ekleyebilir. DVN Cert, bu standartlarda belgelendirme, ikinci taraf denetim ve eğitim süreçlerini açık kriterlerle yürütür ve TÜRKAK tarafından TS EN ISO/IEC 17021-1:2015 kapsamında akredite edilmiştir (Akreditasyon No: AB-0209-YS).\n\n" +
       "Entegre belgelendirme süreci, ayrı ayrı belgelendirmeye kıyasla zaman ve kaynak tasarrufu sağlar. Kuruluşunuzun mevcut yönetim sistemlerini tek çatı altında değerlendirmek için belgelendirme hizmetlerimizi inceleyebilirsiniz.",
     ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001", "iso-14001", "iso-45001"],
   },

@@ -124,6 +124,15 @@ const iletisimMenu: { baslik: string; href: string; dis?: boolean; icon: React.R
     ),
   },
   {
+    baslik: "Sertifika Sorgula",
+    href: "/sertifika-sorgula",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2l8 4v6c0 5.5-3.5 10-8 12-4.5-2-8-6.5-8-12V6l8-4z M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
     baslik: "Şikayet ve Görüşler",
     href: "/sikayet-ve-gorusler",
     icon: (
