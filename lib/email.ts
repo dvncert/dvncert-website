@@ -169,7 +169,9 @@ export async function kariyerEpostaGonder(
       html,
       text,
       ...(p.email?.trim() ? { replyTo: p.email.trim() } : {}),
-      ...(dosya ? { attachments: [{ filename: dosya.ad, content: dosya.veri }] } : {}),
+      // Resend SDK isteği JSON.stringify ile serialize ediyor; ham Buffer verilirse
+      // {"type":"Buffer","data":[...]} olur ve API dosyayı tanımaz. base64 string ver.
+      ...(dosya ? { attachments: [{ filename: dosya.ad, content: dosya.veri.toString("base64") }] } : {}),
     });
     if (error) {
       console.error("kariyerEpostaGonder Resend hatası:", error);
