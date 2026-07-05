@@ -58,7 +58,32 @@ export function organizationSchema() {
       "Second Party Audits",
       "Internal Auditor Training",
     ],
+    // TÜRKAK akreditasyonu — Google'a "akredite belgelendirme kuruluşu" sinyali.
+    ...(siteConfig.akreditasyon.akredite
+      ? {
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "Accreditation",
+            name: `${siteConfig.akreditasyon.kurulus} Akreditasyonu (${siteConfig.akreditasyon.standart})`,
+            identifier: siteConfig.akreditasyon.no,
+            recognizedBy: {
+              "@type": "Organization",
+              name: "Türk Akreditasyon Kurumu (TÜRKAK)",
+              url: "https://www.turkak.org.tr",
+            },
+            validFrom: tarihIso(siteConfig.akreditasyon.tarih),
+            validUntil: tarihIso(siteConfig.akreditasyon.gecerlilik),
+          },
+        }
+      : {}),
   };
+}
+
+/** "GG.AA.YYYY" → "YYYY-AA-GG" (schema.org tarih biçimi). Geçersizse undefined. */
+function tarihIso(t?: string): string | undefined {
+  if (!t) return undefined;
+  const m = t.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+  return m ? `${m[3]}-${m[2]}-${m[1]}` : undefined;
 }
 
 /**

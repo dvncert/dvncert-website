@@ -8,10 +8,22 @@ import MusteriYorumlari from "./components/MusteriYorumlari";
 import Duyurular from "./components/Duyurular";
 import EgitimEtkinlikleri from "./components/EgitimEtkinlikleri";
 import AnaSayfaSSS from "./components/AnaSayfaSSS";
+import { localBusinessSchema, faqSchema, schemaScript } from "@/lib/seo-schemas";
+import { sssSorular } from "@/lib/sss";
 
 export default function AnaSayfa() {
+  // FAQPage yalnızca ana sayfada görünen ilk 4 soruyu içermeli
+  // (Google kuralı: şema, sayfada görünür içerikle eşleşmeli — AnaSayfaSSS de slice(0,4) gösteriyor).
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(localBusinessSchema())}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(faqSchema(sssSorular.slice(0, 4)))}
+      />
       <HeroSlider />
       <div className="dvn-reveal"><Istatistikler /></div>
       <div className="dvn-reveal"><Hizmetler /></div>

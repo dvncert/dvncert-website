@@ -2,6 +2,7 @@ import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { akreditasyonBelgeleri, logoDosyalari, dokumanlar, formGonderileri } from "@/lib/db/schema";
 import { auth } from "@/auth";
+import { coz } from "@/lib/kripto";
 
 /**
  * Veritabanında saklanan binary dosyaları (PDF / DOCX / XLSX / görsel vb.) sunar.
@@ -61,6 +62,10 @@ export async function GET(_req: Request, { params }: { params: Promise<{ tur: st
 
   if (!satir?.v) return new Response("Bulunamadı", { status: 404 });
 
+  // CV'ler depoda şifreli olabilir (bkz. lib/kripto.ts). coz() şifreli
+  // değilse veriyi aynen döndürür; diğer türler zaten düz metin.
+  const veri = tur === "basvuru" ? coz(satir.v) : satir.v;
+
   const mime = satir.mime || "application/octet-stream";
   const inline = mime.startsWith("image/") || mime === "application/pdf";
   const headers: Record<string, string> = {
@@ -74,5 +79,5 @@ export async function GET(_req: Request, { params }: { params: Promise<{ tur: st
     headers["Content-Disposition"] = `${disp}; filename="${guvenli}"; filename*=UTF-8''${encodeURIComponent(satir.ad)}`;
   }
 
-  return new Response(new Uint8Array(satir.v), { headers });
+  return new Response(new Uint8Array(veri), { headers });
 }

@@ -77,7 +77,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       cumleBasi: "Kalite yönetim sisteminin",
     },
     politika: "Kalite politikası",
-    metaTitle: "ISO 9001:2015 Kalite Yönetim Sistemi Belgelendirmesi | DVN Cert",
+    metaTitle: "ISO 9001:2015 Kalite Yönetim Sistemi Belgelendirmesi",
     metaDescription:
       "ISO 9001:2015 kalite yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım belgelendirme rehberi.",
     keywords: [
@@ -178,7 +178,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       cumleBasi: "Çevre yönetim sisteminin",
     },
     politika: "Çevre politikası",
-    metaTitle: "ISO 14001:2015 Çevre Yönetim Sistemi Belgelendirmesi | DVN Cert",
+    metaTitle: "ISO 14001:2015 Çevre Yönetim Sistemi Belgelendirmesi",
     metaDescription:
       "ISO 14001:2015 çevre yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım rehber.",
     keywords: [
@@ -279,7 +279,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       cumleBasi: "İş sağlığı ve güvenliği yönetim sisteminin",
     },
     politika: "İş sağlığı ve güvenliği politikası",
-    metaTitle: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi Belgelendirmesi | DVN Cert",
+    metaTitle: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi Belgelendirmesi",
     metaDescription:
       "ISO 45001:2018 iş sağlığı ve güvenliği yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar ve adım adım rehber.",
     keywords: [
@@ -380,7 +380,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       cumleBasi: "Enerji yönetim sisteminin",
     },
     politika: "Enerji politikası",
-    metaTitle: "ISO 50001:2018 Enerji Yönetim Sistemi Belgelendirmesi | DVN Cert",
+    metaTitle: "ISO 50001:2018 Enerji Yönetim Sistemi Belgelendirmesi",
     metaDescription:
       "ISO 50001:2018 enerji yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım rehber.",
     keywords: [

@@ -42,6 +42,14 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Strict-Transport-Security", value: "max-age=31536000" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          // Kısıtlı CSP: yalnızca XSS yükseltme vektörlerini kapatır
+          // (base/object/iframe). script/style/img/font kaynaklarına
+          // DOKUNMAZ; bu yüzden inline stiller ve GA bozulmaz. Tam
+          // (script-src nonce) CSP ileride ayrı iş olarak eklenebilir.
+          {
+            key: "Content-Security-Policy",
+            value: "base-uri 'self'; object-src 'none'; frame-ancestors 'self'",
+          },
         ],
       },
     ];

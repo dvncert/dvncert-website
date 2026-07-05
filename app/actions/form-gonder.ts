@@ -5,6 +5,7 @@ import { and, eq, gte, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { formGonderileri } from "@/lib/db/schema";
 import { iletisimEpostaGonder, kariyerEpostaGonder } from "@/lib/email";
+import { sifrele } from "@/lib/kripto";
 
 export type FormGonderiPayload = {
   tip: "iletisim" | "sikayet" | "kariyer" | "sertifika-dogrulama" | "egitim-kayit" | "bulten";
@@ -185,7 +186,9 @@ export async function kariyerBasvuruGonderAction(
       konu: pozisyon || null,
       mesaj: mesaj || null,
       ekVeri: { pozisyon },
-      dosyaVeri: dosya?.veri ?? null,
+      // CV kişisel veridir — depoda şifrelenir (KVKK). E-posta eki için
+      // aşağıda düz metin (dosya.veri) kullanılır; yalnızca DB'ye giden değer şifreli.
+      dosyaVeri: dosya ? sifrele(dosya.veri) : null,
       dosyaMime: dosya?.mime ?? null,
       dosyaAdi: dosya?.ad ?? null,
       ip: ip ?? null,

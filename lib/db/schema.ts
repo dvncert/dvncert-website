@@ -22,6 +22,20 @@ export const adminKullanicilar = pgTable("admin_kullanicilar", {
   olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
 });
 
+/**
+ * Admin giriş denemeleri — brute-force koruması (auth.ts). Her başarısız
+ * deneme kaydedilir; IP başına belirli sürede eşik aşılırsa giriş geçici
+ * kilitlenir. Erişim auth.ts'te try/catch ile korunur: bu tablo prod'da
+ * henüz yoksa (db:push yapılmadıysa) giriş normal çalışmaya devam eder.
+ */
+export const girisDenemeleri = pgTable("giris_denemeleri", {
+  id: serial("id").primaryKey(),
+  ip: varchar("ip", { length: 45 }),
+  email: varchar("email", { length: 255 }),
+  basarili: boolean("basarili").default(false).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+});
+
 export const duyurular = pgTable("duyurular", {
   id: serial("id").primaryKey(),
   slug: varchar("slug", { length: 200 }).notNull().unique(),
