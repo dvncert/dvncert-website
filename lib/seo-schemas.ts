@@ -365,7 +365,13 @@ export function collectionPageSchema(params: { baslik: string; aciklama: string;
  * Bu fonksiyonu sayfa içinde kullanırız.
  */
 export function schemaScript(schema: object) {
+  // JSON.stringify < > & karakterlerini kaçmaz; şema verisi admin girdisinden
+  // (blog başlığı, ekip, özel sayfa) beslendiği için </script> ile depolanmış
+  // XSS'i önlemek üzere Unicode kaçışı uygulanır.
   return {
-    __html: JSON.stringify(schema),
+    __html: JSON.stringify(schema)
+      .replace(/</g, "\\u003c")
+      .replace(/>/g, "\\u003e")
+      .replace(/&/g, "\\u0026"),
   };
 }

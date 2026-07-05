@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { eq, and } from "drizzle-orm";
 import sharp from "sharp";
 import { db } from "@/lib/db";
+import { auth } from "@/auth";
 import {
   duyurular,
   blogYazilari,
@@ -47,6 +48,17 @@ function num(fd: FormData, k: string): number | null {
   return v === "" ? null : Number(v);
 }
 
+/**
+ * Her admin server action ic in oturum dogrulamasi. Server action lar path e
+ * degil Next-Action ID sine gore cozulur ve proxy matcher inin (/admin/*)
+ * disindaki yollara da dogrudan POST edilebilir; bu yuzden koruma proxy ye
+ * degil, her action in govdesine konur.
+ */
+async function yetkiKontrol() {
+  const oturum = await auth();
+  if (!oturum?.user) throw new Error("Yetkisiz eris im");
+}
+
 function yenile(...yollar: string[]) {
   for (const y of yollar) revalidatePath(y);
 }
@@ -71,6 +83,7 @@ async function gorselWebp(
 
 // ============ DUYURULAR ============
 export async function duyuruKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const gorselVeri = await gorselWebp(fd.get("gorselDosya"), 1600, 900);
   const temel = {
@@ -97,12 +110,14 @@ export async function duyuruKaydet(fd: FormData) {
   redirect("/admin/duyurular");
 }
 export async function duyuruSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(duyurular).where(eq(duyurular.id, Number(s(fd, "id"))));
   yenile("/duyurular", "/", "/admin/duyurular");
 }
 
 // ============ BLOG ============
 export async function blogKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const gorselVeri = await gorselWebp(fd.get("gorselDosya"), 1600, 900);
   const temel = {
@@ -130,12 +145,14 @@ export async function blogKaydet(fd: FormData) {
   redirect("/admin/blog");
 }
 export async function blogSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(blogYazilari).where(eq(blogYazilari.id, Number(s(fd, "id"))));
   yenile("/blog", "/admin/blog");
 }
 
 // ============ YORUMLAR ============
 export async function yorumKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const veri = {
     isim: s(fd, "isim"),
@@ -152,12 +169,14 @@ export async function yorumKaydet(fd: FormData) {
   redirect("/admin/yorumlar");
 }
 export async function yorumSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(yorumlar).where(eq(yorumlar.id, Number(s(fd, "id"))));
   yenile("/", "/admin/yorumlar");
 }
 
 // ============ REFERANSLAR ============
 export async function referansKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
 
   // Yüklenen logo dosyasını WebP'e çevir (varsa). Logo şeritte 150×56 gösterilir;
@@ -186,12 +205,14 @@ export async function referansKaydet(fd: FormData) {
   redirect("/admin/referanslar");
 }
 export async function referansSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(referanslar).where(eq(referanslar.id, Number(s(fd, "id"))));
   yenile("/", "/admin/referanslar");
 }
 
 // ============ FORM GÖNDERİLERİ ============
 export async function gonderiDurum(fd: FormData) {
+  await yetkiKontrol();
   await db
     .update(formGonderileri)
     .set({ durum: s(fd, "durum") })
@@ -199,6 +220,7 @@ export async function gonderiDurum(fd: FormData) {
   yenile("/admin/gonderiler");
 }
 export async function gonderiSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(formGonderileri).where(eq(formGonderileri.id, Number(s(fd, "id"))));
   yenile("/admin/gonderiler");
 }
@@ -211,6 +233,7 @@ function tarihParse(deger: string): Date | null {
 }
 
 export async function etkinlikKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const gorselVeri = await gorselWebp(fd.get("gorselDosya"), 1600, 900);
   const baslangic = tarihParse(s(fd, "baslangic"));
@@ -247,12 +270,14 @@ export async function etkinlikKaydet(fd: FormData) {
   redirect("/admin/etkinlikler");
 }
 export async function etkinlikSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(egitimEtkinlikleri).where(eq(egitimEtkinlikleri.id, Number(s(fd, "id"))));
   yenile("/etkinlikler", "/", "/admin/etkinlikler");
 }
 
 // ============ ÜST MENÜ EK ÖĞELERİ ============
 export async function menuOgesiKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const veri = {
     baslik: s(fd, "baslik"),
@@ -269,6 +294,7 @@ export async function menuOgesiKaydet(fd: FormData) {
   redirect("/admin/menu");
 }
 export async function menuOgesiSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(ekstraMenuOgeleri).where(eq(ekstraMenuOgeleri.id, Number(s(fd, "id"))));
   updateTag("ust-menu");
   yenile("/", "/admin/menu");
@@ -276,6 +302,7 @@ export async function menuOgesiSil(fd: FormData) {
 
 // ============ EKİP ÜYELERİ ============
 export async function ekipKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const fotoVeri = await gorselWebp(fd.get("fotoDosya"), 600, 600, 88);
   const temel = {
@@ -299,6 +326,7 @@ export async function ekipKaydet(fd: FormData) {
   redirect("/admin/ekip");
 }
 export async function ekipSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(ekipUyeleri).where(eq(ekipUyeleri.id, Number(s(fd, "id"))));
   yenile("/ekibimiz", "/admin/ekip");
 }
@@ -312,6 +340,7 @@ async function dosyaOku(deger: FormDataEntryValue | null): Promise<{ veri: Buffe
 }
 
 export async function akreditasyonKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const dosya = await dosyaOku(fd.get("belgeDosya"));
   const temel = {
@@ -339,12 +368,14 @@ export async function akreditasyonKaydet(fd: FormData) {
   redirect("/admin/akreditasyonlar");
 }
 export async function akreditasyonSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(akreditasyonBelgeleri).where(eq(akreditasyonBelgeleri.id, Number(s(fd, "id"))));
   yenile("/akreditasyonlarimiz", "/admin/akreditasyonlar");
 }
 
 // ============ LOGO DOSYALARI ============
 export async function logoKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const dosya = await dosyaOku(fd.get("logoDosya"));
   const temel = {
@@ -372,6 +403,7 @@ export async function logoKaydet(fd: FormData) {
   redirect("/admin/logolar");
 }
 export async function logoSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(logoDosyalari).where(eq(logoDosyalari.id, Number(s(fd, "id"))));
   yenile("/logolarimiz", "/admin/logolar");
 }
@@ -386,6 +418,7 @@ const TIP_HARITA: Record<string, string> = {
 };
 
 export async function dokumanKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const dosya = await dosyaOku(fd.get("dokumanDosya"));
   const elTip = s(fd, "tip");
@@ -417,6 +450,7 @@ export async function dokumanKaydet(fd: FormData) {
   redirect("/admin/dokumanlar");
 }
 export async function dokumanSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(dokumanlar).where(eq(dokumanlar.id, Number(s(fd, "id"))));
   yenile("/dokumanlar", "/admin/dokumanlar");
 }
@@ -440,6 +474,7 @@ function slugGecerliMi(slug: string): { ok: boolean; hata?: string } {
 }
 
 export async function ozelSayfaKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const sablon = s(fd, "sablon");
   if (!sablonBul(sablon)) throw new Error(`Geçersiz şablon: ${sablon}`);
@@ -479,6 +514,7 @@ export async function ozelSayfaKaydet(fd: FormData) {
 }
 
 export async function ozelSayfaSil(fd: FormData) {
+  await yetkiKontrol();
   // Önce slug'ı al (rota cache temizleme için)
   const id = Number(s(fd, "id"));
   const mevcut = (await db.select({ slug: ozelSayfalar.slug }).from(ozelSayfalar).where(eq(ozelSayfalar.id, id)).limit(1))[0];
@@ -489,6 +525,7 @@ export async function ozelSayfaSil(fd: FormData) {
 
 // ============ SAYFA İÇERİK BLOKLARI ============
 export async function sayfaIcerikKaydet(fd: FormData) {
+  await yetkiKontrol();
   const yol = s(fd, "yol");
   const tanim = SAYFA_ICERIK[yol];
   if (!tanim) throw new Error(`Bu yol için içerik tanımı yok: ${yol}`);
@@ -511,6 +548,7 @@ export async function sayfaIcerikKaydet(fd: FormData) {
 }
 
 export async function sayfaIcerikSifirla(fd: FormData) {
+  await yetkiKontrol();
   const yol = s(fd, "yol");
   const anahtar = s(fd, "anahtar");
   await db
@@ -523,6 +561,7 @@ export async function sayfaIcerikSifirla(fd: FormData) {
 
 /** Sayfa kapak görseli yükle (WebP'e çevrilir, sayfaSeo.kapakVeri'ye yazılır). */
 export async function sayfaKapakKaydet(fd: FormData) {
+  await yetkiKontrol();
   const yol = s(fd, "yol");
   if (!yol) throw new Error("Sayfa yolu zorunludur.");
   // Kapak ~1280×380 gösterilir; retina için 2x'e kadar saklarız (oran korunur).
@@ -542,6 +581,7 @@ export async function sayfaKapakKaydet(fd: FormData) {
 
 /** Sayfa kapak görselini kaldır. */
 export async function sayfaKapakSil(fd: FormData) {
+  await yetkiKontrol();
   const yol = s(fd, "yol");
   await db.update(sayfaSeo).set({ kapakVeri: null, guncellenme: new Date() }).where(eq(sayfaSeo.yol, yol));
   updateTag("sayfa-kapak");
@@ -551,6 +591,7 @@ export async function sayfaKapakSil(fd: FormData) {
 
 // ============ SSS SORULARI ============
 export async function sssKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   const veri = {
     soru: s(fd, "soru"),
@@ -565,12 +606,14 @@ export async function sssKaydet(fd: FormData) {
   redirect("/admin/sss");
 }
 export async function sssSil(fd: FormData) {
+  await yetkiKontrol();
   await db.delete(sssSorulari).where(eq(sssSorulari.id, Number(s(fd, "id"))));
   yenile("/sss", "/admin/sss");
 }
 
 // ============ SAYFA SEO OVERRIDE ============
 export async function sayfaSeoKaydet(fd: FormData) {
+  await yetkiKontrol();
   const yol = s(fd, "yol");
   if (!yol) throw new Error("Sayfa yolu zorunludur.");
   const ogVeri = await gorselWebp(fd.get("ogImageDosya"), 1200, 630, 86);
@@ -596,6 +639,7 @@ export async function sayfaSeoKaydet(fd: FormData) {
 
 // ============ POP-UP (site geneli modal) ============
 export async function popupKaydet(fd: FormData) {
+  await yetkiKontrol();
   const id = s(fd, "id");
   // Görsel modalda ~440px genişlikte gösterilir; retina için 2x'e kadar saklarız.
   const gorselVeri = await gorselWebp(fd.get("gorselDosya"), 1000, 1000, 86);
@@ -629,6 +673,7 @@ export async function popupKaydet(fd: FormData) {
 
 // ============ SİTE AYARLARI (sosyal medya vb.) ============
 export async function siteAyarlariKaydet(fd: FormData) {
+  await yetkiKontrol();
   const kayitlar: { anahtar: string; deger: string }[] = [
     { anahtar: "sosyal.linkedin", deger: s(fd, "linkedin") },
     { anahtar: "sosyal.instagram", deger: s(fd, "instagram") },
