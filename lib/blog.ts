@@ -35,6 +35,152 @@ export type BlogYazisi = {
 
 export const blogYazilari: BlogYazisi[] = [
   {
+    slug: "iso-9001-belgelendirme-nedir-nasil-alinir",
+    baslik: "ISO 9001 Belgelendirme Nedir ve Nasıl Alınır?",
+    ozet:
+      "ISO 9001 belgelendirme, kalite yönetim sisteminizin bağımsız ve akredite bir kuruluşça doğrulanmasıdır. Başvurudan sertifikaya kadar ISO 9001 belgelendirme sürecini adım adım açıklıyoruz.",
+    tarih: "2026-07-04",
+    kategori: "Yönetim Sistemleri",
+    icerik:
+      "ISO 9001, dünya genelinde en yaygın kullanılan kalite yönetim sistemi standardıdır. Bir kuruluşun ürün ve hizmetlerini tutarlı biçimde, müşteri ve yasal gerekliliklere uygun olarak sunma yeteneğini güvence altına alır. ISO 9001 belgelendirme ise bu sistemin bağımsız, tarafsız bir belgelendirme kuruluşu tarafından doğrulanmasıdır.\n\n" +
+      "## ISO 9001 belgelendirme nedir?\n\n" +
+      "ISO 9001 belgelendirme; kuruluşunuzun kurduğu kalite yönetim sisteminin ISO 9001:2015 standardının şartlarını karşıladığının, akredite bir belgelendirme kuruluşunca yapılan denetimle teyit edilmesi ve sonucunda sertifika düzenlenmesidir. Belge, sisteminizin belgelendirme kuruluşundan bağımsız olarak kurulduğunu ve sürdürüldüğünü gösterir.\n\n" +
+      "## ISO 9001 belgesi neden alınır?\n\n" +
+      "- Müşteri memnuniyetini ve süreç tutarlılığını artırmak\n" +
+      "- İhale ve tedarikçi ön yeterlilik şartlarını karşılamak\n" +
+      "- Hata, tekrar iş ve maliyetleri azaltarak verimliliği yükseltmek\n" +
+      "- Kurumsal itibarı ve pazar güvenilirliğini güçlendirmek\n" +
+      "- Risk temelli düşünme ile sürekli iyileşmeyi kurumsallaştırmak\n\n" +
+      "## ISO 9001 belgelendirme süreci adım adım\n\n" +
+      "- Başvuru ve sözleşme: Kuruluş bilgileri, kapsam ve çalışan sayısına göre denetim planlanır.\n" +
+      "- Aşama 1 (hazırlık tetkiki): Yönetim sisteminin dokümantasyonu ve denetime hazırlığı incelenir.\n" +
+      "- Aşama 2 (saha tetkiki): Sistemin sahada uygulandığı, kayıtlar ve süreçler üzerinden doğrulanır.\n" +
+      "- Uygunsuzlukların kapatılması: Varsa bulgular için düzeltici faaliyetler değerlendirilir.\n" +
+      "- Belgelendirme kararı: Bağımsız bir karar vericinin onayıyla sertifika düzenlenir.\n" +
+      "- Gözetim tetkikleri: Belge geçerliliği boyunca sistemin sürdürüldüğü periyodik denetimlerle teyit edilir.\n\n" +
+      "## Belgelendirmeye ön hazırlık\n\n" +
+      "Sürecin sorunsuz ilerlemesi için sistemin gerçekten uygulanıyor olması gerekir. Denetim öncesi bir iç tetkik yapmak ve bulguları kapatmak, aşama 2'de çıkabilecek uygunsuzlukları azaltır. Ayrıntılar için [belgelendirme denetimine hazırlık](/blog/belgelendirme-denetimine-hazirlik) yazımıza bakabilirsiniz.\n\n" +
+      "## Akredite belgelendirmenin önemi\n\n" +
+      "Belgenin uluslararası ve ulusal düzeyde tanınırlığı, belgelendirme kuruluşunun akreditasyonuna bağlıdır. DVN Cert, TÜRKAK tarafından TS EN ISO/IEC 17021-1 kapsamında akredite edilmiş bir belgelendirme kuruluşudur. Akreditasyonun neden önemli olduğunu [TÜRKAK akreditasyonu](/blog/turkak-akreditasyonu-nedir) yazımızda ele aldık.\n\n" +
+      "ISO 9001 belgelendirme başvurusu ve süreç ayrıntıları için [ISO 9001 belgelendirme hizmetimizi](/hizmetler/iso-9001) inceleyebilir; belgenin geçerlilik ve yenileme koşulları için [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımıza bakabilirsiniz.",
+    ilgiliHizmetler: ["iso-9001", "sistem-belgelendirme"],
+  },
+  {
+    slug: "turkak-akreditasyonu-nedir",
+    baslik: "TÜRKAK Akreditasyonu Nedir? Akredite Belge Neden Önemli?",
+    ozet:
+      "TÜRKAK akreditasyonu, bir belgelendirme kuruluşunun yetkinliğinin bağımsız olarak onaylanmasıdır. Akredite belge ile akreditasyonsuz belge arasındaki farkı ve akreditasyonun neden önemli olduğunu açıklıyoruz.",
+    tarih: "2026-06-30",
+    kategori: "Belgelendirme Süreci",
+    icerik:
+      "Bir ISO sertifikasının değeri, onu düzenleyen belgelendirme kuruluşunun yetkinliğine ve tanınırlığına bağlıdır. Bu yetkinliğin bağımsız güvencesi ise akreditasyondur. Türkiye'de bu görev yasa ile TÜRKAK'a (Türk Akreditasyon Kurumu) verilmiştir.\n\n" +
+      "## Akreditasyon nedir?\n\n" +
+      "Akreditasyon, belgelendirme ve denetim yapan kuruluşların; tarafsızlık, yetkinlik ve tutarlılık açısından uluslararası standartlara (belgelendirme kuruluşları için TS EN ISO/IEC 17021-1) uygunluğunun bağımsız bir otorite tarafından onaylanmasıdır. Kısaca akreditasyon, \"denetleyeni denetleyen\" mekanizmadır.\n\n" +
+      "## TÜRKAK nedir?\n\n" +
+      "TÜRKAK, Türkiye'de uygunluk değerlendirme kuruluşlarını akredite etmekle yasa gereği yetkili tek kurumdur. Uluslararası akreditasyon birlikleri (EA, IAF) ile karşılıklı tanıma anlaşmaları sayesinde, TÜRKAK akreditasyonlu belgeler yurt dışında da tanınır.\n\n" +
+      "## Akredite belge ile akreditasyonsuz belge farkı\n\n" +
+      "- Akredite belge: Akredite bir kuruluşça, akreditasyon markası ile düzenlenir; ulusal ve uluslararası düzeyde tanınır, ihale ve ihracatta güvenle kabul edilir.\n" +
+      "- Akreditasyonsuz belge: Herhangi bir kuruluşça düzenlenebilir; tanınırlığı sınırlıdır, ihale ve tedarikçi şartlarını karşılamayabilir.\n\n" +
+      "## Akredite belgeyi nasıl doğrularsınız?\n\n" +
+      "Bir belgenin akredite olup olmadığı; üzerindeki akreditasyon markası ve numarası ile ve gerektiğinde TÜRKAK'ın akredite kuruluş sorgusundan teyit edilebilir. Belgenin geçerliliği ise belgelendirme kuruluşunun sertifika sorgu sistemi üzerinden kontrol edilir.\n\n" +
+      "## DVN Cert'in akreditasyon durumu\n\n" +
+      "DVN Cert, TÜRKAK tarafından TS EN ISO/IEC 17021-1 kapsamında akredite edilmiş bir yönetim sistemleri belgelendirme kuruluşudur. Akreditasyon kapsamımız ve belgemiz için [akreditasyonlarımız](/akreditasyonlarimiz) sayfasını inceleyebilirsiniz.\n\n" +
+      "Akredite yönetim sistemi belgelendirmesi için [sistem belgelendirme hizmetimize](/hizmetler/sistem-belgelendirme) göz atabilir; belge geçerliliği için [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımıza bakabilirsiniz.",
+    ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001"],
+  },
+  {
+    slug: "iso-45001-belgelendirme-is-sagligi-guvenligi",
+    baslik: "ISO 45001 Belgelendirme: İş Sağlığı ve Güvenliği Yönetim Sistemi",
+    ozet:
+      "ISO 45001 belgelendirme, iş sağlığı ve güvenliği yönetim sisteminizin akredite bir kuruluşça doğrulanmasıdır. Standardın kapsamını, faydalarını ve belgelendirme sürecini açıklıyoruz.",
+    tarih: "2026-06-27",
+    kategori: "Yönetim Sistemleri",
+    icerik:
+      "İş kazaları ve meslek hastalıkları hem insani hem de yasal açıdan ciddi sonuçlar doğurur. ISO 45001, iş sağlığı ve güvenliği (İSG) risklerini sistematik biçimde yönetmek için geliştirilmiş uluslararası yönetim sistemi standardıdır.\n\n" +
+      "## ISO 45001 nedir?\n\n" +
+      "ISO 45001:2018, kuruluşların çalışanları ve işyerinde etkilenen diğer kişiler için güvenli ve sağlıklı çalışma koşulları sağlamasına yönelik şartları belirleyen İSG yönetim sistemi standardıdır. Risk temelli ve çalışan katılımını esas alan bir yaklaşım sunar.\n\n" +
+      "## ISO 45001 belgesinin faydaları\n\n" +
+      "- İş kazası ve meslek hastalığı risklerini sistematik olarak azaltmak\n" +
+      "- Yasal İSG yükümlülüklerine uyumu gösterebilmek\n" +
+      "- Çalışan güvenini ve katılımını artırmak\n" +
+      "- İhale ve tedarikçi şartlarında İSG performansını belgeleyebilmek\n" +
+      "- Kaza kaynaklı maliyet ve iş gücü kayıplarını düşürmek\n\n" +
+      "## Belgelendirme süreci\n\n" +
+      "ISO 45001 belgelendirme; başvuru, aşama 1 (hazırlık) tetkiki, aşama 2 (saha) tetkiki, uygunsuzlukların kapatılması ve bağımsız belgelendirme kararı adımlarını izler. Belge geçerliliği boyunca yıllık gözetim tetkikleriyle sistemin sürdürüldüğü doğrulanır. Sürecin genel işleyişi için [belgelendirme denetimine hazırlık](/blog/belgelendirme-denetimine-hazirlik) yazımıza bakabilirsiniz.\n\n" +
+      "## Diğer sistemlerle entegrasyon\n\n" +
+      "ISO 45001; ISO 9001 ve ISO 14001 ile ortak bir üst yapı (HLS) paylaşır ve entegre yönetim sistemi olarak birlikte kurulabilir. Ayrıntı için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımızı inceleyebilirsiniz.\n\n" +
+      "ISO 45001 belgelendirme başvurusu için [ISO 45001 belgelendirme hizmetimizi](/hizmetler/iso-45001) inceleyebilirsiniz.",
+    ilgiliHizmetler: ["iso-45001", "sistem-belgelendirme"],
+  },
+  {
+    slug: "iso-14001-belgelendirme-cevre-yonetim-sistemi",
+    baslik: "ISO 14001 Belgelendirme: Çevre Yönetim Sistemi Belgesi",
+    ozet:
+      "ISO 14001 belgelendirme, çevre yönetim sisteminizin akredite bir kuruluşça doğrulanmasıdır. Standardın kapsamını, sağladığı faydaları ve belgelendirme sürecini açıklıyoruz.",
+    tarih: "2026-06-24",
+    kategori: "Yönetim Sistemleri",
+    icerik:
+      "Çevresel sorumluluk, artık yalnızca yasal bir zorunluluk değil; müşteri, yatırımcı ve tedarik zinciri beklentisidir. ISO 14001, kuruluşların çevresel etkilerini sistematik biçimde yönetmesini sağlayan uluslararası çevre yönetim sistemi standardıdır.\n\n" +
+      "## ISO 14001 nedir?\n\n" +
+      "ISO 14001:2015, bir kuruluşun faaliyet, ürün ve hizmetlerinden kaynaklanan çevresel etkileri kontrol altına almasına ve çevresel performansını sürekli iyileştirmesine yönelik şartları belirleyen yönetim sistemi standardıdır. Yaşam döngüsü bakış açısı ve yasal uyum bu sistemin temelidir.\n\n" +
+      "## ISO 14001 belgesinin faydaları\n\n" +
+      "- Çevre mevzuatına uyumu gösterebilmek ve yaptırım riskini azaltmak\n" +
+      "- Enerji, su ve hammadde kullanımını iyileştirerek maliyet düşürmek\n" +
+      "- Atık ve emisyonları sistematik olarak yönetmek\n" +
+      "- Kurumsal sürdürülebilirlik ve marka itibarını güçlendirmek\n" +
+      "- İhale ve ihracatta çevresel gereklilikleri karşılamak\n\n" +
+      "## Belgelendirme süreci\n\n" +
+      "ISO 14001 belgelendirme; başvuru, aşama 1 ve aşama 2 tetkikleri, uygunsuzlukların kapatılması ve bağımsız belgelendirme kararı ile ilerler; belge boyunca yıllık gözetim tetkikleri yapılır. Belgenin geçerlilik ve yenileme koşulları için [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımıza bakabilirsiniz.\n\n" +
+      "ISO 14001 belgelendirme başvurusu için [ISO 14001 belgelendirme hizmetimizi](/hizmetler/iso-14001) inceleyebilir; birden çok standardı birlikte kurmak için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımıza göz atabilirsiniz.",
+    ilgiliHizmetler: ["iso-14001", "sistem-belgelendirme"],
+  },
+  {
+    slug: "ic-denetci-ic-tetkikci-egitimi-nedir",
+    baslik: "İç Denetçi (İç Tetkikçi) Eğitimi Nedir, Kimler Katılmalı?",
+    ozet:
+      "İç denetçi (iç tetkikçi) eğitimi, kuruluşların yönetim sistemi iç tetkiklerini yürütecek yetkinliği kazandırır. Eğitimin kapsamını, kimlerin katılması gerektiğini ve iç tetkikin önemini açıklıyoruz.",
+    tarih: "2026-06-20",
+    kategori: "Eğitim",
+    icerik:
+      "ISO yönetim sistemleri, kuruluşun kendi sistemini düzenli olarak denetlemesini (iç tetkik) zorunlu kılar. Bu tetkikleri yürütecek kişilerin yetkinliği ise iç denetçi (iç tetkikçi) eğitimi ile kazandırılır.\n\n" +
+      "## İç tetkik (iç denetim) nedir?\n\n" +
+      "İç tetkik, kuruluşun kendi yönetim sisteminin standardın şartlarına ve kendi belirlediği kurallara uygunluğunu, planlı aralıklarla, tarafsız bir gözle değerlendirmesidir. Belgelendirme (3. taraf) denetiminden önce sistemin sağlığını gösteren en önemli araçtır.\n\n" +
+      "## İç denetçi eğitiminde neler öğrenilir?\n\n" +
+      "- İlgili standardın (ör. ISO 9001, 14001, 45001) şartlarının yorumlanması\n" +
+      "- Tetkik prensipleri ve ISO 19011 tetkik rehberi\n" +
+      "- Tetkik planlama, soru listesi hazırlama ve delil toplama\n" +
+      "- Bulgu ve uygunsuzlukların sınıflandırılması, raporlanması\n" +
+      "- Düzeltici faaliyetlerin takibi\n\n" +
+      "## Kimler katılmalı?\n\n" +
+      "Yönetim temsilcileri, kalite/İSG/çevre sorumluları, süreç sahipleri ve iç tetkik ekibinde görev alacak tüm çalışanlar bu eğitimden yararlanır. İç tetkikçiler, kendi doğrudan sorumlu oldukları alanı tetkik etmeyecek şekilde görevlendirilerek tarafsızlık korunur.\n\n" +
+      "## İç tetkik ile 2. taraf denetiminin ilişkisi\n\n" +
+      "İç tetkikte kazanılan yetkinlik, tedarikçilerin denetlendiği 2. taraf (tedarikçi) denetimlerinde de temel oluşturur. Konu için [2. taraf denetimi nedir](/blog/2-taraf-denetimi-nedir) yazımıza bakabilirsiniz.\n\n" +
+      "Genel katılıma açık iç tetkikçi ve tetkik eğitimlerimiz için [ISO 9001 iç tetkikçi eğitimi](/egitimler/iso-9001-ic-tetkikci-egitimi) ve [ISO 19011 tetkik eğitimi](/egitimler/iso-19011-tetkik-egitimi) sayfalarını inceleyebilirsiniz.",
+    ilgiliHizmetler: ["2-taraf-denetimleri"],
+  },
+  {
+    slug: "iso-50001-belgelendirme-enerji-yonetim-sistemi",
+    baslik: "ISO 50001 Belgelendirme: Enerji Yönetim Sistemi Belgesi",
+    ozet:
+      "ISO 50001 belgelendirme, enerji yönetim sisteminizin akredite bir kuruluşça doğrulanmasıdır. Standardın kapsamını, enerji verimliliği faydalarını ve belgelendirme sürecini açıklıyoruz.",
+    tarih: "2026-06-16",
+    kategori: "Yönetim Sistemleri",
+    icerik:
+      "Artan enerji maliyetleri ve sürdürülebilirlik hedefleri, enerji tüketiminin sistematik yönetimini zorunlu hale getiriyor. ISO 50001, kuruluşların enerji performansını ölçülebilir biçimde iyileştirmesini sağlayan uluslararası enerji yönetim sistemi standardıdır.\n\n" +
+      "## ISO 50001 nedir?\n\n" +
+      "ISO 50001:2018, bir kuruluşun enerji kullanımını ve tüketimini yönetmek, enerji performansını izlemek ve sürekli iyileştirmek için gereken şartları belirleyen yönetim sistemi standardıdır. Enerji temel çizgisi (baseline) ve enerji performans göstergeleri (EnPI) bu sistemin ölçüm omurgasını oluşturur.\n\n" +
+      "## ISO 50001 belgesinin faydaları\n\n" +
+      "- Enerji maliyetlerini ölçülebilir biçimde düşürmek\n" +
+      "- Enerji verimliliğini kurumsal bir sürece dönüştürmek\n" +
+      "- Sera gazı emisyonlarını ve çevresel etkiyi azaltmak\n" +
+      "- Yasal ve müşteri kaynaklı enerji gerekliliklerini karşılamak\n" +
+      "- Sürdürülebilirlik ve ESG hedeflerini desteklemek\n\n" +
+      "## Belgelendirme süreci\n\n" +
+      "ISO 50001 belgelendirme; başvuru, aşama 1 ve aşama 2 tetkikleri, uygunsuzlukların kapatılması ve bağımsız belgelendirme kararı ile ilerler. Enerji verilerinin ve performans göstergelerinin izlenebilirliği, bu standartta özellikle önemlidir.\n\n" +
+      "ISO 50001 belgelendirme başvurusu için [ISO 50001 belgelendirme hizmetimizi](/hizmetler/iso-50001) inceleyebilir; birden çok standardı birlikte yürütmek için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımıza bakabilirsiniz.",
+    ilgiliHizmetler: ["iso-50001", "sistem-belgelendirme"],
+  },
+  {
     slug: "gida-tedarikci-denetimi",
     baslik: "Gıda Tedarikçi Denetimi: Gıda Güvenliği ve Hijyen Kriterleri",
     ozet:
