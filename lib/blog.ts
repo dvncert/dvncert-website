@@ -58,8 +58,8 @@ export const blogYazilari: BlogYazisi[] = [
       "- Uygunsuzlukların kapatılması: Varsa bulgular için düzeltici faaliyetler değerlendirilir.\n" +
       "- Belgelendirme kararı: Bağımsız bir karar vericinin onayıyla sertifika düzenlenir.\n" +
       "- Gözetim tetkikleri: Belge geçerliliği boyunca sistemin sürdürüldüğü periyodik denetimlerle teyit edilir.\n\n" +
-      "## Belgelendirmeye ön hazırlık\n\n" +
-      "Sürecin sorunsuz ilerlemesi için sistemin gerçekten uygulanıyor olması gerekir. Denetim öncesi bir iç tetkik yapmak ve bulguları kapatmak, aşama 2'de çıkabilecek uygunsuzlukları azaltır. Ayrıntılar için [belgelendirme denetimine hazırlık](/blog/belgelendirme-denetimine-hazirlik) yazımıza bakabilirsiniz.\n\n" +
+      "## Belgelendirmede tarafsızlık ilkesi\n\n" +
+      "ISO/IEC 17021-1 gereği belgelendirme kuruluşları tarafsız ve bağımsız olmak zorundadır; belgelendirdikleri kuruluşlara yönetim sistemi danışmanlığı veremez, sistemi onlar adına kuramaz. Yönetim sisteminin kurulması ve sürdürülmesi kuruluşun kendi sorumluluğundadır; belgelendirme kuruluşunun rolü, kurulan sistemi bağımsız biçimde denetleyip değerlendirmektir. Bu ayrım, belgenin güvenilirliğinin temelidir.\n\n" +
       "## Akredite belgelendirmenin önemi\n\n" +
       "Belgenin uluslararası ve ulusal düzeyde tanınırlığı, belgelendirme kuruluşunun akreditasyonuna bağlıdır. DVN Cert, TÜRKAK tarafından TS EN ISO/IEC 17021-1 kapsamında akredite edilmiş bir belgelendirme kuruluşudur. Akreditasyonun neden önemli olduğunu [TÜRKAK akreditasyonu](/blog/turkak-akreditasyonu-nedir) yazımızda ele aldık.\n\n" +
       "ISO 9001 belgelendirme başvurusu ve süreç ayrıntıları için [ISO 9001 belgelendirme hizmetimizi](/hizmetler/iso-9001) inceleyebilir; belgenin geçerlilik ve yenileme koşulları için [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımıza bakabilirsiniz.",
@@ -106,9 +106,9 @@ export const blogYazilari: BlogYazisi[] = [
       "- İhale ve tedarikçi şartlarında İSG performansını belgeleyebilmek\n" +
       "- Kaza kaynaklı maliyet ve iş gücü kayıplarını düşürmek\n\n" +
       "## Belgelendirme süreci\n\n" +
-      "ISO 45001 belgelendirme; başvuru, aşama 1 (hazırlık) tetkiki, aşama 2 (saha) tetkiki, uygunsuzlukların kapatılması ve bağımsız belgelendirme kararı adımlarını izler. Belge geçerliliği boyunca yıllık gözetim tetkikleriyle sistemin sürdürüldüğü doğrulanır. Sürecin genel işleyişi için [belgelendirme denetimine hazırlık](/blog/belgelendirme-denetimine-hazirlik) yazımıza bakabilirsiniz.\n\n" +
+      "ISO 45001 belgelendirme; başvuru, aşama 1 (hazırlık) tetkiki, aşama 2 (saha) tetkiki, uygunsuzlukların kapatılması ve bağımsız belgelendirme kararı adımlarını izler. Belge geçerliliği boyunca yıllık gözetim tetkikleriyle sistemin sürdürüldüğü doğrulanır. Belgenin geçerlilik ve yenileme koşulları için [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımıza bakabilirsiniz.\n\n" +
       "## Diğer sistemlerle entegrasyon\n\n" +
-      "ISO 45001; ISO 9001 ve ISO 14001 ile ortak bir üst yapı (HLS) paylaşır ve entegre yönetim sistemi olarak birlikte kurulabilir. Ayrıntı için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımızı inceleyebilirsiniz.\n\n" +
+      "ISO 45001; ISO 9001 ve ISO 14001 ile ortak bir üst yapı (HLS) paylaşır ve entegre yönetim sistemi olarak birlikte ele alınabilir. Ayrıntı için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımızı inceleyebilirsiniz.\n\n" +
       "ISO 45001 belgelendirme başvurusu için [ISO 45001 belgelendirme hizmetimizi](/hizmetler/iso-45001) inceleyebilirsiniz.",
     ilgiliHizmetler: ["iso-45001", "sistem-belgelendirme"],
   },
@@ -131,7 +131,7 @@ export const blogYazilari: BlogYazisi[] = [
       "- İhale ve ihracatta çevresel gereklilikleri karşılamak\n\n" +
       "## Belgelendirme süreci\n\n" +
       "ISO 14001 belgelendirme; başvuru, aşama 1 ve aşama 2 tetkikleri, uygunsuzlukların kapatılması ve bağımsız belgelendirme kararı ile ilerler; belge boyunca yıllık gözetim tetkikleri yapılır. Belgenin geçerlilik ve yenileme koşulları için [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımıza bakabilirsiniz.\n\n" +
-      "ISO 14001 belgelendirme başvurusu için [ISO 14001 belgelendirme hizmetimizi](/hizmetler/iso-14001) inceleyebilir; birden çok standardı birlikte kurmak için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımıza göz atabilirsiniz.",
+      "ISO 14001 belgelendirme başvurusu için [ISO 14001 belgelendirme hizmetimizi](/hizmetler/iso-14001) inceleyebilir; birden çok standardın birlikte belgelendirilmesi için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımıza göz atabilirsiniz.",
     ilgiliHizmetler: ["iso-14001", "sistem-belgelendirme"],
   },
   {
