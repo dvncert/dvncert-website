@@ -35,6 +35,34 @@ export type BlogYazisi = {
 
 export const blogYazilari: BlogYazisi[] = [
   {
+    slug: "belgelendirme-kapsami-nasil-belirlenir",
+    baslik: "Belgelendirme Kapsamı Nasıl Belirlenir?",
+    ozet:
+      "Belgelendirme kapsamı, bir ISO sertifikasının sınırlarını tanımlar. Yönetim sistemi belgelendirme sürecinde kapsamın nasıl belirlendiğini açıklıyoruz.",
+    tarih: "2026-07-05",
+    kategori: "Belgelendirme Süreci",
+    icerik:
+      "Bir ISO sertifikasının üzerinde yer alan kapsam ifadesi, belgenin tam olarak neyi kapsadığını ve hangi faaliyetler için geçerli olduğunu gösterir. Belgelendirme kapsamının doğru belirlenmesi, hem denetimin sağlıklı planlanması hem de belgenin güvenilirliği açısından kritik bir adımdır.\n\n" +
+      "## Belgelendirme kapsamı nedir?\n\n" +
+      "Belgelendirme kapsamı, bir yönetim sistemi sertifikasının hangi faaliyet, ürün, hizmet, lokasyon ve süreçleri içerdiğini tanımlayan resmi ifadedir. Sertifika üzerinde yer alır ve belgenin geçerli olduğu sınırları netleştirir. Örneğin bir üretim kuruluşu için kapsam; üretilen ürün grupları, üretim tesisleri ve varsa ilgili destek süreçleriyle sınırlı olarak tanımlanabilir.\n\n" +
+      "## Kapsam neden önemlidir?\n\n" +
+      "Kapsam ifadesi net değilse, belgeyi inceleyen üçüncü taraflar (müşteriler, ihale makamları, tedarik zinciri ortakları) sertifikanın kendi ihtiyaçlarını karşılayıp karşılamadığını doğru değerlendiremez. Ayrıca kapsam dışı bırakılan faaliyetler için belgenin bir güvence sunmadığı da açıkça anlaşılmalıdır. Bu nedenle kapsam; ne çok dar ne de gerçek faaliyetleri aşacak kadar geniş tanımlanmalıdır.\n\n" +
+      "## Kapsam belirlerken dikkate alınan unsurlar\n\n" +
+      "- Kuruluşun sunduğu ürün ve hizmetlerin türü ve çeşitliliği\n" +
+      "- Faaliyetin yürütüldüğü lokasyon veya lokasyonlar\n" +
+      "- Standardın kuruluşa uygulanabilir olan ve olmayan maddeleri (ör. ISO 9001'de tasarım ve geliştirme maddesinin hariç tutulabilmesi)\n" +
+      "- Dış kaynaklı (outsource) süreçlerin sisteme dahil edilip edilmeyeceği\n" +
+      "- Yasal ve düzenleyici gerekliliklerin kapsam üzerindeki etkisi\n\n" +
+      "## Kapsamın belirlenme süreci\n\n" +
+      "Kapsam, başvuru aşamasında kuruluş tarafından tanımlanır ve belgelendirme kuruluşu tarafından aşama 1 tetkikinde gözden geçirilir. Tanımlanan kapsamın standardın gerekliliklerine ve kuruluşun fiilen yürüttüğü faaliyetlere uygun olup olmadığı bu aşamada değerlendirilir; gerekirse kapsam ifadesinde netleştirme istenir. Aşama 1 ve aşama 2 tetkiklerinin nasıl işlediğini [belgelendirme denetimine hazırlık](/blog/belgelendirme-denetimine-hazirlik) yazımızda ele aldık.\n\n" +
+      "## Çok lokasyonlu kuruluşlarda kapsam\n\n" +
+      "Birden fazla şube, tesis veya saha üzerinden faaliyet gösteren kuruluşlarda kapsamın; tüm lokasyonları mı yoksa belirli bir örnekleme yaklaşımıyla mı değerlendirileceği ayrıca netleştirilir. Bu durumlarda hangi lokasyonların sertifikada adlandırılacağı, hangilerinin örnekleme yoluyla denetleneceği önceden tanımlanır.\n\n" +
+      "## Kapsam değişebilir mi?\n\n" +
+      "Kuruluşun faaliyet alanı zamanla genişleyebilir veya daralabilir. Böyle durumlarda kapsam güncellemesi talep edilebilir; belgelendirme kuruluşu, kapsam değişikliğinin etkisini değerlendirerek ek bir denetim gerekip gerekmediğine karar verir. Kapsam değişikliği, mevcut sertifikanın geçerlilik süresini etkilemez ancak belge üzerinde güncellenir.\n\n" +
+      "Belgelendirme kapsamının netleştirilmesi, sürecin ilk ve en önemli adımlarından biridir. Kapsam belirleme dahil tüm belgelendirme sürecinin işleyişi için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) inceleyebilir; ISO 9001 belgelendirme sürecinin ayrıntıları için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımıza bakabilirsiniz.",
+    ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001"],
+  },
+  {
     slug: "iso-9001-belgelendirme-nedir-nasil-alinir",
     baslik: "ISO 9001 Belgelendirme Nedir ve Nasıl Alınır?",
     ozet:
