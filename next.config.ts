@@ -31,6 +31,8 @@ const nextConfig: NextConfig = {
       // kaybolmasın diye güncel eşdeğer sayfalara 301 yönlendiriliyor.
       { source: "/duyurular/dvncert-akreditasyon", destination: "/duyurular/turkak-akreditasyonumuzu-aldik", permanent: true },
       { source: "/duyurular/iso-50001-akreditasyon-kapsami-genisledi", destination: "/akreditasyonlarimiz", permanent: true },
+      // Eski WordPress sitesinden kalan üst düzey hizmet URL'si → yeni /hizmetler yolu.
+      { source: "/2-taraf-denetimleri", destination: "/hizmetler/2-taraf-denetimleri", permanent: true },
     ];
   },
 
