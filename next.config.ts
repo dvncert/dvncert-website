@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
     return [
       { source: "/marka-ve-logo-kullanimi", destination: "/logolarimiz", permanent: true },
       { source: "/belgelendirme-kurallari", destination: "/dokumanlar", permanent: true },
+      // Yeniden adlandırılan/kaldırılan eski duyuru URL'leri (GSC 404) — SEO değeri
+      // kaybolmasın diye güncel eşdeğer sayfalara 301 yönlendiriliyor.
+      { source: "/duyurular/dvncert-akreditasyon", destination: "/duyurular/turkak-akreditasyonumuzu-aldik", permanent: true },
+      { source: "/duyurular/iso-50001-akreditasyon-kapsami-genisledi", destination: "/akreditasyonlarimiz", permanent: true },
     ];
   },
 
