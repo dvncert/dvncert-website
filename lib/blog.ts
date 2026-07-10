@@ -35,6 +35,67 @@ export type BlogYazisi = {
 
 export const blogYazilari: BlogYazisi[] = [
   {
+    slug: "gozetim-tetkiki-nedir",
+    baslik:
+      "Gözetim Tetkiki Nedir? Yıllık Gözetim Denetiminde Neler Değerlendirilir?",
+    ozet:
+      "Gözetim tetkiki, ISO belgesinin geçerlilik süresince sistemin sürdürüldüğünü doğrulayan yıllık bağımsız denetimdir. Kapsamını ve işleyişini açıklıyoruz.",
+    tarih: "2026-07-10",
+    kategori: "Belgelendirme Süreci",
+    icerik:
+      "Bir ISO sertifikası alındıktan sonra süreç bitmez; sertifikanın geçerlilik süresi boyunca yönetim sisteminin sürdürüldüğü, düzenli aralıklarla yapılan gözetim tetkikleriyle bağımsız olarak doğrulanır. Bu yazıda gözetim tetkikinin ne olduğunu, kimin yürüttüğünü, ne sıklıkla yapıldığını ve kapsamını ele alıyoruz.\n\n" +
+      "## Gözetim tetkiki nedir?\n\n" +
+      "Gözetim tetkiki (surveillance audit), akredite bir belgelendirme kuruluşunun; sertifikalandırılmış bir yönetim sisteminin, belgelendirme kararından sonra da standardın gerekliliklerini karşılamaya devam edip etmediğini periyodik olarak değerlendirdiği denetimdir. Belgenin 3 yıllık geçerlilik süresi boyunca gerçekleştirilir ve belgenin sürekli geçerliliğinin ön koşuludur.\n\n" +
+      "## Gözetim tetkiki neden yapılır?\n\n" +
+      "Bir ISO sertifikası, yalnızca belgelendirme anındaki bir an fotoğrafı değil; sistemin zaman içinde sürdürüldüğüne dair sürekli bir güvencedir. TS EN ISO/IEC 17021-1 standardı, belgelendirme kuruluşlarının bu sürekliliği periyodik tetkiklerle doğrulamasını şart koşar. Gözetim tetkiki olmadan düzenlenen bir belge, zaman içindeki uygunluğu güvence altına almaz; bu nedenle gözetim tetkiki, belgenin taşıdığı güvencenin ayrılmaz bir parçasıdır.\n\n" +
+      "## Gözetim tetkikini kim yürütür?\n\n" +
+      "Gözetim tetkiki de, ilk belgelendirme tetkikinde olduğu gibi, belgelendirme kuruluşunun görevlendirdiği bağımsız tetkikçiler tarafından yürütülür. Tetkikçilerin tarafsızlığı ve yetkinliği, ilk tetkikte aranan kriterlerle aynıdır. Tetkik sonucunda bulguların değerlendirilmesi ve belgenin geçerliliğinin sürdürülüp sürdürülmeyeceğine ilişkin karar, tetkiki yapan tetkikçiden bağımsız bir belgelendirme kararı sürecine tabidir.\n\n" +
+      "## Gözetim tetkikinde neler değerlendirilir?\n\n" +
+      "Gözetim tetkiki, sistemin tamamını değil; standardın kritik maddelerini ve önceki tetkiklerde öne çıkan alanları örnekleme yoluyla değerlendirir. Tipik olarak şu başlıklar incelenir:\n\n" +
+      "- Bir önceki tetkikte tespit edilen uygunsuzluklara yönelik düzeltici faaliyetlerin durumu\n" +
+      "- İç tetkik ve yönetim gözden geçirme faaliyetlerinin gerçekleştirilip gerçekleştirilmediği\n" +
+      "- Şikayetler ve bunlara verilen yanıtların yönetimi\n" +
+      "- Sistemde hedeflenen amaçlara ulaşılıp ulaşılmadığı ve sürekli iyileştirme faaliyetleri\n" +
+      "- Belgelendirme kapsamında, kuruluş yapısında veya mevzuatta meydana gelen değişiklikler\n" +
+      "- Akreditasyon markasının ve belgelendirme kuruluşu atıflarının doğru kullanımı\n\n" +
+      "## Gözetim tetkiki ile belgelendirme tetkiki arasındaki fark\n\n" +
+      "İlk belgelendirme tetkiki, Aşama 1 ve Aşama 2 adımlarıyla sistemin tüm maddelerini kapsamlı biçimde değerlendirir. Gözetim tetkiki ise daha dar kapsamlıdır; sistemin sürdürüldüğünü ve önceki bulguların kapatıldığını doğrulamaya odaklanır, standardın tüm maddelerini yeniden baştan sona incelemez. Aşama 1 ve Aşama 2 tetkiklerinin işleyişi için [belgelendirme denetimine hazırlık](/blog/belgelendirme-denetimine-hazirlik) yazımıza bakabilirsiniz.\n\n" +
+      "## Çok lokasyonlu kuruluşlarda gözetim tetkiki\n\n" +
+      "Birden fazla şube veya sahada faaliyet gösteren kuruluşlarda gözetim tetkiki, belirlenen örnekleme yaklaşımına göre planlanır; her gözetim tetkikinde farklı lokasyonlar ziyaret edilebilir. Kapsam ve lokasyon örneklemesinin nasıl belirlendiği için [belgelendirme kapsamı nasıl belirlenir](/blog/belgelendirme-kapsami-nasil-belirlenir) yazımıza bakabilirsiniz.\n\n" +
+      "## Gözetim tetkiki ne sıklıkla yapılır?\n\n" +
+      "Gözetim tetkikleri, sertifikanın 3 yıllık geçerlilik süresi boyunca genellikle yılda bir kez, belgelendirme tarihinden itibaren 12 aylık dönemlerde planlanır. Üçüncü yılın sonunda ise gözetim yerine kapsamı daha geniş bir yeniden belgelendirme tetkiki yapılır. Belge geçerliliği ve yenileme süreci hakkında ayrıntılı bilgi için [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımızı inceleyebilirsiniz.\n\n" +
+      "## Gözetim tetkiki sonucunda ne olur?\n\n" +
+      "Gözetim tetkikinde uygunsuzluk tespit edilirse, kuruluşun bunlar için düzeltici faaliyet sunması ve belirlenen sürede kapatması gerekir; aksi halde belge askıya alınabilir. Gözetim tetkikinin zamanında yapılmaması veya erişim sağlanmaması da benzer şekilde belgenin askıya alınmasına ya da iptaline yol açabilir. Bu nedenle gözetim tetkiki, yalnızca biçimsel bir formalite değil; belgenin güvenilirliğini sürdüren aktif bir denetim adımıdır.\n\n" +
+      "Gözetim tetkikleri dahil tüm belgelendirme sürecinin nasıl işlediği için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) inceleyebilir; ISO 9001 belgelendirme sürecinin adımları için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımıza bakabilirsiniz.",
+    ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001"],
+  },
+  {
+    slug: "iso-9001-ve-iso-14001-farki",
+    baslik: "ISO 9001 ile ISO 14001 Arasındaki Fark Nedir?",
+    ozet:
+      "ISO 9001 kalite, ISO 14001 çevre yönetim sistemi standardıdır. İki standardın odak noktalarını, ortak yönlerini ve birlikte yürütülme imkanını karşılaştırıyoruz.",
+    tarih: "2026-07-06",
+    kategori: "Yönetim Sistemleri",
+    icerik:
+      "ISO 9001 ve ISO 14001, kuruluşların en sık başvurduğu iki yönetim sistemi standardıdır. İkisi de bağımsız bir belgelendirme kuruluşu tarafından denetlenip belgelendirilebilir, ancak odaklandıkları alan farklıdır.\n\n" +
+      "## ISO 9001 nedir?\n\n" +
+      "ISO 9001, bir kuruluşun ürün ve hizmetlerini müşteri ve yasal gerekliliklere uygun, tutarlı biçimde sunma yeteneğini güvence altına alan kalite yönetim sistemi standardıdır. Odak noktası; süreç kontrolü, müşteri memnuniyeti ve sürekli iyileştirmedir.\n\n" +
+      "## ISO 14001 nedir?\n\n" +
+      "ISO 14001 ise bir kuruluşun faaliyet, ürün ve hizmetlerinden kaynaklanan çevresel etkileri sistematik biçimde yönetmesini sağlayan çevre yönetim sistemi standardıdır. Odak noktası; çevresel etkilerin belirlenmesi, yasal uyum ve çevresel performansın sürekli iyileştirilmesidir.\n\n" +
+      "## Odak noktası farkı\n\n" +
+      "- ISO 9001: ürün/hizmet kalitesi, müşteri memnuniyeti ve süreç verimliliği\n" +
+      "- ISO 14001: çevresel etki, kaynak kullanımı ve çevre mevzuatına uyum\n" +
+      "- ISO 9001'de \"ilgili taraf\" öncelikli olarak müşteridir; ISO 14001'de ise çevre ve toplum daha belirgin bir ilgili taraf grubudur\n\n" +
+      "## Ortak yönler: Annex SL yapısı\n\n" +
+      "Her iki standart da Annex SL adı verilen ortak üst yapıyı (High Level Structure) kullanır. Bu nedenle kuruluşun bağlamı, liderlik, planlama, destek, operasyon, performans değerlendirme ve iyileştirme gibi ana madde başlıkları her iki standartta da aynı sırayla yer alır. Bu ortak yapı, iki sistemin bütünleşik biçimde yürütülmesini kolaylaştırır.\n\n" +
+      "## Hangi kuruluşlar ikisini birlikte yürütür?\n\n" +
+      "Özellikle üretim, inşaat, enerji ve kimya gibi çevresel etkisi belirgin sektörlerdeki kuruluşlar, kalite ve çevre yönetimini birlikte ele almayı tercih eder. Bu sayede doküman yönetimi, iç tetkik ve yönetim gözden geçirme gibi ortak süreçler tek elden yürütülebilir.\n\n" +
+      "## Birlikte belgelendirme mümkün mü?\n\n" +
+      "Evet; iki standart ortak yapıları sayesinde tek bir entegre yönetim sistemi çatısı altında birleştirilebilir ve tek bir denetim programıyla belgelendirilebilir. Entegrasyonun nasıl işlediği için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımıza bakabilirsiniz.\n\n" +
+      "ISO 9001 belgelendirme süreci için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımızı, ISO 14001 için [ISO 14001 belgelendirme: çevre yönetim sistemi belgesi](/blog/iso-14001-belgelendirme-cevre-yonetim-sistemi) yazımızı inceleyebilirsiniz. Her iki standardın belgelendirme başvurusu için [ISO 9001 belgelendirme hizmetimizi](/hizmetler/iso-9001) ve [ISO 14001 belgelendirme hizmetimizi](/hizmetler/iso-14001) ziyaret edebilirsiniz.",
+    ilgiliHizmetler: ["iso-9001", "iso-14001", "sistem-belgelendirme"],
+  },
+  {
     slug: "belgelendirme-kapsami-nasil-belirlenir",
     baslik: "Belgelendirme Kapsamı Nasıl Belirlenir?",
     ozet:
