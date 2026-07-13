@@ -35,6 +35,37 @@ export type BlogYazisi = {
 
 export const blogYazilari: BlogYazisi[] = [
   {
+    slug: "belgelendirme-karari-nasil-verilir",
+    baslik:
+      "Belgelendirme Kararı Nasıl Verilir? Bağımsız Karar Verme Süreci Nedir?",
+    ozet:
+      "Belgelendirme kararı, tetkikten bağımsız bir karar vericinin onayıyla verilir. Yönetim sistemi belgelendirme sürecinde kararın nasıl alındığını açıklıyoruz.",
+    tarih: "2026-07-13",
+    kategori: "Belgelendirme Süreci",
+    icerik:
+      "Bir ISO sertifikasının düzenlenmesi, denetimi yürüten tetkikçinin kararı değildir; TS EN ISO/IEC 17021-1 standardı, tetkik sonucunun değerlendirilmesini ve sertifikanın onaylanmasını tetkikten bağımsız, ayrı bir belgelendirme kararı sürecine bağlar. Bu yazıda belgelendirme kararının ne olduğunu, kimin verdiğini ve hangi adımlardan geçtiğini ele alıyoruz.\n\n" +
+      "## Belgelendirme kararı nedir?\n\n" +
+      "Belgelendirme kararı, bir tetkik sonucunda toplanan bulguların değerlendirilerek kuruluşa sertifika düzenlenip düzenlenmeyeceğine, sertifikanın kapsamına veya devam eden bir belgenin sürdürülüp sürdürülmeyeceğine dair verilen resmi karardır. İlk belgelendirme, gözetim ve yeniden belgelendirme tetkiklerinin her birinin sonunda ayrı bir belgelendirme kararı alınır.\n\n" +
+      "## Neden tetkikçiden bağımsız bir karar süreci gerekir?\n\n" +
+      "Tetkiki yürüten kişi, tetkik sırasında kuruluşla doğrudan temas kurar; kararın aynı kişi tarafından verilmesi bu nedenle tarafsızlığı zedeleyebilir. ISO/IEC 17021-1 gereği belgelendirme kuruluşları, o tetkike katılmamış, tetkik ekibinden bağımsız bir karar vericinin sertifikasyon kararını onaylamasını sağlamak zorundadır. Bu ayrım, belgenin güvenilirliğinin ve tarafsızlığının temel güvencelerinden biridir.\n\n" +
+      "## Belgelendirme kararı süreci nasıl işler?\n\n" +
+      "Tetkik tamamlandıktan sonra tetkik ekibi; bulguları, uygunsuzlukları ve varsa düzeltici faaliyetlerin durumunu içeren bir tetkik raporu hazırlar. Bu rapor, tetkike katılmamış bağımsız bir karar vericiye iletilir. Karar verici, raporu ve destekleyici kayıtları inceleyerek sertifikanın düzenlenip düzenlenmeyeceğine karar verir; gerektiğinde ek bilgi veya açıklama talep edebilir.\n\n" +
+      "## Karar sürecinde neler değerlendirilir?\n\n" +
+      "- Tetkik bulgularının standardın ilgili maddelerine uygun biçimde değerlendirilip değerlendirilmediği\n" +
+      "- Tespit edilen uygunsuzlukların kapatılıp kapatılmadığı veya kapatma planının yeterliliği\n" +
+      "- Tetkik ekibinin yetkinliğinin ve tarafsızlığının ilgili tetkik için uygun olup olmadığı\n" +
+      "- Kapsam ifadesinin tetkik edilen faaliyetlerle tutarlı olup olmadığı\n" +
+      "- Önceki tetkiklerden gelen açık konuların, varsa, sonuçlandırılıp sonuçlandırılmadığı\n\n" +
+      "## Olumlu ve olumsuz karar durumunda ne olur?\n\n" +
+      "Karar olumluysa sertifika düzenlenir veya mevcut belgenin geçerliliği sürdürülür. Bulgular yeterince kapatılmamışsa veya kanıtlar yetersizse karar verici ek bilgi talep edebilir, sertifikayı reddedebilir ya da mevcut bir belgeyi askıya alabilir. Askıya alma ve iptal koşulları hakkında [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımızda bilgi bulabilirsiniz.\n\n" +
+      "## Gözetim ve yeniden belgelendirmede karar süreci\n\n" +
+      "Aynı bağımsız karar mekanizması, ilk belgelendirmenin yanı sıra her yıllık [gözetim tetkiki](/blog/gozetim-tetkiki-nedir) ve üç yılın sonundaki yeniden belgelendirme tetkiki için de işletilir. Böylece sertifikanın geçerliliği boyunca her aşamada aynı tarafsızlık güvencesi korunur.\n\n" +
+      "## Belgelendirme kararının kuruluş için anlamı\n\n" +
+      "Belgelendirme kararı sürecinin bağımsızlığı, sertifikanın taşıdığı güvencenin en önemli unsurlarından biridir. Kuruluşlar için bu, tetkik sonucunun tek bir kişinin takdirine değil, yapılandırılmış ve denetlenebilir bir sürece dayandığı anlamına gelir. ISO 9001 belgelendirme sürecinin tüm adımları için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımızı, akreditasyonun bu güvenceyi nasıl desteklediğini ise [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımızı inceleyebilirsiniz.\n\n" +
+      "Belgelendirme kararı dahil tüm sürecin nasıl yürütüldüğü için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) inceleyebilirsiniz.",
+    ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001"],
+  },
+  {
     slug: "gozetim-tetkiki-nedir",
     baslik:
       "Gözetim Tetkiki Nedir? Yıllık Gözetim Denetiminde Neler Değerlendirilir?",
