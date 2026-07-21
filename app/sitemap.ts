@@ -18,7 +18,15 @@ import { blogKategorileri } from "@/lib/icerik";
  */
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const siteGuncelleme = new Date("2026-06-15");
+  // Site geneli tazelik: en yeni blog/duyuru tarihinden türetilir; yeni içerik
+  // eklendikçe içerik-indeks sayfalarının lastModified'ı otomatik ilerler.
+  // Taban tarih, hiç içerik yoksa/eski kalırsa gerilemeyi önler.
+  const tabanGuncelleme = new Date("2026-06-15").getTime();
+  const enYeniIcerik = [...blogYazilari, ...duyurular]
+    .map((x) => new Date(x.tarih).getTime())
+    .filter((t) => !Number.isNaN(t))
+    .reduce((a, b) => Math.max(a, b), tabanGuncelleme);
+  const siteGuncelleme = new Date(enYeniIcerik);
   const yasalGuncelleme = new Date("2026-01-01");
   const url = siteConfig.url;
 

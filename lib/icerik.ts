@@ -111,6 +111,20 @@ export async function blogDetay(slug: string): Promise<BlogYazisi | undefined> {
   return (await bloglariGetir()).find((b) => b.slug === slug);
 }
 
+/**
+ * Bir hizmet slug'ına `ilgiliHizmetler` üzerinden bağlı blog yazılarını getirir
+ * (hizmet → blog geri linkleme). En yeni yazı önce; `limit` ile sınırlanır.
+ */
+export async function hizmeteGoreBloglar(
+  hizmetSlug: string,
+  limit = 3
+): Promise<BlogYazisi[]> {
+  const yazilar = await bloglariGetir();
+  return yazilar
+    .filter((y) => (y.ilgiliHizmetler ?? []).includes(hizmetSlug))
+    .slice(0, limit);
+}
+
 /** Kategori adını URL-güvenli slug'a çevirir (Türkçe karakter duyarlı). */
 export function kategoriSlug(kategori: string): string {
   return kategori

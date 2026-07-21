@@ -5,6 +5,7 @@ import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
 import HizmetIkon from "../../components/HizmetIkon";
 import IcerikMetin from "../../components/IcerikMetin";
+import IlgiliYazilar from "../../components/IlgiliYazilar";
 import { hizmetler, hizmetGetir } from "@/lib/hizmetler";
 import { hizmetIcerikGetirDB } from "@/lib/sayfa-icerigi";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
@@ -305,6 +306,9 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
           </div>
         </section>
       )}
+
+      {/* İlgili blog yazıları (hizmet → blog geri linkleme) */}
+      <IlgiliYazilar hizmetSlug={hizmet.slug} arkaplan="white" />
 
       {/* CTA */}
       <section style={{ background: "white", padding: "0 32px 70px" }}>

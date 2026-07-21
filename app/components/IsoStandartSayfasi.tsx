@@ -2,6 +2,7 @@ import Link from "next/link";
 import SayfaBaslik from "./SayfaBaslik";
 import KapakGorsel from "./KapakGorsel";
 import Akordeon from "./Akordeon";
+import IlgiliYazilar from "./IlgiliYazilar";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { schemaScript, faqSchema } from "@/lib/seo-schemas";
 import { isoTumStandartlar } from "@/lib/iso-icerik";
@@ -502,6 +503,9 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      {/* İlgili blog yazıları (hizmet → blog geri linkleme) */}
+      <IlgiliYazilar hizmetSlug={slug} arkaplan="white" />
 
       {/* CTA */}
       <section style={{ background: "white", padding: "70px 32px" }}>
