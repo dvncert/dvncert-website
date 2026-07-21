@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import DokumanCanvas from "./DokumanCanvas";
 
 /**
@@ -8,11 +9,22 @@ import DokumanCanvas from "./DokumanCanvas";
  * PDF, sayfa sayfa <canvas>'a çizilir (DokumanCanvas) — metin katmanı yoktur,
  * bu yüzden metin seçilemez/kopyalanamaz ve indir/yazdır araç çubuğu yoktur.
  *
+ * Modal, createPortal ile doğrudan document.body'ye render edilir. Aksi halde
+ * position:fixed katman, transform uygulayan bir üst öğenin (ör. hover'da
+ * translateX yapan doküman satırı) içine hapsolur ve viewport yerine o öğeye
+ * göre konumlanır — bu da "açılıp kapanma / titreme" olarak görünürdü.
+ *
  * Not: Web'de mutlak indirme/kopyalama engeli yoktur (ekran görüntüsü, DevTools,
  * doğrudan URL). Bu bileşen metin kopyalamayı ve sıradan indirmeyi engeller.
  */
 export default function DokumanGoruntule({ src, baslik }: { src: string; baslik: string }) {
   const [acik, setAcik] = useState(false);
+  const [monte, setMonte] = useState(false);
+
+  // Portal yalnızca istemcide (document mevcutken) render edilebilir.
+  useEffect(() => {
+    setMonte(true);
+  }, []);
 
   useEffect(() => {
     if (!acik) return;
@@ -28,35 +40,7 @@ export default function DokumanGoruntule({ src, baslik }: { src: string; baslik:
     };
   }, [acik]);
 
-  return (
-    <>
-      <button
-        type="button"
-        onClick={() => setAcik(true)}
-        className="dvn-dok-goruntule"
-        style={{
-          flexShrink: 0,
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 6,
-          background: "var(--dvn-gradient-turuncu)",
-          color: "white",
-          padding: "9px 16px",
-          borderRadius: "var(--dvn-radius-md)",
-          fontWeight: 500,
-          fontSize: 12.5,
-          border: "none",
-          cursor: "pointer",
-        }}
-      >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="12" cy="12" r="3" stroke="white" strokeWidth="2" />
-        </svg>
-        Görüntüle
-      </button>
-
-      {acik && (
+  const modal = acik ? (
         <div
           role="dialog"
           aria-modal="true"
@@ -111,7 +95,37 @@ export default function DokumanGoruntule({ src, baslik }: { src: string; baslik:
           </div>
           <DokumanCanvas src={src} />
         </div>
-      )}
+  ) : null;
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setAcik(true)}
+        className="dvn-dok-goruntule"
+        style={{
+          flexShrink: 0,
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 6,
+          background: "var(--dvn-gradient-turuncu)",
+          color: "white",
+          padding: "9px 16px",
+          borderRadius: "var(--dvn-radius-md)",
+          fontWeight: 500,
+          fontSize: 12.5,
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="12" cy="12" r="3" stroke="white" strokeWidth="2" />
+        </svg>
+        Görüntüle
+      </button>
+
+      {monte && modal ? createPortal(modal, document.body) : null}
     </>
   );
 }
