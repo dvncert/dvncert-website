@@ -51,12 +51,13 @@ export const siteConfig = {
     "DVN Cert",
   ],
 
-  // Sosyal medya (ileride doldurursunuz)
+  // Sosyal medya (JSON-LD sameAs + görünür sosyal butonlar bu değerlerden beslenir;
+  // admin panelden DB'ye girilirse DB önceliklidir, bkz. lib/site-ayarlari.ts)
   sosyal: {
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/dvncert/",
     twitter: "",
     facebook: "",
-    instagram: "",
+    instagram: "https://www.instagram.com/dvncertification/",
   },
 
   // Akreditasyon bilgileri (TÜRKAK — yayımlandı: 18.06.2026)
