@@ -35,6 +35,37 @@ export type BlogYazisi = {
 
 export const blogYazilari: BlogYazisi[] = [
   {
+    slug: "akreditasyon-markasi-kullanimi",
+    baslik: "Akreditasyon Markası Nasıl Kullanılır? Kurallar ve Yaygın Hatalar",
+    ozet:
+      "Akreditasyon markasının doğru kullanım kurallarını, TÜRKAK ve ISO/IEC 17021-1 gerekliliklerini ve yanlış kullanımın olası sonuçlarını açıklıyoruz.",
+    tarih: "2026-07-21",
+    kategori: "Belgelendirme Süreci",
+    icerik:
+      "Bir ISO sertifikası üzerinde yer alan akreditasyon markası, belgenin bağımsız bir otorite tarafından güvence altına alındığını gösterir. Ancak bu markanın nerede, nasıl ve kimin tarafından kullanılabileceği; ISO/IEC 17021-1 ve TÜRKAK kuralları çerçevesinde net biçimde sınırlandırılmıştır. Bu yazıda akreditasyon markasının ne olduğunu, kimin kullanabileceğini, kullanım kurallarını ve yaygın hataları ele alıyoruz.\n\n" +
+      "## Akreditasyon markası nedir?\n\n" +
+      "Akreditasyon markası, bir belgelendirme kuruluşunun TÜRKAK gibi bir akreditasyon kurumu tarafından, belirli bir standart kapsamında (ör. TS EN ISO/IEC 17021-1) akredite edildiğini gösteren resmi işarettir. Bu marka akreditasyon kurumuna aittir; akredite belgelendirme kuruluşlarının, akreditasyon sözleşmesi çerçevesinde belirlenen koşullarla kullanmasına izin verilir.\n\n" +
+      "## Akreditasyon markasını kim kullanabilir?\n\n" +
+      "Markayı doğrudan kullanma hakkı akredite belgelendirme kuruluşuna aittir. Belgelendirilen kuruluşlar ise bu markayı, belgelendirme kuruluşunun izin verdiği koşullarda ve yalnızca kendi sertifikalarına atıfla kullanabilir. Marka, belgelendirme kuruluşundan bağımsız olarak kuruluşların kendi başına türetip serbestçe kullanabileceği bir işaret değildir; kullanım hakkı, belgenin geçerliliğine bağlıdır.\n\n" +
+      "## Akreditasyon markasının kullanım kurallarına neler dahildir?\n\n" +
+      "Akreditasyon kurumları ve belgelendirme kuruluşları, markanın tutarlı ve yanıltıcı olmayan biçimde kullanılması için ortak kurallar uygular. Bu kurallar arasında tipik olarak şunlar yer alır:\n\n" +
+      "- Marka yalnızca belgelendirme kapsamındaki faaliyet, süreç veya lokasyonlar için kullanılabilir; kapsam dışı faaliyetler için kullanılamaz\n" +
+      "- Marka, ürünün veya hizmetin doğrudan kendisinin sertifikalandığı izlenimini vermeyecek biçimde kullanılmalıdır; çünkü akreditasyon bir yönetim sistemini kapsar, ürünü değil\n" +
+      "- Marka üzerindeki akreditasyon numarası ve ilgili standart kodu değiştirilmeden, belirlenen oran ve boyut kurallarına uygun biçimde kullanılmalıdır\n" +
+      "- Sertifika askıya alındığında veya iptal edildiğinde, markanın her türlü kullanımına derhal son verilmelidir\n" +
+      "- Marka; kartvizit, web sitesi, reklam veya ambalaj gibi materyallerde kullanılacaksa, belgelendirme kuruluşunun belirlediği kullanım kılavuzuna uyulmalıdır\n\n" +
+      "## Akreditasyon markası ile belgelendirme kuruluşu logosu farkı\n\n" +
+      "Akreditasyon markası ile belgelendirme kuruluşunun kendi logosu farklı işaretlerdir ve farklı kurallara tabidir. Belgelendirme kuruluşunun logosu kendi kurumsal kimliğini temsil ederken, akreditasyon markası TÜRKAK gibi bağımsız bir akreditasyon otoritesinin verdiği güvenceyi temsil eder. İkisi birlikte kullanılabilir, ancak her birinin kullanım kuralları ayrı ayrı gözetilmelidir; biri için verilen izin diğerini kapsamaz.\n\n" +
+      "## Sık karşılaşılan bir yanlış anlama: marka her ürünü mü sertifikalandırır?\n\n" +
+      "Akreditasyon markasını bir kuruluşun web sitesinde veya tesisinde gören üçüncü taraflar, bazen bu markanın kuruluşun sunduğu her ürün veya hizmeti ayrı ayrı sertifikalandırdığını düşünebilir. Oysa yönetim sistemi belgelendirmesinde akreditasyon markası, belirlenen kapsamdaki yönetim sisteminin standarda uygunluğunu gösterir; tek tek ürün veya hizmetlerin doğrudan sertifikalandığı anlamına gelmez. Bu ayrımın net biçimde anlaşılması, markanın yanlış yorumlanmasını önler.\n\n" +
+      "## Yanlış kullanımın sonuçları neler olabilir?\n\n" +
+      "Akreditasyon markasının kapsam dışı kullanılması, yanıltıcı biçimde ürün üzerinde gösterilmesi veya sertifika geçerliliğini kaybettikten sonra kullanılmaya devam edilmesi; belgelendirme kuruluşu tarafından uyarı, düzeltici faaliyet talebi veya sertifikanın askıya alınması gibi sonuçlar doğurabilir. Akreditasyon kurumu da kendi markasının yanlış kullanıldığı durumları, belgelendirme kuruluşu aracılığıyla takip eder ve gerektiğinde belgelendirme kuruluşundan düzeltici önlem talep eder.\n\n" +
+      "## Neden bu kurallar önemlidir?\n\n" +
+      "Akreditasyon markasının tutarlı ve doğru kullanımı, sertifikaya duyulan güvenin korunmasını sağlar. Marka yanlış veya yanıltıcı biçimde kullanıldığında, yalnızca ilgili kuruluşun değil; akreditasyon sisteminin ve belgenin genel güvenilirliğinin de zarar görme riski oluşur. Bu nedenle marka kullanım kuralları, belgelendirme sözleşmesinin ayrılmaz bir parçası olarak kabul edilir ve gözetim tetkiklerinde de ayrıca değerlendirilir.\n\n" +
+      "Akreditasyonun ne olduğu ve neden önemli olduğu hakkında [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımızı, markanın gözetim tetkiklerinde nasıl değerlendirildiği hakkında [gözetim tetkiki nedir](/blog/gozetim-tetkiki-nedir) yazımızı inceleyebilirsiniz. Akredite yönetim sistemi belgelendirmesi için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) ziyaret edebilirsiniz.",
+    ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001"],
+  },
+  {
     slug: "belgelendirme-karari-nasil-verilir",
     baslik:
       "Belgelendirme Kararı Nasıl Verilir? Bağımsız Karar Verme Süreci Nedir?",
