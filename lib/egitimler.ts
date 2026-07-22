@@ -637,6 +637,11 @@ export function egitimGetir(slug: string): Egitim | undefined {
   return egitimler.find((e) => e.slug === slug);
 }
 
+/** Bir standarda ("ISO 9001" vb.) ait eğitimleri getirir — ISO sayfası iç linkleme. */
+export function egitimlerByStandart(standart: string): Egitim[] {
+  return egitimler.filter((e) => e.standart === standart);
+}
+
 /** Hub için: standart sırasına göre gruplanmış eğitimler. */
 const STANDART_SIRASI = ["ISO 9001", "ISO 14001", "ISO 45001", "ISO 50001", "ISO 19011", "Entegre YS"];
 

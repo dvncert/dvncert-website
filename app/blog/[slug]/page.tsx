@@ -7,8 +7,9 @@ import { metniBaglantiyaCevir } from "../../components/IcerikMetin";
 import { tarihiBicimle } from "@/lib/duyurular";
 import { bloglariGetir, blogDetay, kategoriSlug } from "@/lib/icerik";
 import { hizmetGetir } from "@/lib/hizmetler";
+import { blogSSSGetir } from "@/lib/blog-sss";
 import { siteConfig } from "@/lib/site-config";
-import { blogPostingSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
+import { blogPostingSchema, breadcrumbSchema, faqSchema, schemaScript } from "@/lib/seo-schemas";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -87,6 +88,8 @@ export default async function BlogDetaySayfasi({ params }: Params) {
     .map((s) => hizmetGetir(s))
     .filter((h): h is NonNullable<typeof h> => Boolean(h));
 
+  const sss = blogSSSGetir(yazi.slug);
+
   return (
     <main>
       <script
@@ -112,6 +115,12 @@ export default async function BlogDetaySayfasi({ params }: Params) {
           ])
         )}
       />
+      {sss.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={schemaScript(faqSchema(sss))}
+        />
+      )}
 
       <SayfaBaslik
         etiket={yazi.kategori}
@@ -134,6 +143,51 @@ export default async function BlogDetaySayfasi({ params }: Params) {
 
           {/* Gövde */}
           {icerikBloklari(yazi.icerik)}
+
+          {/* Sıkça Sorulan Sorular (FAQPage şeması ile eşleşir) */}
+          {sss.length > 0 && (
+            <div style={{ marginTop: 40, paddingTop: 28, borderTop: "0.5px solid var(--dvn-gri-300)" }}>
+              <h2 style={{ fontSize: 20, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 18px", lineHeight: 1.35 }}>
+                Sıkça Sorulan Sorular
+              </h2>
+              <div style={{ display: "grid", gap: 12 }}>
+                {sss.map((s, i) => (
+                  <details key={i} className="dvn-sss" style={{ background: "var(--dvn-gri-50)", borderRadius: 12, border: "0.5px solid var(--dvn-gri-300)", overflow: "hidden" }}>
+                    <summary
+                      className="dvn-sss-baslik"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: 16,
+                        padding: "18px 20px",
+                        cursor: "pointer",
+                        fontSize: 15,
+                        fontWeight: 500,
+                        color: "var(--dvn-lacivert)",
+                        listStyle: "none",
+                      }}
+                    >
+                      {s.soru}
+                      <svg className="dvn-sss-ok" width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
+                        <path d="M6 9l6 6 6-6" stroke="var(--dvn-turuncu)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </summary>
+                    <div style={{ padding: "0 20px 20px" }}>
+                      <p style={{ fontSize: 14, color: "var(--dvn-gri-500)", lineHeight: 1.8, margin: 0 }}>{s.cevap}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <style>{`
+                .dvn-sss-baslik::-webkit-details-marker { display: none; }
+                .dvn-sss[open] .dvn-sss-ok { transform: rotate(180deg); }
+                .dvn-sss-ok { transition: transform 0.22s ease; }
+                .dvn-sss[open] { border-color: rgba(212,169,63,0.5) !important; }
+                .dvn-sss-baslik:hover { color: var(--dvn-turuncu) !important; }
+              `}</style>
+            </div>
+          )}
 
           {/* İlgili hizmetler */}
           {ilgiliHizmetler.length > 0 && (

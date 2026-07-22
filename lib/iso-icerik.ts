@@ -79,7 +79,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "Kalite politikası",
     metaTitle: "ISO 9001:2015 Kalite Yönetim Sistemi Belgelendirmesi",
     metaDescription:
-      "ISO 9001:2015 kalite yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım belgelendirme rehberi.",
+      "ISO 9001:2015 kalite yönetim sistemi belgelendirmesi: süreç yönetimi, müşteri memnuniyeti ve sürekli iyileştirme. TÜRKAK akreditasyonlu, adım adım başvuru rehberi.",
     keywords: [
       "ISO 9001 belgesi",
       "ISO 9001:2015",
@@ -180,7 +180,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "Çevre politikası",
     metaTitle: "ISO 14001:2015 Çevre Yönetim Sistemi Belgelendirmesi",
     metaDescription:
-      "ISO 14001:2015 çevre yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım rehber.",
+      "ISO 14001:2015 çevre yönetim sistemi belgelendirmesi: çevresel etkilerin yönetimi, yasal uyum ve atık/kaynak verimliliği. TÜRKAK akreditasyonlu başvuru rehberi.",
     keywords: [
       "ISO 14001 belgesi",
       "ISO 14001:2015",
@@ -281,7 +281,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "İş sağlığı ve güvenliği politikası",
     metaTitle: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi Belgelendirmesi",
     metaDescription:
-      "ISO 45001:2018 iş sağlığı ve güvenliği yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar ve adım adım rehber.",
+      "ISO 45001:2018 iş sağlığı ve güvenliği yönetim sistemi belgelendirmesi: tehlike ve risk yönetimi, yasal İSG uyumu ve iş kazalarının azaltılması. TÜRKAK akreditasyonlu.",
     keywords: [
       "ISO 45001 belgesi",
       "ISO 45001:2018",
@@ -292,6 +292,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       "TÜRKAK ISO 45001",
       "ISO 45001 İstanbul",
       "ISO 45001 belgelendirme",
+      "ISO 45001 belgesi geçerlilik süresi",
       "ISO 45001 faydaları",
     ],
     ogTitle: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi Belgelendirmesi",
@@ -382,7 +383,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "Enerji politikası",
     metaTitle: "ISO 50001:2018 Enerji Yönetim Sistemi Belgelendirmesi",
     metaDescription:
-      "ISO 50001:2018 enerji yönetim sistemi belgelendirmesi. Başvuru süreci, faydalar, geçerlilik süresi ve adım adım rehber.",
+      "ISO 50001:2018 enerji yönetim sistemi belgelendirmesi: enerji verimliliği, tüketim performansının izlenmesi (EnPI) ve enerji maliyetlerinin düşürülmesi. TÜRKAK akreditasyonlu.",
     keywords: [
       "ISO 50001 belgesi",
       "ISO 50001:2018",

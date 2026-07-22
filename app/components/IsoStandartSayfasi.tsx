@@ -7,6 +7,7 @@ import { hizmetGetir } from "@/lib/hizmetler";
 import { schemaScript, faqSchema } from "@/lib/seo-schemas";
 import { isoTumStandartlar } from "@/lib/iso-icerik";
 import { isoIcerikGetirDB } from "@/lib/sayfa-icerigi";
+import { egitimlerByStandart } from "@/lib/egitimler";
 
 /**
  * ISO yönetim sistemi standartları için ortak sayfa düzeni.
@@ -190,6 +191,7 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
   ];
 
   const ilgili = isoTumStandartlar.filter((s) => s.slug !== slug);
+  const ilgiliEgitimler = egitimlerByStandart(stdAd);
 
   return (
     <main>
@@ -524,8 +526,58 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* İlgili eğitimler (ISO sayfası → eğitim iç linkleme) */}
+      {ilgiliEgitimler.length > 0 && (
+        <section style={{ background: "white", padding: "60px 32px" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <div style={{ marginBottom: 28 }}>
+              <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+                EĞİTİMLER
+              </p>
+              <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+                {`${stdAd} eğitimlerimiz`}
+              </h2>
+            </div>
+
+            <div className="iso-egitim-grid" style={{ display: "grid", gridTemplateColumns: `repeat(${Math.min(ilgiliEgitimler.length, 3)}, 1fr)`, gap: 16 }}>
+              {ilgiliEgitimler.map((e) => (
+                <Link
+                  key={e.slug}
+                  href={`/egitimler/${e.slug}`}
+                  className="iso-egitim-kart"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    background: "var(--dvn-gri-50)",
+                    border: "0.5px solid var(--dvn-gri-300)",
+                    borderRadius: 14,
+                    padding: "22px 22px",
+                    textDecoration: "none",
+                    color: "inherit",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease",
+                  }}
+                >
+                  <span style={{ fontSize: 11.5, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "0.5px", marginBottom: 8 }}>
+                    {e.seviye.toLocaleUpperCase("tr-TR")}
+                  </span>
+                  <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16, fontWeight: 600, margin: "0 0 10px", lineHeight: 1.35, flexGrow: 1 }}>
+                    {e.baslik}
+                  </h3>
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 500, color: "var(--dvn-turuncu)" }}>
+                    Eğitimi incele
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* İlgili blog yazıları (hizmet → blog geri linkleme) */}
-      <IlgiliYazilar hizmetSlug={slug} arkaplan="white" />
+      <IlgiliYazilar hizmetSlug={slug} arkaplan="var(--dvn-gri-50)" />
 
       {/* CTA */}
       <section style={{ background: "white", padding: "70px 32px" }}>
@@ -590,9 +642,11 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
       <style>{`
         .iso-hizli-link:hover { background: var(--dvn-turuncu) !important; color: #fff !important; border-color: var(--dvn-turuncu) !important; }
         .iso-ilgili-kart:hover { transform: translateY(-5px); background: rgba(255,255,255,0.10) !important; box-shadow: 0 16px 36px rgba(0,0,0,0.25) !important; }
+        .iso-egitim-kart:hover { transform: translateY(-5px); background: #fff !important; border-color: rgba(212,169,63,0.45) !important; box-shadow: 0 16px 36px rgba(2,35,152,0.1) !important; }
         @media (max-width: 820px) {
           .iso-ilke-grid { grid-template-columns: 1fr !important; }
           .iso-ilgili-grid { grid-template-columns: 1fr !important; }
+          .iso-egitim-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </main>
