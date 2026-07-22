@@ -74,6 +74,33 @@ export const hizmetler: Hizmet[] = [
     ],
     surec: isoSurec,
     altStandartlar: ["iso-9001", "iso-14001", "iso-45001", "iso-50001"],
+    sss: [
+      {
+        soru: "Sistem belgelendirmesi hangi standartları kapsıyor?",
+        cevap:
+          "DVN Cert, TÜRKAK akreditasyon kapsamındaki dört yönetim sistemi standardında belgelendirme yapar: ISO 9001 (Kalite), ISO 14001 (Çevre), ISO 45001 (İş Sağlığı ve Güvenliği) ve ISO 50001 (Enerji). Bu standartların her biri için ayrı ayrı veya birlikte başvurabilirsiniz.",
+      },
+      {
+        soru: "Birden fazla standardı tek denetimde birlikte belgelendirebilir miyiz?",
+        cevap:
+          "Evet. Standartların ortak üst yapısı (Annex SL) sayesinde birden fazla yönetim sistemi, tek bir entegre denetim programıyla birlikte belgelendirilebilir. Bu yaklaşım denetim süresini ve maliyetini azaltır, doküman ve süreç yönetimini kolaylaştırır.",
+      },
+      {
+        soru: "Belgelendirme süreci hangi aşamalardan oluşur?",
+        cevap:
+          "Süreç; başvuru ve sözleşme, Aşama 1 (doküman ve hazırlık incelemesi), Aşama 2 (yerinde belgelendirme denetimi) ve tetkik ekibinden bağımsız bir belgelendirme kararı adımlarından oluşur. Olumlu karar sonrası uluslararası geçerli sertifikanız düzenlenir.",
+      },
+      {
+        soru: "Sistem belgesi kaç yıl geçerlidir?",
+        cevap:
+          "Sertifikanın geçerlilik süresi 3 yıldır. Bu süre boyunca her yıl bir gözetim denetimi yapılır; üçüncü yılın sonunda yeniden belgelendirme denetimiyle belge yenilenir.",
+      },
+      {
+        soru: "Belgelerimiz TÜRKAK akreditasyonlu mu olacak?",
+        cevap:
+          "Evet. DVN Cert, TS EN ISO/IEC 17021-1:2015 kapsamında TÜRKAK tarafından akredite edilmiştir (Akreditasyon No: AB-0209-YS). Düzenlenen sertifikalar ulusal ve uluslararası düzeyde tanınırlık taşır ve TÜRKAK Belge Doğrulama Sistemi üzerinden doğrulanabilir.",
+      },
+    ],
   },
   {
     slug: "iso-9001",

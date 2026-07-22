@@ -35,9 +35,10 @@ async function main() {
 
   // Dinamik importlar: dotenv config()'ten SONRA -> POSTGRES_URL hazır
   const { db } = await import("../lib/db");
-  const { blogYazilari: blogTbl, duyurular: duyuruTbl } = await import("../lib/db/schema");
+  const { blogYazilari: blogTbl, duyurular: duyuruTbl, sssSorulari: sssTbl } = await import("../lib/db/schema");
   const { blogYazilari } = await import("../lib/blog");
   const { duyurular: duyuruStatik } = await import("../lib/duyurular");
+  const { sssSorular } = await import("../lib/sss");
 
   const mevcut = await db.select({ slug: blogTbl.slug }).from(blogTbl);
   const mevcutSet = new Set(mevcut.map((r) => r.slug));
@@ -90,6 +91,27 @@ async function main() {
       .onConflictDoNothing({ target: duyuruTbl.slug });
   }
   for (const d of eklenecekD) console.log(`[sync-content]  + duyuru ${d.slug} (${d.tarih})`);
+
+  // SSS (yalnızca-ekleme; tekilleştirme `soru` metnine göre). Tablonun `soru`
+  // üzerinde tekil kısıtı yok, bu yüzden onConflict yerine uygulama içi dedup.
+  // sira 1000+ verilir: admin panelinden eklenen sorular (sira ~0) üstte kalır,
+  // lib'ten gelenler onların altına eklenir; mevcut kayıtlara DOKUNULMAZ.
+  const mevcutS = await db.select({ soru: sssTbl.soru }).from(sssTbl);
+  const mevcutSSet = new Set(mevcutS.map((r) => r.soru));
+  const eklenecekS = sssSorular.filter((s) => !mevcutSSet.has(s.soru));
+  console.log(
+    `[sync-content] DB sss: ${mevcutS.length} | lib: ${sssSorular.length} | eklenecek: ${eklenecekS.length}`,
+  );
+  for (let i = 0; i < eklenecekS.length; i++) {
+    const s = eklenecekS[i];
+    await db.insert(sssTbl).values({
+      soru: s.soru,
+      cevap: s.cevap,
+      sira: 1000 + i,
+      yayinda: true,
+    });
+    console.log(`[sync-content]  + sss ${s.soru.slice(0, 48)}…`);
+  }
 
   console.log("[sync-content] Tamam.");
 }
