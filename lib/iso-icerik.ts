@@ -210,37 +210,37 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       {
         baslik: "Çevre Politikası",
         metin:
-          "Üst yönetim tarafından belirlenen çevre politikası, kuruluşun çevresel taahhütlerinin temelini oluşturur. Kirliliğin önlenmesi, yasal uyum ve sürekli iyileştirme taahhütlerini içerir ve tüm çalışanlara duyurulur.",
+          "Üst yönetim tarafından belirlenen çevre politikası, kuruluşun çevresel taahhütlerinin temelini oluşturur ve tüm sistemin yönünü belirler. Kirliliğin önlenmesi, yürürlükteki uygunluk yükümlülüklerine uyum ve sürekli iyileştirme olmak üzere en az üç temel taahhüdü içerir. Politika; kuruluşun amaçlarına çerçeve oluşturacak biçimde yazılı hale getirilir, çalışanlara duyurulur ve ilgili taraflara açık tutulur. Çevre politikası, çevre yönetim sisteminin pusulasıdır.",
       },
       {
         baslik: "Çevre Boyutları ve Etkileri",
         metin:
-          "Kuruluş, faaliyetlerinin, ürünlerinin ve hizmetlerinin çevre ile etkileşen yönlerini (çevre boyutları) belirler. Su, enerji, atık, emisyon ve doğal kaynak kullanımı gibi boyutların çevresel etkileri değerlendirilerek önceliklendirilir.",
+          "Kuruluş; faaliyetlerinin, ürünlerinin ve hizmetlerinin çevre ile etkileşen yönlerini (çevre boyutları) sistematik olarak belirler. Su ve enerji kullanımı, atık oluşumu, emisyonlar, deşarjlar ve doğal kaynak tüketimi gibi boyutlar; normal, anormal ve acil durum koşulları dikkate alınarak değerlendirilir. Bu boyutların önemli çevresel etkileri belirlenir ve önem derecesine göre önceliklendirilir. Bir kuruluş ancak tanımladığı çevresel etkiyi yönetebilir.",
       },
       {
         baslik: "Uygunluk Yükümlülükleri",
         metin:
-          "Çevre ile ilgili yasal mevzuat ve kuruluşun gönüllü olarak uyduğu diğer şartlar tanımlanır. Yükümlülüklere uyum düzenli olarak değerlendirilir ve güncel tutulur.",
+          "Çevre ile ilgili yasal mevzuat ve kuruluşun gönüllü olarak uyduğu diğer şartlar (müşteri, sektör ve kurumsal taahhütler) tanımlanır ve güncel tutulur. Emisyon izinleri, atık beyanları, deşarj limitleri ve tehlikeli madde yönetimi gibi yükümlülükler bu kapsamda izlenir. Uyum düzenli olarak değerlendirilir ve kanıtlarıyla kayıt altına alınır. Yasal uyum, çevre yönetiminin pazarlık edilemez zeminidir.",
       },
       {
         baslik: "Yaşam Döngüsü Bakış Açısı",
         metin:
-          "ISO 14001:2015, hammadde temininden ürünün kullanım ömrü sonuna kadar tüm aşamaların çevresel etkisinin dikkate alınmasını ister. Bu yaklaşım, etkilerin kaynağında yönetilmesini sağlar.",
+          "ISO 14001:2015, çevresel etkilerin yalnızca kendi sahasında değil; hammadde temininden tasarıma, kullanımdan ürünün kullanım ömrü sonuna kadar tüm aşamalarda değerlendirilmesini ister. Bu yaklaşım, kuruluşun tedarik zinciri ve ürün tasarımı üzerindeki etkisini kullanarak çevresel yükü kaynağında azaltmasını sağlar. Satın alma kriterleri ve dış kaynaklı süreçler de bu bakış açısıyla ele alınır. Etki, çoğu zaman ürünün doğduğu yerde başlar.",
       },
       {
         baslik: "Operasyonel Kontrol",
         metin:
-          "Önemli çevre boyutlarının kontrol altında tutulması için operasyonel prosedürler ve kriterler belirlenir. Atık yönetimi, kimyasal depolama ve emisyon kontrolü gibi süreçler tanımlı şekilde yürütülür.",
+          "Önemli çevre boyutlarının kontrol altında tutulması için operasyonel prosedürler ve işletme kriterleri belirlenir. Atık ayrıştırma ve bertarafı, kimyasal depolama, emisyon ve deşarj kontrolü, enerji kullanımı gibi süreçler tanımlı ve izlenebilir biçimde yürütülür. Dışarıya yaptırılan (outsource) süreçlerin de kontrol altında tutulması gerekir. Kontrol edilmeyen süreç, yönetilmeyen etki demektir.",
       },
       {
         baslik: "Acil Duruma Hazırlık ve Müdahale",
         metin:
-          "Olası çevresel acil durumlar (kimyasal sızıntı, yangın, sel vb.) önceden belirlenir; müdahale planları oluşturulur ve tatbikatlarla denenir.",
+          "Olası çevresel acil durumlar (kimyasal sızıntı, yangın, sel, tank taşması vb.) önceden belirlenir ve olası çevresel sonuçları değerlendirilir. Bu durumlara yönelik müdahale planları oluşturulur, gerekli ekipman ve yetkinlik sağlanır. Planlar periyodik tatbikatlarla denenir ve gerçek olaylar sonrası gözden geçirilerek güncellenir. Hazırlıklı olmak, çevresel zararın büyümesini önler.",
       },
       {
         baslik: "İzleme, Ölçme ve Sürekli İyileştirme",
         metin:
-          "Çevre performansı göstergeler aracılığıyla izlenir ve ölçülür. İç tetkikler ve yönetim gözden geçirmeleri ile sistem sürekli iyileştirilir. PUKÖ (Planla-Uygula-Kontrol Et-Önlem Al) döngüsü bu yaklaşımın merkezindedir.",
+          "Çevre performansı; önemli boyutlara ilişkin göstergeler aracılığıyla düzenli olarak izlenir ve ölçülür, ölçüm ekipmanlarının doğruluğu güvence altına alınır. İç tetkikler ve yönetim gözden geçirmeleri ile sistemin etkinliği değerlendirilir ve iyileştirme fırsatları belirlenir. Uygunsuzluklar için düzeltici faaliyetler planlanır ve etkinliği takip edilir. PUKÖ (Planla-Uygula-Kontrol Et-Önlem Al) döngüsü bu yaklaşımın merkezindedir.",
       },
     ],
     faydalarGiris:
@@ -312,37 +312,37 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       {
         baslik: "Liderlik ve Çalışan Katılımı",
         metin:
-          "ISO 45001, üst yönetimin İSG performansından doğrudan sorumlu olmasını ve her seviyeden çalışanın sürece aktif katılımını esas alır. Çalışan görüşü, güvenli iş yerinin temel girdisidir.",
+          "ISO 45001, üst yönetimin İSG performansından doğrudan sorumlu olmasını ve iş sağlığı ve güvenliğini iş süreçlerine bütünleştirmesini ister. Standardın en ayırt edici yönlerinden biri, her seviyeden çalışanın ve varsa çalışan temsilcilerinin sürece aktif katılımını zorunlu kılmasıdır. Çalışanların tehlikeleri bildirmesinin önündeki engeller kaldırılır ve görüşleri karar süreçlerine dahil edilir. Sahayı en iyi bilen çalışandır; çalışan görüşü, güvenli iş yerinin temel girdisidir.",
       },
       {
         baslik: "Tehlike Tanımlama",
         metin:
-          "Çalışma ortamındaki fiziksel, kimyasal, biyolojik, ergonomik ve psikososyal tehlikeler sistematik olarak belirlenir. Tehlikelerin kaynağında ortadan kaldırılması önceliklidir.",
+          "Çalışma ortamındaki fiziksel, kimyasal, biyolojik, ergonomik ve psikososyal tehlikeler sistematik ve sürekli biçimde belirlenir. Rutin ve rutin olmayan faaliyetler, geçmiş olaylar, acil durumlar ve iş yerine gelen herkes (taşeron, ziyaretçi dahil) dikkate alınır. Tehlikelerin kaynağında ortadan kaldırılması, kontrol hiyerarşisinin en üst ve en etkili basamağıdır. Görülmeyen tehlike, önlenemeyen kazadır.",
       },
       {
         baslik: "Risk Değerlendirme ve Kontrol",
         metin:
-          "Belirlenen tehlikelerin yol açabileceği riskler değerlendirilir ve kontrol hiyerarşisine göre önlemler alınır. Amaç, kazaları ve meslek hastalıklarını oluşmadan önlemektir.",
+          "Belirlenen tehlikelerin yol açabileceği İSG riskleri değerlendirilir ve kontrol hiyerarşisine göre önlemler alınır: önce elimine et, sonra ikame et, mühendislik kontrolleri ve idari önlemler uygula, en son kişisel koruyucu donanıma başvur. Sistemi iyileştirecek İSG fırsatları da ayrıca değerlendirilir. Alınan önlemlerin etkinliği izlenir ve gerektiğinde güncellenir. Amaç, kazaları ve meslek hastalıklarını oluşmadan önlemektir.",
       },
       {
         baslik: "Yasal ve Diğer Yükümlülükler",
         metin:
-          "İş sağlığı ve güvenliği ile ilgili yasal mevzuat ve kuruluşun uyduğu diğer şartlar tanımlanır; uyum düzenli olarak değerlendirilir.",
+          "İş sağlığı ve güvenliği ile ilgili yasal mevzuat ve kuruluşun uyduğu diğer şartlar tanımlanır, erişilebilir tutulur ve güncellenir. Risk değerlendirmesi, sağlık gözetimi, İSG eğitimleri ve ekipman periyodik kontrolleri gibi yükümlülükler bu kapsamda izlenir. Uyum düzenli olarak değerlendirilir ve kayıt altına alınır. İSG'de yasal uyum, asgari düzeydir; hedef her zaman daha ilerisidir.",
       },
       {
         baslik: "Operasyonel Kontrol",
         metin:
-          "Riskli faaliyetler için güvenli çalışma prosedürleri, izin sistemleri ve kişisel koruyucu donanım kullanımı gibi kontroller tanımlı şekilde uygulanır.",
+          "Riskli faaliyetler için güvenli çalışma prosedürleri, çalışma izni sistemleri, makine koruyucuları ve kişisel koruyucu donanım kullanımı gibi kontroller tanımlı biçimde uygulanır. Değişiklik yönetimi ile yeni ekipman, süreç veya organizasyon değişikliklerinin getirdiği riskler önceden değerlendirilir. Taşeron ve tedarikçilerin faaliyetleri de İSG kontrolleri kapsamına alınır. Güvenlik, iyi niyetle değil tanımlı kontrollerle sağlanır.",
       },
       {
         baslik: "Acil Duruma Hazırlık ve Müdahale",
         metin:
-          "Olası acil durumlar (yangın, kimyasal maruziyet, iş kazası vb.) önceden belirlenir; müdahale planları oluşturulur ve tatbikatlarla denenir.",
+          "Olası acil durumlar (yangın, patlama, kimyasal maruziyet, ciddi iş kazası vb.) önceden belirlenir ve olası sonuçları değerlendirilir. Müdahale planları hazırlanır; ilk yardım, tahliye ve müdahale ekipleri eğitilir, gerekli ekipman sağlanır. Planlar periyodik tatbikatlarla denenir ve gerçek olaylardan sonra gözden geçirilir. Kriz anında plan yoksa, iyi niyet yeterli olmaz.",
       },
       {
         baslik: "Performans İzleme ve Sürekli İyileştirme",
         metin:
-          "İSG performansı; kaza, ramak kala ve uygunsuzluk verileriyle izlenir. İç tetkikler ve yönetim gözden geçirmeleri ile sistem sürekli iyileştirilir. PUKÖ döngüsü bu yaklaşımın merkezindedir.",
+          "İSG performansı; kaza, ramak kala, meslek hastalığı ve uygunsuzluk verilerinin yanı sıra proaktif göstergelerle (eğitim, denetim, gözlem) izlenir. Olaylar araştırılarak kök nedenleri belirlenir ve tekrarını önleyecek düzeltici faaliyetler uygulanır. İç tetkikler ve yönetim gözden geçirmeleri ile sistem sürekli iyileştirilir. PUKÖ (Planla-Uygula-Kontrol Et-Önlem Al) döngüsü bu yaklaşımın merkezindedir.",
       },
     ],
     faydalarGiris:
@@ -413,37 +413,37 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       {
         baslik: "Enerji Politikası",
         metin:
-          "Üst yönetim tarafından belirlenen enerji politikası, enerji performansının iyileştirilmesi taahhüdünü ortaya koyar. Bilgi ve kaynak sağlama ile yasal uyum taahhütlerini içerir.",
+          "Üst yönetim tarafından belirlenen enerji politikası, enerji performansının sürekli iyileştirilmesi taahhüdünü ortaya koyar ve sistemin çerçevesini oluşturur. Enerji verimli ürün ve hizmetlerin satın alınmasını destekleme, gerekli bilgi ve kaynakları sağlama ve yasal yükümlülüklere uyum taahhütlerini içerir. Politika, enerji amaç ve hedeflerinin belirlenmesine zemin oluşturacak biçimde yazılı hale getirilir ve duyurulur. Enerji politikası, tasarrufun kurumsal niyet beyanıdır.",
       },
       {
         baslik: "Enerji Gözden Geçirme",
         metin:
-          "Kuruluşun enerji kullanımı ve tüketimi analiz edilir; önemli enerji kullanım alanları ve iyileştirme fırsatları belirlenir. Bu analiz, sistemin temelini oluşturur.",
+          "Kuruluşun enerji kullanımı ve tüketimi ölçülebilir verilere dayanılarak analiz edilir. Bu analiz, toplam tüketim içinde ağırlığı yüksek olan önemli enerji kullanım alanlarını (SEU) ve enerji performansını iyileştirme fırsatlarını ortaya çıkarır. Enerji tüketimini etkileyen değişkenler de belirlenir. Enerji gözden geçirme, tüm sistemin üzerine kurulduğu temeldir; ölçülmeyen enerji yönetilemez.",
       },
       {
         baslik: "Enerji Performans Göstergeleri (EnPI)",
         metin:
-          "Enerji performansını izlemek için ölçülebilir göstergeler tanımlanır. Bu göstergeler, iyileştirmelerin nesnel olarak değerlendirilmesini sağlar.",
+          "Enerji performansını izlemek ve ölçmek için kuruluşa özgü, ölçülebilir göstergeler (EnPI) tanımlanır. Bu göstergeler; birim üretim başına enerji, alan başına tüketim gibi anlamlı oranlarla ifade edilebilir. EnPI'ler, iyileştirmelerin nesnel biçimde değerlendirilmesini ve dönemler arası karşılaştırmayı sağlar. Doğru gösterge olmadan iyileşme kanıtlanamaz.",
       },
       {
-        baslik: "Enerji Baz Çizgisi",
+        baslik: "Enerji Baz Çizgisi (EnB)",
         metin:
-          "Belirli bir referans dönemine ait enerji performansı, baz çizgisi olarak alınır. Gelecekteki performans bu referansla karşılaştırılarak iyileşme ölçülür.",
+          "Belirli bir referans dönemine ait enerji performansı, baz çizgisi (EnB) olarak sabitlenir. Gelecekteki performans bu referansla karşılaştırılarak elde edilen iyileşme sayısal olarak ölçülür. Üretim hacmi veya hava koşulları gibi önemli değişkenler değiştiğinde baz çizgisi uygun biçimde düzeltilir. Baz çizgisi, ilerlemenin ölçüldüğü sıfır noktasıdır.",
       },
       {
         baslik: "Hedefler ve Eylem Planları",
         metin:
-          "Enerji performansını iyileştirmek için ölçülebilir hedefler ve bu hedeflere ulaştıracak eylem planları oluşturulur.",
+          "Enerji performansını iyileştirmek için ölçülebilir amaçlar ve hedefler belirlenir. Bu hedeflere ulaştıracak eylem planları; sorumlular, kaynaklar, zaman çizelgesi ve sonuçların doğrulanma yöntemiyle birlikte oluşturulur. Planların uygulanması ve etkinliği düzenli olarak izlenir. Hedefi olmayan enerji yönetimi, yönü olmayan yolculuktur.",
       },
       {
         baslik: "Operasyonel Kontrol ve Tasarım",
         metin:
-          "Önemli enerji kullanım alanları kontrol altında tutulur; yeni yatırım ve tasarım kararlarında enerji verimliliği dikkate alınır.",
+          "Önemli enerji kullanım alanları, belirlenen kriterlere göre işletilir ve kontrol altında tutulur. Yeni tesis, ekipman ve süreçlerin tasarım aşamasında enerji performansı dikkate alınır; enerji verimli ürün ve hizmet satın alma kararlarına yansıtılır. Böylece verimlilik, sonradan düzeltilecek bir sorun değil baştan tasarlanan bir özellik olur. En ucuz enerji, hiç tüketilmeyen enerjidir.",
       },
       {
         baslik: "İzleme, Ölçme ve Sürekli İyileştirme",
         metin:
-          "Enerji performansı düzenli olarak izlenir ve ölçülür. İç tetkikler ve yönetim gözden geçirmeleri ile sistem sürekli iyileştirilir. PUKÖ döngüsü bu yaklaşımın merkezindedir.",
+          "Enerji performansını belirleyen temel özellikler düzenli olarak izlenir ve ölçülür; ölçüm ekipmanlarının doğruluğu güvence altına alınır. Gerçek tüketim ile beklenen tüketim karşılaştırılarak sapmalar analiz edilir. İç tetkikler ve yönetim gözden geçirmeleri ile sistem sürekli iyileştirilir. PUKÖ (Planla-Uygula-Kontrol Et-Önlem Al) döngüsü bu yaklaşımın merkezindedir.",
       },
     ],
     faydalarGiris:

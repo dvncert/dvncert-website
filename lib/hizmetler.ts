@@ -285,6 +285,8 @@ export const hizmetler: Hizmet[] = [
       "Bayi ve franchise ağında sözleşme şartlarına uyumun bağımsız doğrulanması",
       "Şubeler arası karşılaştırılabilir, puanlanmış performans verisi",
       "Fotoğraflı ve önceliklendirilmiş rapor ile düzeltici faaliyet takibi",
+      "Sezon ve kampanya dönemleri öncesinde hazırlık ve uygunluk denetimleri",
+      "Coğrafi olarak dağınık ağlarda merkezi, tutarlı ve karşılaştırılabilir görünürlük",
     ],
     surec: [
       { baslik: "Kriterlerin Belirlenmesi", aciklama: "Marka standartları, kontrol listesi ve puanlama kriterleri birlikte netleştirilir." },
@@ -317,6 +319,21 @@ export const hizmetler: Hizmet[] = [
         soru: "Denetim raporu neler içerir?",
         cevap:
           "Rapor; şube bazında puanlama, tespit edilen uygunsuzluklar, destekleyici fotoğraflar, öncelik seviyeleri ve önerilen düzeltici faaliyetleri içerir. Birden çok şubenin karşılaştırılabildiği özet tablolar da sunulur.",
+      },
+      {
+        soru: "Şube denetimi ne sıklıkla yapılmalıdır?",
+        cevap:
+          "Sıklık; sektöre, şube sayısına ve risk düzeyine göre belirlenir. Perakende ve yeme-içme gibi hızlı değişen ortamlarda periyodik (örneğin çeyreklik veya aylık) denetimler tercih edilir; kritik dönemlerde habersiz denetimler de planlanabilir. En etkili yaklaşım, düzenli aralıklarla ve belirli bir örnekleme mantığıyla tüm ağı kapsamaktır.",
+      },
+      {
+        soru: "Şube denetimi yerinde mi yoksa uzaktan mı yapılır?",
+        cevap:
+          "Şube denetimi ağırlıklı olarak yerinde yürütülür; çünkü hijyen, görsel düzen, stok ve müşteri deneyimi gibi unsurların gözlemlenmesi gerekir. Bununla birlikte doküman ve kayıt incelemesi ya da kamera üzerinden bazı kontroller uzaktan (online) tamamlanabilir; ihtiyaca göre karma bir model uygulanır.",
+      },
+      {
+        soru: "Hangi sektörlerde şube denetimi uygulanır?",
+        cevap:
+          "Şube ve mağaza denetimi; perakende zincirleri, marketler, restoran-kafe (HORECA) işletmeleri, akaryakıt istasyonları, yetkili servisler, bankacılık ve finans şubeleri ile sağlık, güzellik ve eğitim zincirleri başta olmak üzere, çok noktalı ve marka standartlarını her şubede aynı seviyede tutması gereken tüm sektörlerde uygulanır.",
       },
     ],
   },
