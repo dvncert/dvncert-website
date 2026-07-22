@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { hizmetGetir } from "./hizmetler";
+import { egitimGetir } from "./egitimler";
 
 /**
  * Blog/duyuru gibi detay sayfaları için başlık gömülü dinamik OG görseli.
@@ -107,4 +109,25 @@ export function ogDetayGorseli({ etiket, baslik }: { etiket: string; baslik: str
     ),
     { ...OG_BOYUT }
   );
+}
+
+/**
+ * Hizmet detay sayfası için dinamik OG görseli (lib verisinden; DB gerekmez).
+ * Hem dinamik /hizmetler/[slug] rotası hem de statik ISO rotaları kullanır.
+ */
+export function hizmetOgGorseli(slug: string) {
+  const h = hizmetGetir(slug);
+  return ogDetayGorseli({
+    etiket: h?.kod ?? h?.kategori ?? "Hizmet",
+    baslik: h?.baslik ?? "DVN Cert Belgelendirme",
+  });
+}
+
+/** Eğitim detay sayfası için dinamik OG görseli (lib verisinden). */
+export function egitimOgGorseli(slug: string) {
+  const e = egitimGetir(slug);
+  return ogDetayGorseli({
+    etiket: e?.kod ?? e?.standart ?? "Eğitim",
+    baslik: e?.baslik ?? "DVN Cert Eğitim",
+  });
 }

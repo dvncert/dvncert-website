@@ -224,6 +224,8 @@ export function courseSchema(params: {
   sure?: string;
   /** Sunum biçimleri: "online" ve/veya "onsite" — Course rich result için hasCourseInstance üretir. */
   yontemler?: ("online" | "onsite")[];
+  /** Kursu temsil eden görsel URL'i (verilmezse kurum logosu kullanılır). */
+  gorselUrl?: string;
 }) {
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -231,8 +233,12 @@ export function courseSchema(params: {
     name: params.ad,
     description: params.aciklama,
     url: `${siteConfig.url}${params.url}`,
+    image: params.gorselUrl || `${siteConfig.url}/logo.png`,
     provider: {
+      "@type": "Organization",
       "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.adUzun,
+      url: siteConfig.url,
     },
     timeRequired: params.sure,
   };

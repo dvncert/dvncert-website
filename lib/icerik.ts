@@ -125,6 +125,21 @@ export async function hizmeteGoreBloglar(
     .slice(0, limit);
 }
 
+/**
+ * Bir blog yazısına benzer diğer yazıları getirir (blog → blog iç linkleme).
+ * Öncelik aynı kategorideki yazılara verilir; yetmezse en yeni diğer yazılarla
+ * tamamlanır. Böylece her yazı en fazla `limit` kadar başka yazıya link verir.
+ */
+export async function benzerBloglar(slug: string, limit = 3): Promise<BlogYazisi[]> {
+  const yazilar = await bloglariGetir();
+  const mevcut = yazilar.find((y) => y.slug === slug);
+  if (!mevcut) return [];
+  const digerleri = yazilar.filter((y) => y.slug !== slug);
+  const ayniKategori = digerleri.filter((y) => y.kategori === mevcut.kategori);
+  const kalan = digerleri.filter((y) => y.kategori !== mevcut.kategori);
+  return [...ayniKategori, ...kalan].slice(0, limit);
+}
+
 /** Kategori adını URL-güvenli slug'a çevirir (Türkçe karakter duyarlı). */
 export function kategoriSlug(kategori: string): string {
   return kategori

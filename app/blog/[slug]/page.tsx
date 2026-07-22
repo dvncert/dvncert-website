@@ -5,7 +5,7 @@ import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
 import { metniBaglantiyaCevir } from "../../components/IcerikMetin";
 import { tarihiBicimle } from "@/lib/duyurular";
-import { bloglariGetir, blogDetay, kategoriSlug } from "@/lib/icerik";
+import { bloglariGetir, blogDetay, benzerBloglar, kategoriSlug } from "@/lib/icerik";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { blogSSSGetir } from "@/lib/blog-sss";
 import { siteConfig } from "@/lib/site-config";
@@ -89,6 +89,7 @@ export default async function BlogDetaySayfasi({ params }: Params) {
     .filter((h): h is NonNullable<typeof h> => Boolean(h));
 
   const sss = blogSSSGetir(yazi.slug);
+  const benzerler = await benzerBloglar(yazi.slug, 3);
 
   return (
     <main>
@@ -244,6 +245,66 @@ export default async function BlogDetaySayfasi({ params }: Params) {
           </div>
         </div>
       </article>
+
+      {/* Benzer yazılar (blog → blog iç linkleme) */}
+      {benzerler.length > 0 && (
+        <section style={{ background: "var(--dvn-gri-50)", padding: "56px 32px" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <div style={{ marginBottom: 28 }}>
+              <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+                BENZER YAZILAR
+              </p>
+              <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 24, fontWeight: 500, margin: 0, lineHeight: 1.3 }}>
+                Okumaya devam edin
+              </h2>
+            </div>
+
+            <div
+              className="dvn-benzer-grid"
+              style={{ display: "grid", gridTemplateColumns: `repeat(${Math.min(benzerler.length, 3)}, 1fr)`, gap: 18 }}
+            >
+              {benzerler.map((b) => (
+                <Link
+                  key={b.slug}
+                  href={`/blog/${b.slug}`}
+                  className="dvn-benzer-kart"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    background: "white",
+                    borderRadius: 14,
+                    padding: "22px 22px",
+                    border: "0.5px solid var(--dvn-gri-300)",
+                    textDecoration: "none",
+                    color: "inherit",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+                  }}
+                >
+                  {b.kategori && (
+                    <span style={{ fontSize: 11.5, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "0.5px", marginBottom: 8 }}>
+                      {b.kategori.toLocaleUpperCase("tr-TR")}
+                    </span>
+                  )}
+                  <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16, fontWeight: 600, margin: "0 0 10px", lineHeight: 1.35, flexGrow: 1 }}>
+                    {b.baslik}
+                  </h3>
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 500, color: "var(--dvn-turuncu)" }}>
+                    Yazıyı oku
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <style>{`
+            .dvn-benzer-kart:hover { transform: translateY(-4px); border-color: rgba(212,169,63,0.45) !important; box-shadow: 0 14px 32px rgba(2,35,152,0.1) !important; }
+            @media (max-width: 820px) { .dvn-benzer-grid { grid-template-columns: 1fr !important; } }
+          `}</style>
+        </section>
+      )}
     </main>
   );
 }
