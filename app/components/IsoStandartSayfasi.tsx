@@ -137,6 +137,26 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
       soru: `${stdAd} belgesinin TÜRKAK akreditasyonlu olması neden önemlidir?`,
       cevap: `Belgenin ulusal ve uluslararası geçerlilik taşıması için TÜRKAK tarafından akredite edilmiş bir kuruluştan alınması esastır. Akredite belge; ihale, tedarik zinciri ve ihracat süreçlerinde tanınırlık sağlar.`,
     },
+    {
+      soru: `${stdAd} belgelendirmesi için başvuru nasıl yapılır?`,
+      cevap: `Başvuru, DVN Cert'in online başvuru sistemi (DBYS) üzerinden dijital olarak yapılır. Başvuruda kuruluşunuzun faaliyet alanı, çalışan sayısı ve belgelendirme kapsamı netleştirilir; bu bilgilere göre denetim planı ve teklif hazırlanır, karşılıklı mutabakat sonrası sözleşme imzalanır.`,
+    },
+    {
+      soru: `${stdAd} belgesi almak için danışmanlık hizmeti almamız zorunlu mu?`,
+      cevap: `Hayır, danışmanlık almak zorunlu değildir. Tarafsızlık ilkesi ve ISO/IEC 17021-1 gereği DVN Cert, belge verdiği kuruluşlara yönetim sistemi danışmanlığı sunamaz; sistemi kurma sürecinde danışmanlığa ihtiyaç duyarsanız bunu bağımsız danışmanlardan almanız gerekir. Belgelendirme, yalnızca sistemin standarda uygunluğunu bağımsız olarak değerlendirir.`,
+    },
+    {
+      soru: `${stdAd} belgesini diğer yönetim sistemi standartlarıyla birlikte alabilir miyiz?`,
+      cevap: `Evet. ISO yönetim sistemi standartları ortak bir üst yapıya (Annex SL) sahip olduğundan, ${stdAd} belgelendirmesini diğer standartlarla tek bir entegre denetim programında birleştirebilirsiniz. Bu yaklaşım denetim süresini ve maliyetini azaltır, doküman ve süreç yönetimini kolaylaştırır.`,
+    },
+    {
+      soru: `${stdAd} gözetim tetkiki ne sıklıkla yapılır?`,
+      cevap: `${stdKod} sertifikasının 3 yıllık geçerlilik süresi boyunca genellikle yılda bir kez gözetim tetkiki yapılır. Bu tetkikler ${sistem.nin} standardın gerekliliklerini karşılamaya devam ettiğini doğrular; üçüncü yılın sonunda ise kapsamı daha geniş bir yeniden belgelendirme tetkiki gerçekleştirilir.`,
+    },
+    {
+      soru: `${stdAd} sertifikamızın geçerliliğini nasıl doğrularız?`,
+      cevap: `DVN Cert tarafından düzenlenen ${stdKod} sertifikalarının geçerliliği, sitemizdeki sertifika sorgulama sayfasından teyit edilebilir. Akreditasyonlu belgeler ayrıca TÜRKAK Belge Doğrulama Sistemi (TBDS) üzerinden de doğrulanabilir.`,
+    },
   ];
 
   const serviceLd = {
