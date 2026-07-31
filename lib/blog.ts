@@ -86,6 +86,39 @@ export const blogYazilari: BlogYazisi[] = [
     ilgiliHizmetler: ["iso-14001", "sistem-belgelendirme"],
   },
   {
+    slug: "cok-sahali-belgelendirme",
+    baslik:
+      "Çok Sahalı (Çok Lokasyonlu) Belgelendirme Nedir? Örnekleme Yaklaşımı Nasıl İşler?",
+    ozet:
+      "Çok sahalı belgelendirmede örnekleme yaklaşımı, merkezi yönetim sistemi şartı ve gözetim tetkiklerinde saha seçimi nasıl işler? Süreci açıklıyoruz.",
+    tarih: "2026-07-27",
+    kategori: "Belgelendirme Süreci",
+    icerik:
+      "Birden fazla şube, tesis veya sahada faaliyet gösteren kuruluşlar için her lokasyonun ayrı ayrı ve tam kapsamlı denetlenmesi her zaman gerekli değildir. Bu gibi durumlarda devreye giren çok sahalı (çok lokasyonlu) belgelendirme yaklaşımı, tek bir sertifika altında birden fazla sahayı örnekleme yoluyla değerlendirmeyi mümkün kılar.\n\n" +
+      "## Çok sahalı belgelendirme nedir?\n\n" +
+      "Çok sahalı belgelendirme, merkezi olarak yönetilen ve ortak bir yönetim sistemine sahip birden fazla lokasyonun, tek bir belgelendirme sözleşmesi ve tek bir sertifika kapsamında değerlendirilmesidir. Her sahanın ayrı ayrı ve tam kapsamlı denetlenmesi yerine, tetkik ekibi belirli bir örnekleme yöntemiyle sahaların bir kısmını ziyaret eder; kalan sahalar ise sonraki tetkiklerde örnekleme kapsamına dahil edilir.\n\n" +
+      "## Hangi kuruluşlar için uygundur?\n\n" +
+      "Bu yaklaşım; aynı yönetim sistemi, aynı politika ve prosedürler altında faaliyet gösteren, merkezi bir yönetimin denetlediği zincir mağaza, şube ağı, üretim tesisleri veya bölge ofisleri gibi yapılar için uygundur. Her sahanın kendi başına farklı bir yönetim sistemi uyguladığı veya merkezi kontrolün bulunmadığı durumlarda çok sahalı yaklaşım uygulanamaz; bu sahaların ayrı ayrı belgelendirilmesi gerekir.\n\n" +
+      "## Örnekleme yaklaşımı nasıl işler?\n\n" +
+      "Tetkik ekibi, tüm sahaları listeleyip risk ve benzerlik durumuna göre bir örnekleme planı hazırlar. Örnekleme; sahaların benzer faaliyet gösterip göstermediği, coğrafi dağılımı, saha sayısı ve geçmiş tetkik sonuçları gibi unsurlar dikkate alınarak belirlenir. Her tetkik döneminde farklı bir saha alt kümesi ziyaret edilir; böylece belgenin geçerlilik süresi boyunca sahaların tamamı zaman içinde örnekleme kapsamına girmiş olur.\n\n" +
+      "## Örneklemede dikkate alınan unsurlar\n\n" +
+      "- Sahaların aynı yönetim sistemi, politika ve prosedürleri uygulayıp uygulamadığı\n" +
+      "- Sahaların benzer faaliyet, ürün veya hizmet sunup sunmadığı\n" +
+      "- Saha sayısı, büyüklüğü ve coğrafi dağılımı\n" +
+      "- Geçmiş tetkiklerde tespit edilen uygunsuzluklar ve saha bazlı risk seviyesi\n" +
+      "- Merkezi yönetimin sahalar üzerindeki kontrol ve izleme etkinliği\n\n" +
+      "## Merkezi yönetim sistemi şartı\n\n" +
+      "Çok sahalı belgelendirmenin ön koşulu, tüm sahaların ortak bir yönetim sistemi çatısı altında, merkezi olarak planlanan iç tetkik ve yönetim gözden geçirme faaliyetleriyle yönetilmesidir. Merkezi ofis, sahalar arasındaki tutarlılığı sağlamakla ve iç tetkik programının tüm sahaları kapsamasıyla yükümlüdür. Kapsamın ve lokasyonların nasıl tanımlandığı için [belgelendirme kapsamı nasıl belirlenir](/blog/belgelendirme-kapsami-nasil-belirlenir) yazımıza bakabilirsiniz.\n\n" +
+      "## Gözetim tetkiklerinde saha seçimi\n\n" +
+      "İlk belgelendirme tetkikinde genellikle merkez ofis ve örnekleme yoluyla seçilen bir grup saha ziyaret edilir. Sonraki [gözetim tetkiklerinde](/blog/gozetim-tetkiki-nedir) farklı sahalar örnekleme kapsamına alınarak, belgenin geçerlilik süresi boyunca tüm sahaların zaman içinde denetlenmiş olması hedeflenir. Bir sahada ciddi bir uygunsuzluk tespit edilirse, bu durum diğer sahalar için de ek tetkik gerekliliği doğurabilir.\n\n" +
+      "## Sertifikada sahaların gösterilmesi\n\n" +
+      "Çok sahalı bir sertifikada, kapsama dahil edilen sahaların listesi genellikle sertifika ekinde veya belgelendirme kuruluşunun sertifika sorgu sisteminde yer alır. Örnekleme yoluyla denetlenen bir sahanın sertifikada yer alması, o sahanın münferiden ayrıca ve tam kapsamlı tetkik edildiği anlamına gelmez; sahanın merkezi yönetim sistemine dahil olduğu ve örnekleme kapsamında değerlendirildiği anlamına gelir.\n\n" +
+      "## Çok sahalı belgelendirme ile şube denetimi arasındaki fark\n\n" +
+      "Çok sahalı belgelendirme, akredite bir belgelendirme kuruluşunun kendi şubelerinizi 3. taraf olarak denetleyip tek bir ISO sertifikası düzenlemesidir. Buna karşılık [şube ve mağaza denetimi](/hizmetler/sube-denetimi), markanızın kendi belirlediği kriterlerle şubelerinizi değerlendirdiği bir 2. taraf denetim hizmetidir ve sonucunda akredite bir sertifika değil, ayrıntılı bir denetim raporu sunulur. İki yaklaşım farklı amaçlara hizmet eder ve birbirinin yerine geçmez.\n\n" +
+      "Çok sahalı belgelendirmenin uygunluğu, sahalarınızın yapısına ve yönetim sisteminizin merkezi kontrol düzeyine bağlıdır. Kapsam ve örnekleme yaklaşımının değerlendirilmesi için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) inceleyebilir; akreditasyonun bu süreçteki güvencesi için [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımıza bakabilirsiniz.",
+    ilgiliHizmetler: ["sistem-belgelendirme", "sube-denetimi"],
+  },
+  {
     slug: "akreditasyon-markasi-kullanimi",
     baslik: "Akreditasyon Markası Nasıl Kullanılır? Kurallar ve Yaygın Hatalar",
     ozet:
