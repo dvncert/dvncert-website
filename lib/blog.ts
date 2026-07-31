@@ -35,6 +35,57 @@ export type BlogYazisi = {
 
 export const blogYazilari: BlogYazisi[] = [
   {
+    slug: "iso-14001-2026-degisiklikler-ve-gecis",
+    baslik:
+      "ISO 14001:2026 Yayımlandı: Ne Değişti, Geçiş Süresi Ne Kadar?",
+    ozet:
+      "ISO 14001:2026, 15 Nisan 2026'da yayımlandı ve ISO 14001:2015'in yerini aldı. Yeni sürümdeki değişiklikleri, üç yıllık geçiş takvimini ve kuruluşların atması gereken adımları açıklıyoruz.",
+    tarih: "2026-07-31",
+    kategori: "Yönetim Sistemleri",
+    icerik:
+      "Çevre yönetim sistemi standardı ISO 14001, on bir yıl aradan sonra revize edildi. **ISO 14001:2026**, 15 Nisan 2026 tarihinde yayımlanarak ISO 14001:2015'in yerini aldı. Bu yazıda yeni sürümde nelerin değiştiğini, geçiş süresinin ne kadar olduğunu ve belgeli kuruluşların hangi adımları izlemesi gerektiğini ele alıyoruz.\n\n" +
+      "## ISO 14001:2026 ne zaman yayımlandı?\n\n" +
+      "Standardın nihai taslağı (FDIS) Ocak 2026'da paylaşılmış, nihai metin ise **15 Nisan 2026** tarihinde yayımlanmıştır. Yeni sürüm, 2024 yılında ISO 14001:2015'e eklenen iklim değişikliği tadilini de içermekte ve standardı ISO'nun güncel Uyumlaştırılmış Yapısı (Harmonized Structure) ile hizalamaktadır.\n\n" +
+      "## Geçiş süresi ne kadar?\n\n" +
+      "ISO 14001:2015'ten ISO 14001:2026'ya geçiş için **üç yıllık** bir süre öngörülmüştür. Geçiş takviminin ana hatları şöyledir:\n\n" +
+      "- **15 Nisan 2026** — ISO 14001:2026 yayımlandı; geçiş süresi başladı\n" +
+      "- **2026 ikinci yarısı** — Akreditasyon kurumlarının kapsam genişletme değerlendirmeleri ve belgelendirme kuruluşlarının yeni sürüme göre tetkik yapabilir hâle gelmesi\n" +
+      "- **2027 sonbaharı** — ISO 14001:2015'e göre yeni ilk belgelendirme yapılmasının sona ermesinin beklendiği dönem (geçişin son 18 ayı)\n" +
+      "- **Nisan 2029** — Geçiş süresinin sonu; bu tarihten sonra ISO 14001:2015 sertifikaları geçerliliğini yitirir\n\n" +
+      "Geçiş kurallarının bağlayıcı kaynağı, Uluslararası Akreditasyon Forumu (IAF) tarafından yayımlanan zorunlu geçiş dokümanı ile TÜRKAK'ın bu doğrultuda yayımlayacağı ulusal rehberdir. Kesin tarihler ve uygulama ayrıntıları bu dokümanlarla netleşir; kuruluşların planlamayı bu kaynaklar üzerinden teyit etmesi önerilir.\n\n" +
+      "## ISO 14001:2026 ile ne değişti?\n\n" +
+      "Revizyon, standardın temel mantığını değiştirmemekte; mevcut şartları açıklığa kavuşturmakta ve bazı alanlarda beklentileri genişletmektedir. Öne çıkan değişiklikler şunlardır:\n\n" +
+      "### Kuruluş bağlamında çevresel koşullar genişledi\n\n" +
+      "Kuruluşun bağlamı belirlenirken yalnızca iklim değişikliği değil; biyoçeşitlilik, ekosistem sağlığı, kirlilik düzeyleri ve doğal kaynakların erişilebilirliği gibi daha geniş bir çevresel koşullar kümesi dikkate alınmalıdır.\n\n" +
+      "### Çevresel risk ve fırsatlar ayrıştırıldı\n\n" +
+      "Risk ve fırsatlara ilişkin şartlar yeniden düzenlenmiş; çevresel risk ve fırsatlar, genel iş riskinden ayrı biçimde ele alınacak şekilde netleştirilmiştir. Bu düzenleme, çevresel boyutlar ile kurumsal risk yönetimi arasındaki bağın daha anlaşılır kurulmasını amaçlar.\n\n" +
+      "### Değişikliklerin yönetimi için ayrı şart\n\n" +
+      "Yönetim sistemini etkileyebilecek değişikliklerin belirlenmesi, değerlendirilmesi ve kontrol edilmesi için yapılandırılmış bir yaklaşım beklenmektedir. Yeni tesis, yeni proses, mevzuat değişikliği veya organizasyon değişikliği gibi durumların planlı biçimde ele alınması gerekir.\n\n" +
+      "### Yaşam döngüsü bakış açısı değer zincirine yayıldı\n\n" +
+      "Çevresel boyutların yalnızca kuruluşun kendi faaliyetlerinde değil, ürün ve hizmetin değer zinciri boyunca değerlendirilmesi beklentisi güçlendirilmiştir.\n\n" +
+      "### Operasyonel kontrolün kapsamı genişledi\n\n" +
+      "Daha önce \"dış kaynaklı prosesler\" ile sınırlı olan kontrol beklentisi, **dışarıdan sağlanan proses, ürün ve hizmetleri** kapsayacak biçimde genişletilmiştir. Bu değişiklik, tedarikçi yönetimini çevre yönetim sisteminin daha görünür bir parçası hâline getirir. Tedarikçilerin değerlendirilmesi için [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımızı inceleyebilirsiniz.\n\n" +
+      "### Liderlik ve iç tetkik beklentileri netleşti\n\n" +
+      "Üst yönetimin çevre yönetim sistemini iş stratejisine entegre etmesine ilişkin beklentiler güçlendirilmiş; yönetim kademesi dışındaki rollerin de sistemi desteklemesi vurgulanmıştır. İç tetkiklerde ise kapsam ve kriterlerin yanı sıra **tetkik amaçlarının** açıkça tanımlanması istenmektedir. İç tetkik yetkinliği için [iç denetçi (iç tetkikçi) eğitimi nedir](/blog/ic-denetci-ic-tetkikci-egitimi-nedir) yazımıza bakabilirsiniz.\n\n" +
+      "## Belgeli bir kuruluş geçiş için ne yapmalı?\n\n" +
+      "- Standardın yeni sürümünü temin edip mevcut sistemle karşılaştıran bir **fark (gap) analizi** yapmak\n" +
+      "- Kuruluş bağlamı, çevresel koşullar, çevresel risk ve fırsatlar ile değişiklik yönetimi başlıklarında doküman ve süreçleri güncellemek\n" +
+      "- Dışarıdan sağlanan proses, ürün ve hizmetlere ilişkin kontrolleri gözden geçirmek\n" +
+      "- İç tetkikçileri ve yönetim ekibini yeni şartlar konusunda eğitmek; iç tetkiki yeni sürüme göre yürütmek\n" +
+      "- Yönetimin gözden geçirmesinde geçiş hazırlığını değerlendirmek\n" +
+      "- Belgelendirme kuruluşuyla **geçiş tetkiki** planlamasını erkenden yapmak\n\n" +
+      "## Geçiş tetkiki nasıl yapılır?\n\n" +
+      "Geçiş tetkiki, planlı bir [gözetim tetkiki](/blog/gozetim-tetkiki-nedir) veya yeniden belgelendirme tetkikiyle birlikte ya da ayrı bir tetkik olarak gerçekleştirilebilir; her durumda yeni şartların karşılandığını doğrulamak için ek tetkik süresi gerekir. Tetkik sonunda bulguların değerlendirilmesi ve belgenin yeni sürüme göre düzenlenmesi, tetkik ekibinden bağımsız bir [belgelendirme kararı](/blog/belgelendirme-karari-nasil-verilir) süreciyle sonuçlandırılır.\n\n" +
+      "## Geçişi ertelemenin riski nedir?\n\n" +
+      "Geçiş süresinin sonuna yaklaşıldıkça, belgelendirme kuruluşlarındaki tetkik kapasitesi ve tetkikçi erişilebilirliği daralır. Geçiş tetkikini süresi içinde tamamlayamayan kuruluşların sertifikası geçerliliğini yitirir; bu durumda belge, geçiş yerine yeni bir ilk belgelendirme süreciyle (Aşama 1 ve Aşama 2 tetkikleri) yeniden alınmak zorunda kalınabilir. Bu nedenle geçişin, planlı tetkik takvimine erkenden yerleştirilmesi önerilir.\n\n" +
+      "## Yeni başvurular hangi sürüme göre yapılmalı?\n\n" +
+      "Geçiş süresi boyunca her iki sürüme göre belgelendirme mümkün olsa da, yeni başvuran kuruluşların doğrudan ISO 14001:2026'ya göre belgelendirilmesi; kısa süre sonra ikinci bir geçiş tetkiki gerekmemesi açısından daha verimlidir. Akredite belgelendirmenin yeni sürüme göre yapılabilmesi, belgelendirme kuruluşunun akreditasyon kapsamının ilgili akreditasyon kararıyla güncellenmiş olmasına bağlıdır; bu karar öncesinde düzenlenen belgeler akreditasyon kapsamında sayılmaz. Akreditasyonun anlamı için [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımızı inceleyebilirsiniz.\n\n" +
+      "## Diğer standartlarla entegrasyon\n\n" +
+      "ISO 14001:2026, ISO'nun güncel uyumlaştırılmış yapısını izlediği için ISO 9001 ve ISO 45001 ile ortak çatı korunmaktadır. Birden çok standardı birlikte yürüten kuruluşlar geçişi entegre biçimde planlayabilir; ayrıntı için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımıza göz atabilirsiniz. ISO 14001'in kapsamı ve belgelendirme süreci hakkında genel bilgi için [ISO 14001 belgelendirme: çevre yönetim sistemi belgesi](/blog/iso-14001-belgelendirme-cevre-yonetim-sistemi) yazımızı okuyabilirsiniz.\n\n" +
+      "ISO 14001 geçişi, yeni belgelendirme başvurusu veya tetkik planlaması için [ISO 14001 belgelendirme hizmetimizi](/hizmetler/iso-14001) inceleyebilirsiniz.",
+    ilgiliHizmetler: ["iso-14001", "sistem-belgelendirme"],
+  },
+  {
     slug: "akreditasyon-markasi-kullanimi",
     baslik: "Akreditasyon Markası Nasıl Kullanılır? Kurallar ve Yaygın Hatalar",
     ozet:

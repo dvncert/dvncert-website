@@ -28,6 +28,22 @@ export type Duyuru = {
 
 export const duyurular: Duyuru[] = [
   {
+    slug: "iso-14001-2026-yayimlandi",
+    baslik: "ISO 14001:2026 Yayımlandı — Geçiş Süreci Başladı",
+    tarih: "2026-07-31",
+    kategori: "Standart Güncellemesi",
+    ozet:
+      "Çevre yönetim sistemi standardının yeni sürümü ISO 14001:2026, 15 Nisan 2026 tarihinde yayımlandı ve ISO 14001:2015'in yerini aldı. Geçiş süresi üç yıl olarak belirlendi; mevcut belgeli kuruluşların bu süre içinde geçiş tetkikini tamamlaması gerekiyor.",
+    icerik:
+      "Uluslararası Standardizasyon Örgütü (ISO), çevre yönetim sistemi standardının yeni sürümü olan **ISO 14001:2026**'yı **15 Nisan 2026** tarihinde yayımlamıştır. Yeni sürüm, 2015'ten bu yana yürürlükte olan ISO 14001:2015'in yerini almakta ve 2024 yılında yayımlanan iklim değişikliği tadilini de bünyesine dahil etmektedir.\n\n" +
+      "**Geçiş süresi:** Yayım tarihinden itibaren **üç yıllık** bir geçiş süresi öngörülmüştür. Bu takvime göre ISO 14001:2015'e göre düzenlenmiş sertifikalar, geçiş süresinin sona ereceği **Nisan 2029** sonrasında geçerliliğini yitirecektir. Ayrıca geçiş sürecinin son 18 ayında ISO 14001:2015'e göre yeni ilk belgelendirme yapılmaması beklenmektedir; bu kapsamda 2015 sürümüne göre yeni belge düzenlenmesinin **2027 sonbaharında** sona ermesi öngörülmektedir.\n\n" +
+      "Geçiş takviminin bağlayıcı kaynağı, Uluslararası Akreditasyon Forumu (IAF) tarafından yayımlanan zorunlu geçiş dokümanı ve TÜRKAK'ın bu doğrultuda yayımlayacağı rehberdir. Takvime ilişkin kesinleşen ayrıntıları bu sayfadan duyurmaya devam edeceğiz.\n\n" +
+      "**Neler değişti?** Yeni sürüm; kuruluş bağlamında iklim değişikliğinin yanı sıra biyoçeşitlilik, kirlilik ve doğal kaynak erişilebilirliği gibi çevresel koşulların da değerlendirilmesini, çevresel risk ve fırsatların ayrı bir madde altında ele alınmasını, değişikliklerin planlı biçimde yönetilmesini, yaşam döngüsü bakış açısının değer zinciri boyunca güçlendirilmesini ve operasyonel kontrolün dışarıdan sağlanan proses, ürün ve hizmetleri kapsayacak biçimde genişletilmesini getirmektedir. Ayrıntılı karşılaştırma için [ISO 14001:2026 nedir, ne değişti ve geçiş süreci nasıl işler](/blog/iso-14001-2026-degisiklikler-ve-gecis) yazımızı inceleyebilirsiniz.\n\n" +
+      "**Belgeli kuruluşlarımız için:** Geçiş tetkikleri, planlı gözetim veya yeniden belgelendirme tetkikleriyle birlikte ya da ayrı bir tetkik olarak gerçekleştirilebilir. Kuruluşumuz, akreditasyon kapsamının yeni sürümü içerecek biçimde güncellenmesinin ardından geçiş tetkiki planlamasına başlayacak ve belgeli kuruluşlarımızı ayrıca bilgilendirecektir. Akredite belgelendirme, ilgili akreditasyon kararının olumlu sonuçlanmasına bağlıdır.\n\n" +
+      "Geçişe hazırlık, eğitim ihtiyacı veya belgelendirme başvurusu hakkındaki sorularınız için [ISO 14001 belgelendirme hizmetimizi](/hizmetler/iso-14001) inceleyebilir ya da [bizimle iletişime geçebilirsiniz](/iletisim).",
+    ilgiliHizmetler: ["iso-14001", "sistem-belgelendirme"],
+  },
+  {
     slug: "turkak-akreditasyonumuzu-aldik",
     baslik: "TÜRKAK Akreditasyonumuzu Aldık",
     tarih: "2026-06-18",

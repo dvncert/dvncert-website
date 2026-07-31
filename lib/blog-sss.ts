@@ -67,6 +67,28 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
     },
   ],
   // ---------- ISO belgelendirme kümesi ----------
+  "iso-14001-2026-degisiklikler-ve-gecis": [
+    {
+      soru: "ISO 14001:2026 ne zaman yayımlandı?",
+      cevap:
+        "ISO 14001:2026, 15 Nisan 2026 tarihinde yayımlanmış ve ISO 14001:2015'in yerini almıştır. Yeni sürüm, 2024 yılında yayımlanan iklim değişikliği tadilini de içermekte ve ISO'nun güncel uyumlaştırılmış yapısıyla hizalanmaktadır.",
+    },
+    {
+      soru: "ISO 14001:2026 geçiş süresi ne kadar?",
+      cevap:
+        "Geçiş süresi, standardın yayımından itibaren üç yıl olarak öngörülmüştür. Bu takvime göre ISO 14001:2015'e göre düzenlenmiş sertifikalar Nisan 2029'da geçerliliğini yitirir. Geçiş kurallarının bağlayıcı kaynağı IAF'ın zorunlu geçiş dokümanı ve TÜRKAK'ın bu doğrultuda yayımlayacağı rehberdir.",
+    },
+    {
+      soru: "ISO 14001:2015 belgem geçiş süresi içinde geçerli mi?",
+      cevap:
+        "Evet. Gözetim tetkikleri zamanında yapıldığı ve sistem sürdürüldüğü sürece ISO 14001:2015 sertifikaları geçiş süresi boyunca geçerliliğini korur. Geçiş süresinin sonuna kadar geçiş tetkiki tamamlanmazsa belge geçerliliğini yitirir.",
+    },
+    {
+      soru: "ISO 14001:2026 geçiş tetkiki ayrı bir denetim mi?",
+      cevap:
+        "Geçiş tetkiki, planlı bir gözetim veya yeniden belgelendirme tetkikiyle birlikte yürütülebileceği gibi ayrı bir tetkik olarak da yapılabilir. Her iki durumda da yeni şartların karşılandığını doğrulamak için ek tetkik süresi ayrılır ve sonuç bağımsız bir belgelendirme kararıyla sonuçlandırılır.",
+    },
+  ],
   "iso-9001-belgelendirme-nedir-nasil-alinir": [
     {
       soru: "ISO 9001 belgesi nasıl alınır?",
