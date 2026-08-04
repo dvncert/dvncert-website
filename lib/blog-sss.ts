@@ -89,6 +89,28 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
         "Geçiş tetkiki, planlı bir gözetim veya yeniden belgelendirme tetkikiyle birlikte yürütülebileceği gibi ayrı bir tetkik olarak da yapılabilir. Her iki durumda da yeni şartların karşılandığını doğrulamak için ek tetkik süresi ayrılır ve sonuç bağımsız bir belgelendirme kararıyla sonuçlandırılır.",
     },
   ],
+  "iso-9001-kobiler-icin": [
+    {
+      soru: "ISO 9001 için asgari çalışan sayısı şartı var mı?",
+      cevap:
+        "Hayır. ISO 9001 standardı kuruluş büyüklüğüne, cirosuna veya sektörüne dair bir asgari şart içermez. Standart, her ölçekteki kuruluşun kendi yapısına uyarlayabileceği bir kalite yönetim sistemi çerçevesi sunar; farklılık, sistemin dokümantasyon düzeyinde ve rol dağılımında ortaya çıkar.",
+    },
+    {
+      soru: "KOBİ'lerde tetkik süresi daha mı kısa olur?",
+      cevap:
+        "Genellikle evet. Tetkik süresi; çalışan sayısı, süreç karmaşıklığı, faaliyet gösterilen alan sayısı ve risk düzeyi gibi kriterlere göre hesaplanır. Bu nedenle küçük ölçekli bir kuruluşun tetkik süresi, benzer kapsamdaki büyük bir kuruluşa kıyasla daha kısa olur.",
+    },
+    {
+      soru: "Küçük bir işletmede iç tetkik ve yönetimin gözden geçirmesi zorunlu mu?",
+      cevap:
+        "Evet. Standart, iç tetkik ve yönetimin gözden geçirmesi şartlarında kuruluş büyüklüğüne göre istisna tanımaz. Küçük ölçekli kuruluşlarda bu faaliyetler daha az kişi tarafından ve daha kısa sürede yürütülebilir; ancak faaliyetin kendisi atlanamaz.",
+    },
+    {
+      soru: "Belgelendirme kuruluşu KOBİ'ye sistemin kurulmasında yardımcı olabilir mi?",
+      cevap:
+        "Hayır. ISO/IEC 17021-1 gereği akredite belgelendirme kuruluşları, belgelendirdikleri kuruluşlara yönetim sisteminin nasıl kurulacağına dair danışmanlık veremez. Sistemin kurulması kuruluşun sorumluluğundadır; belgelendirme kuruluşunun rolü bağımsız ve tarafsız tetkiktir.",
+    },
+  ],
   "iso-9001-belgelendirme-nedir-nasil-alinir": [
     {
       soru: "ISO 9001 belgesi nasıl alınır?",

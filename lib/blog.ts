@@ -35,6 +35,36 @@ export type BlogYazisi = {
 
 export const blogYazilari: BlogYazisi[] = [
   {
+    slug: "iso-9001-kobiler-icin",
+    baslik:
+      "ISO 9001 KOBİ'ler İçin Ne Anlama Gelir? Küçük ve Orta Ölçekli İşletmelerde Belgelendirme",
+    ozet:
+      "ISO 9001 standardı kuruluş büyüklüğüne göre bir asgari şart içermez. KOBİ'lerde belgelendirme kapsamı, tetkik süresi ve yaygın yanlış anlamaları ele alıyoruz.",
+    tarih: "2026-08-04",
+    kategori: "Yönetim Sistemleri",
+    icerik:
+      "Küçük ve orta ölçekli işletmeler (KOBİ), ISO 9001 belgelendirmesini genellikle büyük kuruluşlara özgü bir süreç olarak görme eğilimindedir. Oysa ISO 9001:2015 standardı, kuruluş büyüklüğüne veya sektörüne dair herhangi bir asgari şart içermez; standart, her ölçekteki kuruluşun kendi yapısına uyarlayabileceği bir kalite yönetim sistemi çerçevesi sunar.\n\n" +
+      "## ISO 9001 yalnızca büyük kuruluşlar için mi?\n\n" +
+      "Hayır. ISO 9001, kuruluşun çalışan sayısına, cirosuna veya sektörüne bakmaksızın uygulanabilecek şekilde tasarlanmıştır. Standardın şartları; süreçlerin tanımlanması, sorumlulukların netleştirilmesi ve performansın izlenmesi gibi ilkeler etrafında kurulur. Bu ilkeler on kişilik bir işletmede de yüzlerce çalışanı olan bir kuruluşta da aynı şekilde geçerlidir. Fark, sistemin ne kadar karmaşık dokümantasyon ve kaç ayrı rol ile yürütüldüğündedir; standart bu ayrıntıyı kuruluşun kendi yapısına bırakır.\n\n" +
+      "## KOBİ'lerde belgelendirme kapsamı nasıl belirlenir?\n\n" +
+      "Belgelendirme kapsamı, kuruluşun büyüklüğünden bağımsız olarak; sunulan ürün ve hizmetler, faaliyet gösterilen lokasyon ve standardın uygulanabilir maddeleri esas alınarak tanımlanır. Küçük ölçekli bir işletmede kapsam genellikle tek bir lokasyon ve dar bir ürün/hizmet grubuyla sınırlı olduğu için kapsam ifadesi de buna paralel olarak daha dar tutulur. Kapsamın nasıl belirlendiği hakkında ayrıntılı bilgi için [belgelendirme kapsamı nasıl belirlenir](/blog/belgelendirme-kapsami-nasil-belirlenir) yazımızı inceleyebilirsiniz.\n\n" +
+      "## Tetkik süresi kuruluş büyüklüğüne göre değişir mi?\n\n" +
+      "Evet. Tetkik süresi; çalışan sayısı, süreç karmaşıklığı, faaliyet gösterilen alan sayısı ve ilgili risk düzeyi gibi kriterlere göre hesaplanır. Bu nedenle küçük ölçekli bir kuruluşun tetkik süresi, benzer kapsamdaki büyük bir kuruluşa kıyasla genellikle daha kısadır. Tetkik süresinin hesaplanması, belgelendirme kuruluşunun akreditasyon kapsamındaki kurallara göre yürüttüğü standart bir uygulamadır.\n\n" +
+      "## İç tetkik ve yönetimin gözden geçirmesi KOBİ'ler için de geçerli mi?\n\n" +
+      "Evet. Standart, iç tetkik ve yönetimin gözden geçirmesi şartlarında kuruluş büyüklüğüne göre bir istisna tanımaz; her belgeli kuruluş, sistemin kendi içinde de düzenli olarak gözden geçirilmesini sağlamakla yükümlüdür. Küçük ölçekli kuruluşlarda bu faaliyetler genellikle daha az kişi tarafından ve daha kısa sürede yürütülür; ancak faaliyetin kendisi atlanamaz. İç tetkik yetkinliği hakkında genel bilgi için genel katılıma açık [ISO 9001 iç tetkikçi eğitimi](/egitimler/iso-9001-ic-tetkikci-egitimi) sayfamızı inceleyebilirsiniz.\n\n" +
+      "## KOBİ'lerde yaygın yanlış anlamalar\n\n" +
+      "- ISO 9001'in yalnızca imalat sektöründeki büyük fabrikalar için geçerli olduğu düşüncesi; standart hizmet sektöründeki işletmeler dahil her sektöre uygulanabilir\n" +
+      "- Belgelendirmenin ağır bir dokümantasyon yükü getireceği düşüncesi; standart, dokümante bilginin kapsamını kuruluşun büyüklüğüne ve süreç karmaşıklığına göre belirlemesine izin verir\n" +
+      "- Küçük bir kuruluşta bir çalışanın birden fazla rolü üstlenemeyeceği düşüncesi; standart görevler ayrılığını değil, sorumlulukların açık biçimde tanımlanmasını şart koşar\n" +
+      "- Belgelendirmenin yalnızca ihale şartı olduğu, başka bir faydası olmadığı düşüncesi; sistematik süreç yönetimi ihale dışında da izlenebilirlik ve tutarlılık sağlar\n\n" +
+      "## Yönetim sisteminin kurulması ve belgelendirme kuruluşunun rolü\n\n" +
+      "Kalite yönetim sisteminin kurulması ve uygulanması, kuruluş büyüklüğünden bağımsız olarak kuruluşun kendi sorumluluğundadır. Belgelendirme kuruluşunun rolü, kurulan sistemi bağımsız ve tarafsız biçimde tetkik ederek standardın şartlarını karşılayıp karşılamadığını değerlendirmektir. ISO/IEC 17021-1 gereği akredite belgelendirme kuruluşları, belgelendirdikleri kuruluşlara sistemin nasıl kurulacağına dair danışmanlık veremez; bu ayrım KOBİ'ler için de büyük kuruluşlar için olduğu kadar geçerlidir. ISO 9001 belgelendirme sürecinin adımları için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımızı inceleyebilirsiniz.\n\n" +
+      "## Akreditasyonun KOBİ'ler için önemi\n\n" +
+      "Bir KOBİ için de akredite bir belge, akreditasyonsuz bir belgeye kıyasla daha geniş tanınırlık taşır; ihale, tedarikçi ön yeterlilik ve ihracat süreçlerinde akredite belge aranması yaygındır. Akreditasyonun ne anlama geldiği için [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımıza bakabilirsiniz.\n\n" +
+      "ISO 9001 belgelendirme başvurusu için [ISO 9001 belgelendirme hizmetimizi](/hizmetler/iso-9001) inceleyebilir; sistemin genel belgelendirme süreci için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) ziyaret edebilirsiniz.",
+    ilgiliHizmetler: ["iso-9001", "sistem-belgelendirme"],
+  },
+  {
     slug: "iso-14001-2026-degisiklikler-ve-gecis",
     baslik:
       "ISO 14001:2026 Yayımlandı: Ne Değişti, Geçiş Süresi Ne Kadar?",
