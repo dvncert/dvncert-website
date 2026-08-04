@@ -78,6 +78,7 @@ export async function akreditasyonBelgeleriniGetir(): Promise<AkreditasyonBelges
         belgeMime: akreditasyonBelgeleri.belgeMime,
         gecerlilikTarihi: akreditasyonBelgeleri.gecerlilikTarihi,
         belgeVar: sql<boolean>`${akreditasyonBelgeleri.belgeVeri} is not null`,
+        guncellenme: akreditasyonBelgeleri.guncellenme,
       })
       .from(akreditasyonBelgeleri)
       .where(eq(akreditasyonBelgeleri.yayinda, true))
@@ -87,7 +88,7 @@ export async function akreditasyonBelgeleriniGetir(): Promise<AkreditasyonBelges
       ad: r.ad,
       aciklama: r.aciklama ?? undefined,
       kapsam: r.kapsam ?? undefined,
-      belge: r.belgeVar ? `/api/dosya/akreditasyon/${r.id}` : undefined,
+      belge: r.belgeVar ? `/api/dosya/akreditasyon/${r.id}?v=${new Date(r.guncellenme).getTime()}` : undefined,
       belgeMime: r.belgeMime ?? undefined,
       gecerlilikTarihi: r.gecerlilikTarihi ?? undefined,
     }));
@@ -120,6 +121,7 @@ export async function logoDosyalariniGetir(): Promise<LogoDosyasi[]> {
         dosyaMime: logoDosyalari.dosyaMime,
         dosyaAdi: logoDosyalari.dosyaAdi,
         dosyaVar: sql<boolean>`${logoDosyalari.dosyaVeri} is not null`,
+        guncellenme: logoDosyalari.guncellenme,
       })
       .from(logoDosyalari)
       .where(eq(logoDosyalari.yayinda, true))
@@ -129,7 +131,7 @@ export async function logoDosyalariniGetir(): Promise<LogoDosyasi[]> {
       ad: r.ad,
       aciklama: r.aciklama ?? undefined,
       zeminTipi: r.zeminTipi,
-      dosya: r.dosyaVar ? `/api/dosya/logo/${r.id}` : undefined,
+      dosya: r.dosyaVar ? `/api/dosya/logo/${r.id}?v=${new Date(r.guncellenme).getTime()}` : undefined,
       dosyaMime: r.dosyaMime ?? undefined,
       dosyaAdi: r.dosyaAdi ?? undefined,
     }));
@@ -164,6 +166,7 @@ export async function dokumanlariGetir(): Promise<DokumanKaydi[]> {
         tip: dokumanlar.tip,
         dosyaAdi: dokumanlar.dosyaAdi,
         dosyaVar: sql<boolean>`${dokumanlar.dosyaVeri} is not null`,
+        guncellenme: dokumanlar.guncellenme,
       })
       .from(dokumanlar)
       .where(eq(dokumanlar.yayinda, true))
@@ -175,7 +178,7 @@ export async function dokumanlariGetir(): Promise<DokumanKaydi[]> {
       aciklama: r.aciklama ?? undefined,
       kategori: r.kategori,
       tip: r.tip,
-      dosya: r.dosyaVar ? `/api/dosya/dokuman/${r.id}` : undefined,
+      dosya: r.dosyaVar ? `/api/dosya/dokuman/${r.id}?v=${new Date(r.guncellenme).getTime()}` : undefined,
       dosyaAdi: r.dosyaAdi ?? undefined,
     }));
   } catch (e) {

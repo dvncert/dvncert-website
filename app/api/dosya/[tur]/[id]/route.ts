@@ -11,7 +11,7 @@ import { coz } from "@/lib/kripto";
  * Görseller için /api/gorsel rotası kullanılır (WebP'e çevrilmiş kapaklar).
  * Bu rota orijinal binary'yi olduğu gibi indirilebilir biçimde döner.
  */
-export async function GET(_req: Request, { params }: { params: Promise<{ tur: string; id: string }> }) {
+export async function GET(req: Request, { params }: { params: Promise<{ tur: string; id: string }> }) {
   const { tur, id } = await params;
   const n = Number(id);
   if (!Number.isFinite(n)) return new Response("Geçersiz id", { status: 400 });
@@ -68,9 +68,20 @@ export async function GET(_req: Request, { params }: { params: Promise<{ tur: st
 
   const mime = satir.mime || "application/octet-stream";
   const inline = mime.startsWith("image/") || mime === "application/pdf";
+  // Dosya güncellendiğinde URL'deki ?v= damgası değişir (bkz. lib/faz2-icerik.ts).
+  // Damgalı istekler uzun süre cache'lenebilir; damgasız istekler (eski linkler,
+  // admin panel bağlantıları) her seferinde doğrulanmalı — aksi halde içerik
+  // değişse bile tarayıcı/CDN eski dosyayı sunar.
+  // CV'ler kişisel veri: hiçbir ara katmanda cache'lenmemeli.
+  const surumlu = new URL(req.url).searchParams.has("v");
   const headers: Record<string, string> = {
     "Content-Type": mime,
-    "Cache-Control": "public, max-age=3600, must-revalidate",
+    "Cache-Control":
+      tur === "basvuru"
+        ? "private, no-store"
+        : surumlu
+          ? "public, max-age=31536000, immutable"
+          : "public, max-age=0, must-revalidate",
   };
   if (satir.ad) {
     const disp = inline ? "inline" : "attachment";
