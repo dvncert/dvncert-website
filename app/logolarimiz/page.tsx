@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: "/logolarimiz",
     title: "Logolarımız",
     description:
-      "DVN Cert kurumsal logosu ve marka kullanım kuralları (TL.11 Rev.04 talimatı). Logo kullanım koşulları, TÜRKAK akreditasyon markası ve TBDS karekod kuralları, indirilebilir logo dosyaları ve talimatın PDF görünümü.",
+      "DVN Cert belgelendirme markası ile TÜRKAK Akreditasyon Markası'nın birlikte kullanımı, logo kullanım kuralları, TBDS karekodu ve TL.11 Rev.04 Marka/Logo Kullanım Talimatı.",
   });
 }
 
@@ -102,7 +102,7 @@ export default function LogolarimizSayfasi() {
       <SayfaBaslik
         etiket="KURUMSAL"
         baslik="Logolarımız"
-        aciklama="Kurumsal logomuzun doğru ve tutarlı kullanımı için yönergeler ve indirilebilir dosyalar."
+        aciklama="Belgelendirme markamızın ve TÜRKAK Akreditasyon Markası'nın doğru ve tutarlı kullanımı için yönergeler."
         kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Logolarımız" }]}
       />
 
