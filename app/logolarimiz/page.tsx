@@ -4,7 +4,6 @@ import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 import DokumanGoruntule from "../components/DokumanGoruntule";
-import { logoDosyalariniGetir, type LogoDosyasi } from "@/lib/faz2-icerik";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 
 export const revalidate = 300;
@@ -62,14 +61,6 @@ const kullanimTablosu = {
 const ornekAciklama =
   "Bu ürün; DVN Cert tarafından ISO 9001:2015'e göre belgelendirilmiş kalite yönetim sistemine sahip, ABC Ltd. Şti. tarafından üretilmiştir.";
 
-// TÜRKAK AB-0209-YS akreditasyon kapsamındaki yönetim sistemi sertifikaları.
-const akreditasyonSertifikalari = [
-  { standart: "ISO 9001", ad: "Kalite Yönetim Sistemi", dosya: "/gorseller/akreditasyon-sertifikalari/iso-9001-akreditasyon-sertifikasi.png" },
-  { standart: "ISO 50001", ad: "Enerji Yönetim Sistemi", dosya: "/gorseller/akreditasyon-sertifikalari/iso-50001-akreditasyon-sertifikasi.png" },
-  { standart: "ISO 45001", ad: "İş Sağlığı ve Güvenliği Yönetim Sistemi", dosya: "/gorseller/akreditasyon-sertifikalari/iso-45001-akreditasyon-sertifikasi.png" },
-  { standart: "ISO 14001", ad: "Çevre Yönetim Sistemi", dosya: "/gorseller/akreditasyon-sertifikalari/iso-14001-akreditasyon-sertifikasi.png" },
-];
-
 const turkakMaddeleri = [
   "TÜRKAK Akreditasyon Markası, DVN Cert logosu olmaksızın tek başına kullanılamaz.",
   "Alınan belge akreditasyon kapsamındaysa; kırtasiye, reklam ve tanıtım malzemelerinde kullanılabilir.",
@@ -82,10 +73,10 @@ const turkakMaddeleri = [
 // TL.11 Rev.04'teki "TÜRKAK logosunun DVN logosu ile birlikte kullanımı (standart bazlı)"
 // örnekleri. Markalar talimatın ekindeki görsellerden alınmıştır (TÜRKAK AB-0209-YS).
 const birlikteKullanim = [
-  { standart: "ISO 9001", ad: "Kalite Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-9001.png" },
-  { standart: "ISO 14001", ad: "Çevre Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-14001.png" },
-  { standart: "ISO 45001", ad: "İş Sağlığı ve Güvenliği Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-45001.png" },
-  { standart: "ISO 50001", ad: "Enerji Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-50001.png" },
+  { standart: "ISO 9001", ad: "Kalite Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-9001.png", en: 172, boy: 250 },
+  { standart: "ISO 14001", ad: "Çevre Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-14001.png", en: 167, boy: 243 },
+  { standart: "ISO 45001", ad: "İş Sağlığı ve Güvenliği Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-45001.png", en: 177, boy: 258 },
+  { standart: "ISO 50001", ad: "Enerji Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-50001.png", en: 177, boy: 258 },
 ];
 
 // TL.11 Rev.04 ile eklenen TÜRKAK Belge Doğrulama Sistemi (TBDS) karekod kuralları.
@@ -95,8 +86,7 @@ const tbdsMaddeleri = [
   "Sorgulama sonucunda belgenin durumu, müşteri ismi, belgelendirme kuruluşunun adı, ilgili standart, TÜRKAK TBS numarası, belge numarası, yayın ve revizyon bilgileri ile belge adresleri görüntülenir.",
 ];
 
-export default async function LogolarimizSayfasi() {
-  const logolar = await logoDosyalariniGetir();
+export default function LogolarimizSayfasi() {
   return (
     <main>
       <script
@@ -118,27 +108,61 @@ export default async function LogolarimizSayfasi() {
 
       <KapakGorsel src="/gorseller/sayfalar/logolarimiz.webp" alt="DVN Cert kurumsal logo ve marka kullanımı" etiket="Marka ve logo kullanım kuralları" oncelik />
 
+      {/* Logoların birlikte kullanımı — sayfanın ilk bölümü (TL.11 Rev.04, standart bazlı örnekler) */}
       <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ marginBottom: 32 }}>
+          <div style={{ textAlign: "center", marginBottom: 28 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
-              LOGO DOSYALARI
+              MARKA KULLANIMI
             </p>
-            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 27, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
-              DVN Cert kurumsal logosu
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
+              Logolarımızın birlikte kullanımı
             </h2>
+            <p style={{ fontSize: 13.5, color: "var(--dvn-gri-500)", margin: "12px auto 0", maxWidth: 760, lineHeight: 1.7 }}>
+              TÜRKAK Akreditasyon Markası, DVN Cert logosu olmaksızın tek başına kullanılamaz. Marka standart
+              bazlıdır; aşağıda her yönetim sistemi standardı için DVN Cert logosu ile birlikte kullanım örneği
+              yer alır. Akreditasyon numaramız <strong>AB-0209-YS</strong>&apos;dir.
+            </p>
           </div>
 
-          {logolar.length === 0 ? (
-            <div className="dvn-logo-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
-              <VarsayilanLogoKart zeminKoyu={false} />
-              <VarsayilanLogoKart zeminKoyu={true} />
-            </div>
-          ) : (
-            <div className="dvn-logo-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
-              {logolar.map((l) => <LogoKart key={l.id} logo={l} />)}
-            </div>
-          )}
+          <div className="dvn-birlikte-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 18 }}>
+            {birlikteKullanim.map((b) => (
+              <div
+                key={b.standart}
+                className="dvn-kural-kart"
+                style={{
+                  background: "var(--dvn-gri-50)",
+                  borderRadius: 14,
+                  border: "0.5px solid var(--dvn-gri-300)",
+                  padding: "22px 20px",
+                }}
+              >
+                <div style={{ background: "white", borderRadius: 10, padding: "26px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 30, flexWrap: "wrap", marginBottom: 14 }}>
+                  <Image
+                    src="/logo.webp"
+                    alt="DVN Cert belgelendirme markası"
+                    width={152}
+                    height={84}
+                    style={{ height: 60, width: "auto" }}
+                  />
+                  <Image
+                    src={b.marka}
+                    alt={`${b.standart} ${b.ad} için TÜRKAK Akreditasyon Markası (AB-0209-YS)`}
+                    width={b.en}
+                    height={b.boy}
+                    style={{ height: 92, width: "auto" }}
+                  />
+                </div>
+                <p style={{ fontSize: 14.5, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>{b.standart}</p>
+                <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: 0, lineHeight: 1.5 }}>{b.ad}</p>
+              </div>
+            ))}
+          </div>
+
+          <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: "18px auto 0", maxWidth: 760, textAlign: "center", lineHeight: 1.65 }}>
+            Akreditasyon markası yalnızca belgenin akreditasyon kapsamındaki standardı için kullanılabilir;
+            kullanıldığı yerlerde DVN Cert belgelendirme markasından daha baskın veya geri planda olmamalıdır.
+          </p>
         </div>
       </section>
 
@@ -146,47 +170,7 @@ export default async function LogolarimizSayfasi() {
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 28 }}>
             <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
-              AKREDİTASYON SERTİFİKALARI
-            </p>
-            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
-              TÜRKAK akreditasyon sertifikalarımız
-            </h2>
-            <p style={{ fontSize: 13.5, color: "var(--dvn-gri-500)", margin: "12px auto 0", maxWidth: 720, lineHeight: 1.7 }}>
-              TÜRKAK <strong>AB-0209-YS</strong> akreditasyon kapsamındaki yönetim sistemi standartları için
-              akreditasyon sertifikalarımızı görüntüleyebilir veya indirebilirsiniz.
-            </p>
-          </div>
-
-          <div className="dvn-sertifika-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
-            {akreditasyonSertifikalari.map((s) => (
-              <div key={s.standart} className="dvn-kural-kart" style={{ background: "white", borderRadius: 16, padding: 16, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)", display: "flex", flexDirection: "column" }}>
-                <a href={s.dosya} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "var(--dvn-gri-50)", borderRadius: 10, padding: 12, border: "0.5px solid var(--dvn-gri-300)", marginBottom: 14 }}>
-                  <Image src={s.dosya} alt={`${s.standart} ${s.ad} — TÜRKAK akreditasyon sertifikası`} width={600} height={868} style={{ width: "100%", height: "auto", borderRadius: 4 }} />
-                </a>
-                <p style={{ fontSize: 14.5, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>{s.standart}</p>
-                <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: "0 0 14px", lineHeight: 1.5, flexGrow: 1 }}>{s.ad}</p>
-                <div style={{ display: "flex", gap: 8 }}>
-                  <a href={s.dosya} target="_blank" rel="noopener noreferrer" style={{ flex: 1, display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6, background: "white", color: "var(--dvn-lacivert)", padding: "9px 10px", borderRadius: "var(--dvn-radius-md)", fontWeight: 500, fontSize: 12.5, border: "0.5px solid var(--dvn-gri-300)", textDecoration: "none" }}>
-                    Görüntüle
-                  </a>
-                  <a href={s.dosya} download style={{ flex: 1, display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6, background: "var(--dvn-gradient-turuncu)", color: "white", padding: "9px 10px", borderRadius: "var(--dvn-radius-md)", fontWeight: 500, fontSize: 12.5, boxShadow: "0 6px 16px rgba(245,130,32,0.28)", textDecoration: "none" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    İndir
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 28 }}>
-            <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
-              MARKA KULLANIMI
+              KURALLAR
             </p>
             <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
               Logo kullanım kuralları
@@ -311,56 +295,6 @@ export default async function LogolarimizSayfasi() {
             </ul>
           </div>
 
-          {/* Logoların birlikte kullanımı (TL.11 Rev.04 — standart bazlı örnekler) */}
-          <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", marginTop: 20 }}>
-            <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 8px" }}>
-              Logolarımızın birlikte kullanımı
-            </h3>
-            <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", margin: "0 0 22px", lineHeight: 1.6 }}>
-              TÜRKAK Akreditasyon Markası, DVN Cert logosu olmaksızın tek başına kullanılamaz. Marka standart
-              bazlıdır; aşağıda her yönetim sistemi standardı için DVN Cert logosu ile birlikte kullanım örneği
-              yer alır. Akreditasyon numaramız <strong>AB-0209-YS</strong>&apos;dir.
-            </p>
-
-            <div className="dvn-birlikte-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 18 }}>
-              {birlikteKullanim.map((b) => (
-                <div
-                  key={b.standart}
-                  style={{
-                    background: "var(--dvn-gri-50)",
-                    borderRadius: 12,
-                    border: "0.5px solid var(--dvn-gri-300)",
-                    padding: "22px 20px",
-                  }}
-                >
-                  <div style={{ background: "white", borderRadius: 10, padding: "22px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 26, flexWrap: "wrap", marginBottom: 14 }}>
-                    <Image
-                      src="/logo.webp"
-                      alt="DVN Cert belgelendirme markası"
-                      width={152}
-                      height={84}
-                      style={{ height: 56, width: "auto" }}
-                    />
-                    <Image
-                      src={b.marka}
-                      alt={`${b.standart} ${b.ad} için TÜRKAK Akreditasyon Markası (AB-0209-YS)`}
-                      width={516}
-                      height={750}
-                      style={{ height: 84, width: "auto" }}
-                    />
-                  </div>
-                  <p style={{ fontSize: 14, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>{b.standart}</p>
-                  <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: 0, lineHeight: 1.5 }}>{b.ad}</p>
-                </div>
-              ))}
-            </div>
-
-            <p style={{ fontSize: 11.5, color: "var(--dvn-gri-500)", margin: "16px 0 0", lineHeight: 1.6 }}>
-              Akreditasyon markası yalnızca belgenin akreditasyon kapsamındaki standardı için kullanılabilir;
-              kullanıldığı yerlerde DVN Cert belgelendirme markasından daha baskın veya geri planda olmamalıdır.
-            </p>
-          </div>
-
           {/* TBDS karekodu */}
           <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", marginTop: 20 }}>
             <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 8px" }}>
@@ -390,124 +324,19 @@ export default async function LogolarimizSayfasi() {
       </section>
 
       <style>{`
-        .dvn-logo-kart, .dvn-kural-kart {
+        .dvn-kural-kart {
           transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
-        .dvn-logo-kart:hover, .dvn-kural-kart:hover {
+        .dvn-kural-kart:hover {
           transform: translateY(-5px);
           box-shadow: 0 18px 40px rgba(2,35,152,0.12) !important;
           border-color: rgba(212,169,63,0.4);
         }
-        @media (max-width: 980px) {
-          .dvn-sertifika-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
         @media (max-width: 820px) {
-          .dvn-logo-grid { grid-template-columns: 1fr !important; }
           .dvn-kural-grid { grid-template-columns: 1fr !important; }
           .dvn-birlikte-grid { grid-template-columns: 1fr !important; }
         }
-        @media (max-width: 520px) {
-          .dvn-sertifika-grid { grid-template-columns: 1fr !important; }
-        }
       `}</style>
     </main>
-  );
-}
-
-function LogoKart({ logo }: { logo: LogoDosyasi }) {
-  const zeminKoyu = logo.zeminTipi === "koyu";
-  const onizlemeUrl = logo.dosya;
-  const previewable = onizlemeUrl && (logo.dosyaMime?.startsWith("image/") ?? false);
-  return (
-    <div className="dvn-logo-kart" style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)" }}>
-      <div
-        style={{
-          background: zeminKoyu ? "var(--dvn-gradient-lacivert)" : "var(--dvn-gri-50)",
-          borderRadius: 12,
-          padding: "40px 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginBottom: 16,
-          minHeight: 150,
-          border: zeminKoyu ? "none" : "0.5px solid var(--dvn-gri-300)",
-        }}
-      >
-        {previewable ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img src={onizlemeUrl} alt={logo.ad} style={{ maxHeight: 120, maxWidth: "100%", width: "auto", height: "auto" }} />
-        ) : (
-          <span style={{ fontSize: 13, color: zeminKoyu ? "#cbd5e1" : "var(--dvn-gri-500)" }}>
-            {logo.dosyaMime?.split("/")[1]?.toUpperCase() ?? "Dosya"}
-          </span>
-        )}
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-        <div>
-          <p style={{ fontSize: 14, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>{logo.ad}</p>
-          {logo.aciklama && <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: 0 }}>{logo.aciklama}</p>}
-        </div>
-        {logo.dosya && (
-          <a
-            href={logo.dosya}
-            download={logo.dosyaAdi || undefined}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              background: "var(--dvn-gradient-turuncu)",
-              color: "white",
-              padding: "9px 18px",
-              borderRadius: "var(--dvn-radius-md)",
-              fontWeight: 500,
-              fontSize: 13,
-              boxShadow: "0 6px 16px rgba(245,130,32,0.28)",
-              textDecoration: "none",
-            }}
-          >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            İndir
-          </a>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function VarsayilanLogoKart({ zeminKoyu }: { zeminKoyu: boolean }) {
-  return (
-    <div className="dvn-logo-kart" style={{ background: "white", borderRadius: 16, padding: 20, border: "0.5px solid var(--dvn-gri-300)", boxShadow: "0 4px 16px rgba(2,35,152,0.06)" }}>
-      <div
-        style={{
-          background: zeminKoyu ? "var(--dvn-gradient-lacivert)" : "var(--dvn-gri-50)",
-          borderRadius: 12,
-          padding: "40px 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginBottom: 16,
-          minHeight: 150,
-          border: zeminKoyu ? "none" : "0.5px solid var(--dvn-gri-300)",
-        }}
-      >
-        <Image
-          src={zeminKoyu ? "/logo-beyaz.png" : "/logo.webp"}
-          alt="DVN Cert Belgelendirme logosu"
-          width={152}
-          height={84}
-          style={{ height: 84, width: "auto" }}
-        />
-      </div>
-      <div>
-        <p style={{ fontSize: 14, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>
-          {zeminKoyu ? "Koyu zemin için" : "Açık zemin için"}
-        </p>
-        <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: 0, fontStyle: "italic" }}>
-          Admin panelinden logo yüklenmedi
-        </p>
-      </div>
-    </div>
   );
 }
