@@ -13,28 +13,34 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: "/logolarimiz",
     title: "Logolarımız",
     description:
-      "DVN Cert kurumsal logosu ve marka kullanım kuralları (TL.11 talimatı). Logo kullanım koşulları, TÜRKAK akreditasyon markası kuralları, indirilebilir logo dosyaları ve talimatın PDF görünümü.",
+      "DVN Cert kurumsal logosu ve marka kullanım kuralları (TL.11 Rev.04 talimatı). Logo kullanım koşulları, TÜRKAK akreditasyon markası ve TBDS karekod kuralları, indirilebilir logo dosyaları ve talimatın PDF görünümü.",
   });
 }
 
-// TL.11 Rev.02 Marka Logo Kullanım Talimatı esas alınmıştır.
-const TALIMAT_PDF = "/dokumanlar/marka-logo-kullanim-talimati.pdf";
+// TL.11 Rev.04 (06.08.2026) Marka/Logo Kullanım Talimatı esas alınmıştır.
+// Dosya adı revizyonu içerir: içerik güncellenince URL de değişsin, eski sürüm cache'ten sunulmasın.
+const TALIMAT_PDF = "/dokumanlar/marka-logo-kullanim-talimati-rev04.pdf";
+const TALIMAT_REV = "TL.11 Rev.04 (06.08.2026)";
 
 const yapilmasiGerekenler = [
   "Logoyu yalnızca belge kapsamı dahilindeki faaliyet alanlarında kullanın.",
-  "Logoyu orijinal renklerinde ve oranlarını koruyarak kullanın; oranlar sabit kalmak şartıyla boyut büyütülüp küçültülebilir.",
+  "Logoyu oranlarını koruyarak kullanın; oranlar sabit kalmak şartıyla boyut büyütülüp küçültülebilir. Orijinal renkler tercih edilir, ihtiyaç halinde farklı renkler kullanılabilir.",
   "Logonun kullanım şekli için Sistem Belgelendirme Müdürlüğü'nden onay alın.",
   "Yalnızca tarafımızca sağlanan güncel logo dosyalarını, kontrastı yeterli zeminlerde kullanın.",
   "Belgelendirme statüsüne atıfta bulunurken belgelendirme kuruluşunun şartlarına uyun.",
+  "Neyin, hangi belgelendirme kuruluşu tarafından belgelendirildiği belirsizlik taşımayacak biçimde anlaşılmalıdır.",
+  "Belge kapsamınız daraltıldığında tüm reklam ve tanıtım malzemelerini buna göre düzeltin.",
 ];
 
 const yapilmamasiGerekenler = [
   "Logoyu ürün, ürün ambalajı üzerinde veya ürün uygunluğunu çağrıştıracak şekilde kullanmayın.",
+  "Yönetim sistemi belgelendirmesine atfı, ürün (hizmet dahil) veya prosesin belgelendirildiğini ima edecek biçimde kullanmayın.",
   "DVN Cert'in sorumluluğu olduğu anlamı çıkacak şekilde kullanmayın.",
   "Belge kapsamı dışındaki bölüm, bağlı kuruluş veya iştiraklerde kullanmayın.",
+  "Deney, kalibrasyon ve muayene raporlarında, laboratuvar testlerinde veya bu kapsamdaki sertifikalarda kullanmayın.",
   "Belge ve logoyu üçüncü tarafa devretmeyin.",
   "Yanıltıcı, belirsiz veya kuruluşun itibarına gölge düşürecek biçimde kullanmayın.",
-  "Belge süresi dolduğunda, askıya alındığında veya geri çekildiğinde logo kullanımına devam etmeyin.",
+  "Belge süresi dolduğunda, askıya alındığında veya geri çekildiğinde logo kullanımına ve belgelendirmeye atıf yapan reklamlara devam etmeyin.",
 ];
 
 // DVN Cert logosunun kullanım koşulları matrisi (talimat tablosu).
@@ -65,9 +71,18 @@ const akreditasyonSertifikalari = [
 
 const turkakMaddeleri = [
   "TÜRKAK Akreditasyon Markası, DVN Cert logosu olmaksızın tek başına kullanılamaz.",
+  "Alınan belge akreditasyon kapsamındaysa; kırtasiye, reklam ve tanıtım malzemelerinde kullanılabilir.",
   "Marka kullanımı yalnızca belgenin üzerinde yer alan yetki, kapsam ve kullanım koşullarıyla uyumlu olmalıdır.",
   "Taşıtlar, binalar, bayraklar ile kart ve kartvizitler üzerinde kullanılmaz.",
+  "Tanıtım malzemesi kısıtı; ürünlere iliştirilen not, etiket, doküman ve yazılı bildirimlerin yanı sıra paketleme ve promosyon malzemelerini de kapsar.",
   "Kullanıldığı yerlerde DVN Cert belgelendirme markasından daha baskın veya geri planda olmamalıdır.",
+];
+
+// TL.11 Rev.04 ile eklenen TÜRKAK Belge Doğrulama Sistemi (TBDS) karekod kuralları.
+const tbdsMaddeleri = [
+  "TBDS karekodu, düzenlenen sertifika üzerinde TÜRKAK Akreditasyon Markası'nın solunda ve 20 × 20 mm ebadında konumlandırılır.",
+  "Karekod, karekod okuyucu uygulamalarla veya tbds.turkak.org.tr adresinden sorgulanabilir.",
+  "Sorgulama sonucunda belgenin durumu, müşteri ismi, belgelendirme kuruluşunun adı, ilgili standart, TÜRKAK TBS numarası, belge numarası, yayın ve revizyon bilgileri ile belge adresleri görüntülenir.",
 ];
 
 export default async function LogolarimizSayfasi() {
@@ -168,8 +183,9 @@ export default async function LogolarimizSayfasi() {
             </h2>
             <p style={{ fontSize: 13.5, color: "var(--dvn-gri-500)", margin: "12px auto 0", maxWidth: 720, lineHeight: 1.7 }}>
               DVN Cert logosu, tetkiklerden başarılı olarak belge almaya hak kazanan firmalar tarafından,
-              aşağıdaki kurallara ve <strong>TL.11 Marka Logo Kullanım Talimatı</strong>&apos;na uygun olarak
-              kullanılabilir.
+              aşağıdaki kurallara ve <strong>TL.11 Marka/Logo Kullanım Talimatı</strong>&apos;na ({TALIMAT_REV}) uygun
+              olarak kullanılabilir. Bu kurallar ilk belgelendirmede belge ile birlikte kuruluşa iletilir ve güncel
+              hâliyle bu sayfada yayımlanır.
             </p>
           </div>
 
@@ -303,10 +319,30 @@ export default async function LogolarimizSayfasi() {
             </ul>
           </div>
 
+          {/* TBDS karekodu */}
+          <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", marginTop: 20 }}>
+            <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 8px" }}>
+              TÜRKAK Belge Doğrulama Sistemi (TBDS) karekodu
+            </h3>
+            <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", margin: "0 0 16px", lineHeight: 1.6 }}>
+              Akreditasyon kapsamında düzenlenen sertifikalarda, belgeye ilişkin bilgilere erişim sağlayan TBDS
+              karekodu yer alır.
+            </p>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 12 }}>
+              {tbdsMaddeleri.map((k, i) => (
+                <li key={i} style={{ display: "flex", gap: 10, fontSize: 13.5, color: "var(--dvn-gri-700)", lineHeight: 1.6 }}>
+                  <span style={{ color: "var(--dvn-lacivert)", flexShrink: 0 }}>•</span>
+                  {k}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <p style={{ textAlign: "center", fontSize: 12.5, color: "var(--dvn-gri-500)", margin: "28px auto 0", maxWidth: 720, lineHeight: 1.6 }}>
             Belgenin geçerlilik süresi sona erdiğinde, askıya alındığında veya geri çekildiğinde logo kullanımı derhal
-            durdurulmalıdır. Belge ve logo üçüncü tarafa devredilemez. Ayrıntılar için yukarıdaki{" "}
-            <strong>Marka ve Logo Kullanım Talimatı</strong>&apos;nı (TL.11 Rev.02) inceleyiniz.
+            durdurulmalıdır. Belge ve logo üçüncü tarafa devredilemez. Talimat şartlarını yerine getirmeyen kuruluşlarda
+            belgenin askıya alınması veya sözleşmenin iptali işlemleri uygulanır. Ayrıntılar için yukarıdaki{" "}
+            <strong>Marka ve Logo Kullanım Talimatı</strong>&apos;nı ({TALIMAT_REV}) inceleyiniz.
           </p>
         </div>
       </section>
