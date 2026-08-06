@@ -61,6 +61,38 @@ const kullanimTablosu = {
 const ornekAciklama =
   "Bu ürün; DVN Cert tarafından ISO 9001:2015'e göre belgelendirilmiş kalite yönetim sistemine sahip, ABC Ltd. Şti. tarafından üretilmiştir.";
 
+/**
+ * Kullanım matrisinin görsel karşılığı: ürün / taşıma kolisi / reklam malzemesi.
+ * Sahneler inline SVG'dir; logo, sahnenin üzerine yüzde koordinatlarla yerleştirilir
+ * (böylece kart genişliği değişse de doğru noktada kalır).
+ */
+const kullanimSahneleri = [
+  {
+    sahne: "urun" as const,
+    baslik: "Ürün ve ürün ambalajı üzerinde",
+    durum: "Kullanılamaz",
+    olumlu: false,
+    not: "Açıklama eklense dahi kullanılamaz; ürünün belgelendirildiği izlenimi doğurur.",
+    logo: { sol: "38%", ust: "44%", en: "24%" },
+  },
+  {
+    sahne: "koli" as const,
+    baslik: "Taşıma kolisi (dış ambalaj) üzerinde",
+    durum: "Açıklama ile kullanılabilir",
+    olumlu: true,
+    not: "Son kullanıcıya ulaşmayan dış ambalajda, açıklama ifadesiyle birlikte kullanılabilir.",
+    logo: { sol: "34%", ust: "40%", en: "22%" },
+  },
+  {
+    sahne: "brosur" as const,
+    baslik: "Reklam, broşür ve tanıtım malzemelerinde",
+    durum: "Kullanılabilir",
+    olumlu: true,
+    not: "Belgelendirme statüsüne atıf kurallarına uymak koşuluyla açıklamasız da kullanılabilir.",
+    logo: { sol: "20%", ust: "22%", en: "26%" },
+  },
+];
+
 const turkakMaddeleri = [
   "TÜRKAK Akreditasyon Markası, DVN Cert logosu olmaksızın tek başına kullanılamaz.",
   "Alınan belge akreditasyon kapsamındaysa; kırtasiye, reklam ve tanıtım malzemelerinde kullanılabilir.",
@@ -232,9 +264,73 @@ export default function LogolarimizSayfasi() {
 
           {/* Kullanım koşulları tablosu */}
           <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", marginTop: 20 }}>
-            <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 18px" }}>
+            <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 6px" }}>
               DVN Cert logosu nerede kullanılabilir?
             </h3>
+            <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", margin: "0 0 22px", lineHeight: 1.6 }}>
+              Logonun kullanılabileceği yerler, kullanım ortamına göre değişir. Aşağıdaki örnekler talimattaki
+              kuralların görsel karşılığıdır; ayrıntılı matris için tabloya bakabilirsiniz.
+            </p>
+
+            {/* Görsel anlatım: ürün / taşıma kolisi / reklam malzemesi */}
+            <div className="dvn-kullanim-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 26 }}>
+              {kullanimSahneleri.map((s) => (
+                <figure
+                  key={s.sahne}
+                  style={{
+                    margin: 0,
+                    background: "var(--dvn-gri-50)",
+                    border: "0.5px solid var(--dvn-gri-300)",
+                    borderRadius: 12,
+                    overflow: "hidden",
+                  }}
+                >
+                  <div style={{ position: "relative", background: "white", borderBottom: "0.5px solid var(--dvn-gri-300)" }}>
+                    <KullanimSahnesi tip={s.sahne} olumlu={s.olumlu} />
+                    <Image
+                      src="/logo.webp"
+                      alt=""
+                      aria-hidden
+                      width={152}
+                      height={84}
+                      style={{
+                        position: "absolute",
+                        left: s.logo.sol,
+                        top: s.logo.ust,
+                        width: s.logo.en,
+                        height: "auto",
+                        opacity: s.olumlu ? 1 : 0.85,
+                      }}
+                    />
+                  </div>
+
+                  <figcaption style={{ padding: "14px 16px 16px" }}>
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6,
+                        fontSize: 11.5,
+                        fontWeight: 600,
+                        letterSpacing: "0.2px",
+                        color: s.olumlu ? "#8a6a12" : "var(--dvn-turuncu)",
+                        background: s.olumlu ? "var(--dvn-altin-soluk)" : "#fdecea",
+                        borderRadius: 999,
+                        padding: "5px 11px",
+                        marginBottom: 10,
+                      }}
+                    >
+                      {s.olumlu ? "✓" : "✕"} {s.durum}
+                    </span>
+                    <p style={{ fontSize: 13.5, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 4px", lineHeight: 1.4 }}>
+                      {s.baslik}
+                    </p>
+                    <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: 0, lineHeight: 1.55 }}>{s.not}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
             <div style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13, minWidth: 520 }}>
                 <thead>
@@ -332,11 +428,87 @@ export default function LogolarimizSayfasi() {
           box-shadow: 0 18px 40px rgba(2,35,152,0.12) !important;
           border-color: rgba(212,169,63,0.4);
         }
+        @media (max-width: 980px) {
+          .dvn-kullanim-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
         @media (max-width: 820px) {
           .dvn-kural-grid { grid-template-columns: 1fr !important; }
           .dvn-birlikte-grid { grid-template-columns: 1fr !important; }
         }
+        @media (max-width: 560px) {
+          .dvn-kullanim-grid { grid-template-columns: 1fr !important; }
+        }
       `}</style>
     </main>
+  );
+}
+
+/**
+ * Kullanım örneği sahneleri. Tümü 240×170 viewBox'ta çizilir; logo, sahnenin
+ * üzerine ayrı bir katman olarak konumlandırılır (bkz. kullanimSahneleri).
+ * Olumsuz sahnede logo alanı çapraz yasak işaretiyle kapatılır.
+ */
+function KullanimSahnesi({ tip, olumlu }: { tip: "urun" | "koli" | "brosur"; olumlu: boolean }) {
+  const cizgi = "#c9d1e2";
+  const acikYuzey = "#f6f8fc";
+  const koyuYuzey = "#e9edf6";
+  const kraft = "#e8d5b5";
+  const kraftKoyu = "#d9c09a";
+
+  return (
+    <svg viewBox="0 0 240 170" width="100%" height="auto" style={{ display: "block" }} role="img" aria-hidden focusable="false">
+      {/* zemin gölgesi */}
+      <ellipse cx="120" cy="152" rx="74" ry="7" fill="rgba(2,35,152,0.07)" />
+
+      {tip === "urun" && (
+        <>
+          {/* ürün kutusu — perspektifli */}
+          <path d="M78 44 L96 30 L180 30 L162 44 Z" fill={koyuYuzey} stroke={cizgi} strokeWidth="1.2" />
+          <path d="M162 44 L180 30 L180 132 L162 146 Z" fill={koyuYuzey} stroke={cizgi} strokeWidth="1.2" />
+          <path d="M78 44 L162 44 L162 146 L78 146 Z" fill="white" stroke={cizgi} strokeWidth="1.2" />
+          {/* ürün etiketi satırları */}
+          <rect x="90" y="118" width="46" height="5" rx="2.5" fill={acikYuzey} stroke={cizgi} strokeWidth="0.6" />
+          <rect x="90" y="129" width="32" height="5" rx="2.5" fill={acikYuzey} stroke={cizgi} strokeWidth="0.6" />
+        </>
+      )}
+
+      {tip === "koli" && (
+        <>
+          {/* taşıma kolisi — kraft renkli, bantlı */}
+          <path d="M62 52 L86 34 L178 34 L154 52 Z" fill={kraftKoyu} stroke={cizgi} strokeWidth="1.2" />
+          <path d="M154 52 L178 34 L178 126 L154 144 Z" fill={kraftKoyu} stroke={cizgi} strokeWidth="1.2" />
+          <path d="M62 52 L154 52 L154 144 L62 144 Z" fill={kraft} stroke={cizgi} strokeWidth="1.2" />
+          {/* bant */}
+          <path d="M104 52 L104 144" stroke="#c2a678" strokeWidth="7" opacity="0.55" />
+          {/* açıklama ifadesi satırları */}
+          <rect x="72" y="112" width="72" height="4.5" rx="2.25" fill="rgba(255,255,255,0.85)" />
+          <rect x="72" y="121" width="58" height="4.5" rx="2.25" fill="rgba(255,255,255,0.85)" />
+          <rect x="72" y="130" width="44" height="4.5" rx="2.25" fill="rgba(255,255,255,0.7)" />
+        </>
+      )}
+
+      {tip === "brosur" && (
+        <>
+          {/* arka sayfa */}
+          <rect x="88" y="26" width="86" height="118" rx="5" fill={koyuYuzey} stroke={cizgi} strokeWidth="1.2" />
+          {/* ön broşür */}
+          <rect x="64" y="34" width="92" height="112" rx="5" fill="white" stroke={cizgi} strokeWidth="1.2" />
+          {/* başlık ve metin satırları */}
+          <rect x="76" y="78" width="68" height="6" rx="3" fill={koyuYuzey} />
+          <rect x="76" y="92" width="60" height="4.5" rx="2.25" fill={acikYuzey} stroke={cizgi} strokeWidth="0.5" />
+          <rect x="76" y="102" width="66" height="4.5" rx="2.25" fill={acikYuzey} stroke={cizgi} strokeWidth="0.5" />
+          <rect x="76" y="112" width="52" height="4.5" rx="2.25" fill={acikYuzey} stroke={cizgi} strokeWidth="0.5" />
+          <rect x="76" y="126" width="34" height="9" rx="4.5" fill="var(--dvn-altin-soluk)" />
+        </>
+      )}
+
+      {!olumlu && (
+        /* yasak işareti — logonun üzerine denk gelir */
+        <g>
+          <circle cx="120" cy="86" r="33" fill="rgba(217,48,37,0.08)" stroke="var(--dvn-turuncu)" strokeWidth="3.4" />
+          <path d="M97 63 L143 109" stroke="var(--dvn-turuncu)" strokeWidth="3.4" strokeLinecap="round" />
+        </g>
+      )}
+    </svg>
   );
 }
