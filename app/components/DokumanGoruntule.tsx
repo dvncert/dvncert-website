@@ -17,7 +17,19 @@ import DokumanCanvas from "./DokumanCanvas";
  * Not: Web'de mutlak indirme/kopyalama engeli yoktur (ekran görüntüsü, DevTools,
  * doğrudan URL). Bu bileşen metin kopyalamayı ve sıradan indirmeyi engeller.
  */
-export default function DokumanGoruntule({ src, baslik }: { src: string; baslik: string }) {
+export default function DokumanGoruntule({
+  src,
+  baslik,
+  etiket = "Görüntüle",
+  gorunum = "dolu",
+}: {
+  src: string;
+  baslik: string;
+  /** Buton metni — varsayılan "Görüntüle". */
+  etiket?: string;
+  /** "dolu": turuncu gradyan (doküman listesi); "cizgili": beyaz zeminli çerçeveli buton. */
+  gorunum?: "dolu" | "cizgili";
+}) {
   const [acik, setAcik] = useState(false);
   const [monte, setMonte] = useState(false);
 
@@ -103,26 +115,50 @@ export default function DokumanGoruntule({ src, baslik }: { src: string; baslik:
         type="button"
         onClick={() => setAcik(true)}
         className="dvn-dok-goruntule"
-        style={{
-          flexShrink: 0,
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 6,
-          background: "var(--dvn-gradient-turuncu)",
-          color: "white",
-          padding: "9px 16px",
-          borderRadius: "var(--dvn-radius-md)",
-          fontWeight: 500,
-          fontSize: 12.5,
-          border: "none",
-          cursor: "pointer",
-        }}
+        style={
+          gorunum === "cizgili"
+            ? {
+                flexShrink: 0,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                background: "white",
+                color: "var(--dvn-lacivert)",
+                padding: "12px 22px",
+                borderRadius: "var(--dvn-radius-md)",
+                fontWeight: 500,
+                fontSize: 13.5,
+                border: "0.5px solid var(--dvn-gri-300)",
+                boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
+                cursor: "pointer",
+              }
+            : {
+                flexShrink: 0,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                background: "var(--dvn-gradient-turuncu)",
+                color: "white",
+                padding: "9px 16px",
+                borderRadius: "var(--dvn-radius-md)",
+                fontWeight: 500,
+                fontSize: 12.5,
+                border: "none",
+                cursor: "pointer",
+              }
+        }
       >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="12" cy="12" r="3" stroke="white" strokeWidth="2" />
+        <svg width={gorunum === "cizgili" ? 16 : 14} height={gorunum === "cizgili" ? 16 : 14} viewBox="0 0 24 24" fill="none">
+          <path
+            d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"
+            stroke={gorunum === "cizgili" ? "var(--dvn-turuncu)" : "white"}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <circle cx="12" cy="12" r="3" stroke={gorunum === "cizgili" ? "var(--dvn-turuncu)" : "white"} strokeWidth="2" />
         </svg>
-        Görüntüle
+        {etiket}
       </button>
 
       {monte && modal ? createPortal(modal, document.body) : null}
