@@ -89,6 +89,95 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
         "Geçiş tetkiki, planlı bir gözetim veya yeniden belgelendirme tetkikiyle birlikte yürütülebileceği gibi ayrı bir tetkik olarak da yapılabilir. Her iki durumda da yeni şartların karşılandığını doğrulamak için ek tetkik süresi ayrılır ve sonuç bağımsız bir belgelendirme kararıyla sonuçlandırılır.",
     },
   ],
+  // ---------- "ISO ... belgesi" kümesi (belge odaklı; süreç yazılarını tamamlar) ----------
+  "iso-9001-belgesi": [
+    {
+      soru: "ISO 9001 belgesi kaç yıl geçerlidir?",
+      cevap:
+        "ISO 9001 belgesinin geçerlilik süresi üç yıldır. Bu süre boyunca planlanan aralıklarla gözetim tetkikleri yapılır; üçüncü yılın sonunda yeniden belgelendirme tetkiki gerçekleştirilerek belge yenilenir.",
+    },
+    {
+      soru: "ISO 9001 belgesi ürünün kalitesini belgelendirir mi?",
+      cevap:
+        "Hayır. ISO 9001 bir yönetim sistemi belgesidir; kuruluşun süreçlerini tanımlı ve izlenebilir biçimde yönettiğini gösterir. Tek tek ürünlerin teknik uygunluğunu belgelendirmez ve bu nedenle belge ile marka, ürün üzerinde veya ürün uygunluğunu çağrıştıracak şekilde kullanılamaz.",
+    },
+    {
+      soru: "ISO 9001 belgesinin gerçek olup olmadığı nasıl anlaşılır?",
+      cevap:
+        "Belge, düzenleyen belgelendirme kuruluşunun sorgulama sistemi üzerinden teyit edilir. DVN Cert belgeleri sertifika sorgulama sayfasından sorgulanabilir. Akreditasyon kapsamındaki belgelerde ayrıca TÜRKAK Belge Doğrulama Sistemi (TBDS) karekodu bulunur ve karekod okutularak belge bilgileri görüntülenebilir.",
+    },
+    {
+      soru: "Akredite ISO 9001 belgesi ile akreditasyonsuz belge arasındaki fark nedir?",
+      cevap:
+        "Akredite belge, yetkinliği ulusal akreditasyon kurumu tarafından değerlendirilmiş bir belgelendirme kuruluşu tarafından düzenlenir ve akreditasyon markasını taşır. İhale, tedarikçi ön yeterlilik ve ihracat süreçlerinde genellikle akredite belge aranır.",
+    },
+  ],
+  "iso-45001-belgesi": [
+    {
+      soru: "ISO 45001 belgesi yasal İSG yükümlülüklerinin yerine geçer mi?",
+      cevap:
+        "Hayır. Belge, iş sağlığı ve güvenliği mevzuatından doğan yükümlülüklerin yerine geçmez. Standart, kuruluşun uymakla yükümlü olduğu yasal şartları belirlemesini ve uyumu izlemesini şart koşar; mevzuata uyum sorumluluğu her durumda kuruluşa aittir.",
+    },
+    {
+      soru: "ISO 45001 belgesini hangi kuruluşlar alabilir?",
+      cevap:
+        "Standart sektör ve ölçek ayrımı yapmaz; çalışanı olan her kuruluş başvurabilir. Küçük kuruluşlarda sistem daha az dokümantasyonla yürütülebilir, ancak tehlike tanımlama, risk değerlendirme ve çalışan katılımı şartlarında ölçeğe bağlı istisna tanınmaz.",
+    },
+    {
+      soru: "ISO 45001 belgesi iş kazası yaşanmayacağını garanti eder mi?",
+      cevap:
+        "Hayır. Belge, İSG risklerini yönetmek için kurulan sistemin standart şartlarını karşıladığını gösterir; tek tek olayların yaşanmayacağını taahhüt etmez. Sistemin etkinliği, kuruluşun uygulamasına ve sürekli iyileştirmesine bağlıdır.",
+    },
+    {
+      soru: "ISO 45001 belgesi ISO 9001 ile birlikte alınabilir mi?",
+      cevap:
+        "Evet. Standartlar ortak bir üst yapıyı paylaştığı için tek bir entegre yönetim sistemi altında ve birleşik bir tetkik programıyla belgelendirilebilir; bu yaklaşım toplam tetkik süresini ve tekrar eden faaliyetleri azaltır.",
+    },
+  ],
+  "iso-14001-belgesi": [
+    {
+      soru: "ISO 14001 belgesi çevresel performansın iyi olduğunu mu gösterir?",
+      cevap:
+        "Belge, çevresel performansın belirli bir seviyede olduğunu değil; bu performansı yönetecek sistemin kurulduğunu ve uygulandığını gösterir. Standart, çevre boyutlarının belirlenmesini, yasal şartlara uyumun izlenmesini ve performansın ölçülmesini şart koşar.",
+    },
+    {
+      soru: "ISO 14001:2026'ya geçmezsem mevcut belgem ne olur?",
+      cevap:
+        "Geçiş süresi sonunda önceki sürüme göre düzenlenmiş belgeler geçerliliğini yitirir. Kuruluşların bu süre içinde geçiş tetkikini tamamlayarak belgelerini yeni sürüme taşıması gerekir; geçiş tetkiki planlı bir gözetim veya yeniden belgelendirme tetkikiyle birlikte de yürütülebilir.",
+    },
+    {
+      soru: "ISO 14001 belgesi kaç yıl geçerlidir?",
+      cevap:
+        "Belgenin geçerlilik süresi üç yıldır. Bu süre boyunca gözetim tetkikleri yapılır; üçüncü yılın sonunda yeniden belgelendirme tetkiki gerçekleştirilir.",
+    },
+    {
+      soru: "Belgede yer almayan bir şubemiz için belgeye atıf yapabilir miyim?",
+      cevap:
+        "Hayır. Belge yalnızca kapsamda tanımlı faaliyet, ürün, hizmet ve lokasyonlar için geçerlidir; kapsam dışındaki bölüm, bağlı kuruluş veya iştiraklerde belgeye ve belgelendirme markasına atıf yapılamaz.",
+    },
+  ],
+  "iso-50001-belgesi": [
+    {
+      soru: "ISO 50001 belgesi zorunlu mudur?",
+      cevap:
+        "ISO 50001 belgelendirmesi gönüllülük esasına dayanır. Bununla birlikte kamu programları, ihale şartnameleri veya müşteri sözleşmeleri belge talep edebilir; kuruluşunuz açısından bağlayıcı bir şart olup olmadığı ilgili mevzuat ve sözleşme hükümlerinden teyit edilmelidir.",
+    },
+    {
+      soru: "ISO 50001 tetkik süresi neye göre belirlenir?",
+      cevap:
+        "Tetkik süresi ISO 50003 standardının kuralları çerçevesinde hesaplanır. Kuruluşun toplam enerji tüketimi, enerji kaynaklarının çeşitliliği, önemli enerji kullanım alanlarının sayısı ve saha sayısı gibi kriterler dikkate alınır.",
+    },
+    {
+      soru: "ISO 50001 belgesi için enerji tüketiminin azalmış olması şart mı?",
+      cevap:
+        "Standart, enerji performansının sürekli iyileştirilmesini şart koşar ve tetkikte enerji verilerinin toplanması, performans göstergelerinin izlenmesi ile iyileşmenin kanıtlanabilir olması değerlendirilir. Belirli bir tasarruf yüzdesi standartta tanımlanmaz.",
+    },
+    {
+      soru: "ISO 50001 belgesi diğer yönetim sistemleriyle birlikte belgelendirilebilir mi?",
+      cevap:
+        "Evet. ISO 50001; ISO 9001 ve ISO 14001 ile ortak bir yapıyı paylaşır ve entegre bir yönetim sistemi altında birleşik tetkik programıyla belgelendirilebilir.",
+    },
+  ],
   "iso-9001-kobiler-icin": [
     {
       soru: "ISO 9001 için asgari çalışan sayısı şartı var mı?",
