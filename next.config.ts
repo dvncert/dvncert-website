@@ -29,8 +29,13 @@ const nextConfig: NextConfig = {
       { source: "/belgelendirme-kurallari", destination: "/dokumanlar", permanent: true },
       // Yeniden adlandırılan/kaldırılan eski duyuru URL'leri (GSC 404) — SEO değeri
       // kaybolmasın diye güncel eşdeğer sayfalara 301 yönlendiriliyor.
-      { source: "/duyurular/dvncert-akreditasyon", destination: "/duyurular/turkak-akreditasyonumuzu-aldik", permanent: true },
-      { source: "/duyurular/iso-50001-akreditasyon-kapsami-genisledi", destination: "/akreditasyonlarimiz", permanent: true },
+      { source: "/duyurular/dvncert-akreditasyon", destination: "/duyurular", permanent: true },
+      { source: "/duyurular/turkak-akreditasyonumuzu-aldik", destination: "/duyurular", permanent: true },
+      { source: "/duyurular/iso-50001-akreditasyon-kapsami-genisledi", destination: "/duyurular", permanent: true },
+      { source: "/akreditasyonlarimiz", destination: "/hakkimizda", permanent: true },
+      { source: "/duyurular/yaniltici-akreditasyon-beyanlari-hakkinda", destination: "/duyurular", permanent: true },
+      { source: "/blog/turkak-akreditasyonu-nedir", destination: "/blog", permanent: true },
+      { source: "/blog/akreditasyon-markasi-kullanimi", destination: "/blog", permanent: true },
       // Eski WordPress sitesinden kalan üst düzey hizmet URL'si → yeni /hizmetler yolu.
       { source: "/2-taraf-denetimleri", destination: "/hizmetler/2-taraf-denetimleri", permanent: true },
     ];

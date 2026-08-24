@@ -1,6 +1,6 @@
 /**
  * Faz 2 entity'lerinin public erişim katmanı.
- * Ekip, akreditasyon belgeleri, logolar, dokümanlar ve sayfa SEO override'ı.
+ * Ekip, logolar, dokümanlar ve sayfa SEO override'ı.
  * DB hata verirse boş dizi/undefined döner; admin'le yönetilen tüm içerik.
  */
 
@@ -9,7 +9,6 @@ import { asc, eq, sql } from "drizzle-orm";
 import { db, dbHazir } from "./db";
 import {
   ekipUyeleri,
-  akreditasyonBelgeleri,
   logoDosyalari,
   dokumanlar,
   sayfaSeo,
@@ -51,49 +50,6 @@ export async function ekipUyeleriniGetir(): Promise<EkipUyesi[]> {
     }));
   } catch (e) {
     console.error("ekipUyeleriniGetir DB hatası:", e);
-    return [];
-  }
-}
-
-// ---------- Akreditasyon belgeleri ----------
-export type AkreditasyonBelgesi = {
-  id: number;
-  ad: string;
-  aciklama?: string;
-  kapsam?: string;
-  belge?: string;
-  belgeMime?: string;
-  gecerlilikTarihi?: string;
-};
-
-export async function akreditasyonBelgeleriniGetir(): Promise<AkreditasyonBelgesi[]> {
-  if (!dbHazir) return [];
-  try {
-    const rows = await db
-      .select({
-        id: akreditasyonBelgeleri.id,
-        ad: akreditasyonBelgeleri.ad,
-        aciklama: akreditasyonBelgeleri.aciklama,
-        kapsam: akreditasyonBelgeleri.kapsam,
-        belgeMime: akreditasyonBelgeleri.belgeMime,
-        gecerlilikTarihi: akreditasyonBelgeleri.gecerlilikTarihi,
-        belgeVar: sql<boolean>`${akreditasyonBelgeleri.belgeVeri} is not null`,
-        guncellenme: akreditasyonBelgeleri.guncellenme,
-      })
-      .from(akreditasyonBelgeleri)
-      .where(eq(akreditasyonBelgeleri.yayinda, true))
-      .orderBy(asc(akreditasyonBelgeleri.sira), asc(akreditasyonBelgeleri.id));
-    return rows.map((r) => ({
-      id: r.id,
-      ad: r.ad,
-      aciklama: r.aciklama ?? undefined,
-      kapsam: r.kapsam ?? undefined,
-      belge: r.belgeVar ? `/api/dosya/akreditasyon/${r.id}?v=${new Date(r.guncellenme).getTime()}` : undefined,
-      belgeMime: r.belgeMime ?? undefined,
-      gecerlilikTarihi: r.gecerlilikTarihi ?? undefined,
-    }));
-  } catch (e) {
-    console.error("akreditasyonBelgeleriniGetir DB hatası:", e);
     return [];
   }
 }

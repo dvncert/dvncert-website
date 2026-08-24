@@ -37,7 +37,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Kurumsal
     { url: `${url}/hakkimizda`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.9 },
     { url: `${url}/ekibimiz`, lastModified: siteGuncelleme, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${url}/akreditasyonlarimiz`, lastModified: siteGuncelleme, changeFrequency: "weekly", priority: 0.9 },
     { url: `${url}/politika-ve-beyanlar`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.6 },
     { url: `${url}/logolarimiz`, lastModified: yasalGuncelleme, changeFrequency: "yearly", priority: 0.5 },
 

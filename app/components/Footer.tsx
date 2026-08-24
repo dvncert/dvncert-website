@@ -59,7 +59,6 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <Link href="/hakkimizda" style={{ fontSize: 12, color: "#94a3b8" }}>Hakkımızda</Link>
               <Link href="/ekibimiz" style={{ fontSize: 12, color: "#94a3b8" }}>Ekibimiz</Link>
-              <Link href="/akreditasyonlarimiz" style={{ fontSize: 12, color: "#94a3b8" }}>Akreditasyonumuz</Link>
               <Link href="/politika-ve-beyanlar" style={{ fontSize: 12, color: "#94a3b8" }}>Politika ve Beyanlar</Link>
               <Link href="/kariyer" style={{ fontSize: 12, color: "#94a3b8" }}>Kariyer</Link>
               <Link href="/blog" style={{ fontSize: 12, color: "#94a3b8" }}>Blog</Link>

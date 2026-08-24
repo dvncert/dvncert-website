@@ -38,8 +38,6 @@ function Ikon({ ad }: { ad: string }) {
       return <svg {...ortak}><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18M9 21V9" /></svg>;
     case "ekip":
       return <svg {...ortak}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.7" /></svg>;
-    case "akreditasyon":
-      return <svg {...ortak}><circle cx="12" cy="8" r="6" /><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1" /></svg>;
     case "logo":
       return <svg {...ortak}><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21" /></svg>;
     case "dokuman":
@@ -81,8 +79,7 @@ const gruplar: { baslik: string; kartlar: Kart[] }[] = [
     baslik: "KURUMSAL & MEDYA",
     kartlar: [
       { ad: "Ekibimiz", aciklama: "Ekip üyeleri", href: "/admin/ekip", ikon: "ekip" },
-      { ad: "Akreditasyonlar", aciklama: "Sertifika ve belgeler", href: "/admin/akreditasyonlar", ikon: "akreditasyon" },
-      { ad: "Logolar", aciklama: "İndirilebilir logo dosyaları", href: "/admin/logolar", ikon: "logo" },
+        { ad: "Logolar", aciklama: "İndirilebilir logo dosyaları", href: "/admin/logolar", ikon: "logo" },
       { ad: "Dokümanlar", aciklama: "Politika, prosedür, form", href: "/admin/dokumanlar", ikon: "dokuman" },
       { ad: "Referanslar", aciklama: "Müşteri logoları", href: "/admin/referanslar", ikon: "referans" },
       { ad: "Müşteri Yorumları", aciklama: "Görüş ve değerlendirmeler", href: "/admin/yorumlar", ikon: "yorum" },

@@ -16,7 +16,6 @@ import {
   egitimEtkinlikleri,
   ekstraMenuOgeleri,
   ekipUyeleri,
-  akreditasyonBelgeleri,
   logoDosyalari,
   dokumanlar,
   sayfaSeo,
@@ -339,40 +338,6 @@ async function dosyaOku(deger: FormDataEntryValue | null): Promise<{ veri: Buffe
   return { veri, mime: deger.type || "application/octet-stream", ad: deger.name };
 }
 
-export async function akreditasyonKaydet(fd: FormData) {
-  await yetkiKontrol();
-  const id = s(fd, "id");
-  const dosya = await dosyaOku(fd.get("belgeDosya"));
-  const temel = {
-    ad: s(fd, "ad"),
-    aciklama: s(fd, "aciklama") || null,
-    kapsam: s(fd, "kapsam") || null,
-    gecerlilikTarihi: s(fd, "gecerlilikTarihi") || null,
-    sira: num(fd, "sira") ?? 0,
-    yayinda: bool(fd, "yayinda"),
-    guncellenme: new Date(),
-  };
-  if (id) {
-    await db
-      .update(akreditasyonBelgeleri)
-      .set(dosya ? { ...temel, belgeVeri: dosya.veri, belgeMime: dosya.mime } : temel)
-      .where(eq(akreditasyonBelgeleri.id, Number(id)));
-  } else {
-    await db.insert(akreditasyonBelgeleri).values({
-      ...temel,
-      belgeVeri: dosya?.veri ?? null,
-      belgeMime: dosya?.mime ?? null,
-    });
-  }
-  yenile("/akreditasyonlarimiz", "/admin/akreditasyonlar");
-  redirect("/admin/akreditasyonlar");
-}
-export async function akreditasyonSil(fd: FormData) {
-  await yetkiKontrol();
-  await db.delete(akreditasyonBelgeleri).where(eq(akreditasyonBelgeleri.id, Number(s(fd, "id"))));
-  yenile("/akreditasyonlarimiz", "/admin/akreditasyonlar");
-}
-
 // ============ LOGO DOSYALARI ============
 export async function logoKaydet(fd: FormData) {
   await yetkiKontrol();
@@ -463,7 +428,7 @@ const REZERVE_SLUGLAR = new Set([
   "hakkimizda", "hizmetler", "iletisim", "kariyer", "kvkk",
   "logolarimiz", "musteri-giris", "politika-ve-beyanlar",
   "robots.txt", "sertifika-sorgula", "sikayet-ve-gorusler",
-  "sitemap.xml", "sss", "akreditasyonlarimiz",
+  "sitemap.xml", "sss",
 ]);
 
 function slugGecerliMi(slug: string): { ok: boolean; hata?: string } {

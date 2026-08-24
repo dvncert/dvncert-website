@@ -1,12 +1,12 @@
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { akreditasyonBelgeleri, logoDosyalari, dokumanlar, formGonderileri } from "@/lib/db/schema";
+import { logoDosyalari, dokumanlar, formGonderileri } from "@/lib/db/schema";
 import { auth } from "@/auth";
 import { coz } from "@/lib/kripto";
 
 /**
  * Veritabanında saklanan binary dosyaları (PDF / DOCX / XLSX / görsel vb.) sunar.
- * /api/dosya/{tur}/{id}  — tur: akreditasyon | logo | dokuman | basvuru
+ * /api/dosya/{tur}/{id}  — tur: logo | dokuman | basvuru
  *
  * Görseller için /api/gorsel rotası kullanılır (WebP'e çevrilmiş kapaklar).
  * Bu rota orijinal binary'yi olduğu gibi indirilebilir biçimde döner.
@@ -23,15 +23,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ tur: str
   }
 
   let satir: { v: Buffer | null; mime: string | null; ad?: string | null } | undefined;
-  if (tur === "akreditasyon") {
-    satir = (
-      await db
-        .select({ v: akreditasyonBelgeleri.belgeVeri, mime: akreditasyonBelgeleri.belgeMime })
-        .from(akreditasyonBelgeleri)
-        .where(eq(akreditasyonBelgeleri.id, n))
-        .limit(1)
-    )[0];
-  } else if (tur === "logo") {
+  if (tur === "logo") {
     satir = (
       await db
         .select({ v: logoDosyalari.dosyaVeri, mime: logoDosyalari.dosyaMime, ad: logoDosyalari.dosyaAdi })

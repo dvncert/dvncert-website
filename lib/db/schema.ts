@@ -166,7 +166,8 @@ export const ekipUyeleri = pgTable("ekip_uyeleri", {
 
 /**
  * Akreditasyon belgeleri — sertifika taramaları/PDF'leri.
- * /akreditasyonlarimiz sayfasında gösterilir.
+ * KULLANILMIYOR: ilgili sayfa, admin ekranı ve dosya rotası kaldırıldı.
+ * Tablo, mevcut veriyi kaybetmemek için şemada bırakıldı.
  */
 export const akreditasyonBelgeleri = pgTable("akreditasyon_belgeleri", {
   id: serial("id").primaryKey(),

@@ -3,7 +3,6 @@ import Image from "next/image";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
-import DokumanGoruntule from "../components/DokumanGoruntule";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 
 export const revalidate = 300;
@@ -13,14 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: "/logolarimiz",
     title: "Logolarımız",
     description:
-      "DVN Cert belgelendirme markası ile TÜRKAK Akreditasyon Markası'nın birlikte kullanımı, logo kullanım kuralları, TBDS karekodu ve TL.11 Rev.04 Marka/Logo Kullanım Talimatı.",
+      "DVN Cert belgelendirme markasının kullanım kuralları ve kullanım koşulları matrisi.",
   });
 }
 
-// TL.11 Rev.04 (06.08.2026) Marka/Logo Kullanım Talimatı esas alınmıştır.
-// Dosya adı revizyonu içerir: içerik güncellenince URL de değişsin, eski sürüm cache'ten sunulmasın.
-const TALIMAT_PDF = "/dokumanlar/marka-logo-kullanim-talimati-rev04.pdf";
-const TALIMAT_REV = "TL.11 Rev.04 (06.08.2026)";
+// TL.11 Marka/Logo Kullanım Talimatı esas alınmıştır. Talimatın yayımlanan kopyası,
+// revizyon çalışması tamamlanana kadar sayfadan kaldırılmıştır.
 
 const yapilmasiGerekenler = [
   "Logoyu yalnızca belge kapsamı dahilindeki faaliyet alanlarında kullanın.",
@@ -93,31 +90,6 @@ const kullanimSahneleri = [
   },
 ];
 
-const turkakMaddeleri = [
-  "TÜRKAK Akreditasyon Markası, DVN Cert logosu olmaksızın tek başına kullanılamaz.",
-  "Alınan belge akreditasyon kapsamındaysa; kırtasiye, reklam ve tanıtım malzemelerinde kullanılabilir.",
-  "Marka kullanımı yalnızca belgenin üzerinde yer alan yetki, kapsam ve kullanım koşullarıyla uyumlu olmalıdır.",
-  "Taşıtlar, binalar, bayraklar ile kart ve kartvizitler üzerinde kullanılmaz.",
-  "Tanıtım malzemesi kısıtı; ürünlere iliştirilen not, etiket, doküman ve yazılı bildirimlerin yanı sıra paketleme ve promosyon malzemelerini de kapsar.",
-  "Kullanıldığı yerlerde DVN Cert belgelendirme markasından daha baskın veya geri planda olmamalıdır.",
-];
-
-// TL.11 Rev.04'teki "TÜRKAK logosunun DVN logosu ile birlikte kullanımı (standart bazlı)"
-// örnekleri. Markalar talimatın ekindeki görsellerden alınmıştır (TÜRKAK AB-0209-YS).
-const birlikteKullanim = [
-  { standart: "ISO 9001", ad: "Kalite Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-9001.png", en: 172, boy: 250 },
-  { standart: "ISO 14001", ad: "Çevre Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-14001.png", en: 167, boy: 243 },
-  { standart: "ISO 45001", ad: "İş Sağlığı ve Güvenliği Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-45001.png", en: 177, boy: 258 },
-  { standart: "ISO 50001", ad: "Enerji Yönetim Sistemi", marka: "/gorseller/akreditasyon-markalari/turkak-markasi-iso-50001.png", en: 177, boy: 258 },
-];
-
-// TL.11 Rev.04 ile eklenen TÜRKAK Belge Doğrulama Sistemi (TBDS) karekod kuralları.
-const tbdsMaddeleri = [
-  "TBDS karekodu, düzenlenen sertifika üzerinde TÜRKAK Akreditasyon Markası'nın solunda ve 20 × 20 mm ebadında konumlandırılır.",
-  "Karekod, karekod okuyucu uygulamalarla veya tbds.turkak.org.tr adresinden sorgulanabilir.",
-  "Sorgulama sonucunda belgenin durumu, müşteri ismi, belgelendirme kuruluşunun adı, ilgili standart, TÜRKAK TBS numarası, belge numarası, yayın ve revizyon bilgileri ile belge adresleri görüntülenir.",
-];
-
 export default function LogolarimizSayfasi() {
   return (
     <main>
@@ -134,69 +106,11 @@ export default function LogolarimizSayfasi() {
       <SayfaBaslik
         etiket="KURUMSAL"
         baslik="Logolarımız"
-        aciklama="Belgelendirme markamızın ve TÜRKAK Akreditasyon Markası'nın doğru ve tutarlı kullanımı için yönergeler."
+        aciklama="Belgelendirme markamızın doğru ve tutarlı kullanımı için yönergeler."
         kirintilar={[{ etiket: "Kurumsal" }, { etiket: "Logolarımız" }]}
       />
 
       <KapakGorsel src="/gorseller/sayfalar/logolarimiz.webp" alt="DVN Cert kurumsal logo ve marka kullanımı" etiket="Marka ve logo kullanım kuralları" oncelik />
-
-      {/* Logoların birlikte kullanımı — sayfanın ilk bölümü (TL.11 Rev.04, standart bazlı örnekler) */}
-      <section className="dvn-reveal" style={{ background: "white", padding: "60px 32px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 28 }}>
-            <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
-              MARKA KULLANIMI
-            </p>
-            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
-              Logolarımızın birlikte kullanımı
-            </h2>
-            <p style={{ fontSize: 13.5, color: "var(--dvn-gri-500)", margin: "12px auto 0", maxWidth: 760, lineHeight: 1.7 }}>
-              TÜRKAK Akreditasyon Markası, DVN Cert logosu olmaksızın tek başına kullanılamaz. Marka standart
-              bazlıdır; aşağıda her yönetim sistemi standardı için DVN Cert logosu ile birlikte kullanım örneği
-              yer alır. Akreditasyon numaramız <strong>AB-0209-YS</strong>&apos;dir.
-            </p>
-          </div>
-
-          <div className="dvn-birlikte-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 18 }}>
-            {birlikteKullanim.map((b) => (
-              <div
-                key={b.standart}
-                className="dvn-kural-kart"
-                style={{
-                  background: "var(--dvn-gri-50)",
-                  borderRadius: 14,
-                  border: "0.5px solid var(--dvn-gri-300)",
-                  padding: "22px 20px",
-                }}
-              >
-                <div style={{ background: "white", borderRadius: 10, padding: "26px 18px", display: "flex", alignItems: "center", justifyContent: "center", gap: 30, flexWrap: "wrap", marginBottom: 14 }}>
-                  <Image
-                    src="/logo.webp"
-                    alt="DVN Cert belgelendirme markası"
-                    width={152}
-                    height={84}
-                    style={{ height: 60, width: "auto" }}
-                  />
-                  <Image
-                    src={b.marka}
-                    alt={`${b.standart} ${b.ad} için TÜRKAK Akreditasyon Markası (AB-0209-YS)`}
-                    width={b.en}
-                    height={b.boy}
-                    style={{ height: 92, width: "auto" }}
-                  />
-                </div>
-                <p style={{ fontSize: 14.5, fontWeight: 600, color: "var(--dvn-lacivert)", margin: "0 0 2px" }}>{b.standart}</p>
-                <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: 0, lineHeight: 1.5 }}>{b.ad}</p>
-              </div>
-            ))}
-          </div>
-
-          <p style={{ fontSize: 12, color: "var(--dvn-gri-500)", margin: "18px auto 0", maxWidth: 760, textAlign: "center", lineHeight: 1.65 }}>
-            Akreditasyon markası yalnızca belgenin akreditasyon kapsamındaki standardı için kullanılabilir;
-            kullanıldığı yerlerde DVN Cert belgelendirme markasından daha baskın veya geri planda olmamalıdır.
-          </p>
-        </div>
-      </section>
 
       <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -209,21 +123,9 @@ export default function LogolarimizSayfasi() {
             </h2>
             <p style={{ fontSize: 13.5, color: "var(--dvn-gri-500)", margin: "12px auto 0", maxWidth: 720, lineHeight: 1.7 }}>
               DVN Cert logosu, tetkiklerden başarılı olarak belge almaya hak kazanan firmalar tarafından,
-              aşağıdaki kurallara ve <strong>TL.11 Marka/Logo Kullanım Talimatı</strong>&apos;na ({TALIMAT_REV}) uygun
-              olarak kullanılabilir. Bu kurallar ilk belgelendirmede belge ile birlikte kuruluşa iletilir ve güncel
-              hâliyle bu sayfada yayımlanır.
+              aşağıdaki kurallara ve <strong>TL.11 Marka/Logo Kullanım Talimatı</strong>&apos;na uygun olarak
+              kullanılabilir. Bu kurallar ilk belgelendirmede belge ile birlikte kuruluşa iletilir.
             </p>
-          </div>
-
-          {/* Talimat, dokümanlar sayfasındaki gibi site içi korumalı görüntüleyicide açılır:
-              canvas'a çizildiği için metin seçilemez/kopyalanamaz, yeni sekmede açılmaz. */}
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: 40 }}>
-            <DokumanGoruntule
-              src={TALIMAT_PDF}
-              baslik={`Marka / Logo Kullanım Talimatı — ${TALIMAT_REV}`}
-              etiket="Marka ve Logo Kullanım Talimatını görüntüle"
-              gorunum="cizgili"
-            />
           </div>
 
           <div className="dvn-kural-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
@@ -372,49 +274,11 @@ export default function LogolarimizSayfasi() {
             </div>
           </div>
 
-          {/* TÜRKAK Akreditasyon Markası */}
-          <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", marginTop: 20 }}>
-            <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 8px" }}>
-              TÜRKAK Akreditasyon Markası kullanımı
-            </h3>
-            <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", margin: "0 0 16px", lineHeight: 1.6 }}>
-              Akreditasyon kapsamındaki belgeler için, TÜRKAK&apos;ın R10.06 logo kullanım şartları ile birlikte
-              aşağıdaki kurallar geçerlidir.
-            </p>
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 12 }}>
-              {turkakMaddeleri.map((k, i) => (
-                <li key={i} style={{ display: "flex", gap: 10, fontSize: 13.5, color: "var(--dvn-gri-700)", lineHeight: 1.6 }}>
-                  <span style={{ color: "var(--dvn-lacivert)", flexShrink: 0 }}>•</span>
-                  {k}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* TBDS karekodu */}
-          <div style={{ background: "white", borderRadius: 14, padding: "28px 26px", border: "0.5px solid var(--dvn-gri-300)", marginTop: 20 }}>
-            <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 8px" }}>
-              TÜRKAK Belge Doğrulama Sistemi (TBDS) karekodu
-            </h3>
-            <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", margin: "0 0 16px", lineHeight: 1.6 }}>
-              Akreditasyon kapsamında düzenlenen sertifikalarda, belgeye ilişkin bilgilere erişim sağlayan TBDS
-              karekodu yer alır.
-            </p>
-            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 12 }}>
-              {tbdsMaddeleri.map((k, i) => (
-                <li key={i} style={{ display: "flex", gap: 10, fontSize: 13.5, color: "var(--dvn-gri-700)", lineHeight: 1.6 }}>
-                  <span style={{ color: "var(--dvn-lacivert)", flexShrink: 0 }}>•</span>
-                  {k}
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <p style={{ textAlign: "center", fontSize: 12.5, color: "var(--dvn-gri-500)", margin: "28px auto 0", maxWidth: 720, lineHeight: 1.6 }}>
             Belgenin geçerlilik süresi sona erdiğinde, askıya alındığında veya geri çekildiğinde logo kullanımı derhal
             durdurulmalıdır. Belge ve logo üçüncü tarafa devredilemez. Talimat şartlarını yerine getirmeyen kuruluşlarda
-            belgenin askıya alınması veya sözleşmenin iptali işlemleri uygulanır. Ayrıntılar için yukarıdaki{" "}
-            <strong>Marka ve Logo Kullanım Talimatı</strong>&apos;nı ({TALIMAT_REV}) inceleyiniz.
+            belgenin askıya alınması veya sözleşmenin iptali işlemleri uygulanır. Talimatın güncel kopyası,
+            belgelendirme sürecinde kuruluşa iletilir.
           </p>
         </div>
       </section>
@@ -433,7 +297,6 @@ export default function LogolarimizSayfasi() {
         }
         @media (max-width: 820px) {
           .dvn-kural-grid { grid-template-columns: 1fr !important; }
-          .dvn-birlikte-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 560px) {
           .dvn-kullanim-grid { grid-template-columns: 1fr !important; }
