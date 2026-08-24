@@ -10,7 +10,7 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: "Duyurular",
   description:
-    "DVN Cert'ten güncel duyurular, akreditasyon gelişmeleri, eğitim takvimi ve sektörel haberler. Belgelendirme dünyasındaki son gelişmeleri takip edin.",
+    "DVN Cert'ten güncel duyurular, standart güncellemeleri, eğitim takvimi ve sektörel haberler. Belgelendirme dünyasındaki son gelişmeleri takip edin.",
   alternates: { canonical: `${siteConfig.url}/duyurular` },
 };
 
@@ -42,7 +42,7 @@ export default async function DuyurularSayfasi() {
         dangerouslySetInnerHTML={schemaScript(
           collectionPageSchema({
             baslik: "Duyurular",
-            aciklama: "DVN Cert'ten güncel duyurular, akreditasyon gelişmeleri, eğitim takvimi ve sektörel haberler.",
+            aciklama: "DVN Cert'ten güncel duyurular, standart güncellemeleri, eğitim takvimi ve sektörel haberler.",
             url: "/duyurular",
           })
         )}
@@ -51,7 +51,7 @@ export default async function DuyurularSayfasi() {
       <SayfaBaslik
         etiket="GÜNCEL"
         baslik="Duyurular"
-        aciklama="Akreditasyon gelişmeleri, eğitim takvimi ve sektörel haberlerle ilgili en güncel duyurularımız."
+        aciklama="Standart güncellemeleri, eğitim takvimi ve sektörel haberlerle ilgili en güncel duyurularımız."
         kirintilar={[{ etiket: "Duyurular" }]}
       />
 

@@ -7,7 +7,7 @@ import { duyurulariGetir } from "@/lib/icerik";
 // Kategoriye göre kapak ikonu (görsel yoksa kullanılır)
 function kategoriIkon(kategori: string): ReactNode {
   const k = kategori.toLocaleLowerCase("tr-TR");
-  if (k.includes("akredit"))
+  if (k.includes("duyuru"))
     return <path d="M12 2l8 4v6c0 5.5-3.5 10-8 12-4.5-2-8-6.5-8-12V6l8-4z M9 12l2 2 4-4" />;
   if (k.includes("eğit") || k.includes("egit"))
     return <path d="M22 10 12 5 2 10l10 5 10-5Z M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />;

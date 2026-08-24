@@ -2,7 +2,7 @@ import Link from "next/link";
 
 /**
  * Ana sayfa "Sertifika Doğrulama" modülü.
- * Belge geçerliliği TÜRKAK Belge Doğrulama Sistemi (TBDS) üzerinden teyit edilir.
+ * Belge geçerliliği, belge doğrulama talebi formu üzerinden teyit edilir.
  */
 export default function SertifikaSorgula() {
   return (
@@ -26,7 +26,7 @@ export default function SertifikaSorgula() {
           </h2>
           <p className="dvn-sorgu-aciklama">
             DVN Cert tarafından düzenlenen belgelerin güncel durumunu — geçerli, askıda veya iptal —
-            TÜRKAK Belge Doğrulama Sistemi (TBDS) üzerinden çevrim içi sorgulayabilirsiniz.
+            belge doğrulama talebi formumuz üzerinden sorgulayabilirsiniz.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function SertifikaSorgula() {
           >
             Sertifika Sorgula →
           </Link>
-          <span className="dvn-sorgu-not">TÜRKAK TBDS + belge doğrulama talebi</span>
+          <span className="dvn-sorgu-not">Belge numarası ile doğrulama talebi</span>
         </div>
       </div>
 

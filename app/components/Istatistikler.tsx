@@ -1,6 +1,6 @@
 const guvenMaddeleri = [
   {
-    baslik: "Akreditasyon durumu açık yazılır",
+    baslik: "Kapsam ve belge beyanları açık yazılır",
     metin: "Süreç, kapsam ve belge beyanları kullanıcıyı yanıltmayacak şekilde ayrıştırılır.",
   },
   {

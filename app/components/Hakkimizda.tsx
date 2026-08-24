@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
+const kapsamStandartlari = ["ISO 9001:2015", "ISO 14001:2015", "ISO 45001:2018", "ISO 50001:2018"];
+
 const guclerimiz = [
   "Bağımsız ve tarafsız değerlendirme",
-  "Akreditasyon durumu hakkında açık bilgilendirme",
+  "Belge ve kapsam beyanlarında açık bilgilendirme",
   "Uzman ve deneyimli denetçi kadrosu",
   "Şeffaf, izlenebilir ve hızlı süreç",
 ];
@@ -97,7 +99,7 @@ export default function Hakkimizda() {
           </Link>
         </div>
 
-        {/* Sağ kolon: akreditasyon durumu kartı */}
+        {/* Sağ kolon: belgelendirme kapsamı kartı */}
         <div className="dvn-hakkimizda-kart">
           <div className="dvn-grid-desen" aria-hidden style={{ opacity: 0.5 }} />
           <span className="dvn-glow-orb dvn-glow-orb--altin dvn-hakkimizda-orb" aria-hidden />
@@ -112,17 +114,18 @@ export default function Hakkimizda() {
                 margin: "0 0 6px",
               }}
             >
-              AKREDİTASYON · {siteConfig.akreditasyon.no}
+              BELGELENDİRME KAPSAMI
             </p>
             <h3 style={{ color: "white", fontSize: 19, fontWeight: 500, margin: "0 0 4px", lineHeight: 1.3 }}>
-              {siteConfig.akreditasyon.kurulus} tarafından akredite edildik
+              Hizmet verdiğimiz yönetim sistemi standartları
             </h3>
             <p style={{ fontSize: 12.5, color: "#9aa5b1", margin: "0 0 22px", lineHeight: 1.6 }}>
-              {siteConfig.akreditasyon.not}
+              DVN Cert; ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri için belgelendirme,
+              ikinci taraf denetim ve eğitim hizmetlerini açık kriterler ve izlenebilir kayıtlarla yürütür.
             </p>
 
             <div style={{ display: "grid", gap: 10 }}>
-              {siteConfig.akreditasyon.hedefKapsam.map((standart, i) => (
+              {kapsamStandartlari.map((standart, i) => (
                 <div
                   key={i}
                   data-standart

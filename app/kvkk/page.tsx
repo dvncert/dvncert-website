@@ -33,7 +33,7 @@ export default function KvkkSayfasi() {
         {
           baslik: "3. Kişisel Verilerin İşlenme Amaçları",
           metin: [
-            "Kişisel verileriniz; belgelendirme ve denetim süreçlerinin yürütülmesi, başvuru ve taleplerinizin değerlendirilmesi ve sonuçlandırılması, iletişim faaliyetlerinin yürütülmesi, sözleşmesel ve yasal yükümlülüklerin yerine getirilmesi, hizmet kalitesinin iyileştirilmesi ve akreditasyon gerekliliklerine uyum amaçlarıyla işlenmektedir.",
+            "Kişisel verileriniz; belgelendirme ve denetim süreçlerinin yürütülmesi, başvuru ve taleplerinizin değerlendirilmesi ve sonuçlandırılması, iletişim faaliyetlerinin yürütülmesi, sözleşmesel ve yasal yükümlülüklerin yerine getirilmesi, hizmet kalitesinin iyileştirilmesi ve belgelendirme gerekliliklerine uyum amaçlarıyla işlenmektedir.",
           ],
         },
         {
@@ -45,13 +45,13 @@ export default function KvkkSayfasi() {
         {
           baslik: "5. Kişisel Verilerin Aktarılması",
           metin: [
-            "Kişisel verileriniz; mevzuattan kaynaklanan yükümlülükler çerçevesinde yetkili kamu kurum ve kuruluşları ile akreditasyon kuruluşlarına (ör. TÜRKAK), hukuki uyuşmazlıklarda yetkili mercilere ve hizmetin gerektirdiği ölçüde iş birliği yaptığımız tedarikçi/hizmet sağlayıcılara, KVKK’nın 8. ve 9. maddelerindeki şartlara uygun olarak aktarılabilir.",
+            "Kişisel verileriniz; mevzuattan kaynaklanan yükümlülükler çerçevesinde yetkili kamu kurum ve kuruluşlarına, hukuki uyuşmazlıklarda yetkili mercilere ve hizmetin gerektirdiği ölçüde iş birliği yaptığımız tedarikçi/hizmet sağlayıcılara, KVKK’nın 8. ve 9. maddelerindeki şartlara uygun olarak aktarılabilir.",
           ],
         },
         {
           baslik: "6. Saklama Süresi",
           metin: [
-            "Kişisel verileriniz, işleme amacının gerektirdiği süre boyunca ve ilgili mevzuatta öngörülen zamanaşımı/saklama süreleri ile akreditasyon gereklilikleri dikkate alınarak saklanır; bu sürelerin sonunda silinir, yok edilir veya anonim hâle getirilir.",
+            "Kişisel verileriniz, işleme amacının gerektirdiği süre boyunca ve ilgili mevzuatta öngörülen zamanaşımı/saklama süreleri ile belgelendirme gereklilikleri dikkate alınarak saklanır; bu sürelerin sonunda silinir, yok edilir veya anonim hâle getirilir.",
           ],
         },
         {

@@ -74,7 +74,7 @@ export default function BelgelendirmeSureciSayfasi() {
         <div style={{ maxWidth: 860, margin: "0 auto" }}>
           <p style={{ fontSize: 15.5, color: "var(--dvn-gri-700)", lineHeight: 1.85, margin: "0 0 16px" }}>
             ISO belgelendirme; yönetim sisteminizin ilgili standardın gerekliliklerini karşıladığının bağımsız ve
-            akredite bir belgelendirme kuruluşu tarafından doğrulanmasıdır. Aşağıda, başvurudan belgenin
+            tarafsız bir belgelendirme kuruluşu tarafından doğrulanmasıdır. Aşağıda, başvurudan belgenin
             düzenlenmesine ve sürdürülmesine kadar sürecin tüm adımlarını bulabilirsiniz.
           </p>
           <p style={{ fontSize: 15.5, color: "var(--dvn-gri-700)", lineHeight: 1.85, margin: 0 }}>

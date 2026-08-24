@@ -38,19 +38,10 @@ export default function SertifikaSorgulaSayfasi() {
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <p style={{ fontSize: 15, color: "var(--dvn-gri-700)", lineHeight: 1.8, margin: "0 0 18px" }}>
             DVN Cert tarafından düzenlenen ISO yönetim sistemi belgelerinin geçerliliğini, askıya alınma veya
-            iptal durumunu <strong>TÜRKAK Belge Doğrulama Sistemi (TBDS)</strong> üzerinden çevrim içi
-            sorgulayabilirsiniz.
+            iptal durumunu aşağıdaki <strong>Belge Doğrulama Talebi</strong> formu üzerinden sorgulayabilirsiniz.
+            Talebiniz belgelendirme birimimize iletilir ve en kısa sürede yanıtlanır.
           </p>
 
-          <Link
-            href="https://tbds.turkak.org.tr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="dvn-btn-primary"
-            style={{ marginBottom: 26, fontSize: 14.5, padding: "14px 28px" }}
-          >
-            TÜRKAK TBDS&apos;de Sertifika Sorgula →
-          </Link>
           <div
             style={{
               background: "var(--dvn-altin-soluk)",
@@ -83,7 +74,6 @@ export default function SertifikaSorgulaSayfasi() {
 
       <section style={{ background: "var(--dvn-gri-50)", padding: "0 32px 70px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", flexWrap: "wrap", gap: 10 }}>
-          <Link href="/akreditasyonlarimiz" style={baglantiStili}>Akreditasyon Durumu →</Link>
           <Link href="/dokumanlar" style={baglantiStili}>Belgelendirme Kuralları →</Link>
           <Link href="/iletisim" style={baglantiStili}>Bize Ulaşın →</Link>
         </div>

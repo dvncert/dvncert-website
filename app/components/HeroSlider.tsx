@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { siteConfig } from "@/lib/site-config";
 
 type Slayt = {
   eyebrow: string;
@@ -12,7 +11,6 @@ type Slayt = {
   baslikSon: string;
   aciklama: string;
   cta: { etiket: string; href: string; disHref?: boolean };
-  uyariGoster?: boolean;
 };
 
 const slaytlar: Slayt[] = [
@@ -24,7 +22,6 @@ const slaytlar: Slayt[] = [
     aciklama:
       "DVN Cert, yönetim sistemi belgelendirme süreçlerinde tarafsız değerlendirme, net kayıt yönetimi ve sahaya uygulanabilir denetim yaklaşımı sunar.",
     cta: { etiket: "Başvuru Yap", href: "https://dbys.dvncert.com/basvuru", disHref: true },
-    uyariGoster: true,
   },
   {
     eyebrow: "İkinci taraf denetimleri",
@@ -116,13 +113,6 @@ export default function HeroSlider() {
               {s.baslikSon}
             </h1>
             <p className="dvn-hero-aciklama">{s.aciklama}</p>
-
-            {s.uyariGoster && (
-              <div className="dvn-hero-uyari" role="note">
-                <strong>{siteConfig.akreditasyon.kurulus} durumu:</strong> {siteConfig.akreditasyon.durum}{" "}
-                {siteConfig.akreditasyon.not}
-              </div>
-            )}
 
             <div className="dvn-hero-aksiyonlar">
               {s.cta.disHref ? (
