@@ -39,7 +39,7 @@ export type IsoIcerik = {
   ogTitle: string;
   ogDescription: string;
 
-  // Bölüm 1 — Nedir? (akredite içeren son paragraf render bileşeninde eklenir)
+  // Bölüm 1 — Nedir? (kapanış paragrafı render bileşeninde eklenir)
   nedirParagraflar: string[];
 
   // Bölüm 2 — Temel İlkeler / Unsurlar
@@ -79,14 +79,13 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "Kalite politikası",
     metaTitle: "ISO 9001:2015 Kalite Yönetim Sistemi Belgelendirmesi",
     metaDescription:
-      "ISO 9001:2015 kalite yönetim sistemi belgelendirmesi: süreç yönetimi, müşteri memnuniyeti ve sürekli iyileştirme. TÜRKAK akreditasyonlu, adım adım başvuru rehberi.",
+      "ISO 9001:2015 kalite yönetim sistemi belgelendirmesi: süreç yönetimi, müşteri memnuniyeti ve sürekli iyileştirme. Adım adım başvuru rehberi.",
     keywords: [
       "ISO 9001 belgesi",
       "ISO 9001:2015",
       "ISO 9001 nasıl alınır",
       "ISO 9001 belgesi nedir",
       "kalite yönetim sistemi belgesi",
-      "TÜRKAK ISO 9001",
       "ISO 9001 İstanbul",
       "ISO 9001 belgelendirme",
       "ISO 9001 belgesi geçerlilik süresi",
@@ -97,7 +96,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       "ISO 9001:2015 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
     nedirParagraflar: [
       "ISO 9001, kuruluşların kalite yönetim sistemi kurmasını ve sürdürmesini sağlayan uluslararası bir standarttır. Uluslararası Standartlar Örgütü (ISO) tarafından yayımlanan bu standart, dünyada en yaygın kullanılan yönetim sistemi standardıdır.",
-      "ISO 9001 belgesi, bir kuruluşun ürünlerini ve hizmetlerini tutarlı bir kalitede üretebildiğini, müşteri beklentilerini karşılayabildiğini ve süreçlerini sürekli iyileştirebildiğini gösteren resmi bir dokümandır. Bu belge, akredite belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
+      "ISO 9001 belgesi, bir kuruluşun ürünlerini ve hizmetlerini tutarlı bir kalitede üretebildiğini, müşteri beklentilerini karşılayabildiğini ve süreçlerini sürekli iyileştirebildiğini gösteren resmi bir dokümandır. Bu belge, bağımsız belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
       "ISO 9001:2015 versiyonu, standardın günümüzde geçerli olan son sürümüdür. Önceki sürümlerden farklı olarak risk bazlı düşünme, kuruluşun bağlamını değerlendirme ve liderliğin sürece dahil olması gibi modern yaklaşımları ön plana çıkarır. 2015 revizyonu ile birlikte standardın daha esnek ve sektör bağımsız bir yapı kazanması hedeflenmiştir.",
       "ISO 9000 ailesi olarak bilinen standartlar grubunun temel üyesi olan ISO 9001, sektör fark etmeksizin her ölçekte kuruluşa uygulanabilir. Üretim, hizmet, sağlık, eğitim, inşaat, bilgi teknolojileri, tekstil, gıda, lojistik ve daha pek çok sektörden binlerce kuruluş ISO 9001 belgesine sahiptir. KOBİ ölçeğindeki bir aile işletmesinden çok uluslu bir holding şirketine kadar, faaliyet alanı veya çalışan sayısı fark etmeksizin standart şartlarını karşılayan her organizasyon ISO 9001 belgesi alabilir.",
     ],
@@ -156,7 +155,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     pazarFaydalar: [
       "Müşteri güveninin artması: Uluslararası kabul görmüş bir standardın gerekliliklerini karşılamak, müşteri nezdinde güvenilirlik anlamına gelir.",
       "İhale ve tedarik zinciri avantajları: Kamu ihalelerinde ve büyük kurumsal müşterilerin tedarikçi seçim süreçlerinde ISO 9001 belgesi çoğu zaman bir ön şart olarak aranır.",
-      "Uluslararası pazar erişimi: Akredite bir kuruluştan alınan ISO 9001 belgesi, ihracat süreçlerinde ve yabancı iş ortaklarıyla ilişkilerde kabul gören bir referanstır.",
+      "Uluslararası pazar erişimi: ISO 9001 belgesi, ihracat süreçlerinde ve yabancı iş ortaklarıyla ilişkilerde kabul gören bir referanstır.",
       "Marka itibarı ve rekabet üstünlüğü: Kalite odaklı yönetim altyapısı, rakipler arasından sıyrılmak için ayırt edici bir özellik haline gelir.",
       "Müşteri memnuniyetinin sürdürülebilir şekilde yükselmesi: Standardın müşteri odaklılık ilkesi, hem mevcut müşterilerin korunmasını hem yeni müşteri kazanımını destekler.",
       "Tedarikçi ve iş ortaklarıyla ilişkilerin güçlenmesi: Yapılandırılmış bir kalite altyapısına sahip kuruluşlar, tedarik zincirinin diğer halkaları tarafından da güvenilir partner olarak değerlendirilir.",
@@ -180,14 +179,13 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "Çevre politikası",
     metaTitle: "ISO 14001:2015 Çevre Yönetim Sistemi Belgelendirmesi",
     metaDescription:
-      "ISO 14001:2015 çevre yönetim sistemi belgelendirmesi: çevresel etkilerin yönetimi, yasal uyum ve atık/kaynak verimliliği. TÜRKAK akreditasyonlu başvuru rehberi.",
+      "ISO 14001:2015 çevre yönetim sistemi belgelendirmesi: çevresel etkilerin yönetimi, yasal uyum ve atık/kaynak verimliliği. Adım adım başvuru rehberi.",
     keywords: [
       "ISO 14001 belgesi",
       "ISO 14001:2015",
       "ISO 14001 nasıl alınır",
       "ISO 14001 belgesi nedir",
       "çevre yönetim sistemi belgesi",
-      "TÜRKAK ISO 14001",
       "ISO 14001 İstanbul",
       "ISO 14001 belgelendirme",
       "ISO 14001 belgesi geçerlilik süresi",
@@ -198,7 +196,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       "ISO 14001:2015 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
     nedirParagraflar: [
       "ISO 14001, kuruluşların çevresel sorumluluklarını sistematik bir şekilde yönetmesini sağlayan uluslararası çevre yönetim sistemi standardıdır. Uluslararası Standartlar Örgütü (ISO) tarafından yayımlanan standart, faaliyetlerin çevre üzerindeki etkilerini kontrol altına almayı ve çevre performansını sürekli iyileştirmeyi amaçlar.",
-      "ISO 14001 belgesi, bir kuruluşun çevresel etkilerini tanımladığını, yasal yükümlülüklerine uyduğunu ve kirliliği önlemeye yönelik bir yönetim sistemi kurduğunu gösteren resmi bir dokümandır. Bu belge, akredite belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
+      "ISO 14001 belgesi, bir kuruluşun çevresel etkilerini tanımladığını, yasal yükümlülüklerine uyduğunu ve kirliliği önlemeye yönelik bir yönetim sistemi kurduğunu gösteren resmi bir dokümandır. Bu belge, bağımsız belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
       "ISO 14001:2015 versiyonu, standardın günümüzde geçerli olan son sürümüdür. Yüksek seviye yapısı (High Level Structure) sayesinde ISO 9001 gibi diğer yönetim sistemi standartlarıyla kolayca entegre edilebilir. 2015 revizyonu ile yaşam döngüsü bakış açısı, risk temelli düşünme ve liderliğin sürece dahil olması ön plana çıkmıştır.",
       "ISO 14001, sektör fark etmeksizin her ölçekte kuruluşa uygulanabilir. Üretim tesislerinden hizmet işletmelerine, inşaat firmalarından kamu kurumlarına kadar çevresel ayak izini azaltmak isteyen her organizasyon bu standardı uygulayabilir. Enerji, kimya, gıda, tekstil, metal ve lojistik gibi çevresel etkisi yüksek sektörlerde özellikle değerlidir.",
     ],
@@ -257,7 +255,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     pazarFaydalar: [
       "Marka itibarı: Çevreye duyarlı bir kuruluş imajı, müşteri ve toplum nezdinde güven oluşturur.",
       "İhale ve tedarik avantajı: Kamu ihalelerinde ve kurumsal tedarik zincirlerinde ISO 14001 sıklıkla aranan bir şarttır.",
-      "Uluslararası pazar erişimi: Akredite bir kuruluştan alınan belge, ihracat ve yabancı iş ortaklıklarında kabul gören bir referanstır.",
+      "Uluslararası pazar erişimi: Belge, ihracat ve yabancı iş ortaklıklarında kabul gören bir referanstır.",
       "Yatırımcı ve paydaş güveni: Çevresel, sosyal ve yönetişim (ESG) kriterlerine uyum, paydaş ilişkilerini güçlendirir.",
       "Rekabet üstünlüğü: Çevresel performans, benzer ürün ve hizmetler arasında ayırt edici bir unsurdur.",
       "Tedarik zinciri uyumu: Çevre yönetim sistemine sahip kuruluşlar, tedarik zincirinin güvenilir halkaları olarak değerlendirilir.",
@@ -281,7 +279,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "İş sağlığı ve güvenliği politikası",
     metaTitle: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi Belgelendirmesi",
     metaDescription:
-      "ISO 45001:2018 iş sağlığı ve güvenliği yönetim sistemi belgelendirmesi: tehlike ve risk yönetimi, yasal İSG uyumu ve iş kazalarının azaltılması. TÜRKAK akreditasyonlu.",
+      "ISO 45001:2018 iş sağlığı ve güvenliği yönetim sistemi belgelendirmesi: tehlike ve risk yönetimi, yasal İSG uyumu ve iş kazalarının azaltılması.",
     keywords: [
       "ISO 45001 belgesi",
       "ISO 45001:2018",
@@ -289,7 +287,6 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       "ISO 45001 belgesi nedir",
       "iş sağlığı ve güvenliği yönetim sistemi belgesi",
       "İSG yönetim sistemi",
-      "TÜRKAK ISO 45001",
       "ISO 45001 İstanbul",
       "ISO 45001 belgelendirme",
       "ISO 45001 belgesi geçerlilik süresi",
@@ -300,7 +297,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       "ISO 45001:2018 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
     nedirParagraflar: [
       "ISO 45001, çalışanların sağlığını ve güvenliğini korumayı, iş kazalarını ve meslek hastalıklarını önlemeyi amaçlayan uluslararası iş sağlığı ve güvenliği (İSG) yönetim sistemi standardıdır. Uluslararası Standartlar Örgütü (ISO) tarafından yayımlanan standart, güvenli ve sağlıklı bir çalışma ortamının sistematik biçimde oluşturulmasını sağlar.",
-      "ISO 45001 belgesi, bir kuruluşun işyeri tehlikelerini belirlediğini, İSG risklerini değerlendirip kontrol altına aldığını ve yasal yükümlülüklerine uyduğunu gösteren resmi bir dokümandır. Bu belge, akredite belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
+      "ISO 45001 belgesi, bir kuruluşun işyeri tehlikelerini belirlediğini, İSG risklerini değerlendirip kontrol altına aldığını ve yasal yükümlülüklerine uyduğunu gösteren resmi bir dokümandır. Bu belge, bağımsız belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
       "ISO 45001, 2018 yılında yayımlanarak önceki OHSAS 18001 standardının yerini almıştır. Yüksek seviye yapısı sayesinde ISO 9001 ve ISO 14001 ile kolayca entegre edilebilir. Çalışan katılımı, liderliğin sorumluluğu ve risk temelli düşünme standardın merkezinde yer alır.",
       "ISO 45001, sektör ve ölçek fark etmeksizin her kuruluşa uygulanabilir. İnşaat, üretim, enerji, madencilik, lojistik, sağlık ve hizmet gibi iş sağlığı ve güvenliği riskinin bulunduğu tüm alanlarda değerlidir. Çalışan sayısı fark etmeksizin güvenli bir çalışma ortamı hedefleyen her organizasyon bu standardı uygulayabilir.",
     ],
@@ -359,7 +356,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     pazarFaydalar: [
       "Kurumsal itibar: Çalışan sağlığına önem veren bir kuruluş imajı, paydaş güvenini güçlendirir.",
       "İhale ve tedarik avantajı: Kamu ihalelerinde ve kurumsal tedarik süreçlerinde ISO 45001 sıklıkla aranan bir şarttır.",
-      "Uluslararası kabul: Akredite bir kuruluştan alınan belge, yabancı iş ortaklıklarında ve ihracatta kabul gören bir referanstır.",
+      "Uluslararası kabul: Belge, yabancı iş ortaklıklarında ve ihracatta kabul gören bir referanstır.",
       "Müşteri ve iş ortağı güveni: Güvenli operasyon, sözleşme ilişkilerinde güvenilirlik sağlar.",
       "Rekabet üstünlüğü: İSG performansı, sektörde ayırt edici bir unsur haline gelir.",
       "Sigorta avantajları: Düşük kaza oranı, bazı durumlarda daha uygun sigorta koşullarına imkan tanır.",
@@ -383,14 +380,13 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     politika: "Enerji politikası",
     metaTitle: "ISO 50001:2018 Enerji Yönetim Sistemi Belgelendirmesi",
     metaDescription:
-      "ISO 50001:2018 enerji yönetim sistemi belgelendirmesi: enerji verimliliği, tüketim performansının izlenmesi (EnPI) ve enerji maliyetlerinin düşürülmesi. TÜRKAK akreditasyonlu.",
+      "ISO 50001:2018 enerji yönetim sistemi belgelendirmesi: enerji verimliliği, tüketim performansının izlenmesi (EnPI) ve enerji maliyetlerinin düşürülmesi.",
     keywords: [
       "ISO 50001 belgesi",
       "ISO 50001:2018",
       "ISO 50001 nasıl alınır",
       "ISO 50001 belgesi nedir",
       "enerji yönetim sistemi belgesi",
-      "TÜRKAK ISO 50001",
       "ISO 50001 İstanbul",
       "ISO 50001 belgelendirme",
       "ISO 50001 belgesi geçerlilik süresi",
@@ -401,7 +397,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       "ISO 50001:2018 belgelendirmesi. Adım adım rehber, faydalar ve sertifika geçerlilik bilgileri.",
     nedirParagraflar: [
       "ISO 50001, kuruluşların enerji performansını sistematik bir şekilde yönetmesini ve sürekli iyileştirmesini sağlayan uluslararası enerji yönetim sistemi standardıdır. Uluslararası Standartlar Örgütü (ISO) tarafından yayımlanan standart, enerji verimliliğini artırmayı, enerji tüketimini ve maliyetlerini azaltmayı amaçlar.",
-      "ISO 50001 belgesi, bir kuruluşun enerji kullanımını izleyip analiz ettiğini, enerji performansı göstergeleri belirlediğini ve enerji verimliliğini artırmaya yönelik bir yönetim sistemi kurduğunu gösteren resmi bir dokümandır. Bu belge, akredite belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
+      "ISO 50001 belgesi, bir kuruluşun enerji kullanımını izleyip analiz ettiğini, enerji performansı göstergeleri belirlediğini ve enerji verimliliğini artırmaya yönelik bir yönetim sistemi kurduğunu gösteren resmi bir dokümandır. Bu belge, bağımsız belgelendirme kuruluşları tarafından yapılan denetimler sonucunda düzenlenir.",
       "ISO 50001:2018 versiyonu, standardın günümüzde geçerli olan son sürümüdür. Yüksek seviye yapısı sayesinde ISO 9001 ve ISO 14001 gibi standartlarla kolayca entegre edilebilir. Standardın merkezinde, enerji performansının ölçülebilir verilerle sürekli iyileştirilmesi yer alır.",
       "ISO 50001, sektör ve ölçek fark etmeksizin enerji tüketen her kuruluşa uygulanabilir. Üretim tesisleri, enerji yoğun sanayi, oteller, hastaneler, alışveriş merkezleri ve kamu binaları başta olmak üzere enerji maliyetini düşürmek isteyen her organizasyon bu standarttan yararlanabilir.",
     ],
@@ -460,7 +456,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
     pazarFaydalar: [
       "Kurumsal sürdürülebilirlik imajı: Enerji verimliliği, çevreye duyarlı kuruluş algısını güçlendirir.",
       "İhale ve tedarik avantajı: Kamu ihalelerinde ve kurumsal tedarik süreçlerinde enerji yönetimi giderek daha fazla aranır.",
-      "Uluslararası kabul: Akredite bir kuruluştan alınan belge, ihracat ve yabancı iş ortaklıklarında kabul gören bir referanstır.",
+      "Uluslararası kabul: Belge, ihracat ve yabancı iş ortaklıklarında kabul gören bir referanstır.",
       "ESG ve yatırımcı güveni: Enerji performansı, çevresel ve yönetişim kriterleri açısından paydaş güvenini artırır.",
       "Rekabet üstünlüğü: Düşük enerji maliyeti, fiyat rekabetinde avantaj sağlar.",
       "Karbon düzenlemelerine hazırlık: Artan karbon düzenlemeleri karşısında kuruluşu hazırlıklı kılar.",

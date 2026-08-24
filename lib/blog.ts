@@ -38,7 +38,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-9001-belgesi",
     baslik: "ISO 9001 Belgesi Nedir? Belgede Yer Alan Bilgiler, Geçerlilik ve Doğrulama",
     ozet:
-      "ISO 9001 belgesi neyi gösterir, belge üzerinde hangi bilgiler yer alır, kaç yıl geçerlidir ve nasıl doğrulanır? Akredite ISO 9001 belgesinin ayırt edici özelliklerini açıklıyoruz.",
+      "ISO 9001 belgesi neyi gösterir, belge üzerinde hangi bilgiler yer alır, kaç yıl geçerlidir ve nasıl doğrulanır? ISO 9001 belgesinin ayırt edici özelliklerini açıklıyoruz.",
     tarih: "2026-08-08",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -48,24 +48,21 @@ export const blogYazilari: BlogYazisi[] = [
       "## ISO 9001 belgesi neyi gösterir, neyi göstermez?\n\n" +
       "ISO 9001 belgesi bir yönetim sistemi belgesidir; ürün veya hizmetin kendisinin belgelendirildiği anlamına gelmez. Belge, kuruluşun süreçlerini tanımlı, izlenebilir ve iyileştirilebilir biçimde yönettiğini gösterir; tek tek ürünlerin teknik uygunluğunu ya da bir hizmetin sonucunu garanti etmez. Bu nedenle belge ve belgelendirme markası, ürün üzerinde veya ürün uygunluğunu çağrıştıracak biçimde kullanılamaz; kullanım kuralları için [logo ve marka kullanımı](/logolarimiz) sayfamıza bakabilirsiniz.\n\n" +
       "## ISO 9001 belgesinde hangi bilgiler yer alır?\n\n" +
-      "Akredite bir ISO 9001 belgesi üzerinde tipik olarak şu bilgiler bulunur:\n" +
+      "Bir ISO 9001 belgesi üzerinde tipik olarak şu bilgiler bulunur:\n" +
       "- Belgelendirilen kuruluşun ticari unvanı ve belgeye konu adres bilgileri\n" +
       "- Belgelendirme kapsamı; yani hangi faaliyet, ürün ve hizmetlerin sistem kapsamında olduğu\n" +
       "- Uygulanan standart ve sürümü (ISO 9001:2015)\n" +
       "- Belge numarası, ilk yayın tarihi, revizyon bilgisi ve geçerlilik tarihi\n" +
-      "- Belgeyi düzenleyen belgelendirme kuruluşunun adı ve imza/onay bilgisi\n" +
-      "- Akreditasyon kapsamındaki belgelerde akreditasyon markası ve akreditasyon numarası\n\n" +
+      "- Belgeyi düzenleyen belgelendirme kuruluşunun adı ve imza/onay bilgisi\n\n" +
       "Kapsam ifadesinin nasıl belirlendiği, belgenin hangi faaliyetleri kapsadığını doğrudan etkiler; ayrıntı için [belgelendirme kapsamı nasıl belirlenir](/blog/belgelendirme-kapsami-nasil-belirlenir) yazımıza bakabilirsiniz.\n\n" +
-      "## Akredite ISO 9001 belgesi ile akreditasyonsuz belge arasındaki fark\n\n" +
-      "Akreditasyon, belgelendirme kuruluşunun yetkinliğinin ulusal akreditasyon kurumu tarafından değerlendirilmesidir. Akredite bir kuruluştan alınan ISO 9001 belgesi, akreditasyon markasını taşır ve ihale, tedarikçi ön yeterlilik ve ihracat süreçlerinde daha geniş tanınırlığa sahiptir. DVN Cert, TÜRKAK tarafından AB-0209-YS akreditasyon numarası ile akredite edilmiştir. Akreditasyonun ne anlama geldiği için [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımızı inceleyebilirsiniz.\n\n" +
       "## ISO 9001 belgesi kaç yıl geçerlidir?\n\n" +
       "ISO 9001 belgesinin geçerlilik süresi üç yıldır. Bu süre boyunca kuruluş, planlanan aralıklarla gözetim tetkiklerine tabi tutulur; üçüncü yılın sonunda ise yeniden belgelendirme tetkiki yapılır. Gözetim tetkiklerinin nasıl işlediği için [gözetim tetkiki nedir](/blog/gozetim-tetkiki-nedir), yenileme süreci için [ISO belgesi geçerliliği ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımıza bakabilirsiniz.\n\n" +
       "## ISO 9001 belgesi nasıl doğrulanır?\n\n" +
-      "Bir ISO 9001 belgesinin geçerli olup olmadığı, belgeyi düzenleyen belgelendirme kuruluşunun sorgulama sistemi üzerinden teyit edilir. DVN Cert tarafından düzenlenen belgeler [sertifika sorgulama](/sertifika-sorgula) sayfamızdan sorgulanabilir. Akreditasyon kapsamındaki belgelerde ayrıca TÜRKAK Belge Doğrulama Sistemi (TBDS) karekodu bulunur; karekod okutularak belgenin durumu, kuruluş adı, ilgili standart ve belge numarası gibi bilgiler görüntülenebilir.\n\n" +
+      "Bir ISO 9001 belgesinin geçerli olup olmadığı, belgeyi düzenleyen belgelendirme kuruluşunun sorgulama sistemi üzerinden teyit edilir. DVN Cert tarafından düzenlenen belgeler [sertifika sorgulama](/sertifika-sorgula) sayfamızdan sorgulanabilir.\n\n" +
       "## ISO 9001 belgesi askıya alınabilir mi?\n\n" +
       "Evet. Gözetim tetkikinin zamanında yapılmaması, tespit edilen uygunsuzlukların kapatılmaması veya belgelendirme kurallarına aykırı kullanım gibi durumlarda belge askıya alınabilir, kapsamı daraltılabilir veya geri çekilebilir. Askı süresince kuruluş, belgeye ve belgelendirme markasına atıf yapan tüm kullanımları durdurmakla yükümlüdür. Belgelendirme kurallarının tamamına [dokümanlar](/dokumanlar) sayfamızdaki Belgelendirme Kuralları Talimatı üzerinden ulaşabilirsiniz.\n\n" +
       "## Belgelendirme kuruluşunun rolü\n\n" +
-      "Kalite yönetim sisteminin kurulması ve uygulanması kuruluşun kendi sorumluluğundadır. Akredite belgelendirme kuruluşları, ISO/IEC 17021-1 gereği belgelendirdikleri kuruluşlara sistemin nasıl kurulacağına dair danışmanlık veremez; görevi, kurulan sistemi bağımsız ve tarafsız biçimde tetkik ederek standardın şartlarının karşılanıp karşılanmadığını değerlendirmektir.\n\n" +
+      "Kalite yönetim sisteminin kurulması ve uygulanması kuruluşun kendi sorumluluğundadır. Belgelendirme kuruluşları, ISO/IEC 17021-1 gereği belgelendirdikleri kuruluşlara sistemin nasıl kurulacağına dair danışmanlık veremez; görevi, kurulan sistemi bağımsız ve tarafsız biçimde tetkik ederek standardın şartlarının karşılanıp karşılanmadığını değerlendirmektir.\n\n" +
       "ISO 9001 belgesi başvurusu ve kapsam değerlendirmesi için [ISO 9001 belgelendirme hizmetimizi](/hizmetler/iso-9001) inceleyebilir; birden fazla standardın birlikte belgelendirilmesi için [sistem belgelendirme hizmetimize](/hizmetler/sistem-belgelendirme) bakabilirsiniz.",
     ilgiliHizmetler: ["iso-9001", "sistem-belgelendirme"],
   },
@@ -89,11 +86,11 @@ export const blogYazilari: BlogYazisi[] = [
       "- İSG yönetim sisteminin kapsamı ve kapsanan faaliyetler\n" +
       "- Uygulanan standart ve sürümü (ISO 45001:2018)\n" +
       "- Belge numarası, yayın tarihi, revizyon bilgisi ve geçerlilik tarihi\n" +
-      "- Belgelendirme kuruluşunun adı; akreditasyon kapsamındaysa akreditasyon markası ve numarası\n\n" +
+      "- Belgeyi düzenleyen belgelendirme kuruluşunun adı ve imza/onay bilgisi\n\n" +
       "## ISO 45001 belgesinin geçerliliği nasıl sürdürülür?\n\n" +
       "Belgenin geçerlilik süresi üç yıldır. Bu süre içinde planlanan gözetim tetkikleriyle sistemin işlerliği doğrulanır; üçüncü yılın sonunda yeniden belgelendirme tetkiki yapılır. Tetkik süresi; çalışan sayısı, saha sayısı ve faaliyetin risk düzeyi gibi kriterlere göre belirlenir. Ayrıntılar için [gözetim tetkiki nedir](/blog/gozetim-tetkiki-nedir) yazımıza bakabilirsiniz.\n\n" +
       "## ISO 45001 belgesi nasıl doğrulanır?\n\n" +
-      "Belgenin güncel durumu, belgeyi düzenleyen kuruluşun sorgulama sistemi üzerinden teyit edilir. DVN Cert belgeleri için [sertifika sorgulama](/sertifika-sorgula) sayfamızı kullanabilirsiniz; akredite belgelerde ayrıca TÜRKAK Belge Doğrulama Sistemi karekodu bulunur. Akreditasyonun sağladığı güvence için [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımızı inceleyebilirsiniz.\n\n" +
+      "Belgenin güncel durumu, belgeyi düzenleyen kuruluşun sorgulama sistemi üzerinden teyit edilir. DVN Cert belgeleri için [sertifika sorgulama](/sertifika-sorgula) sayfamızı kullanabilirsiniz.\n\n" +
       "## ISO 45001 belgesi ile diğer standartların birlikte belgelendirilmesi\n\n" +
       "ISO 45001; ISO 9001 ve ISO 14001 ile ortak bir üst yapıyı paylaşır. Bu nedenle birden fazla standart tek bir entegre yönetim sistemi altında ve birleşik bir tetkik programıyla belgelendirilebilir; bu yaklaşım toplam tetkik süresini ve tekrar eden faaliyetleri azaltır. Konu hakkında [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımıza bakabilirsiniz.\n\n" +
       "ISO 45001 belgesi başvurusu için [ISO 45001 belgelendirme hizmetimizi](/hizmetler/iso-45001) inceleyebilir; İSG yetkinliğini artırmak isteyen ekipler için genel katılıma açık [eğitim programlarımıza](/egitimler) göz atabilirsiniz.",
@@ -117,13 +114,13 @@ export const blogYazilari: BlogYazisi[] = [
       "- Çevre yönetim sisteminin kapsamı\n" +
       "- Uygulanan standart ve sürümü\n" +
       "- Belge numarası, yayın tarihi, revizyon bilgisi ve geçerlilik tarihi\n" +
-      "- Belgelendirme kuruluşu; akreditasyon kapsamındaysa akreditasyon markası ve numarası\n\n" +
+      "- Belgeyi düzenleyen belgelendirme kuruluşunun adı ve imza/onay bilgisi\n\n" +
       "## ISO 14001:2026 geçişinde mevcut belgeler ne olacak?\n\n" +
       "ISO 14001'in yeni sürümü 2026 yılında yayımlandı ve önceki sürüme göre düzenlenmiş belgeler için bir geçiş süresi öngörüldü. Geçiş süresi sonunda eski sürüme göre düzenlenmiş belgeler geçerliliğini yitirir; kuruluşlar bu süre içinde geçiş tetkikini tamamlayarak belgelerini yeni sürüme taşımalıdır. Geçiş takvimi ve değişikliklerin ayrıntısı için [ISO 14001:2026 yayımlandı: ne değişti, geçiş süresi ne kadar](/blog/iso-14001-2026-degisiklikler-ve-gecis) yazımızı inceleyebilirsiniz.\n\n" +
       "## ISO 14001 belgesi kaç yıl geçerlidir?\n\n" +
       "Belgenin geçerlilik süresi üç yıldır. Bu süre boyunca gözetim tetkikleri yapılır ve üçüncü yılın sonunda yeniden belgelendirme tetkiki gerçekleştirilir. Belge süresinin dolması, askıya alınması veya geri çekilmesi durumunda kuruluş belgeye ve belgelendirme markasına atıf yapan kullanımları durdurmakla yükümlüdür.\n\n" +
       "## ISO 14001 belgesi nasıl doğrulanır?\n\n" +
-      "Belgenin güncel durumu, belgeyi düzenleyen kuruluşun sorgulama sistemi üzerinden teyit edilir. DVN Cert tarafından düzenlenen belgeler için [sertifika sorgulama](/sertifika-sorgula) sayfamızı kullanabilirsiniz. Akreditasyon kapsamındaki belgelerde TÜRKAK Belge Doğrulama Sistemi karekodu da bulunur.\n\n" +
+      "Belgenin güncel durumu, belgeyi düzenleyen kuruluşun sorgulama sistemi üzerinden teyit edilir. DVN Cert tarafından düzenlenen belgeler için [sertifika sorgulama](/sertifika-sorgula) sayfamızı kullanabilirsiniz.\n\n" +
       "## ISO 9001 ile birlikte belgelendirme\n\n" +
       "ISO 14001, ISO 9001 ile ortak bir yapıyı paylaşır ve iki standart tek bir entegre sistem altında birlikte belgelendirilebilir. İki standardın odak farkı için [ISO 9001 ve ISO 14001 farkı](/blog/iso-9001-ve-iso-14001-farki) yazımıza bakabilirsiniz.\n\n" +
       "ISO 14001 belgesi başvurusu, geçiş tetkiki planlaması veya kapsam değerlendirmesi için [ISO 14001 belgelendirme hizmetimizi](/hizmetler/iso-14001) inceleyebilirsiniz.",
@@ -149,11 +146,11 @@ export const blogYazilari: BlogYazisi[] = [
       "- Enerji yönetim sisteminin kapsamı ve sınırları\n" +
       "- Uygulanan standart ve sürümü (ISO 50001:2018)\n" +
       "- Belge numarası, yayın tarihi, revizyon bilgisi ve geçerlilik tarihi\n" +
-      "- Belgelendirme kuruluşu; akreditasyon kapsamındaysa akreditasyon markası ve numarası\n\n" +
+      "- Belgeyi düzenleyen belgelendirme kuruluşunun adı ve imza/onay bilgisi\n\n" +
       "## ISO 50001 belgesi zorunlu mudur?\n\n" +
       "ISO 50001 belgelendirmesi gönüllülük esasına dayanır. Bununla birlikte kamu programları, ihale şartnameleri, müşteri sözleşmeleri veya destek mekanizmaları belge talep edebilir; kuruluşunuz açısından bağlayıcı bir şart olup olmadığını ilgili mevzuat ve sözleşme hükümleri üzerinden teyit etmeniz gerekir.\n\n" +
       "## ISO 50001 belgesinin geçerliliği ve doğrulanması\n\n" +
-      "Belgenin geçerlilik süresi üç yıldır; bu süre boyunca gözetim tetkikleri yapılır ve üçüncü yılın sonunda yeniden belgelendirme tetkiki gerçekleştirilir. Belgenin güncel durumu, belgeyi düzenleyen kuruluşun sorgulama sistemi üzerinden teyit edilir; DVN Cert belgeleri için [sertifika sorgulama](/sertifika-sorgula) sayfamızı kullanabilirsiniz. Akredite belgelerde TÜRKAK Belge Doğrulama Sistemi karekodu da yer alır.\n\n" +
+      "Belgenin geçerlilik süresi üç yıldır; bu süre boyunca gözetim tetkikleri yapılır ve üçüncü yılın sonunda yeniden belgelendirme tetkiki gerçekleştirilir. Belgenin güncel durumu, belgeyi düzenleyen kuruluşun sorgulama sistemi üzerinden teyit edilir; DVN Cert belgeleri için [sertifika sorgulama](/sertifika-sorgula) sayfamızı kullanabilirsiniz.\n\n" +
       "ISO 50001 belgesi başvurusu ve tetkik süresi değerlendirmesi için [ISO 50001 belgelendirme hizmetimizi](/hizmetler/iso-50001) inceleyebilir; birden fazla standardın birlikte belgelendirilmesi için [sistem belgelendirme hizmetimize](/hizmetler/sistem-belgelendirme) bakabilirsiniz.",
     ilgiliHizmetler: ["iso-50001", "sistem-belgelendirme"],
   },
@@ -172,7 +169,7 @@ export const blogYazilari: BlogYazisi[] = [
       "## KOBİ'lerde belgelendirme kapsamı nasıl belirlenir?\n\n" +
       "Belgelendirme kapsamı, kuruluşun büyüklüğünden bağımsız olarak; sunulan ürün ve hizmetler, faaliyet gösterilen lokasyon ve standardın uygulanabilir maddeleri esas alınarak tanımlanır. Küçük ölçekli bir işletmede kapsam genellikle tek bir lokasyon ve dar bir ürün/hizmet grubuyla sınırlı olduğu için kapsam ifadesi de buna paralel olarak daha dar tutulur. Kapsamın nasıl belirlendiği hakkında ayrıntılı bilgi için [belgelendirme kapsamı nasıl belirlenir](/blog/belgelendirme-kapsami-nasil-belirlenir) yazımızı inceleyebilirsiniz.\n\n" +
       "## Tetkik süresi kuruluş büyüklüğüne göre değişir mi?\n\n" +
-      "Evet. Tetkik süresi; çalışan sayısı, süreç karmaşıklığı, faaliyet gösterilen alan sayısı ve ilgili risk düzeyi gibi kriterlere göre hesaplanır. Bu nedenle küçük ölçekli bir kuruluşun tetkik süresi, benzer kapsamdaki büyük bir kuruluşa kıyasla genellikle daha kısadır. Tetkik süresinin hesaplanması, belgelendirme kuruluşunun akreditasyon kapsamındaki kurallara göre yürüttüğü standart bir uygulamadır.\n\n" +
+      "Evet. Tetkik süresi; çalışan sayısı, süreç karmaşıklığı, faaliyet gösterilen alan sayısı ve ilgili risk düzeyi gibi kriterlere göre hesaplanır. Bu nedenle küçük ölçekli bir kuruluşun tetkik süresi, benzer kapsamdaki büyük bir kuruluşa kıyasla genellikle daha kısadır. Tetkik süresinin hesaplanması, belgelendirme kuruluşunun ilgili standart ve kurallara göre yürüttüğü standart bir uygulamadır.\n\n" +
       "## İç tetkik ve yönetimin gözden geçirmesi KOBİ'ler için de geçerli mi?\n\n" +
       "Evet. Standart, iç tetkik ve yönetimin gözden geçirmesi şartlarında kuruluş büyüklüğüne göre bir istisna tanımaz; her belgeli kuruluş, sistemin kendi içinde de düzenli olarak gözden geçirilmesini sağlamakla yükümlüdür. Küçük ölçekli kuruluşlarda bu faaliyetler genellikle daha az kişi tarafından ve daha kısa sürede yürütülür; ancak faaliyetin kendisi atlanamaz. İç tetkik yetkinliği hakkında genel bilgi için genel katılıma açık [ISO 9001 iç tetkikçi eğitimi](/egitimler/iso-9001-ic-tetkikci-egitimi) sayfamızı inceleyebilirsiniz.\n\n" +
       "## KOBİ'lerde yaygın yanlış anlamalar\n\n" +
@@ -181,9 +178,7 @@ export const blogYazilari: BlogYazisi[] = [
       "- Küçük bir kuruluşta bir çalışanın birden fazla rolü üstlenemeyeceği düşüncesi; standart görevler ayrılığını değil, sorumlulukların açık biçimde tanımlanmasını şart koşar\n" +
       "- Belgelendirmenin yalnızca ihale şartı olduğu, başka bir faydası olmadığı düşüncesi; sistematik süreç yönetimi ihale dışında da izlenebilirlik ve tutarlılık sağlar\n\n" +
       "## Yönetim sisteminin kurulması ve belgelendirme kuruluşunun rolü\n\n" +
-      "Kalite yönetim sisteminin kurulması ve uygulanması, kuruluş büyüklüğünden bağımsız olarak kuruluşun kendi sorumluluğundadır. Belgelendirme kuruluşunun rolü, kurulan sistemi bağımsız ve tarafsız biçimde tetkik ederek standardın şartlarını karşılayıp karşılamadığını değerlendirmektir. ISO/IEC 17021-1 gereği akredite belgelendirme kuruluşları, belgelendirdikleri kuruluşlara sistemin nasıl kurulacağına dair danışmanlık veremez; bu ayrım KOBİ'ler için de büyük kuruluşlar için olduğu kadar geçerlidir. ISO 9001 belgelendirme sürecinin adımları için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımızı inceleyebilirsiniz.\n\n" +
-      "## Akreditasyonun KOBİ'ler için önemi\n\n" +
-      "Bir KOBİ için de akredite bir belge, akreditasyonsuz bir belgeye kıyasla daha geniş tanınırlık taşır; ihale, tedarikçi ön yeterlilik ve ihracat süreçlerinde akredite belge aranması yaygındır. Akreditasyonun ne anlama geldiği için [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımıza bakabilirsiniz.\n\n" +
+      "Kalite yönetim sisteminin kurulması ve uygulanması, kuruluş büyüklüğünden bağımsız olarak kuruluşun kendi sorumluluğundadır. Belgelendirme kuruluşunun rolü, kurulan sistemi bağımsız ve tarafsız biçimde tetkik ederek standardın şartlarını karşılayıp karşılamadığını değerlendirmektir. ISO/IEC 17021-1 gereği belgelendirme kuruluşları, belgelendirdikleri kuruluşlara sistemin nasıl kurulacağına dair danışmanlık veremez; bu ayrım KOBİ'ler için de büyük kuruluşlar için olduğu kadar geçerlidir. ISO 9001 belgelendirme sürecinin adımları için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımızı inceleyebilirsiniz.\n\n" +
       "ISO 9001 belgelendirme başvurusu için [ISO 9001 belgelendirme hizmetimizi](/hizmetler/iso-9001) inceleyebilir; sistemin genel belgelendirme süreci için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) ziyaret edebilirsiniz.",
     ilgiliHizmetler: ["iso-9001", "sistem-belgelendirme"],
   },
@@ -202,10 +197,10 @@ export const blogYazilari: BlogYazisi[] = [
       "## Geçiş süresi ne kadar?\n\n" +
       "ISO 14001:2015'ten ISO 14001:2026'ya geçiş için üç yıllık bir süre öngörülmüştür. Geçiş takviminin ana hatları şöyledir:\n\n" +
       "- 15 Nisan 2026 — ISO 14001:2026 yayımlandı; geçiş süresi başladı\n" +
-      "- 2026 ikinci yarısı — Akreditasyon kurumlarının kapsam genişletme değerlendirmeleri ve belgelendirme kuruluşlarının yeni sürüme göre tetkik yapabilir hâle gelmesi\n" +
+      "- 2026 ikinci yarısı — Belgelendirme kuruluşlarının yeni sürüme göre tetkik yapabilir hâle gelmesi\n" +
       "- 2027 sonbaharı — ISO 14001:2015'e göre yeni ilk belgelendirme yapılmasının sona ermesinin beklendiği dönem (geçişin son 18 ayı)\n" +
       "- Nisan 2029 — Geçiş süresinin sonu; bu tarihten sonra ISO 14001:2015 sertifikaları geçerliliğini yitirir\n\n" +
-      "Geçiş kurallarının bağlayıcı kaynağı, Uluslararası Akreditasyon Forumu (IAF) tarafından yayımlanan zorunlu geçiş dokümanı ile TÜRKAK'ın bu doğrultuda yayımlayacağı ulusal rehberdir. Kesin tarihler ve uygulama ayrıntıları bu dokümanlarla netleşir; kuruluşların planlamayı bu kaynaklar üzerinden teyit etmesi önerilir.\n\n" +
+      "Geçiş kurallarının bağlayıcı kaynağı, ISO tarafından yayımlanan standart metni ile ilgili uluslararası geçiş dokümanlarıdır. Kesin tarihler ve uygulama ayrıntıları bu dokümanlarla netleşir; kuruluşların planlamayı bu kaynaklar üzerinden teyit etmesi önerilir.\n\n" +
       "## ISO 14001:2026 ile ne değişti?\n\n" +
       "Revizyon, standardın temel mantığını değiştirmemekte; mevcut şartları açıklığa kavuşturmakta ve bazı alanlarda beklentileri genişletmektedir. Öne çıkan değişiklikler şunlardır:\n\n" +
       "### Kuruluş bağlamında çevresel koşullar genişledi\n\n" +
@@ -232,7 +227,7 @@ export const blogYazilari: BlogYazisi[] = [
       "## Geçişi ertelemenin riski nedir?\n\n" +
       "Geçiş süresinin sonuna yaklaşıldıkça, belgelendirme kuruluşlarındaki tetkik kapasitesi ve tetkikçi erişilebilirliği daralır. Geçiş tetkikini süresi içinde tamamlayamayan kuruluşların sertifikası geçerliliğini yitirir; bu durumda belge, geçiş yerine yeni bir ilk belgelendirme süreciyle (Aşama 1 ve Aşama 2 tetkikleri) yeniden alınmak zorunda kalınabilir. Bu nedenle geçişin, planlı tetkik takvimine erkenden yerleştirilmesi önerilir.\n\n" +
       "## Yeni başvurular hangi sürüme göre yapılmalı?\n\n" +
-      "Geçiş süresi boyunca her iki sürüme göre belgelendirme mümkün olsa da, yeni başvuran kuruluşların doğrudan ISO 14001:2026'ya göre belgelendirilmesi; kısa süre sonra ikinci bir geçiş tetkiki gerekmemesi açısından daha verimlidir. Akredite belgelendirmenin yeni sürüme göre yapılabilmesi, belgelendirme kuruluşunun akreditasyon kapsamının ilgili akreditasyon kararıyla güncellenmiş olmasına bağlıdır; bu karar öncesinde düzenlenen belgeler akreditasyon kapsamında sayılmaz. Akreditasyonun anlamı için [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımızı inceleyebilirsiniz.\n\n" +
+      "Geçiş süresi boyunca her iki sürüme göre belgelendirme mümkün olsa da, yeni başvuran kuruluşların doğrudan ISO 14001:2026'ya göre belgelendirilmesi; kısa süre sonra ikinci bir geçiş tetkiki gerekmemesi açısından daha verimlidir.\n\n" +
       "## Diğer standartlarla entegrasyon\n\n" +
       "ISO 14001:2026, ISO'nun güncel uyumlaştırılmış yapısını izlediği için ISO 9001 ve ISO 45001 ile ortak çatı korunmaktadır. Birden çok standardı birlikte yürüten kuruluşlar geçişi entegre biçimde planlayabilir; ayrıntı için [entegre yönetim sistemi nedir](/blog/entegre-yonetim-sistemi-nedir) yazımıza göz atabilirsiniz. ISO 14001'in kapsamı ve belgelendirme süreci hakkında genel bilgi için [ISO 14001 belgelendirme: çevre yönetim sistemi belgesi](/blog/iso-14001-belgelendirme-cevre-yonetim-sistemi) yazımızı okuyabilirsiniz.\n\n" +
       "ISO 14001 geçişi, yeni belgelendirme başvurusu veya tetkik planlaması için [ISO 14001 belgelendirme hizmetimizi](/hizmetler/iso-14001) inceleyebilirsiniz.",
@@ -267,40 +262,9 @@ export const blogYazilari: BlogYazisi[] = [
       "## Sertifikada sahaların gösterilmesi\n\n" +
       "Çok sahalı bir sertifikada, kapsama dahil edilen sahaların listesi genellikle sertifika ekinde veya belgelendirme kuruluşunun sertifika sorgu sisteminde yer alır. Örnekleme yoluyla denetlenen bir sahanın sertifikada yer alması, o sahanın münferiden ayrıca ve tam kapsamlı tetkik edildiği anlamına gelmez; sahanın merkezi yönetim sistemine dahil olduğu ve örnekleme kapsamında değerlendirildiği anlamına gelir.\n\n" +
       "## Çok sahalı belgelendirme ile şube denetimi arasındaki fark\n\n" +
-      "Çok sahalı belgelendirme, akredite bir belgelendirme kuruluşunun kendi şubelerinizi 3. taraf olarak denetleyip tek bir ISO sertifikası düzenlemesidir. Buna karşılık [şube ve mağaza denetimi](/hizmetler/sube-denetimi), markanızın kendi belirlediği kriterlerle şubelerinizi değerlendirdiği bir 2. taraf denetim hizmetidir ve sonucunda akredite bir sertifika değil, ayrıntılı bir denetim raporu sunulur. İki yaklaşım farklı amaçlara hizmet eder ve birbirinin yerine geçmez.\n\n" +
-      "Çok sahalı belgelendirmenin uygunluğu, sahalarınızın yapısına ve yönetim sisteminizin merkezi kontrol düzeyine bağlıdır. Kapsam ve örnekleme yaklaşımının değerlendirilmesi için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) inceleyebilir; akreditasyonun bu süreçteki güvencesi için [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımıza bakabilirsiniz.",
+      "Çok sahalı belgelendirme, bağımsız bir belgelendirme kuruluşunun kendi şubelerinizi 3. taraf olarak denetleyip tek bir ISO sertifikası düzenlemesidir. Buna karşılık [şube ve mağaza denetimi](/hizmetler/sube-denetimi), markanızın kendi belirlediği kriterlerle şubelerinizi değerlendirdiği bir 2. taraf denetim hizmetidir ve sonucunda bir sertifika değil, ayrıntılı bir denetim raporu sunulur. İki yaklaşım farklı amaçlara hizmet eder ve birbirinin yerine geçmez.\n\n" +
+      "Çok sahalı belgelendirmenin uygunluğu, sahalarınızın yapısına ve yönetim sisteminizin merkezi kontrol düzeyine bağlıdır. Kapsam ve örnekleme yaklaşımının değerlendirilmesi için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) inceleyebilir.",
     ilgiliHizmetler: ["sistem-belgelendirme", "sube-denetimi"],
-  },
-  {
-    slug: "akreditasyon-markasi-kullanimi",
-    baslik: "Akreditasyon Markası Nasıl Kullanılır? Kurallar ve Yaygın Hatalar",
-    ozet:
-      "Akreditasyon markasının doğru kullanım kurallarını, TÜRKAK ve ISO/IEC 17021-1 gerekliliklerini ve yanlış kullanımın olası sonuçlarını açıklıyoruz.",
-    tarih: "2026-07-21",
-    kategori: "Belgelendirme Süreci",
-    icerik:
-      "Bir ISO sertifikası üzerinde yer alan akreditasyon markası, belgenin bağımsız bir otorite tarafından güvence altına alındığını gösterir. Ancak bu markanın nerede, nasıl ve kimin tarafından kullanılabileceği; ISO/IEC 17021-1 ve TÜRKAK kuralları çerçevesinde net biçimde sınırlandırılmıştır. Bu yazıda akreditasyon markasının ne olduğunu, kimin kullanabileceğini, kullanım kurallarını ve yaygın hataları ele alıyoruz.\n\n" +
-      "## Akreditasyon markası nedir?\n\n" +
-      "Akreditasyon markası, bir belgelendirme kuruluşunun TÜRKAK gibi bir akreditasyon kurumu tarafından, belirli bir standart kapsamında (ör. TS EN ISO/IEC 17021-1) akredite edildiğini gösteren resmi işarettir. Bu marka akreditasyon kurumuna aittir; akredite belgelendirme kuruluşlarının, akreditasyon sözleşmesi çerçevesinde belirlenen koşullarla kullanmasına izin verilir.\n\n" +
-      "## Akreditasyon markasını kim kullanabilir?\n\n" +
-      "Markayı doğrudan kullanma hakkı akredite belgelendirme kuruluşuna aittir. Belgelendirilen kuruluşlar ise bu markayı, belgelendirme kuruluşunun izin verdiği koşullarda ve yalnızca kendi sertifikalarına atıfla kullanabilir. Marka, belgelendirme kuruluşundan bağımsız olarak kuruluşların kendi başına türetip serbestçe kullanabileceği bir işaret değildir; kullanım hakkı, belgenin geçerliliğine bağlıdır.\n\n" +
-      "## Akreditasyon markasının kullanım kurallarına neler dahildir?\n\n" +
-      "Akreditasyon kurumları ve belgelendirme kuruluşları, markanın tutarlı ve yanıltıcı olmayan biçimde kullanılması için ortak kurallar uygular. Bu kurallar arasında tipik olarak şunlar yer alır:\n\n" +
-      "- Marka yalnızca belgelendirme kapsamındaki faaliyet, süreç veya lokasyonlar için kullanılabilir; kapsam dışı faaliyetler için kullanılamaz\n" +
-      "- Marka, ürünün veya hizmetin doğrudan kendisinin sertifikalandığı izlenimini vermeyecek biçimde kullanılmalıdır; çünkü akreditasyon bir yönetim sistemini kapsar, ürünü değil\n" +
-      "- Marka üzerindeki akreditasyon numarası ve ilgili standart kodu değiştirilmeden, belirlenen oran ve boyut kurallarına uygun biçimde kullanılmalıdır\n" +
-      "- Sertifika askıya alındığında veya iptal edildiğinde, markanın her türlü kullanımına derhal son verilmelidir\n" +
-      "- Marka; kartvizit, web sitesi, reklam veya ambalaj gibi materyallerde kullanılacaksa, belgelendirme kuruluşunun belirlediği kullanım kılavuzuna uyulmalıdır\n\n" +
-      "## Akreditasyon markası ile belgelendirme kuruluşu logosu farkı\n\n" +
-      "Akreditasyon markası ile belgelendirme kuruluşunun kendi logosu farklı işaretlerdir ve farklı kurallara tabidir. Belgelendirme kuruluşunun logosu kendi kurumsal kimliğini temsil ederken, akreditasyon markası TÜRKAK gibi bağımsız bir akreditasyon otoritesinin verdiği güvenceyi temsil eder. İkisi birlikte kullanılabilir, ancak her birinin kullanım kuralları ayrı ayrı gözetilmelidir; biri için verilen izin diğerini kapsamaz.\n\n" +
-      "## Sık karşılaşılan bir yanlış anlama: marka her ürünü mü sertifikalandırır?\n\n" +
-      "Akreditasyon markasını bir kuruluşun web sitesinde veya tesisinde gören üçüncü taraflar, bazen bu markanın kuruluşun sunduğu her ürün veya hizmeti ayrı ayrı sertifikalandırdığını düşünebilir. Oysa yönetim sistemi belgelendirmesinde akreditasyon markası, belirlenen kapsamdaki yönetim sisteminin standarda uygunluğunu gösterir; tek tek ürün veya hizmetlerin doğrudan sertifikalandığı anlamına gelmez. Bu ayrımın net biçimde anlaşılması, markanın yanlış yorumlanmasını önler.\n\n" +
-      "## Yanlış kullanımın sonuçları neler olabilir?\n\n" +
-      "Akreditasyon markasının kapsam dışı kullanılması, yanıltıcı biçimde ürün üzerinde gösterilmesi veya sertifika geçerliliğini kaybettikten sonra kullanılmaya devam edilmesi; belgelendirme kuruluşu tarafından uyarı, düzeltici faaliyet talebi veya sertifikanın askıya alınması gibi sonuçlar doğurabilir. Akreditasyon kurumu da kendi markasının yanlış kullanıldığı durumları, belgelendirme kuruluşu aracılığıyla takip eder ve gerektiğinde belgelendirme kuruluşundan düzeltici önlem talep eder.\n\n" +
-      "## Neden bu kurallar önemlidir?\n\n" +
-      "Akreditasyon markasının tutarlı ve doğru kullanımı, sertifikaya duyulan güvenin korunmasını sağlar. Marka yanlış veya yanıltıcı biçimde kullanıldığında, yalnızca ilgili kuruluşun değil; akreditasyon sisteminin ve belgenin genel güvenilirliğinin de zarar görme riski oluşur. Bu nedenle marka kullanım kuralları, belgelendirme sözleşmesinin ayrılmaz bir parçası olarak kabul edilir ve gözetim tetkiklerinde de ayrıca değerlendirilir.\n\n" +
-      "Akreditasyonun ne olduğu ve neden önemli olduğu hakkında [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımızı, markanın gözetim tetkiklerinde nasıl değerlendirildiği hakkında [gözetim tetkiki nedir](/blog/gozetim-tetkiki-nedir) yazımızı inceleyebilirsiniz. Akredite yönetim sistemi belgelendirmesi için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) ziyaret edebilirsiniz.",
-    ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001"],
   },
   {
     slug: "belgelendirme-karari-nasil-verilir",
@@ -329,7 +293,7 @@ export const blogYazilari: BlogYazisi[] = [
       "## Gözetim ve yeniden belgelendirmede karar süreci\n\n" +
       "Aynı bağımsız karar mekanizması, ilk belgelendirmenin yanı sıra her yıllık [gözetim tetkiki](/blog/gozetim-tetkiki-nedir) ve üç yılın sonundaki yeniden belgelendirme tetkiki için de işletilir. Böylece sertifikanın geçerliliği boyunca her aşamada aynı tarafsızlık güvencesi korunur.\n\n" +
       "## Belgelendirme kararının kuruluş için anlamı\n\n" +
-      "Belgelendirme kararı sürecinin bağımsızlığı, sertifikanın taşıdığı güvencenin en önemli unsurlarından biridir. Kuruluşlar için bu, tetkik sonucunun tek bir kişinin takdirine değil, yapılandırılmış ve denetlenebilir bir sürece dayandığı anlamına gelir. ISO 9001 belgelendirme sürecinin tüm adımları için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımızı, akreditasyonun bu güvenceyi nasıl desteklediğini ise [TÜRKAK akreditasyonu nedir](/blog/turkak-akreditasyonu-nedir) yazımızı inceleyebilirsiniz.\n\n" +
+      "Belgelendirme kararı sürecinin bağımsızlığı, sertifikanın taşıdığı güvencenin en önemli unsurlarından biridir. Kuruluşlar için bu, tetkik sonucunun tek bir kişinin takdirine değil, yapılandırılmış ve denetlenebilir bir sürece dayandığı anlamına gelir. ISO 9001 belgelendirme sürecinin tüm adımları için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımızı inceleyebilirsiniz.\n\n" +
       "Belgelendirme kararı dahil tüm sürecin nasıl yürütüldüğü için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) inceleyebilirsiniz.",
     ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001"],
   },
@@ -344,7 +308,7 @@ export const blogYazilari: BlogYazisi[] = [
     icerik:
       "Bir ISO sertifikası alındıktan sonra süreç bitmez; sertifikanın geçerlilik süresi boyunca yönetim sisteminin sürdürüldüğü, düzenli aralıklarla yapılan gözetim tetkikleriyle bağımsız olarak doğrulanır. Bu yazıda gözetim tetkikinin ne olduğunu, kimin yürüttüğünü, ne sıklıkla yapıldığını ve kapsamını ele alıyoruz.\n\n" +
       "## Gözetim tetkiki nedir?\n\n" +
-      "Gözetim tetkiki (surveillance audit), akredite bir belgelendirme kuruluşunun; sertifikalandırılmış bir yönetim sisteminin, belgelendirme kararından sonra da standardın gerekliliklerini karşılamaya devam edip etmediğini periyodik olarak değerlendirdiği denetimdir. Belgenin 3 yıllık geçerlilik süresi boyunca gerçekleştirilir ve belgenin sürekli geçerliliğinin ön koşuludur.\n\n" +
+      "Gözetim tetkiki (surveillance audit), bağımsız bir belgelendirme kuruluşunun; sertifikalandırılmış bir yönetim sisteminin, belgelendirme kararından sonra da standardın gerekliliklerini karşılamaya devam edip etmediğini periyodik olarak değerlendirdiği denetimdir. Belgenin 3 yıllık geçerlilik süresi boyunca gerçekleştirilir ve belgenin sürekli geçerliliğinin ön koşuludur.\n\n" +
       "## Gözetim tetkiki neden yapılır?\n\n" +
       "Bir ISO sertifikası, yalnızca belgelendirme anındaki bir an fotoğrafı değil; sistemin zaman içinde sürdürüldüğüne dair sürekli bir güvencedir. TS EN ISO/IEC 17021-1 standardı, belgelendirme kuruluşlarının bu sürekliliği periyodik tetkiklerle doğrulamasını şart koşar. Gözetim tetkiki olmadan düzenlenen bir belge, zaman içindeki uygunluğu güvence altına almaz; bu nedenle gözetim tetkiki, belgenin taşıdığı güvencenin ayrılmaz bir parçasıdır.\n\n" +
       "## Gözetim tetkikini kim yürütür?\n\n" +
@@ -356,7 +320,7 @@ export const blogYazilari: BlogYazisi[] = [
       "- Şikayetler ve bunlara verilen yanıtların yönetimi\n" +
       "- Sistemde hedeflenen amaçlara ulaşılıp ulaşılmadığı ve sürekli iyileştirme faaliyetleri\n" +
       "- Belgelendirme kapsamında, kuruluş yapısında veya mevzuatta meydana gelen değişiklikler\n" +
-      "- Akreditasyon markasının ve belgelendirme kuruluşu atıflarının doğru kullanımı\n\n" +
+      "- Belgelendirme markasının ve belgelendirme kuruluşu atıflarının doğru kullanımı\n\n" +
       "## Gözetim tetkiki ile belgelendirme tetkiki arasındaki fark\n\n" +
       "İlk belgelendirme tetkiki, Aşama 1 ve Aşama 2 adımlarıyla sistemin tüm maddelerini kapsamlı biçimde değerlendirir. Gözetim tetkiki ise daha dar kapsamlıdır; sistemin sürdürüldüğünü ve önceki bulguların kapatıldığını doğrulamaya odaklanır, standardın tüm maddelerini yeniden baştan sona incelemez. Aşama 1 ve Aşama 2 tetkiklerinin işleyişi için [belgelendirme denetimine hazırlık](/blog/belgelendirme-denetimine-hazirlik) yazımıza bakabilirsiniz.\n\n" +
       "## Çok lokasyonlu kuruluşlarda gözetim tetkiki\n\n" +
@@ -426,13 +390,13 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-9001-belgelendirme-nedir-nasil-alinir",
     baslik: "ISO 9001 Belgelendirme Nedir ve Nasıl Alınır?",
     ozet:
-      "ISO 9001 belgelendirme, kalite yönetim sisteminizin bağımsız ve akredite bir kuruluşça doğrulanmasıdır. Başvurudan sertifikaya kadar ISO 9001 belgelendirme sürecini adım adım açıklıyoruz.",
+      "ISO 9001 belgelendirme, kalite yönetim sisteminizin bağımsız ve tarafsız bir kuruluşça doğrulanmasıdır. Başvurudan sertifikaya kadar ISO 9001 belgelendirme sürecini adım adım açıklıyoruz.",
     tarih: "2026-07-04",
     kategori: "Yönetim Sistemleri",
     icerik:
       "ISO 9001, dünya genelinde en yaygın kullanılan kalite yönetim sistemi standardıdır. Bir kuruluşun ürün ve hizmetlerini tutarlı biçimde, müşteri ve yasal gerekliliklere uygun olarak sunma yeteneğini güvence altına alır. ISO 9001 belgelendirme ise bu sistemin bağımsız, tarafsız bir belgelendirme kuruluşu tarafından doğrulanmasıdır.\n\n" +
       "## ISO 9001 belgelendirme nedir?\n\n" +
-      "ISO 9001 belgelendirme; kuruluşunuzun kurduğu kalite yönetim sisteminin ISO 9001:2015 standardının şartlarını karşıladığının, akredite bir belgelendirme kuruluşunca yapılan denetimle teyit edilmesi ve sonucunda sertifika düzenlenmesidir. Belge, sisteminizin belgelendirme kuruluşundan bağımsız olarak kurulduğunu ve sürdürüldüğünü gösterir.\n\n" +
+      "ISO 9001 belgelendirme; kuruluşunuzun kurduğu kalite yönetim sisteminin ISO 9001:2015 standardının şartlarını karşıladığının, bağımsız bir belgelendirme kuruluşunca yapılan denetimle teyit edilmesi ve sonucunda sertifika düzenlenmesidir. Belge, sisteminizin belgelendirme kuruluşundan bağımsız olarak kurulduğunu ve sürdürüldüğünü gösterir.\n\n" +
       "## ISO 9001 belgesi neden alınır?\n\n" +
       "- Müşteri memnuniyetini ve süreç tutarlılığını artırmak\n" +
       "- İhale ve tedarikçi ön yeterlilik şartlarını karşılamak\n" +
@@ -448,39 +412,14 @@ export const blogYazilari: BlogYazisi[] = [
       "- Gözetim tetkikleri: Belge geçerliliği boyunca sistemin sürdürüldüğü periyodik denetimlerle teyit edilir.\n\n" +
       "## Belgelendirmede tarafsızlık ilkesi\n\n" +
       "ISO/IEC 17021-1 gereği belgelendirme kuruluşları tarafsız ve bağımsız olmak zorundadır; belgelendirdikleri kuruluşlara yönetim sistemi danışmanlığı veremez, sistemi onlar adına kuramaz. Yönetim sisteminin kurulması ve sürdürülmesi kuruluşun kendi sorumluluğundadır; belgelendirme kuruluşunun rolü, kurulan sistemi bağımsız biçimde denetleyip değerlendirmektir. Bu ayrım, belgenin güvenilirliğinin temelidir.\n\n" +
-      "## Akredite belgelendirmenin önemi\n\n" +
-      "Belgenin uluslararası ve ulusal düzeyde tanınırlığı, belgelendirme kuruluşunun akreditasyonuna bağlıdır. DVN Cert, TÜRKAK tarafından TS EN ISO/IEC 17021-1 kapsamında akredite edilmiş bir belgelendirme kuruluşudur. Akreditasyonun neden önemli olduğunu [TÜRKAK akreditasyonu](/blog/turkak-akreditasyonu-nedir) yazımızda ele aldık.\n\n" +
       "ISO 9001 belgelendirme başvurusu ve süreç ayrıntıları için [ISO 9001 belgelendirme hizmetimizi](/hizmetler/iso-9001) inceleyebilir; belgenin geçerlilik ve yenileme koşulları için [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımıza bakabilirsiniz.",
     ilgiliHizmetler: ["iso-9001", "sistem-belgelendirme"],
-  },
-  {
-    slug: "turkak-akreditasyonu-nedir",
-    baslik: "TÜRKAK Akreditasyonu Nedir? Akredite Belge Neden Önemli?",
-    ozet:
-      "TÜRKAK akreditasyonu, bir belgelendirme kuruluşunun yetkinliğinin bağımsız olarak onaylanmasıdır. Akredite belge ile akreditasyonsuz belge arasındaki farkı ve akreditasyonun neden önemli olduğunu açıklıyoruz.",
-    tarih: "2026-06-30",
-    kategori: "Belgelendirme Süreci",
-    icerik:
-      "Bir ISO sertifikasının değeri, onu düzenleyen belgelendirme kuruluşunun yetkinliğine ve tanınırlığına bağlıdır. Bu yetkinliğin bağımsız güvencesi ise akreditasyondur. Türkiye'de bu görev yasa ile TÜRKAK'a (Türk Akreditasyon Kurumu) verilmiştir.\n\n" +
-      "## Akreditasyon nedir?\n\n" +
-      "Akreditasyon, belgelendirme ve denetim yapan kuruluşların; tarafsızlık, yetkinlik ve tutarlılık açısından uluslararası standartlara (belgelendirme kuruluşları için TS EN ISO/IEC 17021-1) uygunluğunun bağımsız bir otorite tarafından onaylanmasıdır. Kısaca akreditasyon, \"denetleyeni denetleyen\" mekanizmadır.\n\n" +
-      "## TÜRKAK nedir?\n\n" +
-      "TÜRKAK, Türkiye'de uygunluk değerlendirme kuruluşlarını akredite etmekle yasa gereği yetkili tek kurumdur. Uluslararası akreditasyon birlikleri (EA, IAF) ile karşılıklı tanıma anlaşmaları sayesinde, TÜRKAK akreditasyonlu belgeler yurt dışında da tanınır.\n\n" +
-      "## Akredite belge ile akreditasyonsuz belge farkı\n\n" +
-      "- Akredite belge: Akredite bir kuruluşça, akreditasyon markası ile düzenlenir; ulusal ve uluslararası düzeyde tanınır, ihale ve ihracatta güvenle kabul edilir.\n" +
-      "- Akreditasyonsuz belge: Herhangi bir kuruluşça düzenlenebilir; tanınırlığı sınırlıdır, ihale ve tedarikçi şartlarını karşılamayabilir.\n\n" +
-      "## Akredite belgeyi nasıl doğrularsınız?\n\n" +
-      "Bir belgenin akredite olup olmadığı; üzerindeki akreditasyon markası ve numarası ile ve gerektiğinde TÜRKAK'ın akredite kuruluş sorgusundan teyit edilebilir. Belgenin geçerliliği ise belgelendirme kuruluşunun sertifika sorgu sistemi üzerinden kontrol edilir.\n\n" +
-      "## DVN Cert'in akreditasyon durumu\n\n" +
-      "DVN Cert, TÜRKAK tarafından TS EN ISO/IEC 17021-1 kapsamında akredite edilmiş bir yönetim sistemleri belgelendirme kuruluşudur. Akreditasyon kapsamımız ve belgemiz için [akreditasyonlarımız](/akreditasyonlarimiz) sayfasını inceleyebilirsiniz.\n\n" +
-      "Akredite yönetim sistemi belgelendirmesi için [sistem belgelendirme hizmetimize](/hizmetler/sistem-belgelendirme) göz atabilir; belge geçerliliği için [ISO belgesi geçerlilik ve yenileme](/blog/iso-belgesi-gecerlilik-ve-yenileme) yazımıza bakabilirsiniz.",
-    ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001"],
   },
   {
     slug: "iso-45001-belgelendirme-is-sagligi-guvenligi",
     baslik: "ISO 45001 Belgelendirme: İş Sağlığı ve Güvenliği Yönetim Sistemi",
     ozet:
-      "ISO 45001 belgelendirme, iş sağlığı ve güvenliği yönetim sisteminizin akredite bir kuruluşça doğrulanmasıdır. Standardın kapsamını, faydalarını ve belgelendirme sürecini açıklıyoruz.",
+      "ISO 45001 belgelendirme, iş sağlığı ve güvenliği yönetim sisteminizin bağımsız ve tarafsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, faydalarını ve belgelendirme sürecini açıklıyoruz.",
     tarih: "2026-06-27",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -504,7 +443,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-14001-belgelendirme-cevre-yonetim-sistemi",
     baslik: "ISO 14001 Belgelendirme: Çevre Yönetim Sistemi Belgesi",
     ozet:
-      "ISO 14001 belgelendirme, çevre yönetim sisteminizin akredite bir kuruluşça doğrulanmasıdır. Standardın kapsamını, sağladığı faydaları ve belgelendirme sürecini açıklıyoruz.",
+      "ISO 14001 belgelendirme, çevre yönetim sisteminizin bağımsız ve tarafsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, sağladığı faydaları ve belgelendirme sürecini açıklıyoruz.",
     tarih: "2026-06-24",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -550,7 +489,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-50001-belgelendirme-enerji-yonetim-sistemi",
     baslik: "ISO 50001 Belgelendirme: Enerji Yönetim Sistemi Belgesi",
     ozet:
-      "ISO 50001 belgelendirme, enerji yönetim sisteminizin akredite bir kuruluşça doğrulanmasıdır. Standardın kapsamını, enerji verimliliği faydalarını ve belgelendirme sürecini açıklıyoruz.",
+      "ISO 50001 belgelendirme, enerji yönetim sisteminizin bağımsız ve tarafsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, enerji verimliliği faydalarını ve belgelendirme sürecini açıklıyoruz.",
     tarih: "2026-06-16",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -593,7 +532,7 @@ export const blogYazilari: BlogYazisi[] = [
       "- FSSC 22000\n" +
       "- BRCGS ve IFS Food (perakende zincirlerinin sık talep ettiği kriterler)\n" +
       "- Codex Alimentarius ilkeleri ve ulusal gıda mevzuatı\n\n" +
-      "Bu denetimler, kuruluşunuzun belirlediği kriterler ve ilgili standartların gereklilikleri doğrultusunda yürütülür; sonucunda akredite bir sertifika değil, ayrıntılı bir tedarikçi denetim raporu sunulur.\n\n" +
+      "Bu denetimler, kuruluşunuzun belirlediği kriterler ve ilgili standartların gereklilikleri doğrultusunda yürütülür; sonucunda bir sertifika değil, ayrıntılı bir tedarikçi denetim raporu sunulur.\n\n" +
       "## Gıda tedarik zincirinde 2. taraf denetiminin rolü\n\n" +
       "Beyana veya yalnızca belgeye dayanmak gıdada yeterli değildir; üretim koşullarının yerinde gözlemlenmesi gerekir. Risk temelli bir yaklaşımla kritik tedarikçileri daha sık denetlemek, tedarik zinciri güvenliğini sürdürmenin en etkili yoludur.\n\n" +
       "Gıda tedarikçilerinizi bağımsız değerlendirmek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri) inceleyebilir; denetim başlıklarının tamamı için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımıza bakabilirsiniz.",
@@ -674,11 +613,11 @@ export const blogYazilari: BlogYazisi[] = [
       "## 2. taraf denetimi (tedarikçi denetimi) nedir?\n\n" +
       "2. taraf denetimi (ikinci taraf denetimi), bir kuruluşun kendi tedarikçilerini, alt yüklenicilerini veya iş ortaklarını; belirlenen standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından değerlendirmesidir. Müşteri konumundaki kuruluş adına yürütülür ve uygulamada çoğunlukla \"tedarikçi denetimi\" olarak anılır. Sonucunda sertifika değil, ayrıntılı bir denetim raporu sunulur.\n\n" +
       "## 3. taraf denetimi (belgelendirme denetimi) nedir?\n\n" +
-      "3. taraf denetimi, bağımsız ve akredite bir belgelendirme kuruluşunun yaptığı denetimdir. Örneğin ISO 9001 belgelendirmesi için yapılan denetim bir 3. taraf denetimidir ve başarıyla tamamlandığında uluslararası geçerli bir sertifika düzenlenir. Denetimi yapan taraf, denetlenen kuruluştan ve onun müşterilerinden bağımsızdır.\n\n" +
+      "3. taraf denetimi, bağımsız ve tarafsız bir belgelendirme kuruluşunun yaptığı denetimdir. Örneğin ISO 9001 belgelendirmesi için yapılan denetim bir 3. taraf denetimidir ve başarıyla tamamlandığında uluslararası geçerli bir sertifika düzenlenir. Denetimi yapan taraf, denetlenen kuruluştan ve onun müşterilerinden bağımsızdır.\n\n" +
       "## 1., 2. ve 3. taraf denetim arasındaki farklar\n\n" +
       "- 1. taraf: Kuruluş kendi sistemini denetler (iç denetim). Çıktı: iç iyileştirme.\n" +
       "- 2. taraf: Kuruluş tedarikçisini/iş ortağını denetler (tedarikçi denetimi). Çıktı: denetim raporu.\n" +
-      "- 3. taraf: Bağımsız akredite kuruluş denetler (belgelendirme). Çıktı: akredite sertifika.\n\n" +
+      "- 3. taraf: Bağımsız belgelendirme kuruluşu denetler (belgelendirme). Çıktı: sertifika.\n\n" +
       "## 2. taraf denetimi hangi durumlarda yapılır?\n\n" +
       "- Yeni bir tedarikçi seçimi ve onayı öncesinde\n" +
       "- Mevcut tedarikçilerin performansını periyodik olarak izlemek için\n" +
@@ -857,7 +796,7 @@ export const blogYazilari: BlogYazisi[] = [
       "- Departmanlar arası tutarlılık ve daha güçlü kurum kültürü\n" +
       "- Risklerin bütünsel olarak ele alınması\n\n" +
       "## Hangi standartlar entegre edilebilir?\n\n" +
-      "En yaygın entegrasyon ISO 9001, ISO 14001 ve ISO 45001 üçlüsüdür. Enerji yoğun kuruluşlar buna ISO 50001 enerji yönetim sistemini de ekleyebilir. DVN Cert, bu standartlarda belgelendirme, ikinci taraf denetim ve eğitim süreçlerini açık kriterlerle yürütür ve TÜRKAK tarafından TS EN ISO/IEC 17021-1:2015 kapsamında akredite edilmiştir (Akreditasyon No: AB-0209-YS).\n\n" +
+      "En yaygın entegrasyon ISO 9001, ISO 14001 ve ISO 45001 üçlüsüdür. Enerji yoğun kuruluşlar buna ISO 50001 enerji yönetim sistemini de ekleyebilir. DVN Cert, bu standartlarda belgelendirme, ikinci taraf denetim ve eğitim süreçlerini açık kriterlerle yürütür.\n\n" +
       "Entegre belgelendirme süreci, ayrı ayrı belgelendirmeye kıyasla zaman ve kaynak tasarrufu sağlar. Kuruluşunuzun mevcut yönetim sistemlerini tek çatı altında değerlendirmek için belgelendirme hizmetlerimizi inceleyebilirsiniz.",
     ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001", "iso-14001", "iso-45001"],
   },

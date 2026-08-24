@@ -8,7 +8,7 @@
  * eğitimi YAPILMAZ. İçerikte bu çerçeve korunmalıdır.
  *
  * Belge çerçevesi: Katılımcılara "DVN Cert katılım belgesi" verilir; IRCA /
- * Exemplar Global gibi akreditasyon/onay iddiası YAPILMAZ.
+ * Exemplar Global gibi üçüncü taraf onay iddiası YAPILMAZ.
  *
  * giris alanı: paragraflar boş satır (\n\n) ile ayrılır; satır içi link için
  * markdown `[metin](/yol)` kullanılır (IcerikMetin render eder).

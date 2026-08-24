@@ -120,7 +120,7 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
   const sss = [
     {
       soru: `${stdAd} belgesi nasıl alınır?`,
-      cevap: `${stdAd} belgesi, TÜRKAK akreditasyonlu bir belgelendirme kuruluşuna başvuru ile başlar; Aşama 1 (ön tetkik) ve Aşama 2 (belgelendirme tetkiki) denetimlerinin ardından bağımsız bir belgelendirme kararıyla tamamlanır. Olumlu sonuçta ${stdKod} sertifikası düzenlenir.`,
+      cevap: `${stdAd} belgesi, bağımsız bir belgelendirme kuruluşuna başvuru ile başlar; Aşama 1 (ön tetkik) ve Aşama 2 (belgelendirme tetkiki) denetimlerinin ardından bağımsız bir belgelendirme kararıyla tamamlanır. Olumlu sonuçta ${stdKod} sertifikası düzenlenir.`,
     },
     {
       soru: `${stdAd} belgesi kaç yıl geçerlidir?`,
@@ -133,10 +133,6 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
     {
       soru: `${stdAd} belgesini hangi kuruluşlar alabilir?`,
       cevap: `${stdAd}, sektör ve ölçek fark etmeksizin ${sistem.i} kurmak isteyen her kuruluşa uygulanabilir. Standardın şartlarını karşılayan KOBİ'ler de büyük kuruluşlar da belge alabilir.`,
-    },
-    {
-      soru: `${stdAd} belgesinin TÜRKAK akreditasyonlu olması neden önemlidir?`,
-      cevap: `Belgenin ulusal ve uluslararası geçerlilik taşıması için TÜRKAK tarafından akredite edilmiş bir kuruluştan alınması esastır. Akredite belge; ihale, tedarik zinciri ve ihracat süreçlerinde tanınırlık sağlar.`,
     },
     {
       soru: `${stdAd} belgelendirmesi için başvuru nasıl yapılır?`,
@@ -156,7 +152,7 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
     },
     {
       soru: `${stdAd} sertifikamızın geçerliliğini nasıl doğrularız?`,
-      cevap: `DVN Cert tarafından düzenlenen ${stdKod} sertifikalarının geçerliliği, sitemizdeki sertifika sorgulama sayfasından teyit edilebilir. Akreditasyonlu belgeler ayrıca TÜRKAK Belge Doğrulama Sistemi (TBDS) üzerinden de doğrulanabilir.`,
+      cevap: `DVN Cert tarafından düzenlenen ${stdKod} sertifikalarının geçerliliği, sitemizdeki sertifika sorgulama sayfasından teyit edilebilir.`,
     },
   ];
 
@@ -257,11 +253,7 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
               </p>
             ))}
             <p style={{ ...P, margin: 0 }}>
-              {`Türkiye'de ${stdAd} belgesinin uluslararası geçerliliğe sahip olabilmesi için TÜRKAK (Türk Akreditasyon Kurumu) tarafından `}
-              <Link href="/akreditasyonlarimiz" style={ilkLink}>
-                akredite
-              </Link>
-              {` edilmiş bir belgelendirme kuruluşundan alınması esastır.`}
+              {`${stdAd} belgesinin güvenilirliği, belgeyi düzenleyen kuruluşun bağımsızlığına, tarafsızlığına ve denetim sürecinin izlenebilirliğine dayanır.`}
             </p>
           </Akordeon>
 
@@ -310,7 +302,7 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
           {/* 4 — Nasıl Alınır? (ortak süreç) */}
           <Akordeon baslik={`${stdAd} Belgesi Nasıl Alınır? — Belgelendirme Süreci`} id="nasil-alinir">
             <p style={P}>
-              {`${stdAd} belgesi almak isteyen kuruluşların, akredite bir belgelendirme kuruluşu tarafından yürütülen yapılandırılmış bir süreçten geçmesi gerekir. Bu süreç, ISO/IEC 17021-1 standardının gereklerine göre planlanır ve uygulanır. Belgelendirme süreci, kuruluşun ${sistem.ni} hazırlayıp uygulamaya almasının ardından başlar.`}
+              {`${stdAd} belgesi almak isteyen kuruluşların, bağımsız bir belgelendirme kuruluşu tarafından yürütülen yapılandırılmış bir süreçten geçmesi gerekir. Bu süreç, ISO/IEC 17021-1 standardının gereklerine göre planlanır ve uygulanır. Belgelendirme süreci, kuruluşun ${sistem.ni} hazırlayıp uygulamaya almasının ardından başlar.`}
             </p>
             <p style={{ ...P, margin: "0 0 22px" }}>{`${stdAd} belgelendirme süreci aşağıdaki ana adımlardan oluşur.`}</p>
 
@@ -469,14 +461,14 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
 
             <AltBaslik>Sertifika Doğrulama</AltBaslik>
             <p style={P}>
-              {`${stdAd} sertifikası alan bir kuruluşun belgesinin geçerliliği, sertifika numarası üzerinden online olarak doğrulanabilir. Müşteriler, iş ortakları ve tedarikçiler, kuruluşların sertifika geçerliliğini ilgili belgelendirme kuruluşunun web sitesinden veya TÜRKAK Akreditasyon Belge Doğrulama Sistemi üzerinden teyit edebilir.`}
+              {`${stdAd} sertifikası alan bir kuruluşun belgesinin geçerliliği, sertifika numarası üzerinden online olarak doğrulanabilir. Müşteriler, iş ortakları ve tedarikçiler, kuruluşların sertifika geçerliliğini belgeyi düzenleyen belgelendirme kuruluşunun web sitesinden teyit edebilir.`}
             </p>
             <p style={{ ...P, margin: 0 }}>
               {`DVN Cert tarafından düzenlenen sertifikalar, `}
-              <Link href="https://tbds.turkak.org.tr" target="_blank" rel="noopener noreferrer" style={ilkLink}>
-                TÜRKAK Belge Doğrulama Sistemi (TBDS)
+              <Link href="/sertifika-sorgula" style={ilkLink}>
+                sertifika sorgulama
               </Link>
-              {` üzerinden doğrulanabilir.`}
+              {` sayfamız üzerinden doğrulanabilir.`}
             </p>
           </Akordeon>
 

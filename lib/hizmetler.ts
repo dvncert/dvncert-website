@@ -64,10 +64,10 @@ export const hizmetler: Hizmet[] = [
     ikon: "sistem",
     giris:
       "DVN Cert olarak tarafsız ve profesyonel belgelendirme çözümleri sunuyoruz. Deneyimli denetçi kadromuzla yönetim sistemi belgelendirme süreçlerinizi şeffaf ve etkin bir şekilde yönetiyoruz.\n\n" +
-      "Akreditasyon kapsamımızdaki dört temel yönetim sistemi standardında, kuruluşunuzun uluslararası standartlara uyumunu bağımsızlık ve gizlilik ilkeleriyle değerlendiriyoruz.",
+      "Kapsamımızdaki dört temel yönetim sistemi standardında, kuruluşunuzun uluslararası standartlara uyumunu bağımsızlık ve gizlilik ilkeleriyle değerlendiriyoruz.",
     faydalar: [
       "Tek noktadan dört yönetim sistemi belgelendirmesi",
-      "Akredite ve uluslararası geçerli sertifikalar",
+      "Uluslararası standartlara göre düzenlenen sertifikalar",
       "Tarafsız, bağımsız ve gizlilik esaslı süreç",
       "Deneyimli denetçi kadrosu",
       "Şeffaf ve izlenebilir denetim adımları",
@@ -78,7 +78,7 @@ export const hizmetler: Hizmet[] = [
       {
         soru: "Sistem belgelendirmesi hangi standartları kapsıyor?",
         cevap:
-          "DVN Cert, TÜRKAK akreditasyon kapsamındaki dört yönetim sistemi standardında belgelendirme yapar: ISO 9001 (Kalite), ISO 14001 (Çevre), ISO 45001 (İş Sağlığı ve Güvenliği) ve ISO 50001 (Enerji). Bu standartların her biri için ayrı ayrı veya birlikte başvurabilirsiniz.",
+          "DVN Cert, dört yönetim sistemi standardında belgelendirme yapar: ISO 9001 (Kalite), ISO 14001 (Çevre), ISO 45001 (İş Sağlığı ve Güvenliği) ve ISO 50001 (Enerji). Bu standartların her biri için ayrı ayrı veya birlikte başvurabilirsiniz.",
       },
       {
         soru: "Birden fazla standardı tek denetimde birlikte belgelendirebilir miyiz?",
@@ -94,11 +94,6 @@ export const hizmetler: Hizmet[] = [
         soru: "Sistem belgesi kaç yıl geçerlidir?",
         cevap:
           "Sertifikanın geçerlilik süresi 3 yıldır. Bu süre boyunca her yıl bir gözetim denetimi yapılır; üçüncü yılın sonunda yeniden belgelendirme denetimiyle belge yenilenir.",
-      },
-      {
-        soru: "Belgelerimiz TÜRKAK akreditasyonlu mu olacak?",
-        cevap:
-          "Evet. DVN Cert, TS EN ISO/IEC 17021-1:2015 kapsamında TÜRKAK tarafından akredite edilmiştir (Akreditasyon No: AB-0209-YS). Düzenlenen sertifikalar ulusal ve uluslararası düzeyde tanınırlık taşır ve TÜRKAK Belge Doğrulama Sistemi üzerinden doğrulanabilir.",
       },
     ],
   },
@@ -194,7 +189,7 @@ export const hizmetler: Hizmet[] = [
     ikon: "denetim",
     giris:
       "Tedarikçi denetimi (2. taraf denetimi / ikinci taraf denetimi); bir kuruluşun kendi tedarikçilerini, alt yüklenicilerini veya iş ortaklarını belirlenen standartlara, sözleşme şartlarına ya da yasal gerekliliklere uygunluk açısından değerlendirmesidir. Uygulamada çoğu zaman \"tedarikçi denetimi\" olarak anılır; tedarik zincirindeki riskleri yönetmenin en etkili yollarından biridir.\n\n" +
-      "1. taraf denetimi kuruluşun kendi iç denetimini, 3. taraf denetimi ise bağımsız ve akredite bir belgelendirme kuruluşunun yaptığı denetimi ifade eder. 2. taraf denetimi bu ikisinin arasında konumlanır: müşteri konumundaki kuruluş adına, tedarik zincirindeki bir tarafın yerinde ve nesnel biçimde değerlendirilmesini sağlar. Aradaki farkları [1., 2. ve 3. taraf denetim farkları](/blog/2-taraf-denetimi-nedir) yazımızda ayrıntılı ele aldık.\n\n" +
+      "1. taraf denetimi kuruluşun kendi iç denetimini, 3. taraf denetimi ise bağımsız ve tarafsız bir belgelendirme kuruluşunun yaptığı denetimi ifade eder. 2. taraf denetimi bu ikisinin arasında konumlanır: müşteri konumundaki kuruluş adına, tedarik zincirindeki bir tarafın yerinde ve nesnel biçimde değerlendirilmesini sağlar. Aradaki farkları [1., 2. ve 3. taraf denetim farkları](/blog/2-taraf-denetimi-nedir) yazımızda ayrıntılı ele aldık.\n\n" +
       "Bu hizmet; işletmelerin tedarikçi performansını objektif ölçütlerle değerlendirmesine, tedarik zinciri risklerini önceden tespit etmesine ve sözleşmesel yükümlülüklerin yerine getirildiğini doğrulamasına yardımcı olur. Özellikle kalite, çevre, iş sağlığı ve güvenliği ile sektörel uygunluk gereksinimlerinin kritik olduğu tedarik ilişkilerinde güvence sağlar.\n\n" +
       "Denetim; tedarikçi seçimi ve onayı öncesinde, mevcut tedarikçilerin performansını izlemek için veya yeni bir sözleşme başlamadan önce planlanabilir. Sürecin adım adım nasıl yürütüldüğünü [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) ve hangi başlıkların değerlendirildiğini [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazılarımızda bulabilirsiniz.\n\n" +
       "Aynı bağımsız denetim yaklaşımını kendi zincir mağaza, bayi ve franchise ağınıza uygulamak için [şube ve mağaza denetimi](/hizmetler/sube-denetimi) hizmetimizi inceleyebilirsiniz.\n\n" +
@@ -224,7 +219,7 @@ export const hizmetler: Hizmet[] = [
       {
         soru: "1. taraf, 2. taraf ve 3. taraf denetim arasındaki fark nedir?",
         cevap:
-          "1. taraf denetimi, kuruluşun kendi yönetim sistemini değerlendirdiği iç denetimdir. 2. taraf denetimi, bir kuruluşun tedarikçisini veya iş ortağını değerlendirmesidir. 3. taraf denetimi ise bağımsız ve akredite bir belgelendirme kuruluşunun (örneğin ISO 9001 belgelendirmesi için) yaptığı denetimdir.",
+          "1. taraf denetimi, kuruluşun kendi yönetim sistemini değerlendirdiği iç denetimdir. 2. taraf denetimi, bir kuruluşun tedarikçisini veya iş ortağını değerlendirmesidir. 3. taraf denetimi ise bağımsız ve tarafsız bir belgelendirme kuruluşunun (örneğin ISO 9001 belgelendirmesi için) yaptığı denetimdir.",
       },
       {
         soru: "2. taraf denetimi hangi durumlarda gereklidir?",
@@ -239,7 +234,7 @@ export const hizmetler: Hizmet[] = [
       {
         soru: "2. taraf denetimi ile belgelendirme denetimi aynı şey midir?",
         cevap:
-          "Hayır. Belgelendirme (3. taraf) denetimi sonunda akredite bir sertifika düzenlenir. 2. taraf denetiminde ise amaç, tedarikçinizin veya iş ortağınızın sizin belirlediğiniz kriterlere uygunluğunu doğrulamaktır; sonucunda sertifika değil, ayrıntılı bir denetim raporu sunulur.",
+          "Hayır. Belgelendirme (3. taraf) denetimi sonunda bir sertifika düzenlenir. 2. taraf denetiminde ise amaç, tedarikçinizin veya iş ortağınızın sizin belirlediğiniz kriterlere uygunluğunu doğrulamaktır; sonucunda sertifika değil, ayrıntılı bir denetim raporu sunulur.",
       },
       {
         soru: "Tedarikçi denetimi ne kadar sürer?",

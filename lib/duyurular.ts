@@ -37,40 +37,11 @@ export const duyurular: Duyuru[] = [
     icerik:
       "Uluslararası Standardizasyon Örgütü (ISO), çevre yönetim sistemi standardının yeni sürümü olan **ISO 14001:2026**'yı **15 Nisan 2026** tarihinde yayımlamıştır. Yeni sürüm, 2015'ten bu yana yürürlükte olan ISO 14001:2015'in yerini almakta ve 2024 yılında yayımlanan iklim değişikliği tadilini de bünyesine dahil etmektedir.\n\n" +
       "**Geçiş süresi:** Yayım tarihinden itibaren **üç yıllık** bir geçiş süresi öngörülmüştür. Bu takvime göre ISO 14001:2015'e göre düzenlenmiş sertifikalar, geçiş süresinin sona ereceği **Nisan 2029** sonrasında geçerliliğini yitirecektir. Ayrıca geçiş sürecinin son 18 ayında ISO 14001:2015'e göre yeni ilk belgelendirme yapılmaması beklenmektedir; bu kapsamda 2015 sürümüne göre yeni belge düzenlenmesinin **2027 sonbaharında** sona ermesi öngörülmektedir.\n\n" +
-      "Geçiş takviminin bağlayıcı kaynağı, Uluslararası Akreditasyon Forumu (IAF) tarafından yayımlanan zorunlu geçiş dokümanı ve TÜRKAK'ın bu doğrultuda yayımlayacağı rehberdir. Takvime ilişkin kesinleşen ayrıntıları bu sayfadan duyurmaya devam edeceğiz.\n\n" +
+      "Geçiş takviminin bağlayıcı kaynağı, ISO tarafından yayımlanan standart metni ve ilgili uluslararası geçiş dokümanlarıdır. Takvime ilişkin kesinleşen ayrıntıları bu sayfadan duyurmaya devam edeceğiz.\n\n" +
       "**Neler değişti?** Yeni sürüm; kuruluş bağlamında iklim değişikliğinin yanı sıra biyoçeşitlilik, kirlilik ve doğal kaynak erişilebilirliği gibi çevresel koşulların da değerlendirilmesini, çevresel risk ve fırsatların ayrı bir madde altında ele alınmasını, değişikliklerin planlı biçimde yönetilmesini, yaşam döngüsü bakış açısının değer zinciri boyunca güçlendirilmesini ve operasyonel kontrolün dışarıdan sağlanan proses, ürün ve hizmetleri kapsayacak biçimde genişletilmesini getirmektedir. Ayrıntılı karşılaştırma için [ISO 14001:2026 nedir, ne değişti ve geçiş süreci nasıl işler](/blog/iso-14001-2026-degisiklikler-ve-gecis) yazımızı inceleyebilirsiniz.\n\n" +
-      "**Belgeli kuruluşlarımız için:** Geçiş tetkikleri, planlı gözetim veya yeniden belgelendirme tetkikleriyle birlikte ya da ayrı bir tetkik olarak gerçekleştirilebilir. Kuruluşumuz, akreditasyon kapsamının yeni sürümü içerecek biçimde güncellenmesinin ardından geçiş tetkiki planlamasına başlayacak ve belgeli kuruluşlarımızı ayrıca bilgilendirecektir. Akredite belgelendirme, ilgili akreditasyon kararının olumlu sonuçlanmasına bağlıdır.\n\n" +
+      "**Belgeli kuruluşlarımız için:** Geçiş tetkikleri, planlı gözetim veya yeniden belgelendirme tetkikleriyle birlikte ya da ayrı bir tetkik olarak gerçekleştirilebilir. Kuruluşumuz, belgelendirme kapsamının yeni sürümü içerecek biçimde güncellenmesinin ardından geçiş tetkiki planlamasına başlayacak ve belgeli kuruluşlarımızı ayrıca bilgilendirecektir.\n\n" +
       "Geçişe hazırlık, eğitim ihtiyacı veya belgelendirme başvurusu hakkındaki sorularınız için [ISO 14001 belgelendirme hizmetimizi](/hizmetler/iso-14001) inceleyebilir ya da [bizimle iletişime geçebilirsiniz](/iletisim).",
     ilgiliHizmetler: ["iso-14001", "sistem-belgelendirme"],
-  },
-  {
-    slug: "turkak-akreditasyonumuzu-aldik",
-    baslik: "TÜRKAK Akreditasyonumuzu Aldık",
-    tarih: "2026-06-18",
-    kategori: "Akreditasyon",
-    ozet:
-      "DVN Cert, TÜRKAK tarafından TS EN ISO/IEC 17021-1:2015 kapsamında akredite edilmiştir (Akreditasyon No: AB-0209-YS). ISO 9001, 14001, 45001 ve 50001 belgelendirme hizmetlerimiz artık akreditasyon kapsamındadır.",
-    icerik:
-      "DVN Cert olarak, Türk Akreditasyon Kurumu (TÜRKAK) tarafından **18 Haziran 2026** tarihinde, TS EN ISO/IEC 17021-1:2015 standardı kapsamında akredite edildiğimizi paylaşmaktan büyük mutluluk duyuyoruz.\n\n" +
-      "**AB-0209-YS** numaralı akreditasyonumuz; ISO 9001:2015 Kalite, ISO 14001:2015 Çevre, ISO 45001:2018 İş Sağlığı ve Güvenliği ve ISO 50001:2018 Enerji Yönetim Sistemleri belgelendirmelerini kapsamaktadır. Sertifikamız 18.06.2030 tarihine kadar geçerlidir.\n\n" +
-      "TÜRKAK, ISO/IEC 17021-1 alanında Avrupa Akreditasyon Birliği (EA) ve Uluslararası Akreditasyon Forumu (IAF) ile çok taraflı tanınırlık anlaşmalarına (MLA) taraftır. Bu sayede DVN Cert tarafından düzenlenen yönetim sistemi belgeleri uluslararası geçerlilik ve tanınırlık taşır.\n\n" +
-      "Akreditasyonumuzun resmi durumunu [TÜRKAK akredite kuruluş sorgulama](https://asist.turkak.org.tr/tr/accreditation/accreditationagencysearch) üzerinden; akreditasyon kapsamımızın ayrıntılarını ve sertifikamızın indirilebilir kopyasını ise [Akreditasyonumuz](/akreditasyonlarimiz) sayfasından inceleyebilirsiniz.\n\n" +
-      "Bu önemli aşamada emeği geçen tüm ekibimize ve bize güvenen paydaşlarımıza teşekkür ederiz.",
-    gorsel: "/gorseller/duyurular/turkak-akreditasyon.webp",
-    gorselAlt: "DVN Cert TÜRKAK akreditasyonu — TS EN ISO/IEC 17021-1:2015, Akreditasyon No AB-0209-YS",
-    ilgiliHizmetler: ["sistem-belgelendirme"],
-  },
-  {
-    slug: "yaniltici-akreditasyon-beyanlari-hakkinda",
-    baslik: "Yanıltıcı Akreditasyon Beyanları Hakkında",
-    tarih: "2026-01-30",
-    kategori: "Duyuru",
-    ozet:
-      "DVN Cert; akreditasyonu bulunmadığı halde usulsüz logo kullanan firmalara karşı dikkatli olunması gerektiğini hatırlatır ve belgelendirme süreçlerinde dürüstlük ilkesine bağlılığını vurgular.",
-    icerik:
-      "DVN Cert yönetimi, belgelendirme sektörünün güven ve uluslararası tanınırlık üzerine kurulu olduğunu vurgulayarak, şeffaflık ve etik ilkelere bağlılığını ifade etmektedir.\n\n" +
-      "Kuruluşumuz, akreditasyon ekosisteminde yer alan kurumların (IAS, TÜRKAK gibi) itibarını korumak amacıyla; akreditasyonu bulunmadığı halde usulsüz logo kullanımı yapan firmalara karşı dikkatli olunması gerektiğini hatırlatmaktadır.\n\n" +
-      "Bu kapsamda, International Accreditation Service (IAS) tarafından yayımlanan yanıltıcı akreditasyon beyanları listesinin sektörel farkındalık amacıyla paylaşıldığı belirtilmektedir. DVN Cert, belgelendirme süreçlerinde dürüstlük ilkesine bağlı kalınacağı ve sektördeki bilgi kirliliğinin önlenmesine katkı sağlanacağı taahhüdünde bulunmaktadır.",
   },
   {
     slug: "iso-9001-ic-denetci-egitimi",

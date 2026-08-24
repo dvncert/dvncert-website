@@ -19,7 +19,7 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
     {
       soru: "2. taraf denetimi ile 3. taraf denetimi arasındaki fark nedir?",
       cevap:
-        "2. taraf denetimi, bir kuruluşun kendi tedarikçisini veya iş ortağını, kendi belirlediği kriterlere göre denetlemesidir ve sertifika ile sonuçlanmaz. 3. taraf denetimi ise bağımsız ve akredite bir belgelendirme kuruluşunun standart şartlarına göre yaptığı, sertifika ile sonuçlanan denetimdir.",
+        "2. taraf denetimi, bir kuruluşun kendi tedarikçisini veya iş ortağını, kendi belirlediği kriterlere göre denetlemesidir ve sertifika ile sonuçlanmaz. 3. taraf denetimi ise bağımsız ve tarafsız bir belgelendirme kuruluşunun standart şartlarına göre yaptığı, sertifika ile sonuçlanan denetimdir.",
     },
     {
       soru: "İkinci taraf denetimi ile tedarikçi denetimi aynı şey mi?",
@@ -76,7 +76,7 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
     {
       soru: "ISO 14001:2026 geçiş süresi ne kadar?",
       cevap:
-        "Geçiş süresi, standardın yayımından itibaren üç yıl olarak öngörülmüştür. Bu takvime göre ISO 14001:2015'e göre düzenlenmiş sertifikalar Nisan 2029'da geçerliliğini yitirir. Geçiş kurallarının bağlayıcı kaynağı IAF'ın zorunlu geçiş dokümanı ve TÜRKAK'ın bu doğrultuda yayımlayacağı rehberdir.",
+        "Geçiş süresi, standardın yayımından itibaren üç yıl olarak öngörülmüştür. Bu takvime göre ISO 14001:2015'e göre düzenlenmiş sertifikalar Nisan 2029'da geçerliliğini yitirir. Geçiş kurallarının bağlayıcı kaynağı, ISO tarafından yayımlanan standart metni ve ilgili uluslararası geçiş dokümanlarıdır.",
     },
     {
       soru: "ISO 14001:2015 belgem geçiş süresi içinde geçerli mi?",
@@ -104,14 +104,9 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
     {
       soru: "ISO 9001 belgesinin gerçek olup olmadığı nasıl anlaşılır?",
       cevap:
-        "Belge, düzenleyen belgelendirme kuruluşunun sorgulama sistemi üzerinden teyit edilir. DVN Cert belgeleri sertifika sorgulama sayfasından sorgulanabilir. Akreditasyon kapsamındaki belgelerde ayrıca TÜRKAK Belge Doğrulama Sistemi (TBDS) karekodu bulunur ve karekod okutularak belge bilgileri görüntülenebilir.",
+        "Belge, düzenleyen belgelendirme kuruluşunun sorgulama sistemi üzerinden teyit edilir. DVN Cert belgeleri sertifika sorgulama sayfasından sorgulanabilir.",
     },
-    {
-      soru: "Akredite ISO 9001 belgesi ile akreditasyonsuz belge arasındaki fark nedir?",
-      cevap:
-        "Akredite belge, yetkinliği ulusal akreditasyon kurumu tarafından değerlendirilmiş bir belgelendirme kuruluşu tarafından düzenlenir ve akreditasyon markasını taşır. İhale, tedarikçi ön yeterlilik ve ihracat süreçlerinde genellikle akredite belge aranır.",
-    },
-  ],
+    ],
   "iso-45001-belgesi": [
     {
       soru: "ISO 45001 belgesi yasal İSG yükümlülüklerinin yerine geçer mi?",
@@ -197,14 +192,14 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
     {
       soru: "Belgelendirme kuruluşu KOBİ'ye sistemin kurulmasında yardımcı olabilir mi?",
       cevap:
-        "Hayır. ISO/IEC 17021-1 gereği akredite belgelendirme kuruluşları, belgelendirdikleri kuruluşlara yönetim sisteminin nasıl kurulacağına dair danışmanlık veremez. Sistemin kurulması kuruluşun sorumluluğundadır; belgelendirme kuruluşunun rolü bağımsız ve tarafsız tetkiktir.",
+        "Hayır. ISO/IEC 17021-1 gereği belgelendirme kuruluşları, belgelendirdikleri kuruluşlara yönetim sisteminin nasıl kurulacağına dair danışmanlık veremez. Sistemin kurulması kuruluşun sorumluluğundadır; belgelendirme kuruluşunun rolü bağımsız ve tarafsız tetkiktir.",
     },
   ],
   "iso-9001-belgelendirme-nedir-nasil-alinir": [
     {
       soru: "ISO 9001 belgesi nasıl alınır?",
       cevap:
-        "ISO 9001 belgesi; akredite bir belgelendirme kuruluşuna başvuru, Aşama 1 (doküman ve hazırlık incelemesi) ve Aşama 2 (yerinde belgelendirme denetimi) adımlarının ardından, tetkik ekibinden bağımsız bir belgelendirme kararıyla düzenlenir. Öncesinde kuruluşun kalite yönetim sistemini kurup uygulamaya alması gerekir.",
+        "ISO 9001 belgesi; bağımsız bir belgelendirme kuruluşuna başvuru, Aşama 1 (doküman ve hazırlık incelemesi) ve Aşama 2 (yerinde belgelendirme denetimi) adımlarının ardından, tetkik ekibinden bağımsız bir belgelendirme kararıyla düzenlenir. Öncesinde kuruluşun kalite yönetim sistemini kurup uygulamaya alması gerekir.",
     },
     {
       soru: "ISO 9001 belgesi almak için danışmanlık şart mı?",
