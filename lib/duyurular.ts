@@ -28,6 +28,22 @@ export type Duyuru = {
 
 export const duyurular: Duyuru[] = [
   {
+    slug: "akreditasyon-durumuna-iliskin-bilgilendirme",
+    baslik: "Akreditasyon Durumuna İlişkin Bilgilendirme",
+    tarih: "2026-08-25",
+    kategori: "Duyuru",
+    ozet:
+      "TÜRKAK'ın 21.08.2026 tarihli kararı doğrultusunda DVN CERT'in AB-0209-YS dosya numaralı akreditasyonu geri çekilmiştir. Aynı tarih itibarıyla TÜRKAK markasının kullanımı ve akreditasyona yönelik atıflar durdurulmuştur.",
+    icerik:
+      "Değerli Müşterilerimiz,\n\n" +
+      "Türk Akreditasyon Kurumu (TÜRKAK) tarafından alınan 21.08.2026 tarihli karar doğrultusunda, DVN CERT Belgelendirme Hizmetleri Ltd. Şti.'nin AB-0209-YS dosya numaralı akreditasyonu geri çekilmiştir.\n\n" +
+      "Bu kapsamda, 21.08.2026 tarihi itibarıyla TÜRKAK markasının kullanımı ve TÜRKAK akreditasyonuna yönelik atıflar durdurulmuştur.\n\n" +
+      "Mevcut belgelendirme süreçleri ve müşterilerimize ilişkin gerekli değerlendirmeler yürütülmekte olup, ihtiyaç olması halinde ilgili müşterilerimizle doğrudan iletişime geçilecektir.\n\n" +
+      "Sürece ilişkin güncel bilgilendirmeler resmi iletişim kanallarımız üzerinden paylaşılacaktır.\n\n" +
+      "DVN CERT Belgelendirme Hizmetleri Ltd. Şti.\n\n" +
+      "25.08.2026",
+  },
+  {
     slug: "iso-14001-2026-yayimlandi",
     baslik: "ISO 14001:2026 Yayımlandı — Geçiş Süreci Başladı",
     tarih: "2026-07-31",
