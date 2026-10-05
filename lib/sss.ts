@@ -18,7 +18,7 @@ export const sssSorular: SSSorusu[] = [
   {
     soru: "DVN Cert hangi yönetim sistemleri için belgelendirme hizmeti sunmaktadır?",
     cevap:
-      "DVN Cert olarak, kapsamımızdaki dört temel yönetim sistemi standardında belgelendirme hizmeti sunuyoruz: ISO 9001 (Kalite Yönetimi), ISO 14001 (Çevre Yönetimi), ISO 45001 (İş Sağlığı ve Güvenliği) ve ISO 50001 (Enerji Yönetimi). Bu standartlar, kuruluşunuzun operasyonel verimliliğini artırmasına ve sürdürülebilirlik hedeflerine ulaşmasına yardımcı olur. Ayrıca tedarikçi ve şube ağınıza yönelik ikinci taraf denetimleri ile yönetim sistemi eğitimleri de sağlıyoruz.",
+      "DVN Cert olarak, kapsamımızdaki dört temel yönetim sistemi standardında belgelendirme hizmeti sunuyoruz: ISO 9001 (Kalite Yönetimi), ISO 14001 (Çevre Yönetimi), ISO 45001 (İş Sağlığı ve Güvenliği) ve ISO 50001 (Enerji Yönetimi). Bu standartlar, kuruluşunuzun operasyonel verimliliğini artırmasına ve sürdürülebilirlik hedeflerine ulaşmasına yardımcı olur. Ayrıca tedarikçi denetimi, şube ve mağaza denetimi ile yönetim sistemi eğitimleri de sağlıyoruz.",
   },
   {
     soru: "Belgelendirme süreci ne kadar sürer ve hangi aşamalardan oluşur?",
@@ -48,7 +48,7 @@ export const sssSorular: SSSorusu[] = [
   {
     soru: "DVN Cert danışmanlık hizmeti de veriyor mu?",
     cevap:
-      "Hayır. Tarafsızlık ilkesi ve TS EN ISO/IEC 17021-1 gereği, belgelendirme kuruluşları belge verdikleri kuruluşlara yönetim sistemi danışmanlığı sunamaz. DVN Cert; belgelendirme, ikinci taraf denetim ve genel katılıma açık eğitim hizmetleri sağlar; sisteminizi kurma/işletme danışmanlığını ise bağımsız danışmanlardan almanız gerekir. Bu ayrım, belgenin bağımsızlığını ve güvenilirliğini korur.",
+      "Hayır. Tarafsızlık ilkesi ve TS EN ISO/IEC 17021-1 gereği, belgelendirme kuruluşları belge verdikleri kuruluşlara yönetim sistemi danışmanlığı sunamaz. DVN Cert; belgelendirme, tedarikçi ve şube denetimi ile genel katılıma açık eğitim hizmetleri sağlar; sisteminizi kurma/işletme danışmanlığını ise bağımsız danışmanlardan almanız gerekir. Bu ayrım, belgenin bağımsızlığını ve güvenilirliğini korur.",
   },
   {
     soru: "Belgelendirme kapsamı nasıl belirlenir?",

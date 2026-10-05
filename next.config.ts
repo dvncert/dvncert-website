@@ -37,7 +37,10 @@ const nextConfig: NextConfig = {
       { source: "/blog/turkak-akreditasyonu-nedir", destination: "/blog", permanent: true },
       { source: "/blog/akreditasyon-markasi-kullanimi", destination: "/blog", permanent: true },
       // Eski WordPress sitesinden kalan üst düzey hizmet URL'si → yeni /hizmetler yolu.
-      { source: "/2-taraf-denetimleri", destination: "/hizmetler/2-taraf-denetimleri", permanent: true },
+      { source: "/2-taraf-denetimleri", destination: "/hizmetler/tedarikci-denetimi", permanent: true },
+      // Tedarikçi denetimi URL'si "2. taraf" yerine aranan anahtar kelimeye taşındı.
+      { source: "/hizmetler/2-taraf-denetimleri", destination: "/hizmetler/tedarikci-denetimi", permanent: true },
+      { source: "/blog/2-taraf-denetimi-nedir", destination: "/blog/tedarikci-denetimi-nedir", permanent: true },
     ];
   },
 

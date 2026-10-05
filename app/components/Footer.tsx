@@ -72,7 +72,8 @@ export default function Footer() {
               <Link href="/hizmetler/iso-14001" style={{ fontSize: 12, color: "#94a3b8" }}>ISO 14001</Link>
               <Link href="/hizmetler/iso-45001" style={{ fontSize: 12, color: "#94a3b8" }}>ISO 45001</Link>
               <Link href="/hizmetler/iso-50001" style={{ fontSize: 12, color: "#94a3b8" }}>ISO 50001</Link>
-              <Link href="/hizmetler/2-taraf-denetimleri" style={{ fontSize: 12, color: "#94a3b8" }}>Tedarikçi Denetimi</Link>
+              <Link href="/hizmetler/tedarikci-denetimi" style={{ fontSize: 12, color: "#94a3b8" }}>Tedarikçi Denetimi</Link>
+              <Link href="/hizmetler/sube-denetimi" style={{ fontSize: 12, color: "#94a3b8" }}>Şube Denetimi</Link>
               <Link href="/egitimler" style={{ fontSize: 12, color: "#94a3b8" }}>Eğitimler</Link>
               <Link href="/belgelendirme-sureci" style={{ fontSize: 12, color: "#94a3b8" }}>Belgelendirme Süreci</Link>
             </div>

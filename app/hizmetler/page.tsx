@@ -10,14 +10,14 @@ import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 export const metadata: Metadata = {
   title: "Hizmetlerimiz",
   description:
-    "DVN Cert; ISO 9001, 14001, 45001, 50001 sistem belgelendirmesi, 2. taraf denetimleri ve yönetim sistemi eğitimleri sunar. Tüm belgelendirme hizmetlerimizi keşfedin.",
+    "DVN Cert; ISO 9001, 14001, 45001, 50001 sistem belgelendirmesi, tedarikçi ve şube denetimleri ile yönetim sistemi eğitimleri sunar. Tüm belgelendirme hizmetlerimizi keşfedin.",
   alternates: { canonical: `${siteConfig.url}/hizmetler` },
 };
 
 // Üst seviye hizmet kartları (Eğitimler ayrı bir sayfadır, manuel eklenir)
 const anaHizmetler = [
   { ...hizmetGetir("sistem-belgelendirme")!, href: "/hizmetler/sistem-belgelendirme" },
-  { ...hizmetGetir("2-taraf-denetimleri")!, href: "/hizmetler/2-taraf-denetimleri" },
+  { ...hizmetGetir("tedarikci-denetimi")!, href: "/hizmetler/tedarikci-denetimi" },
   {
     slug: "egitimler",
     baslik: "Eğitimler",
@@ -46,7 +46,7 @@ export default function HizmetlerSayfasi() {
       <SayfaBaslik
         etiket="HİZMETLERİMİZ"
         baslik="Belgelendirme Hizmetlerimiz"
-        aciklama="Yönetim sistemleri belgelendirmesinden 2. taraf denetimlerine ve eğitimlere kadar kuruluşunuza değer katan profesyonel çözümler."
+        aciklama="Yönetim sistemleri belgelendirmesinden tedarikçi ve şube denetimlerine, eğitimlere kadar kuruluşunuza değer katan profesyonel çözümler."
         kirintilar={[{ etiket: "Hizmetler" }]}
       />
 

@@ -262,7 +262,7 @@ export const blogYazilari: BlogYazisi[] = [
       "## Sertifikada sahaların gösterilmesi\n\n" +
       "Çok sahalı bir sertifikada, kapsama dahil edilen sahaların listesi genellikle sertifika ekinde veya belgelendirme kuruluşunun sertifika sorgu sisteminde yer alır. Örnekleme yoluyla denetlenen bir sahanın sertifikada yer alması, o sahanın münferiden ayrıca ve tam kapsamlı tetkik edildiği anlamına gelmez; sahanın merkezi yönetim sistemine dahil olduğu ve örnekleme kapsamında değerlendirildiği anlamına gelir.\n\n" +
       "## Çok sahalı belgelendirme ile şube denetimi arasındaki fark\n\n" +
-      "Çok sahalı belgelendirme, bağımsız bir belgelendirme kuruluşunun kendi şubelerinizi 3. taraf olarak denetleyip tek bir ISO sertifikası düzenlemesidir. Buna karşılık [şube ve mağaza denetimi](/hizmetler/sube-denetimi), markanızın kendi belirlediği kriterlerle şubelerinizi değerlendirdiği bir 2. taraf denetim hizmetidir ve sonucunda bir sertifika değil, ayrıntılı bir denetim raporu sunulur. İki yaklaşım farklı amaçlara hizmet eder ve birbirinin yerine geçmez.\n\n" +
+      "Çok sahalı belgelendirme, bağımsız bir belgelendirme kuruluşunun kendi şubelerinizi 3. taraf olarak denetleyip tek bir ISO sertifikası düzenlemesidir. Buna karşılık [şube ve mağaza denetimi](/hizmetler/sube-denetimi), markanızın kendi belirlediği kriterlerle şubelerinizi değerlendirdiği bir denetim hizmetidir ve sonucunda bir sertifika değil, ayrıntılı bir denetim raporu sunulur. İki yaklaşım farklı amaçlara hizmet eder ve birbirinin yerine geçmez.\n\n" +
       "Çok sahalı belgelendirmenin uygunluğu, sahalarınızın yapısına ve yönetim sisteminizin merkezi kontrol düzeyine bağlıdır. Kapsam ve örnekleme yaklaşımının değerlendirilmesi için [sistem belgelendirme hizmetimizi](/hizmetler/sistem-belgelendirme) inceleyebilir.",
     ilgiliHizmetler: ["sistem-belgelendirme", "sube-denetimi"],
   },
@@ -480,10 +480,10 @@ export const blogYazilari: BlogYazisi[] = [
       "- Düzeltici faaliyetlerin takibi\n\n" +
       "## Kimler katılmalı?\n\n" +
       "Yönetim temsilcileri, kalite/İSG/çevre sorumluları, süreç sahipleri ve iç tetkik ekibinde görev alacak tüm çalışanlar bu eğitimden yararlanır. İç tetkikçiler, kendi doğrudan sorumlu oldukları alanı tetkik etmeyecek şekilde görevlendirilerek tarafsızlık korunur.\n\n" +
-      "## İç tetkik ile 2. taraf denetiminin ilişkisi\n\n" +
-      "İç tetkikte kazanılan yetkinlik, tedarikçilerin denetlendiği 2. taraf (tedarikçi) denetimlerinde de temel oluşturur. Konu için [2. taraf denetimi nedir](/blog/2-taraf-denetimi-nedir) yazımıza bakabilirsiniz.\n\n" +
+      "## İç tetkik ile tedarikçi denetiminin ilişkisi\n\n" +
+      "İç tetkikte kazanılan yetkinlik, tedarikçi denetimlerinde de temel oluşturur. Konu için [tedarikçi denetimi nedir](/blog/tedarikci-denetimi-nedir) yazımıza bakabilirsiniz.\n\n" +
       "Genel katılıma açık iç tetkikçi ve tetkik eğitimlerimiz için [ISO 9001 iç tetkikçi eğitimi](/egitimler/iso-9001-ic-tetkikci-egitimi) ve [ISO 19011 tetkik eğitimi](/egitimler/iso-19011-tetkik-egitimi) sayfalarını inceleyebilirsiniz.",
-    ilgiliHizmetler: ["2-taraf-denetimleri"],
+    ilgiliHizmetler: ["tedarikci-denetimi"],
   },
   {
     slug: "iso-50001-belgelendirme-enerji-yonetim-sistemi",
@@ -533,10 +533,10 @@ export const blogYazilari: BlogYazisi[] = [
       "- BRCGS ve IFS Food (perakende zincirlerinin sık talep ettiği kriterler)\n" +
       "- Codex Alimentarius ilkeleri ve ulusal gıda mevzuatı\n\n" +
       "Bu denetimler, kuruluşunuzun belirlediği kriterler ve ilgili standartların gereklilikleri doğrultusunda yürütülür; sonucunda bir sertifika değil, ayrıntılı bir tedarikçi denetim raporu sunulur.\n\n" +
-      "## Gıda tedarik zincirinde 2. taraf denetiminin rolü\n\n" +
+      "## Gıda tedarik zincirinde tedarikçi denetiminin rolü\n\n" +
       "Beyana veya yalnızca belgeye dayanmak gıdada yeterli değildir; üretim koşullarının yerinde gözlemlenmesi gerekir. Risk temelli bir yaklaşımla kritik tedarikçileri daha sık denetlemek, tedarik zinciri güvenliğini sürdürmenin en etkili yoludur.\n\n" +
-      "Gıda tedarikçilerinizi bağımsız değerlendirmek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri) inceleyebilir; denetim başlıklarının tamamı için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımıza bakabilirsiniz.",
-    ilgiliHizmetler: ["2-taraf-denetimleri"],
+      "Gıda tedarikçilerinizi bağımsız değerlendirmek için [tedarikçi denetimi hizmetimizi](/hizmetler/tedarikci-denetimi) inceleyebilir; denetim başlıklarının tamamı için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımıza bakabilirsiniz.",
+    ilgiliHizmetler: ["tedarikci-denetimi"],
   },
   {
     slug: "tekstil-tedarikci-denetimi",
@@ -568,8 +568,8 @@ export const blogYazilari: BlogYazisi[] = [
       "Bu denetimler, alıcı/müşteri kriterleri ve ilgili standartların gereklilikleri doğrultusunda yürütülür; çıktı bir tedarikçi denetim raporudur.\n\n" +
       "## Tekstil tedarik zincirinde denetimin rolü\n\n" +
       "Tekstilde üretim çoğunlukla geniş bir fason ağına yayılır; bu da her halkanın bağımsız denetimini zorunlu kılar. Düzenli denetim, hem kalite tutarlılığını hem de sosyal uygunluğu güvence altına alır.\n\n" +
-      "Tekstil tedarikçilerinizi değerlendirmek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri); denetim başlıkları için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımızı inceleyebilirsiniz.",
-    ilgiliHizmetler: ["2-taraf-denetimleri"],
+      "Tekstil tedarikçilerinizi değerlendirmek için [tedarikçi denetimi hizmetimizi](/hizmetler/tedarikci-denetimi); denetim başlıkları için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımızı inceleyebilirsiniz.",
+    ilgiliHizmetler: ["tedarikci-denetimi"],
   },
   {
     slug: "otomotiv-tedarikci-denetimi",
@@ -594,37 +594,46 @@ export const blogYazilari: BlogYazisi[] = [
       "- İzlenebilirlik, hata izolasyonu ve uygunsuz ürün yönetimi\n" +
       "- Ölçüm sistemleri analizi (MSA) ve kalibrasyon\n\n" +
       "Bu denetimler, müşteri/OEM gereklilikleri ve ilgili otomotiv standartlarının kriterleri doğrultusunda yürütülür; sonucunda ayrıntılı bir tedarikçi denetim raporu sunulur.\n\n" +
-      "## Otomotiv tedarik zincirinde 2. taraf denetiminin rolü\n\n" +
+      "## Otomotiv tedarik zincirinde tedarikçi denetiminin rolü\n\n" +
       "Otomotivde tek bir hatalı parti, geri çağırma ve ciddi maliyetlere yol açabilir. Risk temelli ve düzenli tedarikçi denetimleri; sorunları seri üretime ulaşmadan önce tespit ederek tedarik zincirinin güvenilirliğini korur.\n\n" +
-      "Otomotiv tedarikçilerinizi değerlendirmek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri); süreç ayrıntıları için [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımızı inceleyebilirsiniz.",
-    ilgiliHizmetler: ["2-taraf-denetimleri"],
+      "Otomotiv tedarikçilerinizi değerlendirmek için [tedarikçi denetimi hizmetimizi](/hizmetler/tedarikci-denetimi); süreç ayrıntıları için [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımızı inceleyebilirsiniz.",
+    ilgiliHizmetler: ["tedarikci-denetimi"],
   },
   {
-    slug: "2-taraf-denetimi-nedir",
-    baslik: "2. Taraf Denetimi Nedir? 1., 2. ve 3. Taraf Denetim Farkları",
+    slug: "tedarikci-denetimi-nedir",
+    baslik: "Tedarikçi Denetimi Nedir? Neden, Ne Zaman ve Nasıl Yapılır?",
     ozet:
-      "2. taraf denetimi (tedarikçi denetimi), bir kuruluşun tedarikçilerini ve iş ortaklarını değerlendirmesidir. 1., 2. ve 3. taraf denetim arasındaki farkları ve ne zaman hangisinin gerektiğini açıklıyoruz.",
+      "Tedarikçi denetimi, bir kuruluşun tedarikçilerini, fason üreticilerini ve alt yüklenicilerini yerinde değerlendirmesidir. Amacını, hangi durumlarda yapıldığını, iç denetim ve belgelendirme denetiminden farkını açıklıyoruz.",
     tarih: "2026-06-12",
     kategori: "Denetim",
     icerik:
-      "Denetimler, kimin kimi değerlendirdiğine göre üç temel türe ayrılır: 1. taraf (iç denetim), 2. taraf (tedarikçi denetimi) ve 3. taraf (belgelendirme denetimi). Bu ayrımı bilmek, hangi durumda hangi denetime ihtiyaç duyduğunuzu doğru belirlemenizi sağlar.\n\n" +
-      "## 1. taraf denetimi (iç denetim) nedir?\n\n" +
-      "1. taraf denetimi, bir kuruluşun kendi yönetim sistemini, süreçlerini ve uygulamalarını kendi adına değerlendirdiği iç denetimdir. Amaç, standartlara ve iç prosedürlere uyumu kuruluşun kendisinin doğrulaması ve iyileştirme fırsatlarını görmesidir. ISO belgelendirmesi öncesinde yapılan iç tetkik bunun tipik bir örneğidir.\n\n" +
-      "## 2. taraf denetimi (tedarikçi denetimi) nedir?\n\n" +
-      "2. taraf denetimi (ikinci taraf denetimi), bir kuruluşun kendi tedarikçilerini, alt yüklenicilerini veya iş ortaklarını; belirlenen standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından değerlendirmesidir. Müşteri konumundaki kuruluş adına yürütülür ve uygulamada çoğunlukla \"tedarikçi denetimi\" olarak anılır. Sonucunda sertifika değil, ayrıntılı bir denetim raporu sunulur.\n\n" +
-      "## 3. taraf denetimi (belgelendirme denetimi) nedir?\n\n" +
-      "3. taraf denetimi, bağımsız ve tarafsız bir belgelendirme kuruluşunun yaptığı denetimdir. Örneğin ISO 9001 belgelendirmesi için yapılan denetim bir 3. taraf denetimidir ve başarıyla tamamlandığında uluslararası geçerli bir sertifika düzenlenir. Denetimi yapan taraf, denetlenen kuruluştan ve onun müşterilerinden bağımsızdır.\n\n" +
-      "## 1., 2. ve 3. taraf denetim arasındaki farklar\n\n" +
-      "- 1. taraf: Kuruluş kendi sistemini denetler (iç denetim). Çıktı: iç iyileştirme.\n" +
-      "- 2. taraf: Kuruluş tedarikçisini/iş ortağını denetler (tedarikçi denetimi). Çıktı: denetim raporu.\n" +
-      "- 3. taraf: Bağımsız belgelendirme kuruluşu denetler (belgelendirme). Çıktı: sertifika.\n\n" +
-      "## 2. taraf denetimi hangi durumlarda yapılır?\n\n" +
+      "Satın aldığınız her hammadde, parça ve hizmet, sizin ürününüzün ve itibarınızın bir parçasıdır. Tedarikçi denetimi, bu zincirdeki halkaların beklediğiniz kalitede ve şartlarda çalışıp çalışmadığını yerinde doğrulamanın en güvenilir yoludur.\n\n" +
+      "## Tedarikçi denetimi nedir?\n\n" +
+      "Tedarikçi denetimi; bir kuruluşun mal veya hizmet aldığı tedarikçilerini, fason üreticilerini, alt yüklenicilerini ve iş ortaklarını belirlenen standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından değerlendirmesidir. Denetim, müşteri konumundaki kuruluş adına yürütülür; denetim literatüründe 2. taraf denetimi olarak da geçer. Sonucunda sertifika değil, bulguları ve iyileştirme önerilerini içeren ayrıntılı bir tedarikçi denetim raporu sunulur.\n\n" +
+      "## Tedarikçi denetimi neden yapılır?\n\n" +
+      "- Tedarikçi kaynaklı kalite sorunlarını, ürün geri çağırmalarını ve müşteri şikâyetlerini önlemek\n" +
+      "- Tedarikçi seçimi ve onayını beyana değil, yerinde kanıta dayandırmak\n" +
+      "- Sözleşme ve tedarikçi şartnamesi yükümlülüklerinin yerine getirildiğini doğrulamak\n" +
+      "- Çevre, iş sağlığı ve güvenliği ile yasal uyum risklerini tedarik zincirinde de yönetmek\n" +
+      "- ISO 9001 madde 8.4 gibi dış kaynaklı süreçlerin kontrolüne ilişkin şartları karşılamak\n\n" +
+      "## Tedarikçi denetimi hangi durumlarda yapılır?\n\n" +
       "- Yeni bir tedarikçi seçimi ve onayı öncesinde\n" +
-      "- Mevcut tedarikçilerin performansını periyodik olarak izlemek için\n" +
-      "- Yeni bir sözleşme veya iş birliği başlamadan önce\n" +
+      "- Kritik tedarikçilerin performansını periyodik olarak izlemek için\n" +
+      "- Kalite şikâyeti, iade veya tekrarlayan uygunsuzluk sonrasında\n" +
+      "- Yeni bir ürün, sözleşme veya iş birliği başlamadan önce\n" +
       "- Tedarik zincirinde kalite, çevre, İSG veya sektörel risklerin yönetilmesi gerektiğinde\n\n" +
-      "2. taraf denetiminin adım adım nasıl yürütüldüğünü [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımızda anlattık. Tedarikçilerinizi bağımsız bir gözle değerlendirmek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri); kendi şube, bayi ve franchise ağınız için ise [şube ve mağaza denetimi](/hizmetler/sube-denetimi) hizmetimizi inceleyebilirsiniz.",
-    ilgiliHizmetler: ["2-taraf-denetimleri", "sube-denetimi"],
+      "## Tedarikçi denetiminde neler değerlendirilir?\n\n" +
+      "Kapsam, tedarikçinin sizin için ne ürettiğine göre belirlenir. Tipik başlıklar; kalite yönetimi ve kalite kontrol uygulamaları, üretim ve proses kontrolü, izlenebilirlik, ölçüm ekipmanlarının kalibrasyonu, uygun olmayan ürün yönetimi, depolama ve sevkiyat, iş sağlığı ve güvenliği, çevre ve yasal uyumdur. Başlıkların ayrıntısını [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımızda bulabilirsiniz.\n\n" +
+      "## İç denetim, tedarikçi denetimi ve belgelendirme denetimi farkı\n\n" +
+      "Denetimler, kimin kimi değerlendirdiğine göre üç türe ayrılır:\n\n" +
+      "- İç denetim (1. taraf): Kuruluş kendi sistemini denetler. Çıktı: iç iyileştirme.\n" +
+      "- Tedarikçi denetimi (2. taraf): Kuruluş tedarikçisini veya iş ortağını denetler. Çıktı: denetim raporu.\n" +
+      "- Belgelendirme denetimi (3. taraf): Bağımsız bir belgelendirme kuruluşu denetler. Çıktı: sertifika.\n\n" +
+      "Tedarikçinizin ISO 9001 belgesine sahip olması, onun yönetim sisteminin standarda uygun olduğunu gösterir; ancak sizin ürününüze özel şartlarınızı karşıladığını garanti etmez. Bu nedenle kritik tedarikçilerde belgelendirme denetimi, tedarikçi denetiminin yerini tutmaz.\n\n" +
+      "## Tedarikçi denetimini kim yapmalı?\n\n" +
+      "Denetim, satın alma veya kalite ekibiniz tarafından yapılabileceği gibi bağımsız bir denetim kuruluşuna da yaptırılabilir. Bağımsız denetim; ticari ilişkiden kaynaklanan önyargıyı ortadan kaldırır, farklı tedarikçiler arasında aynı ölçütlerle karşılaştırma yapılmasını sağlar ve iç kaynaklarınızın yükünü azaltır.\n\n" +
+      "Tedarikçi denetiminin adım adım nasıl yürütüldüğünü [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımızda anlattık. Tedarikçilerinizi bağımsız bir gözle değerlendirmek için [tedarikçi denetimi hizmetimizi](/hizmetler/tedarikci-denetimi); kendi şube, bayi ve franchise ağınız için ise [şube ve mağaza denetimi](/hizmetler/sube-denetimi) hizmetimizi inceleyebilirsiniz.",
+    ilgiliHizmetler: ["tedarikci-denetimi", "sube-denetimi"],
   },
   {
     slug: "tedarikci-denetimi-nasil-yapilir",
@@ -649,8 +658,8 @@ export const blogYazilari: BlogYazisi[] = [
       "Tedarikçi, tespit edilen uygunsuzluklar için bir düzeltici faaliyet planı sunar. Bu faaliyetlerin uygulanıp uygulanmadığı izlenir; gerektiğinde doğrulama amacıyla takip denetimi yapılır.\n\n" +
       "## Yerinde mi, uzaktan mı?\n\n" +
       "Doküman incelemesi ve görüşmeler uzaktan (online) yürütülebilir; ancak üretim ve saha koşullarının gözlemlenmesi gereken durumlarda yerinde denetim önerilir. Çoğu zaman ikisini birleştiren karma bir yaklaşım uygulanır.\n\n" +
-      "Denetimde değerlendirilen başlıkların ayrıntısı için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımıza bakabilir; profesyonel destek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri) inceleyebilirsiniz.",
-    ilgiliHizmetler: ["2-taraf-denetimleri"],
+      "Denetimde değerlendirilen başlıkların ayrıntısı için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımıza bakabilir; profesyonel destek için [tedarikçi denetimi hizmetimizi](/hizmetler/tedarikci-denetimi) inceleyebilirsiniz.",
+    ilgiliHizmetler: ["tedarikci-denetimi"],
   },
   {
     slug: "tedarikci-denetimi-kontrol-listesi",
@@ -687,8 +696,8 @@ export const blogYazilari: BlogYazisi[] = [
       "- Alt tedarikçilerin kontrol ve değerlendirme durumu\n\n" +
       "## Kontrol listesi nasıl puanlanır?\n\n" +
       "Her başlık genellikle \"uygun / kısmen uygun / uygun değil\" veya sayısal bir puanla değerlendirilir. Bulgular önem derecelerine (kritik / majör / minör) göre sınıflandırılır. Böylece tedarikçiler karşılaştırılabilir ve önceliklendirilmiş bir iyileştirme planı oluşturulabilir.\n\n" +
-      "Bu başlıkların hangi adımlarla sahada değerlendirildiğini [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımızda bulabilirsiniz. Kapsamlı bir denetim için [tedarikçi denetimi (2. taraf denetimi) hizmetimizden](/hizmetler/2-taraf-denetimleri) yararlanabilirsiniz.",
-    ilgiliHizmetler: ["2-taraf-denetimleri"],
+      "Bu başlıkların hangi adımlarla sahada değerlendirildiğini [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımızda bulabilirsiniz. Kapsamlı bir denetim için [tedarikçi denetimi hizmetimizden](/hizmetler/tedarikci-denetimi) yararlanabilirsiniz.",
+    ilgiliHizmetler: ["tedarikci-denetimi"],
   },
   {
     slug: "tedarikci-degerlendirme-kriterleri",
@@ -713,8 +722,8 @@ export const blogYazilari: BlogYazisi[] = [
       "## Performans izleme (onay sonrası)\n\n" +
       "Onaylı tedarikçilerin performansı; kalite, teslim ve uygunsuzluk verileriyle düzenli olarak izlenir. Belirli aralıklarla yapılan periyodik denetimler, tedarikçinin zaman içinde standartlarını koruduğunu teyit eder.\n\n" +
       "## Tedarikçi denetiminin değerlendirmedeki rolü\n\n" +
-      "Tedarikçi değerlendirmesi büyük ölçüde verilere ve beyana dayanır; bağımsız bir denetim ise bu verileri yerinde kanıtla doğrular. Bu nedenle [tedarikçi denetimi (2. taraf denetimi)](/hizmetler/2-taraf-denetimleri), sağlam bir tedarikçi değerlendirme sürecinin en güçlü bileşenidir. Denetimde kullanılan başlıklar için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımıza, tedarik zinciri riskleri için [tedarik zinciri risk yönetimi](/blog/tedarik-zinciri-risk-yonetimi) yazımıza bakabilirsiniz.",
-    ilgiliHizmetler: ["2-taraf-denetimleri"],
+      "Tedarikçi değerlendirmesi büyük ölçüde verilere ve beyana dayanır; bağımsız bir denetim ise bu verileri yerinde kanıtla doğrular. Bu nedenle [tedarikçi denetimi](/hizmetler/tedarikci-denetimi), sağlam bir tedarikçi değerlendirme sürecinin en güçlü bileşenidir. Denetimde kullanılan başlıklar için [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımıza, tedarik zinciri riskleri için [tedarik zinciri risk yönetimi](/blog/tedarik-zinciri-risk-yonetimi) yazımıza bakabilirsiniz.",
+    ilgiliHizmetler: ["tedarikci-denetimi"],
   },
   {
     slug: "sube-magaza-denetimi-rehberi",
@@ -748,14 +757,67 @@ export const blogYazilari: BlogYazisi[] = [
       "- Sapmaların ve risklerin erken tespiti\n" +
       "- Şubeler arası karşılaştırılabilir performans verisi\n" +
       "- Müşteri memnuniyeti ve marka itibarının korunması\n\n" +
-      "Şubelerinizi bağımsız bir gözle değerlendirmek için [şube ve mağaza denetimi hizmetimizi](/hizmetler/sube-denetimi); tedarikçilerinizi denetlemek için [tedarikçi denetimi (2. taraf denetimi) hizmetimizi](/hizmetler/2-taraf-denetimleri) inceleyebilirsiniz.",
-    ilgiliHizmetler: ["sube-denetimi", "2-taraf-denetimleri"],
+      "Şubelerinizi bağımsız bir gözle değerlendirmek için [şube ve mağaza denetimi hizmetimizi](/hizmetler/sube-denetimi); tedarikçilerinizi denetlemek için [tedarikçi denetimi hizmetimizi](/hizmetler/tedarikci-denetimi) inceleyebilirsiniz.",
+    ilgiliHizmetler: ["sube-denetimi", "tedarikci-denetimi"],
+  },
+  {
+    slug: "sube-denetimi-kontrol-listesi",
+    baslik: "Şube Denetimi Kontrol Listesi: Mağaza Denetim Formunda Olması Gerekenler",
+    ozet:
+      "Etkili bir şube denetimi, iyi hazırlanmış bir kontrol listesiyle başlar. Mağaza denetim formunda yer alması gereken başlıkları, puanlama yaklaşımını ve formu hazırlarken dikkat edilmesi gerekenleri açıklıyoruz.",
+    tarih: "2026-10-05",
+    kategori: "Denetim",
+    icerik:
+      "Şube denetiminin değeri, kullanılan kontrol listesinin kalitesiyle doğrudan ilişkilidir. Her denetçinin aynı soruları aynı ölçütlerle sorduğu bir şube denetim formu; şubeler arasında karşılaştırılabilir veri üretir ve iyileştirme önceliklerini netleştirir.\n\n" +
+      "## Şube denetimi kontrol listesi nedir?\n\n" +
+      "Şube denetimi kontrol listesi (mağaza denetim formu), bir zincir işletmenin şubelerinde marka standartlarına, operasyonel prosedürlere, hijyen ve güvenlik kurallarına uyumun hangi sorularla ve hangi ölçütlerle değerlendirileceğini tanımlayan yapılandırılmış formdur. Her madde için uygun / kısmen uygun / uygun değil gibi bir değerlendirme ve gerektiğinde fotoğraflı kanıt kaydedilir.\n\n" +
+      "## 1. Dış görünüm ve mağaza girişi\n\n" +
+      "- Tabela, vitrin ve cephe temizliği, aydınlatmanın çalışır durumda olması\n" +
+      "- Çalışma saatleri ve zorunlu bilgilendirmelerin görünür olması\n" +
+      "- Giriş alanının, otoparkın ve engelli erişiminin düzeni\n\n" +
+      "## 2. Mağaza düzeni ve görsel marka uyumu\n\n" +
+      "- Planograma ve görsel düzen (merchandising) standartlarına uyum\n" +
+      "- Kampanya ve tanıtım materyallerinin güncel ve doğru yerde olması\n" +
+      "- Fiyat etiketlerinin eksiksiz ve kasadaki fiyatla tutarlı olması\n" +
+      "- Reyonların dolu, düzenli ve temiz olması\n\n" +
+      "## 3. Hijyen ve gıda güvenliği\n\n" +
+      "- Satış alanı, depo, mutfak ve tuvaletlerin temizliği; temizlik çizelgelerinin güncelliği\n" +
+      "- Soğuk zincir ve sıcaklık kayıtları\n" +
+      "- Son kullanma tarihi geçmiş ürün kontrolü ve ilk giren ilk çıkar uygulaması\n" +
+      "- Haşere kontrolü kayıtları ve personel hijyeni\n\n" +
+      "## 4. Stok, depo ve kasa işlemleri\n\n" +
+      "- Depo düzeni, ürünlerin yerden yüksekte ve etiketli saklanması\n" +
+      "- Stok sayım farkları ve fire kayıtları\n" +
+      "- Kasa açılış-kapanış prosedürleri, iade ve indirim yetkileri\n\n" +
+      "## 5. İş sağlığı ve güvenliği\n\n" +
+      "- Yangın tüplerinin yeri, dolum tarihleri ve acil çıkışların açık olması\n" +
+      "- İlk yardım malzemeleri ve acil durum planları\n" +
+      "- Elektrik panoları, istifleme ve kayma-düşme riskleri\n" +
+      "- Personelin İSG eğitim kayıtları\n\n" +
+      "## 6. Personel ve müşteri deneyimi\n\n" +
+      "- Kıyafet ve kişisel görünüm standartları\n" +
+      "- Müşteriyi karşılama, yönlendirme ve satış sonrası iletişim\n" +
+      "- Şikâyet yönetimi ve müşteri geri bildirim kayıtları\n\n" +
+      "## 7. Yasal ve idari gereklilikler\n\n" +
+      "- İşyeri açma ve çalışma ruhsatı ile zorunlu belgelerin geçerliliği\n" +
+      "- Fiyat ve tüketici mevzuatına ilişkin zorunlu bilgilendirmeler\n" +
+      "- Merkezden gönderilen talimat ve duyuruların uygulanması\n\n" +
+      "## Puanlama nasıl yapılmalı?\n\n" +
+      "Tüm maddeleri eşit ağırlıkta puanlamak yanıltıcı olabilir. Gıda güvenliği veya yangın güvenliği gibi kritik maddeler daha yüksek ağırlıkla puanlanmalı, hatta tek başına \"kritik uygunsuzluk\" olarak işaretlenebilmelidir. Şube puanı genellikle 100 üzerinden hesaplanır ve şubeler bölge, format veya dönem bazında karşılaştırılır.\n\n" +
+      "## Kontrol listesi hazırlarken dikkat edilmesi gerekenler\n\n" +
+      "- Maddeler gözlemlenebilir ve ölçülebilir olmalı; yoruma açık ifadelerden kaçınılmalı\n" +
+      "- Liste markanın gerçek standartlarından türetilmeli, genel şablonlar olduğu gibi kullanılmamalı\n" +
+      "- Her uygunsuzluk için fotoğraf ve açıklama kaydı zorunlu tutulmalı\n" +
+      "- Liste, sektör ve format farklılıklarına göre (cadde mağazası, AVM, istasyon) uyarlanmalı\n" +
+      "- Yılda en az bir kez gözden geçirilip güncellenmeli\n\n" +
+      "Şube denetiminin nasıl planlandığını ve gizli müşteriden farkını [şube ve mağaza denetimi rehberi](/blog/sube-magaza-denetimi-rehberi) yazımızda anlattık. Markanıza özel kontrol listesiyle şubelerinizi bağımsız bir gözle değerlendirmek için [şube ve mağaza denetimi hizmetimizi](/hizmetler/sube-denetimi) inceleyebilirsiniz.",
+    ilgiliHizmetler: ["sube-denetimi", "tedarikci-denetimi"],
   },
   {
     slug: "tedarik-zinciri-risk-yonetimi",
     baslik: "Tedarik Zinciri Risk Yönetimi ve Denetimin Rolü",
     ozet:
-      "Tedarik zinciri riskleri işletmenin sürekliliğini doğrudan etkiler. Başlıca riskleri, risk temelli bir yaklaşımı ve 2. taraf (tedarikçi) denetiminin riskleri yönetmedeki rolünü ele alıyoruz.",
+      "Tedarik zinciri riskleri işletmenin sürekliliğini doğrudan etkiler. Başlıca riskleri, risk temelli bir yaklaşımı ve tedarikçi denetiminin riskleri yönetmedeki rolünü ele alıyoruz.",
     tarih: "2026-05-24",
     kategori: "Denetim",
     icerik:
@@ -767,14 +829,14 @@ export const blogYazilari: BlogYazisi[] = [
       "- Süreklilik riskleri: teslim gecikmeleri, kapasite ve finansal sorunlar\n" +
       "- Uygunluk riskleri: yasal, çevresel ve sosyal gerekliliklere uymama\n" +
       "- İtibar riskleri: tedarikçi kaynaklı etik veya çevresel sorunlar\n\n" +
-      "## Riskleri yönetmede 2. taraf denetiminin rolü\n\n" +
-      "Tedarikçi beyanları tek başına güvence sağlamaz. Bağımsız bir [tedarikçi denetimi (2. taraf denetimi)](/hizmetler/2-taraf-denetimleri); riskleri yerinde, kanıta dayalı biçimde değerlendirir ve henüz sorun yaşanmadan önlem alınmasını sağlar. Bu yönüyle denetim, risk yönetiminin önleyici bir aracıdır.\n\n" +
+      "## Riskleri yönetmede tedarikçi denetiminin rolü\n\n" +
+      "Tedarikçi beyanları tek başına güvence sağlamaz. Bağımsız bir [tedarikçi denetimi](/hizmetler/tedarikci-denetimi); riskleri yerinde, kanıta dayalı biçimde değerlendirir ve henüz sorun yaşanmadan önlem alınmasını sağlar. Bu yönüyle denetim, risk yönetiminin önleyici bir aracıdır.\n\n" +
       "## Risk temelli tedarikçi denetimi yaklaşımı\n\n" +
       "Tüm tedarikçileri aynı sıklıkta denetlemek verimli değildir. Risk temelli yaklaşımda; kritik, yüksek hacimli veya geçmişinde uygunsuzluk bulunan tedarikçiler daha sık ve derinlemesine denetlenir. Denetim sıklığı ve kapsamı, tedarikçinin risk seviyesine göre belirlenir.\n\n" +
       "## Tedarik zinciri sürekliliği\n\n" +
       "Düzenli denetim ve performans izleme; tedarikçilerin standartlarını korumasını teşvik eder, sorunların erken çözülmesini sağlar ve tedarik zincirinin kesintisiz işlemesine katkıda bulunur.\n\n" +
       "Tedarikçi seçim ve izleme sürecinin tamamı için [tedarikçi değerlendirme kriterleri](/blog/tedarikci-degerlendirme-kriterleri) yazımıza; denetimin nasıl yürütüldüğü için [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımıza bakabilirsiniz.",
-    ilgiliHizmetler: ["2-taraf-denetimleri"],
+    ilgiliHizmetler: ["tedarikci-denetimi"],
   },
   {
     slug: "entegre-yonetim-sistemi-nedir",
@@ -796,7 +858,7 @@ export const blogYazilari: BlogYazisi[] = [
       "- Departmanlar arası tutarlılık ve daha güçlü kurum kültürü\n" +
       "- Risklerin bütünsel olarak ele alınması\n\n" +
       "## Hangi standartlar entegre edilebilir?\n\n" +
-      "En yaygın entegrasyon ISO 9001, ISO 14001 ve ISO 45001 üçlüsüdür. Enerji yoğun kuruluşlar buna ISO 50001 enerji yönetim sistemini de ekleyebilir. DVN Cert, bu standartlarda belgelendirme, ikinci taraf denetim ve eğitim süreçlerini açık kriterlerle yürütür.\n\n" +
+      "En yaygın entegrasyon ISO 9001, ISO 14001 ve ISO 45001 üçlüsüdür. Enerji yoğun kuruluşlar buna ISO 50001 enerji yönetim sistemini de ekleyebilir. DVN Cert, bu standartlarda belgelendirme, tedarikçi ve şube denetimi ile eğitim süreçlerini açık kriterlerle yürütür.\n\n" +
       "Entegre belgelendirme süreci, ayrı ayrı belgelendirmeye kıyasla zaman ve kaynak tasarrufu sağlar. Kuruluşunuzun mevcut yönetim sistemlerini tek çatı altında değerlendirmek için belgelendirme hizmetlerimizi inceleyebilirsiniz.",
     ilgiliHizmetler: ["sistem-belgelendirme", "iso-9001", "iso-14001", "iso-45001"],
   },

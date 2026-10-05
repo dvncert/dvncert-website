@@ -12,7 +12,7 @@ export const siteConfig = {
   aciklamaKisa:
     "ISO 9001, 14001, 45001 ve 50001 yönetim sistemleri için bağımsız, tarafsız ve izlenebilir belgelendirme, denetim ve eğitim süreçleri.",
   aciklamaUzun:
-    "DVN Cert, bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşudur. ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri için belgelendirme, ikinci taraf denetim ve eğitim süreçlerini açık kriterler, izlenebilir kayıtlar ve yetkin denetçi kadrosu ile yürütür.",
+    "DVN Cert, bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşudur. ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri için belgelendirme, tedarikçi ve şube denetimi ile eğitim süreçlerini açık kriterler, izlenebilir kayıtlar ve yetkin denetçi kadrosu ile yürütür.",
 
   // URL ve dil
   url: "https://dvncert.com",
@@ -44,7 +44,9 @@ export const siteConfig = {
     "ISO 45001 belgelendirme",
     "ISO 50001 belgelendirme",
     "yönetim sistemi belgelendirme",
-    "2. taraf denetimi",
+    "tedarikçi denetimi",
+    "şube denetimi",
+    "mağaza denetimi",
     "iç denetçi eğitimi",
     "belgelendirme kuruluşu İstanbul",
     "DVN Cert",

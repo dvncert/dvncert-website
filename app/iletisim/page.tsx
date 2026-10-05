@@ -71,7 +71,7 @@ export default function IletisimSayfasi() {
       <SayfaBaslik
         etiket="İLETİŞİM"
         baslik="Bize Ulaşın"
-        aciklama="Belgelendirme, 2. taraf denetimi ve eğitim talepleriniz için ekibimiz size yardımcı olmaktan memnuniyet duyar."
+        aciklama="Belgelendirme, tedarikçi ve şube denetimi ile eğitim talepleriniz için ekibimiz size yardımcı olmaktan memnuniyet duyar."
         kirintilar={[{ etiket: "İletişim" }]}
       />
 

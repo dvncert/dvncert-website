@@ -560,7 +560,7 @@ export const egitimler: Egitim[] = [
     kisaAciklama: "Yönetim sistemi türünden bağımsız; ISO 19011:2018 tetkik prensipleri, programı ve metodolojisini kazandıran eğitim.",
     giris:
       "ISO 19011 Tetkik Eğitimi, herhangi bir yönetim sistemi standardının tetkikinde geçerli olan ortak tetkik prensiplerini, tetkik programı yönetimini ve tetkik faaliyetlerini kazandırır. ISO 9001, 14001, 45001 ve 50001 dâhil tüm yönetim sistemlerinin tetkikinde uygulanabilir.\n\n" +
-      "Genel katılıma açık bu program; iç tetkikçi ve baş denetçi eğitimlerinin metodolojik temelini oluşturur. Tetkikin uygulamada nasıl işlediğine dair [2. taraf denetimi nedir](/blog/2-taraf-denetimi-nedir) yazımız da tamamlayıcıdır.",
+      "Genel katılıma açık bu program; iç tetkikçi ve baş denetçi eğitimlerinin metodolojik temelini oluşturur. Tetkikin uygulamada nasıl işlediğine dair [tedarikçi denetimi nedir](/blog/tedarikci-denetimi-nedir) yazımız da tamamlayıcıdır.",
     kazanimlar: [
       "ISO 19011 tetkik prensiplerini açıklayabilme",
       "Tetkik programı oluşturma ve yönetme",
@@ -584,7 +584,7 @@ export const egitimler: Egitim[] = [
     ],
     ilgiliHizmet: "sistem-belgelendirme",
     ilgiliEgitimler: ["iso-9001-ic-tetkikci-egitimi", "iso-9001-bas-denetci-egitimi", "entegre-yonetim-sistemi-egitimi"],
-    ilgiliBloglar: ["2-taraf-denetimi-nedir", "belgelendirme-denetimine-hazirlik"],
+    ilgiliBloglar: ["tedarikci-denetimi-nedir", "belgelendirme-denetimine-hazirlik"],
   },
 
   // ===================== Entegre YS =====================

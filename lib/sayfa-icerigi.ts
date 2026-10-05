@@ -118,7 +118,7 @@ function hizmetAlanlari(h: Hizmet): Alan[] {
 }
 
 const hizmetSayfaTanimlari: Record<string, SayfaIcerikTanim> = Object.fromEntries(
-  (["sistem-belgelendirme", "2-taraf-denetimleri"] as const)
+  (["sistem-belgelendirme", "tedarikci-denetimi"] as const)
     .map((slug) => hizmetGetir(slug))
     .filter((h): h is Hizmet => Boolean(h))
     .map((h) => [`/hizmetler/${h.slug}`, { ad: h.baslik, alanlar: hizmetAlanlari(h) }]),

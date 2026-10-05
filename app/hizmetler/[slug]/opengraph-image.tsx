@@ -2,7 +2,7 @@ import { hizmetOgGorseli, OG_BOYUT, OG_CONTENT_TYPE } from "@/lib/og-sablon";
 
 /**
  * Hizmet detayına özel dinamik OG görseli (başlık + standart/kategori gömülü).
- * Dinamik /hizmetler/[slug] rotasını (2-taraf, şube, sistem-belgelendirme) kapsar;
+ * Dinamik /hizmetler/[slug] rotasını (tedarikçi, şube, sistem-belgelendirme) kapsar;
  * ISO rotalarının kendi opengraph-image dosyaları vardır.
  */
 

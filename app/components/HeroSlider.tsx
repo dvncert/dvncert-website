@@ -15,7 +15,7 @@ type Slayt = {
 
 const slaytlar: Slayt[] = [
   {
-    eyebrow: "ISO belgelendirme, ikinci taraf denetim ve eğitim",
+    eyebrow: "ISO belgelendirme, tedarikçi denetimi ve eğitim",
     baslikBas: "Belgelendirme sürecinizi ",
     baslikVurgu: "açık, izlenebilir",
     baslikSon: " ve ölçülü yönetin",
@@ -24,13 +24,13 @@ const slaytlar: Slayt[] = [
     cta: { etiket: "Başvuru Yap", href: "https://dbys.dvncert.com/basvuru", disHref: true },
   },
   {
-    eyebrow: "İkinci taraf denetimleri",
+    eyebrow: "Tedarikçi ve şube denetimleri",
     baslikBas: "Tedarikçi ve şube ağınızı ",
     baslikVurgu: "bağımsız bir gözle",
     baslikSon: " değerlendirin",
     aciklama:
       "Tedarikçi, şube ve operasyon denetimlerinde kurumunuza özel kontrol kriterleriyle saha değerlendirmesi yapar; riskleri kanıta dayalı raporlarız.",
-    cta: { etiket: "Denetim hizmetini incele", href: "/hizmetler/2-taraf-denetimleri" },
+    cta: { etiket: "Denetim hizmetini incele", href: "/hizmetler/tedarikci-denetimi" },
   },
   {
     eyebrow: "Eğitim hizmetleri",

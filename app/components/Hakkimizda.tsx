@@ -121,7 +121,7 @@ export default function Hakkimizda() {
             </h3>
             <p style={{ fontSize: 12.5, color: "#9aa5b1", margin: "0 0 22px", lineHeight: 1.6 }}>
               DVN Cert; ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri için belgelendirme,
-              ikinci taraf denetim ve eğitim hizmetlerini açık kriterler ve izlenebilir kayıtlarla yürütür.
+              tedarikçi ve şube denetimi ile eğitim hizmetlerini açık kriterler ve izlenebilir kayıtlarla yürütür.
             </p>
 
             <div style={{ display: "grid", gap: 10 }}>

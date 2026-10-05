@@ -15,21 +15,26 @@ export type BlogSSSorusu = { soru: string; cevap: string };
 
 export const blogSSS: Record<string, BlogSSSorusu[]> = {
   // ---------- Taraf denetimleri kümesi ----------
-  "2-taraf-denetimi-nedir": [
+  "tedarikci-denetimi-nedir": [
     {
-      soru: "2. taraf denetimi ile 3. taraf denetimi arasındaki fark nedir?",
+      soru: "Tedarikçi denetimi ile belgelendirme denetimi arasındaki fark nedir?",
       cevap:
-        "2. taraf denetimi, bir kuruluşun kendi tedarikçisini veya iş ortağını, kendi belirlediği kriterlere göre denetlemesidir ve sertifika ile sonuçlanmaz. 3. taraf denetimi ise bağımsız ve tarafsız bir belgelendirme kuruluşunun standart şartlarına göre yaptığı, sertifika ile sonuçlanan denetimdir.",
+        "Tedarikçi denetimi, bir kuruluşun kendi tedarikçisini veya iş ortağını kendi belirlediği kriterlere göre denetlemesidir ve sertifika ile sonuçlanmaz. Belgelendirme denetimi ise bağımsız ve tarafsız bir belgelendirme kuruluşunun standart şartlarına göre yaptığı, sertifika ile sonuçlanan denetimdir.",
     },
     {
-      soru: "İkinci taraf denetimi ile tedarikçi denetimi aynı şey mi?",
+      soru: "Tedarikçi denetimi ile 2. taraf denetimi aynı şey mi?",
       cevap:
-        "Pratikte evet. Tedarikçi denetimi, ikinci taraf denetiminin en yaygın uygulamasıdır; kuruluşun mal veya hizmet aldığı tedarikçileri değerlendirmesini ifade eder. İkinci taraf denetimi ayrıca fason üretici, bayi ve şube denetimlerini de kapsayan daha geniş bir şemsiye terimdir.",
+        "Evet. Tedarikçi denetimi, denetim literatüründe 2. taraf (ikinci taraf) denetimi olarak geçer; kuruluşun mal veya hizmet aldığı tedarikçileri değerlendirmesini ifade eder. Aynı yaklaşım fason üretici, bayi ve şube denetimlerinde de uygulanır.",
     },
     {
-      soru: "2. taraf denetimi sonunda sertifika verilir mi?",
+      soru: "ISO belgesi olan tedarikçinin ayrıca denetlenmesi gerekir mi?",
       cevap:
-        "Hayır. 2. taraf denetimi bir belgelendirme faaliyeti değildir; sonucunda ISO sertifikası düzenlenmez. Denetim, bulguları ve iyileştirme önerilerini içeren bir rapor ile sonuçlanır; bu rapor tedarikçi ilişkisinin yönetiminde kullanılır.",
+        "Kritik tedarikçilerde çoğu zaman evet. ISO belgesi tedarikçinin yönetim sisteminin standarda uygun olduğunu gösterir; ancak sizin ürününüze ve sözleşmenize özgü şartları karşıladığını garanti etmez. Tedarikçi denetimi bu özel şartları yerinde doğrular.",
+    },
+    {
+      soru: "Tedarikçi denetimi sonunda sertifika verilir mi?",
+      cevap:
+        "Hayır. Tedarikçi denetimi bir belgelendirme faaliyeti değildir; sonucunda ISO sertifikası düzenlenmez. Denetim, bulguları ve iyileştirme önerilerini içeren bir rapor ile sonuçlanır; bu rapor tedarikçi onayı ve performans değerlendirmesinde kullanılır.",
     },
   ],
   "tedarikci-denetimi-nasil-yapilir": [
@@ -64,6 +69,23 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
       soru: "Şube denetiminde neler değerlendirilir?",
       cevap:
         "Marka ve hizmet standartlarına uyum, hijyen ve temizlik, ürün/stok yönetimi, görsel düzen (merchandising), personel uygulamaları, iş sağlığı ve güvenliği ile müşteri deneyimi tipik değerlendirme başlıklarıdır. Kriterler, işletmeye özel bir kontrol listesiyle önceden belirlenir.",
+    },
+  ],
+  "sube-denetimi-kontrol-listesi": [
+    {
+      soru: "Şube denetimi kontrol listesinde hangi başlıklar olmalı?",
+      cevap:
+        "Dış görünüm ve giriş, mağaza düzeni ve görsel marka uyumu, hijyen ve gıda güvenliği, stok-depo ve kasa işlemleri, iş sağlığı ve güvenliği, personel ve müşteri deneyimi ile yasal-idari gereklilikler temel başlıklardır. Liste, markanın kendi standartlarına göre özelleştirilmelidir.",
+    },
+    {
+      soru: "Mağaza denetim formu nasıl puanlanır?",
+      cevap:
+        "Maddeler genellikle uygun / kısmen uygun / uygun değil şeklinde değerlendirilir ve 100 üzerinden şube puanı hesaplanır. Gıda güvenliği veya yangın güvenliği gibi kritik maddelere daha yüksek ağırlık verilmesi, hatta tek başına kritik uygunsuzluk sayılması önerilir.",
+    },
+    {
+      soru: "Şube denetim formu ne sıklıkla güncellenmeli?",
+      cevap:
+        "Kontrol listesi en az yılda bir kez ve marka standartlarında, mevzuatta veya mağaza formatlarında değişiklik olduğunda gözden geçirilmelidir. Güncelleme sonrasında puanların önceki dönemlerle karşılaştırılabilirliği de dikkate alınmalıdır.",
     },
   ],
   // ---------- ISO belgelendirme kümesi ----------

@@ -91,10 +91,10 @@ const hizmetlerMenu: {
   },
   {
     baslik: "Denetim Hizmetleri",
-    href: "/hizmetler/2-taraf-denetimleri",
+    href: "/hizmetler/tedarikci-denetimi",
     ikon: "denetim",
     alt: [
-      { baslik: "Tedarikçi Denetimi (2. Taraf)", href: "/hizmetler/2-taraf-denetimleri" },
+      { baslik: "Tedarikçi Denetimi", href: "/hizmetler/tedarikci-denetimi" },
       { baslik: "Şube ve Mağaza Denetimi", href: "/hizmetler/sube-denetimi" },
     ],
   },
