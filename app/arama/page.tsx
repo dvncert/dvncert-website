@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import SayfaBaslik from "../components/SayfaBaslik";
 import AramaIcerik from "../components/AramaIcerik";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Arama",
   description: "DVN Cert sitesinde hizmet, duyuru ve sayfalar arasında arama yapın.",
   // Arama sonuç sayfaları indekslenmez (ince/yinelenen içerik önlemi).
   robots: { index: false, follow: true },
-  alternates: { canonical: "https://dvncert.com/arama" },
+  alternates: { canonical: `${siteConfig.url}/arama` },
 };
 
 export default function AramaSayfasi() {

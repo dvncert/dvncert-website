@@ -88,6 +88,28 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
         "Kontrol listesi en az yılda bir kez ve marka standartlarında, mevzuatta veya mağaza formatlarında değişiklik olduğunda gözden geçirilmelidir. Güncelleme sonrasında puanların önceki dönemlerle karşılaştırılabilirliği de dikkate alınmalıdır.",
     },
   ],
+  "vda-6-3-nedir": [
+    {
+      soru: "VDA 6.3 nedir?",
+      cevap:
+        "VDA 6.3, Alman Otomotiv Sanayii Birliği (VDA) tarafından yayımlanan proses denetimi standardıdır. Ürün geliştirmeden seri üretime ve müşteri hizmetlerine kadar prosesleri standart bir soru kataloğu ve puanlama sistemiyle risk temelli olarak değerlendirir.",
+    },
+    {
+      soru: "VDA 6.3 ile IATF 16949 arasındaki fark nedir?",
+      cevap:
+        "IATF 16949 otomotiv kalite yönetim sistemi standardıdır ve belgelendirme ile sonuçlanır. VDA 6.3 ise bir proses denetimi yöntemidir; sonucunda sertifika değil, puanlı bir rapor ve A/B/C sınıflandırması çıkar. Pek çok OEM, IATF 16949'un gerektirdiği üretim prosesi denetimlerinin VDA 6.3 yöntemiyle yapılmasını ister.",
+    },
+    {
+      soru: "VDA 6.3 denetiminde A, B ve C ne anlama gelir?",
+      cevap:
+        "Toplam uygunluk %90 ve üzerindeyse A (uygun), %80 ile %90 arasındaysa B (koşullu uygun), %80'in altındaysa C (uygun değil) olarak sınıflandırılır. Tek tek soruların veya süreç elemanlarının düşük puan alması, toplam puandan bağımsız olarak sınıflandırmayı düşürebilir.",
+    },
+    {
+      soru: "VDA 6.3 hangi süreç elemanlarından oluşur?",
+      cevap:
+        "P1 potansiyel analizi, P2 proje yönetimi, P3 ürün ve proses geliştirmenin planlanması, P4 ürün ve proses geliştirmenin gerçekleştirilmesi, P5 tedarikçi yönetimi, P6 proses analizi/üretim ve P7 müşteri desteği, müşteri memnuniyeti ve servis olmak üzere yedi süreç elemanından oluşur.",
+    },
+  ],
   // ---------- ISO belgelendirme kümesi ----------
   "iso-14001-2026-degisiklikler-ve-gecis": [
     {

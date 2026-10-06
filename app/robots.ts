@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 
 /**
  * Robots.txt - Arama motorlarına yönlendirme.
- * Erişim: https://dvncert.com/robots.txt
+ * Erişim: https://www.dvncert.com/robots.txt
  */
 
 export default function robots(): MetadataRoute.Robots {

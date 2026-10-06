@@ -585,7 +585,7 @@ export const blogYazilari: BlogYazisi[] = [
       "## IATF 16949 ve otomotiv kalite zinciri\n\n" +
       "IATF 16949, otomotiv sektörünün kalite yönetim sistemi standardıdır ve tedarikçi geliştirme ile alt tedarikçi yönetimini açıkça şart koşar. Tedarikçi denetimleri, bu zincirdeki gerekliliklerin alt halkalara kadar aktarıldığını doğrular.\n\n" +
       "## VDA 6.3 proses denetimi nedir?\n\n" +
-      "VDA 6.3, Alman otomotiv endüstrisinin geliştirdiği bir proses denetimi yöntemidir. Ürünün geliştirilmesinden seri üretime kadar her aşamadaki prosesleri risk temelli olarak değerlendirir ve tedarikçi denetimlerinde yaygın bir referanstır.\n\n" +
+      "VDA 6.3, Alman otomotiv endüstrisinin geliştirdiği bir proses denetimi yöntemidir. Ürünün geliştirilmesinden seri üretime kadar her aşamadaki prosesleri risk temelli olarak değerlendirir ve tedarikçi denetimlerinde yaygın bir referanstır. Süreç elemanları, puanlama sistemi ve IATF 16949 ile farkı için [VDA 6.3 nedir](/blog/vda-6-3-nedir) yazımıza bakabilirsiniz.\n\n" +
       "## Denetimde değerlendirilen başlıklar\n\n" +
       "- APQP (ileri ürün kalite planlaması) ve proje yönetimi\n" +
       "- PPAP (üretim parçası onay prosesi) dokümantasyonu\n" +
@@ -597,6 +597,54 @@ export const blogYazilari: BlogYazisi[] = [
       "## Otomotiv tedarik zincirinde tedarikçi denetiminin rolü\n\n" +
       "Otomotivde tek bir hatalı parti, geri çağırma ve ciddi maliyetlere yol açabilir. Risk temelli ve düzenli tedarikçi denetimleri; sorunları seri üretime ulaşmadan önce tespit ederek tedarik zincirinin güvenilirliğini korur.\n\n" +
       "Otomotiv tedarikçilerinizi değerlendirmek için [tedarikçi denetimi hizmetimizi](/hizmetler/tedarikci-denetimi); süreç ayrıntıları için [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir) yazımızı inceleyebilirsiniz.",
+    ilgiliHizmetler: ["tedarikci-denetimi"],
+  },
+  {
+    slug: "vda-6-3-nedir",
+    baslik: "VDA 6.3 Nedir? Proses Denetimi, Soru Kataloğu ve IATF 16949 Farkı",
+    ozet:
+      "VDA 6.3, Alman otomotiv endüstrisinin proses denetimi standardıdır. Kapsadığı süreç elemanlarını (P1–P7), puanlama ve A/B/C sınıflandırmasını, IATF 16949 ile farkını ve tedarikçi denetimlerinde nasıl kullanıldığını açıklıyoruz.",
+    tarih: "2026-10-06",
+    kategori: "Denetim",
+    icerik:
+      "Otomotiv tedarik zincirinde bir tedarikçinin \"kaliteli parça üretip üretemeyeceği\" sorusu, yalnızca kalite yönetim sistemine bakılarak cevaplanamaz. Bu soruya proses düzeyinde cevap arayan yöntemlerin başında VDA 6.3 gelir.\n\n" +
+      "## VDA 6.3 nedir?\n\n" +
+      "VDA 6.3, Alman Otomotiv Sanayii Birliği (VDA – Verband der Automobilindustrie) tarafından yayımlanan proses denetimi standardıdır. Ürünün geliştirilmesinden seri üretime ve müşteri hizmetlerine kadar tüm ürün yaşam döngüsündeki prosesleri, standart bir soru kataloğu ve puanlama sistemiyle risk temelli olarak değerlendirir. Güncel sürümü 2023 yılında yayımlanmıştır.\n\n" +
+      "VDA 6.3'ün amacı bir yönetim sistemini belgelendirmek değil; belirli bir ürün veya ürün grubu için proseslerin gerçekten yeterli, kararlı ve hatasız ürün üretebilecek durumda olup olmadığını ortaya koymaktır.\n\n" +
+      "## VDA 6.3 denetimi nerelerde kullanılır?\n\n" +
+      "- Otomotiv ana sanayisinin (OEM) ve Tier 1 tedarikçilerin alt tedarikçilerini değerlendirdiği tedarikçi denetimlerinde\n" +
+      "- Yeni tedarikçi seçimi öncesinde potansiyel analizi olarak\n" +
+      "- Kuruluşun kendi üretim proseslerini değerlendirdiği iç proses denetimlerinde\n" +
+      "- Kalite sorunları sonrasında kök neden ve proses yeterliliği incelemelerinde\n\n" +
+      "## VDA 6.3 süreç elemanları (P1–P7)\n\n" +
+      "Soru kataloğu, ürün yaşam döngüsünü izleyen yedi süreç elemanına ayrılır:\n\n" +
+      "- P1 – Potansiyel analizi: Yeni bir tedarikçinin veya lokasyonun proje öncesi yeterliliğinin değerlendirilmesi\n" +
+      "- P2 – Proje yönetimi: Proje organizasyonu, kaynak planlaması, değişiklik ve risk yönetimi\n" +
+      "- P3 – Ürün ve proses geliştirmenin planlanması: Gereksinimlerin belirlenmesi, fizibilite ve geliştirme planları\n" +
+      "- P4 – Ürün ve proses geliştirmenin gerçekleştirilmesi: FMEA, kontrol planları, numune ve onay süreçleri\n" +
+      "- P5 – Tedarikçi yönetimi: Alt tedarikçilerin seçimi, onayı, izlenmesi ve geliştirilmesi\n" +
+      "- P6 – Proses analizi / üretim: Girdiler, iş içeriği, destek prosesleri, malzeme ve insan kaynağı, proses etkinliği ve çıktılar\n" +
+      "- P7 – Müşteri desteği, müşteri memnuniyeti ve servis: Şikâyet yönetimi, saha hataları ve müşteri gereksinimlerinin karşılanması\n\n" +
+      "Seri üretimdeki bir tedarikçinin denetiminde ağırlık genellikle P5, P6 ve P7'dedir; yeni proje süreçlerinde ise P2–P4 öne çıkar.\n\n" +
+      "## VDA 6.3 puanlama ve A/B/C sınıflandırması\n\n" +
+      "Her soru, kanıtlanan uygunluk düzeyine göre 0, 4, 6, 8 veya 10 puan üzerinden değerlendirilir. Soru puanlarından süreç elemanlarının ve toplam denetimin uygunluk yüzdesi hesaplanır ve sonuç üç sınıfa ayrılır:\n\n" +
+      "- A – Uygun: Toplam uygunluk %90 ve üzeri\n" +
+      "- B – Koşullu uygun: %80 ile %90 arası\n" +
+      "- C – Uygun değil: %80'in altı\n\n" +
+      "Toplam puan yüksek olsa bile tek tek soruların veya süreç elemanlarının belirli eşiklerin altında kalması, sınıflandırmayı düşüren kurallara bağlanmıştır. Bu sayede tek bir kritik zayıflık, iyi bir ortalamanın arkasına saklanamaz. Yıldızla işaretli kritik sorular da özel olarak değerlendirilir.\n\n" +
+      "## VDA 6.3 ile IATF 16949 arasındaki fark\n\n" +
+      "- IATF 16949, otomotiv sektörünün kalite yönetim sistemi standardıdır; uygunluğu, IATF tarafından tanınan belgelendirme kuruluşlarının yaptığı denetimle belgelendirilir.\n" +
+      "- VDA 6.3 ise bir proses denetimi yöntemidir; sonucunda sertifika değil, puanlı bir denetim raporu ve sınıflandırma çıkar. Çoğunlukla müşterinin tedarikçisini değerlendirdiği tedarikçi denetimlerinde ve iç denetimlerde kullanılır.\n" +
+      "- İki yaklaşım birbirini tamamlar: IATF 16949 üretim prosesi denetimlerini şart koşar ve pek çok OEM, müşteriye özgü şartlarında bu denetimlerin VDA 6.3 yöntemiyle yapılmasını ister.\n\n" +
+      "Kısaca IATF 16949 \"sistem var mı ve işliyor mu?\" sorusuna, VDA 6.3 ise \"bu ürün için prosesler yeterli ve kararlı mı?\" sorusuna odaklanır.\n\n" +
+      "## VDA 6.3 denetimine nasıl hazırlanılır?\n\n" +
+      "- Denetlenecek ürün, proses ve süreç elemanlarını müşteriyle birlikte netleştirin\n" +
+      "- FMEA, kontrol planı, proses akış şeması ve iş talimatlarının güncel ve birbiriyle tutarlı olduğundan emin olun\n" +
+      "- Proses yeterlilik (Cpk), ölçüm sistemi analizi (MSA) ve hata kayıtlarını hazır bulundurun\n" +
+      "- Alt tedarikçi değerlendirme ve onay kayıtlarınızı gözden geçirin (P5)\n" +
+      "- Müşteri şikâyetleri ve 8D raporlarının kapanış durumunu kontrol edin (P7)\n" +
+      "- Soru kataloğunu kullanarak bir iç ön denetim yapın ve düşük puan beklenen alanları önceden iyileştirin\n\n" +
+      "Otomotiv tedarikçi denetiminin genel çerçevesini [otomotiv tedarikçi denetimi](/blog/otomotiv-tedarikci-denetimi) yazımızda ele aldık. Tedarikçilerinizi kendi kriterleriniz ve müşteri şartlarınız doğrultusunda bağımsız bir gözle değerlendirmek için [tedarikçi denetimi hizmetimizi](/hizmetler/tedarikci-denetimi) inceleyebilirsiniz.",
     ilgiliHizmetler: ["tedarikci-denetimi"],
   },
   {

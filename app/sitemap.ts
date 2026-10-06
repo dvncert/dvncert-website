@@ -11,7 +11,7 @@ import { blogKategorileri } from "@/lib/icerik";
 /**
  * Otomatik sitemap üretimi.
  * Google bu dosyayı tarayarak tüm sayfaları indeksler.
- * Erişim: https://dvncert.com/sitemap.xml
+ * Erişim: https://www.dvncert.com/sitemap.xml
  *
  * Sabit sayfalar elle; hizmet ve duyuru detayları lib verisinden otomatik
  * üretilir — yeni hizmet/duyuru eklendiğinde sitemap kendiliğinden güncellenir.

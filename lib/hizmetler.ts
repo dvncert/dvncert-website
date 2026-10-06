@@ -181,7 +181,7 @@ export const hizmetler: Hizmet[] = [
     slug: "tedarikci-denetimi",
     kategori: "Denetim",
     baslik: "Tedarikçi Denetimi",
-    seoTitle: "Tedarikçi Denetimi Hizmeti – Bağımsız Yerinde Tedarikçi Değerlendirme",
+    seoTitle: "Tedarikçi Denetimi Hizmeti",
     seoAciklama:
       "Bağımsız tedarikçi denetimi hizmeti: tedarikçi, fason üretici ve alt yüklenicilerinizi kalite, çevre, İSG ve sözleşme şartlarına göre yerinde denetliyor, ayrıntılı tedarikçi denetim raporu sunuyoruz.",
     kisaAciklama:
@@ -266,7 +266,7 @@ export const hizmetler: Hizmet[] = [
     slug: "sube-denetimi",
     kategori: "Denetim",
     baslik: "Şube ve Mağaza Denetimi",
-    seoTitle: "Şube Denetimi Hizmeti – Mağaza, Bayi ve Franchise Denetimi",
+    seoTitle: "Şube ve Mağaza Denetimi Hizmeti",
     seoAciklama:
       "Zincir işletmeler, bayi ve franchise ağları için bağımsız şube denetimi ve mağaza denetimi: marka standartları, hijyen, İSG ve operasyonel kurallara uyumu yerinde denetliyor, puanlı ve fotoğraflı rapor sunuyoruz.",
     kisaAciklama:

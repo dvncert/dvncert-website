@@ -9,6 +9,7 @@
  */
 
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site-config";
 
 export type IsoKart = { baslik: string; metin: string };
 
@@ -468,7 +469,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
 
 export function isoMeta(slug: string): Metadata {
   const v = isoIcerikler[slug];
-  const url = `https://dvncert.com/hizmetler/${slug}`;
+  const url = `${siteConfig.url}/hizmetler/${slug}`;
   return {
     title: v.metaTitle,
     description: v.metaDescription,

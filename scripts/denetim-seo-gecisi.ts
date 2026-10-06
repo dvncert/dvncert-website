@@ -8,7 +8,8 @@
  *  - diğer tüm yazılarda eski hizmet/blog linklerini ve anchor metinlerini
  *    hedefli metin değişimiyle günceller (admin düzenlemeleri korunur),
  *  - ilgiliHizmetler içindeki "2-taraf-denetimleri" slug'ını yeniler,
- *  - yeni "sube-denetimi-kontrol-listesi" yazısını ekler (varsa dokunmaz).
+ *  - yeni yazıları ("sube-denetimi-kontrol-listesi", "vda-6-3-nedir") ekler
+ *    (varsa dokunmaz).
  *
  * Varsayılan KURU ÇALIŞMA: yalnızca neyin değişeceğini listeler.
  * Uygulamak için: `npx tsx scripts/denetim-seo-gecisi.ts --uygula`
@@ -19,7 +20,7 @@ config({ path: ".env.local" });
 
 const ESKI_SLUG = "2-taraf-denetimi-nedir";
 const YENI_SLUG = "tedarikci-denetimi-nedir";
-const YENI_YAZI = "sube-denetimi-kontrol-listesi";
+const YENI_YAZILAR = ["sube-denetimi-kontrol-listesi", "vda-6-3-nedir"];
 
 const degisimler: [string, string][] = [
   ["/hizmetler/2-taraf-denetimleri", "/hizmetler/tedarikci-denetimi"],
@@ -43,6 +44,10 @@ const degisimler: [string, string][] = [
   [
     "şubelerinizi değerlendirdiği bir 2. taraf denetim hizmetidir",
     "şubelerinizi değerlendirdiği bir denetim hizmetidir",
+  ],
+  [
+    "risk temelli olarak değerlendirir ve tedarikçi denetimlerinde yaygın bir referanstır.\n\n",
+    "risk temelli olarak değerlendirir ve tedarikçi denetimlerinde yaygın bir referanstır. Süreç elemanları, puanlama sistemi ve IATF 16949 ile farkı için [VDA 6.3 nedir](/blog/vda-6-3-nedir) yazımıza bakabilirsiniz.\n\n",
   ],
   [
     "DVN Cert, bu standartlarda belgelendirme, ikinci taraf denetim ve eğitim süreçlerini",
@@ -99,9 +104,10 @@ async function main() {
     }
   }
 
-  if (!slugSet.has(YENI_YAZI)) {
-    const b = blogYazilari.find((x) => x.slug === YENI_YAZI)!;
-    console.log(`+ ${YENI_YAZI}`);
+  for (const slug of YENI_YAZILAR) {
+    if (slugSet.has(slug)) continue;
+    const b = blogYazilari.find((x) => x.slug === slug)!;
+    console.log(`+ ${slug}`);
     if (yaz) {
       await db
         .insert(blogTbl)

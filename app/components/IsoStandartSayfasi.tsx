@@ -8,6 +8,7 @@ import { schemaScript, faqSchema } from "@/lib/seo-schemas";
 import { isoTumStandartlar } from "@/lib/iso-icerik";
 import { isoIcerikGetirDB } from "@/lib/sayfa-icerigi";
 import { egitimlerByStandart } from "@/lib/egitimler";
+import { siteConfig } from "@/lib/site-config";
 
 /**
  * ISO yönetim sistemi standartları için ortak sayfa düzeni.
@@ -161,19 +162,19 @@ export default async function IsoStandartSayfasi({ slug }: { slug: string }) {
     "@type": "Service",
     name: `${stdKod} ${veri.sistemAdiBuyuk} Belgelendirmesi`,
     description: `${stdKod} ${sistem.i} belgelendirmesi için başvuru, denetim ve belge durumu süreçleri.`,
-    provider: { "@type": "Organization", name: "DVN Cert Belgelendirme", url: "https://dvncert.com" },
+    provider: { "@type": "Organization", name: "DVN Cert Belgelendirme", url: siteConfig.url },
     serviceType: "Sistem Belgelendirme",
     areaServed: { "@type": "Country", name: "Türkiye" },
-    url: `https://dvncert.com/hizmetler/${slug}`,
+    url: `${siteConfig.url}/hizmetler/${slug}`,
   };
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://dvncert.com" },
-      { "@type": "ListItem", position: 2, name: "Hizmetler", item: "https://dvncert.com/hizmetler" },
-      { "@type": "ListItem", position: 3, name: hizmet.baslik, item: `https://dvncert.com/hizmetler/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Hizmetler", item: `${siteConfig.url}/hizmetler` },
+      { "@type": "ListItem", position: 3, name: hizmet.baslik, item: `${siteConfig.url}/hizmetler/${slug}` },
     ],
   };
 

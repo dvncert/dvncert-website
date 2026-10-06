@@ -15,7 +15,7 @@ export const siteConfig = {
     "DVN Cert, bağımsız ve tarafsız bir uygunluk değerlendirme kuruluşudur. ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 yönetim sistemleri için belgelendirme, tedarikçi ve şube denetimi ile eğitim süreçlerini açık kriterler, izlenebilir kayıtlar ve yetkin denetçi kadrosu ile yürütür.",
 
   // URL ve dil
-  url: "https://dvncert.com",
+  url: "https://www.dvncert.com",
   dbysUrl: "https://dbys.dvncert.com",
   dil: "tr-TR",
   bolge: "TR",
