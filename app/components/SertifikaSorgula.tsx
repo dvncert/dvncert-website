@@ -1,8 +1,10 @@
 import Link from "next/link";
+import SertifikaNoFormu from "./SertifikaNoFormu";
 
 /**
  * Ana sayfa "Sertifika Doğrulama" modülü.
- * Belge geçerliliği, belge doğrulama talebi formu üzerinden teyit edilir.
+ * Eğitim sertifikaları numara ile anında doğrulanır; ISO belgeleri için
+ * /sertifika-sorgula sayfasındaki doğrulama talebi formuna yönlendirilir.
  */
 export default function SertifikaSorgula() {
   return (
@@ -25,20 +27,16 @@ export default function SertifikaSorgula() {
             Sertifikanın geçerliliğini <span className="dvn-altin-vurgu">anında doğrulayın</span>
           </h2>
           <p className="dvn-sorgu-aciklama">
-            DVN Cert tarafından düzenlenen belgelerin güncel durumunu — geçerli, askıda veya iptal —
-            belge doğrulama talebi formumuz üzerinden sorgulayabilirsiniz.
+            Sertifika üzerindeki 8 haneli numarayı girin veya QR kodu okutun. ISO belgeleri için
+            belge doğrulama talebi oluşturabilirsiniz.
           </p>
         </div>
 
         <div className="dvn-sorgu-aksiyon">
-          <Link
-            href="/sertifika-sorgula"
-            className="dvn-btn-primary"
-            style={{ padding: "14px 28px", fontSize: 14.5 }}
-          >
-            Sertifika Sorgula →
+          <SertifikaNoFormu koyu />
+          <Link href="/sertifika-sorgula#dogrulama-talebi" className="dvn-sorgu-not">
+            ISO belgesi doğrulama talebi →
           </Link>
-          <span className="dvn-sorgu-not">Belge numarası ile doğrulama talebi</span>
         </div>
       </div>
 
@@ -117,13 +115,15 @@ export default function SertifikaSorgula() {
         .dvn-sorgu-aksiyon {
           position: relative;
           z-index: 1;
-          flex-shrink: 0;
+          flex: 0 1 420px;
+          min-width: min(280px, 100%);
           display: flex;
           flex-direction: column;
-          align-items: center;
-          gap: 8px;
+          align-items: flex-start;
+          gap: 10px;
         }
-        .dvn-sorgu-not { color: #9aa5b1; font-size: 12px; letter-spacing: 0.3px; }
+        .dvn-sorgu-not { color: #9aa5b1; font-size: 12.5px; letter-spacing: 0.3px; text-decoration: none; }
+        .dvn-sorgu-not:hover { color: #fff; }
 
         @media (max-width: 860px) {
           .dvn-sorgu-ic { flex-direction: column; align-items: flex-start; text-align: left; padding: 32px 28px; }

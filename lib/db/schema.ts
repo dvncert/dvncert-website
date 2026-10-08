@@ -355,3 +355,37 @@ export const formGonderileri = pgTable("form_gonderileri", {
   userAgent: text("user_agent"),
   olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
 });
+
+/**
+ * Eğitim sertifikası grupları — aynı tarihli, aynı konulu, aynı eğitmenli bir
+ * eğitim oturumu. Toplu sertifika düzenlemede katılımcıların ortak bilgisi
+ * burada tutulur; her katılımcının sertifikası egitimSertifikalari'ndadır.
+ */
+export const egitimSertifikaGruplari = pgTable("egitim_sertifika_gruplari", {
+  id: serial("id").primaryKey(),
+  /** Eğitimin adı (sertifikada "... Eğitimini" ifadesinden önce yazılır). */
+  egitimAdi: text("egitim_adi").notNull(),
+  /** YYYY-MM-DD */
+  baslangicTarihi: varchar("baslangic_tarihi", { length: 10 }).notNull(),
+  /** YYYY-MM-DD — tek günlük eğitimse boş. */
+  bitisTarihi: varchar("bitis_tarihi", { length: 10 }),
+  egitmen: varchar("egitmen", { length: 200 }).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+  guncellenme: timestamp("guncellenme", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/**
+ * Eğitim sertifikaları — katılımcı başına bir kayıt. Geçerlilik süresi yoktur;
+ * yalnızca iptal edilebilir. sertifikaNo 8 haneli, büyük harf + rakamdan oluşur
+ * ve /sertifika-sorgula/{no} (QR kodu da buraya gider) ile doğrulanır.
+ */
+export const egitimSertifikalari = pgTable("egitim_sertifikalari", {
+  id: serial("id").primaryKey(),
+  sertifikaNo: varchar("sertifika_no", { length: 8 }).notNull().unique(),
+  grupId: integer("grup_id")
+    .notNull()
+    .references(() => egitimSertifikaGruplari.id, { onDelete: "cascade" }),
+  katilimciAdi: varchar("katilimci_adi", { length: 200 }).notNull(),
+  iptal: boolean("iptal").default(false).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+});

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
 import SertifikaSorgulaFormu from "../components/SertifikaSorgulaFormu";
+import SertifikaNoFormu from "../components/SertifikaNoFormu";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
@@ -10,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: "/sertifika-sorgula",
     title: "Sertifika Sorgula / Belge Doğrulama",
     description:
-      "DVN Cert tarafından düzenlenen ISO belgelerinin geçerliliğini doğrulayın. Sertifika numarası ve firma bilgisiyle belge doğrulama talebi oluşturun.",
+      "DVN Cert tarafından düzenlenen eğitim sertifikalarını sertifika numarası veya QR kod ile anında doğrulayın; ISO belgeleri için belge doğrulama talebi oluşturun.",
   });
 }
 
@@ -30,11 +31,22 @@ export default function SertifikaSorgulaSayfasi() {
       <SayfaBaslik
         etiket="BELGE DOĞRULAMA"
         baslik="Sertifika Sorgula"
-        aciklama="DVN Cert tarafından düzenlenen belgelerin geçerliliğini doğrulayın."
+        aciklama="DVN Cert tarafından düzenlenen sertifika ve belgelerin geçerliliğini doğrulayın."
         kirintilar={[{ etiket: "Sertifika Sorgula" }]}
       />
 
-      <section style={{ background: "white", padding: "50px 32px 20px" }}>
+      <section style={{ background: "white", padding: "50px 20px 20px" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto", background: "var(--dvn-gradient-lacivert)", borderRadius: 16, padding: "30px 28px", boxShadow: "0 16px 40px rgba(2,35,152,0.18)" }}>
+          <p style={{ color: "var(--dvn-altin-acik)", fontSize: 11, fontWeight: 700, letterSpacing: 1.4, margin: "0 0 8px" }}>ANINDA DOĞRULAMA</p>
+          <h2 style={{ color: "white", fontSize: 20, fontWeight: 600, margin: "0 0 8px" }}>Sertifika numarası ile sorgulayın</h2>
+          <p style={{ color: "#cbd5e1", fontSize: 14, lineHeight: 1.7, margin: "0 0 18px" }}>
+            Sertifika üzerindeki 8 haneli numarayı girin veya sertifikadaki QR kodu telefonunuzun kamerasıyla okutun.
+          </p>
+          <SertifikaNoFormu koyu />
+        </div>
+      </section>
+
+      <section style={{ background: "white", padding: "30px 20px 20px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <p style={{ fontSize: 15, color: "var(--dvn-gri-700)", lineHeight: 1.8, margin: "0 0 18px" }}>
             DVN Cert tarafından düzenlenen ISO yönetim sistemi belgelerinin geçerliliğini, askıya alınma veya
@@ -63,7 +75,7 @@ export default function SertifikaSorgulaSayfasi() {
         </div>
       </section>
 
-      <section style={{ background: "white", padding: "20px 32px 60px" }}>
+      <section id="dogrulama-talebi" style={{ background: "white", padding: "20px 20px 60px", scrollMarginTop: 90 }}>
         <div style={{ maxWidth: 760, margin: "0 auto", background: "var(--dvn-gri-50)", borderRadius: 16, padding: "32px 28px", border: "0.5px solid var(--dvn-gri-300)" }}>
           <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 18, fontWeight: 600, margin: "0 0 18px" }}>
             Belge Doğrulama Talebi

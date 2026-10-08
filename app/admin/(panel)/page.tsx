@@ -3,7 +3,7 @@ import Link from "next/link";
 import { sql } from "drizzle-orm";
 import type { PgTable } from "drizzle-orm/pg-core";
 import { db } from "@/lib/db";
-import { duyurular, blogYazilari, yorumlar, referanslar, formGonderileri, egitimEtkinlikleri } from "@/lib/db/schema";
+import { duyurular, blogYazilari, yorumlar, referanslar, formGonderileri, egitimEtkinlikleri, egitimSertifikalari } from "@/lib/db/schema";
 import { SayfaBaslik, adminKart } from "./_ui";
 import { AnalitikBolum, AramaBolum } from "./_analitik";
 
@@ -30,6 +30,8 @@ function Ikon({ ad }: { ad: string }) {
       return <svg {...ortak}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" /></svg>;
     case "etkinlik":
       return <svg {...ortak}><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>;
+    case "sertifika":
+      return <svg {...ortak}><circle cx="12" cy="8" r="6" /><path d="M15.5 13.1 17 22l-5-3-5 3 1.5-8.9" /></svg>;
     case "sss":
       return <svg {...ortak}><circle cx="12" cy="12" r="10" /><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></svg>;
     case "icerik":
@@ -65,6 +67,12 @@ type Kart = { ad: string; aciklama: string; href: string; ikon: string };
 
 const gruplar: { baslik: string; kartlar: Kart[] }[] = [
   {
+    baslik: "SERTİFİKA",
+    kartlar: [
+      { ad: "Eğitim Sertifikaları", aciklama: "Toplu sertifika, QR ve doğrulama", href: "/admin/sertifikalar", ikon: "sertifika" },
+    ],
+  },
+  {
     baslik: "İÇERİK YÖNETİMİ",
     kartlar: [
       { ad: "Duyurular", aciklama: "Haber ve duyuru yazıları", href: "/admin/duyurular", ikon: "duyuru" },
@@ -98,13 +106,14 @@ const gruplar: { baslik: string; kartlar: Kart[] }[] = [
 ];
 
 export default async function Panel() {
-  const [d, b, e, y, r, g] = await Promise.all([
+  const [d, b, e, y, r, g, sr] = await Promise.all([
     say(duyurular),
     say(blogYazilari),
     say(egitimEtkinlikleri),
     say(yorumlar),
     say(referanslar),
     say(formGonderileri),
+    say(egitimSertifikalari),
   ]);
 
   const istatistik = [
@@ -114,6 +123,7 @@ export default async function Panel() {
     { ad: "Müşteri Yorumları", sayi: y, href: "/admin/yorumlar" },
     { ad: "Referanslar", sayi: r, href: "/admin/referanslar" },
     { ad: "Form Gönderileri", sayi: g, href: "/admin/gonderiler" },
+    { ad: "Eğitim Sertifikaları", sayi: sr, href: "/admin/sertifikalar" },
   ];
 
   return (
