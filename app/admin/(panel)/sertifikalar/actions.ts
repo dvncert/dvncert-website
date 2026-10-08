@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { auth } from "@/auth";
-import { egitimSertifikaGruplari, egitimSertifikalari } from "@/lib/db/schema";
+import { egitimSertifikaGruplari, egitimSertifikalari, egitimTanimlari } from "@/lib/db/schema";
 import { sertifikaNoUret } from "@/lib/sertifika";
 
 function s(fd: FormData, k: string): string {
@@ -107,4 +107,29 @@ export async function sertifikaSil(fd: FormData) {
   await yetkiKontrol();
   await db.delete(egitimSertifikalari).where(eq(egitimSertifikalari.id, Number(s(fd, "id"))));
   revalidatePath("/admin/sertifikalar/form");
+}
+
+// ============ EĞİTİM TANIMLARI (otomatik tamamlama listesi) ============
+export async function egitimTanimiKaydet(fd: FormData) {
+  await yetkiKontrol();
+  const id = s(fd, "id");
+  const ad = s(fd, "ad").replace(/\s+/g, " ");
+  if (!ad) return;
+  const temel = { ad, sira: Number(s(fd, "sira")) || 0, aktif: id ? fd.get("aktif") === "on" : true };
+  try {
+    if (id) await db.update(egitimTanimlari).set(temel).where(eq(egitimTanimlari.id, Number(id)));
+    else await db.insert(egitimTanimlari).values(temel);
+  } catch (e) {
+    const kod = (e as { code?: string; cause?: { code?: string } }).code ?? (e as { cause?: { code?: string } }).cause?.code;
+    if (kod === "23505") redirect("/admin/sertifikalar/tanimlar?hata=ayni");
+    throw e;
+  }
+  revalidatePath("/admin/sertifikalar/tanimlar");
+  revalidatePath("/admin/sertifikalar/form");
+}
+
+export async function egitimTanimiSil(fd: FormData) {
+  await yetkiKontrol();
+  await db.delete(egitimTanimlari).where(eq(egitimTanimlari.id, Number(s(fd, "id"))));
+  revalidatePath("/admin/sertifikalar/tanimlar");
 }

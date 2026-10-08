@@ -52,9 +52,14 @@ export default async function SertifikalarListe({ searchParams }: { searchParams
       <SayfaBaslik
         baslik="Eğitim Sertifikaları"
         sag={
-          <Link href="/admin/sertifikalar/form" style={btnBirincil}>
-            + Yeni Eğitim / Sertifika
-          </Link>
+          <span style={{ display: "inline-flex", gap: 10, flexWrap: "wrap" }}>
+            <Link href="/admin/sertifikalar/tanimlar" style={btnIkincil}>
+              Eğitim Tanımları
+            </Link>
+            <Link href="/admin/sertifikalar/form" style={btnBirincil}>
+              + Yeni Eğitim / Sertifika
+            </Link>
+          </span>
         }
       />
 

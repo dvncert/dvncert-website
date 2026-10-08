@@ -2,11 +2,12 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { asc, eq } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { egitimSertifikaGruplari, egitimSertifikalari } from "@/lib/db/schema";
+import { egitimSertifikaGruplari, egitimSertifikalari, egitimTanimlari } from "@/lib/db/schema";
 import { egitimTarihiYaz, qrSvg } from "@/lib/sertifika";
 import EgitimSertifikasi from "@/app/components/EgitimSertifikasi";
 import { Alan, adminInput, adminKart, adminTablo, btnBirincil, btnIkincil, SayfaBaslik } from "../../_ui";
 import SilButonu from "../../_SilButonu";
+import EgitimAdiGirdisi from "../EgitimAdiGirdisi";
 import { katilimciAdiGuncelle, sertifikaGrubuKaydet, sertifikaIptalDegistir, sertifikaSil } from "../actions";
 
 const hucre: CSSProperties = { padding: "8px 12px", textAlign: "left", verticalAlign: "middle" };
@@ -19,6 +20,13 @@ export default async function SertifikaGrubuForm({ searchParams }: { searchParam
     ? await db.select().from(egitimSertifikalari).where(eq(egitimSertifikalari.grupId, grup.id)).orderBy(asc(egitimSertifikalari.id))
     : [];
   const ornek = sertifikalar.find((r) => !r.iptal);
+  const tanimlar = (
+    await db
+      .select({ ad: egitimTanimlari.ad })
+      .from(egitimTanimlari)
+      .where(eq(egitimTanimlari.aktif, true))
+      .orderBy(asc(egitimTanimlari.sira), asc(egitimTanimlari.ad))
+  ).map((r) => r.ad);
 
   return (
     <div>
@@ -42,13 +50,11 @@ export default async function SertifikaGrubuForm({ searchParams }: { searchParam
           {grup && <input type="hidden" name="id" value={grup.id} />}
           <h2 style={altBaslik}>EĞİTİM BİLGİLERİ</h2>
           <Alan etiket='Eğitim adı — sertifikada altında "Eğitimini" yazar, bu yüzden sonuna "Eğitimi" eklemeyin'>
-            <input
-              name="egitimAdi"
-              required
-              defaultValue={grup?.egitimAdi ?? ""}
-              placeholder="ISO 9001:2015 Kalite Yönetim Sistemi Temel ve İç Denetçi"
-              style={adminInput}
-            />
+            <EgitimAdiGirdisi tanimlar={tanimlar} varsayilan={grup?.egitimAdi ?? ""} />
+            <p style={{ fontSize: 11.5, color: "var(--dvn-gri-500)", margin: "4px 0 0" }}>
+              Listede yoksa serbestçe yazabilir ya da{" "}
+              <Link href="/admin/sertifikalar/tanimlar" style={{ color: "var(--dvn-turuncu)" }}>Eğitim Tanımları</Link>&apos;na ekleyebilirsiniz.
+            </p>
           </Alan>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
             <Alan etiket="Eğitim tarihi">

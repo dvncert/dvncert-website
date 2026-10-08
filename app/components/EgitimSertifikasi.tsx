@@ -51,13 +51,15 @@ export default function EgitimSertifikasi({ veri, className }: { veri: EgitimSer
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/sertifika/egitim-sertifikasi.webp" alt="" className="dvn-sertifika-zemin" />
 
-      {/* Katılımcı adı — "katılım sağlamış olduğu" ifadesinin solu */}
+      {/* Katılımcı adı — sağa yaslı, şablondaki "katılım sağlamış olduğu" (x≈1013)
+          ifadesiyle aynı cümle gibi okunsun diye hemen önünde biter */}
       <div
         className={baslikFont.className}
         style={{
           ...satir,
           left: x(300),
-          width: x(705),
+          width: x(700),
+          textAlign: "right",
           bottom: `calc(100% - ${y(514)})`,
           fontSize: `${adBoyutu(veri.katilimciAdi)}cqw`,
           fontWeight: 700,

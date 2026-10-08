@@ -389,3 +389,16 @@ export const egitimSertifikalari = pgTable("egitim_sertifikalari", {
   iptal: boolean("iptal").default(false).notNull(),
   olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
 });
+
+/**
+ * Eğitim tanımları — sertifika formundaki "Eğitim adı" alanının otomatik
+ * tamamlama listesi. Adlar sertifikaya aynen basılır ("... Eğitimini"
+ * ifadesi şablonda olduğu için sonlarında "Eğitimi" yazmaz).
+ */
+export const egitimTanimlari = pgTable("egitim_tanimlari", {
+  id: serial("id").primaryKey(),
+  ad: text("ad").notNull().unique(),
+  aktif: boolean("aktif").default(true).notNull(),
+  sira: integer("sira").default(0).notNull(),
+  olusturulma: timestamp("olusturulma", { withTimezone: true }).defaultNow().notNull(),
+});
