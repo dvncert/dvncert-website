@@ -90,17 +90,17 @@ export async function formGonderAction(payload: FormGonderiPayload): Promise<{ o
     return { ok: false };
   }
 
-  // İletişim formu mesajını info@dvncert.com'a e-posta olarak ilet.
+  // Tüm form türlerini info@dvncert.com'a e-posta olarak ilet.
   // E-posta başarısız olsa bile gönderi DB'ye yazıldığı için { ok: true } döneriz.
-  if (payload.tip === "iletisim") {
-    await iletisimEpostaGonder({
-      ad: payload.ad,
-      email: payload.email,
-      telefon: payload.telefon,
-      konu: payload.konu,
-      mesaj: payload.mesaj,
-    });
-  }
+  await iletisimEpostaGonder({
+    tip: payload.tip,
+    ad: payload.ad,
+    email: payload.email,
+    telefon: payload.telefon,
+    konu: payload.konu,
+    mesaj: payload.mesaj,
+    ekVeri: payload.ekVeri,
+  });
 
   return { ok: true };
 }

@@ -38,10 +38,34 @@ export type IletisimEposta = {
   telefon?: string;
   konu?: string;
   mesaj?: string;
+  /** Konu satırı öneki ve başlık için form türü (varsayılan: iletişim). */
+  tip?: string;
+  /** Forma özel ek alanlar (sertifika no, eğitim adı vb.) — tabloya eklenir. */
+  ekVeri?: Record<string, unknown> | null;
+};
+
+/** Form türü → [konu öneki, e-posta başlığı, sayfa]. */
+const FORM_TURLERI: Record<string, [string, string, string]> = {
+  iletisim: ["İletişim", "Yeni İletişim Formu Mesajı", "iletişim formundan"],
+  "sertifika-dogrulama": ["Sertifika Doğrulama", "Yeni Sertifika Doğrulama Talebi", "sertifika sorgulama sayfasından"],
+  "egitim-kayit": ["Eğitim Kaydı", "Yeni Eğitim Kayıt Talebi", "eğitim kayıt formundan"],
+  sikayet: ["Şikayet / İtiraz", "Yeni Şikayet / İtiraz Bildirimi", "şikayet ve itiraz formundan"],
+  bulten: ["Bülten", "Yeni Bülten Aboneliği", "bülten formundan"],
+};
+
+/** ekVeri anahtarlarının okunur karşılıkları. */
+const EK_ETIKETLER: Record<string, string> = {
+  sertifikaNo: "Sertifika No",
+  firma: "Firma",
+  egitim: "Eğitim",
+  slug: "Eğitim Sayfası",
+  tercih: "Tercih",
+  talepTuru: "Talep Türü",
+  ilgiliBelge: "İlgili Belge",
 };
 
 /**
- * İletişim formu gönderisini info@dvncert.com'a (veya ILETISIM_ALICI'ya) iletir.
+ * Site formu gönderisini info@dvncert.com'a (veya ILETISIM_ALICI'ya) iletir.
  * Yanıtla (Reply) doğrudan gönderen kişiye gider.
  * Başarılıysa true, anahtar yoksa/başarısızsa false döner — çağıran tarafı bloklamaz.
  */
@@ -51,7 +75,11 @@ export async function iletisimEpostaGonder(p: IletisimEposta): Promise<boolean> 
   if (!resend || !from) return false;
 
   const alici = process.env.ILETISIM_ALICI || siteConfig.email;
-  const konu = p.konu?.trim() || "Yeni iletişim formu mesajı";
+  const [onek, baslik, kaynak] = FORM_TURLERI[p.tip ?? "iletisim"] ?? FORM_TURLERI.iletisim;
+  const konu = p.konu?.trim() || baslik;
+  const ekler = Object.entries(p.ekVeri ?? {})
+    .filter(([k, v]) => v != null && String(v).trim() !== "" && !(k === "firma" && v === p.ad))
+    .map(([k, v]) => [EK_ETIKETLER[k] ?? k, String(v)] as const);
 
   const satir = (etiket: string, deger?: string) =>
     deger?.trim()
@@ -61,9 +89,10 @@ export async function iletisimEpostaGonder(p: IletisimEposta): Promise<boolean> 
   const html = `
     <div style="font-family:Arial,Helvetica,sans-serif;max-width:600px;margin:0 auto">
       <h2 style="color:#022398;font-size:18px;border-bottom:2px solid #f58220;padding-bottom:8px">
-        Yeni İletişim Formu Mesajı
+        ${esc(baslik)}
       </h2>
       <table style="width:100%;border-collapse:collapse;font-size:14px">
+        ${ekler.map(([k, v]) => satir(k, v)).join("")}
         ${satir("Ad Soyad", p.ad)}
         ${satir("E-posta", p.email)}
         ${satir("Telefon", p.telefon)}
@@ -71,11 +100,12 @@ export async function iletisimEpostaGonder(p: IletisimEposta): Promise<boolean> 
         ${satir("Mesaj", p.mesaj)}
       </table>
       <p style="font-size:12px;color:#888;margin-top:20px">
-        Bu mesaj ${esc(siteConfig.url)} iletişim formundan gönderildi.
+        Bu mesaj ${esc(siteConfig.url)} ${esc(kaynak)} gönderildi. Tüm gönderiler panelde: ${esc(siteConfig.url)}/admin/gonderiler
       </p>
     </div>`;
 
   const text = [
+    ...ekler.map(([k, v]) => `${k}: ${v}`),
     `Ad Soyad: ${p.ad ?? ""}`,
     `E-posta: ${p.email ?? ""}`,
     `Telefon: ${p.telefon ?? ""}`,
@@ -88,7 +118,7 @@ export async function iletisimEpostaGonder(p: IletisimEposta): Promise<boolean> 
     const { error } = await resend.emails.send({
       from,
       to: alici,
-      subject: `[İletişim] ${konu}`,
+      subject: `[${onek}] ${konu}`,
       html,
       text,
       ...(p.email?.trim() ? { replyTo: p.email.trim() } : {}),
