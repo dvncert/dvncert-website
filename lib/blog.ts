@@ -8,10 +8,14 @@
  *   "## "  -> H2 alt başlık
  *   "### " -> H3 alt başlık
  *   "- "   -> madde listesi (her satır)
+ *   "1. "  -> numaralı adım listesi (her satır)
+ *   "| a | b |" -> tablo (ilk satır başlık; "|---|" ayraç satırı isteğe bağlı)
  *   diğer  -> paragraf
  *
  * GO-LIVE: Yeni yazılar admin paneli/DBYS üzerinden de eklenebilecek.
  */
+
+import { tedarikciKumesi } from "./blog-tedarikci-kumesi";
 
 export type BlogYazisi = {
   slug: string;
@@ -20,6 +24,8 @@ export type BlogYazisi = {
   ozet: string;
   /** ISO formatı: "YYYY-MM-DD" */
   tarih: string;
+  /** Son güncelleme (YYYY-MM-DD) — DB'den gelir; dateModified ve "Güncellendi" için. */
+  guncellenme?: string;
   kategori: string;
   /** Yazar (opsiyonel; boşsa kurum adı kullanılır) */
   yazar?: string;
@@ -34,6 +40,8 @@ export type BlogYazisi = {
 };
 
 export const blogYazilari: BlogYazisi[] = [
+  // Tedarikçi (ikinci taraf) denetimi soru-cevap kümesi — lib/blog-tedarikci-kumesi.ts
+  ...tedarikciKumesi,
   {
     slug: "iso-9001-belgesi",
     baslik: "ISO 9001 Belgesi Nedir? Belgede Yer Alan Bilgiler, Geçerlilik ve Doğrulama",

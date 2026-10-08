@@ -59,6 +59,35 @@ function icerikBloklari(icerik: string) {
       );
     }
     const satirlar = blok.split("\n");
+    if (satirlar.length > 1 && satirlar.every((s) => s.trim().startsWith("|"))) {
+      const hucreler = (s: string) => s.trim().replace(/^\||\|$/g, "").split("|").map((h) => h.trim());
+      const [baslik, ...govde] = satirlar.filter((s) => !/^\|?\s*:?-{3,}/.test(s.trim()));
+      return (
+        <div key={i} className="dvn-tablo-kap">
+          <table className="dvn-tablo">
+            <thead>
+              <tr>{hucreler(baslik).map((h, j) => <th key={j} scope="col">{metniBaglantiyaCevir(h)}</th>)}</tr>
+            </thead>
+            <tbody>
+              {govde.map((s, j) => (
+                <tr key={j}>{hucreler(s).map((h, k) => <td key={k}>{metniBaglantiyaCevir(h)}</td>)}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+    if (satirlar.length > 0 && satirlar.every((s) => /^\d+\.\s/.test(s))) {
+      return (
+        <ol key={i} style={{ margin: "0 0 20px", paddingLeft: 22, display: "flex", flexDirection: "column", gap: 10 }}>
+          {satirlar.map((s, j) => (
+            <li key={j} style={{ fontSize: 15, color: "var(--dvn-gri-700)", lineHeight: 1.7, paddingLeft: 4 }}>
+              {metniBaglantiyaCevir(s.replace(/^\d+\.\s/, ""))}
+            </li>
+          ))}
+        </ol>
+      );
+    }
     if (satirlar.length > 0 && satirlar.every((s) => s.startsWith("- "))) {
       return (
         <ul key={i} style={{ listStyle: "none", margin: "0 0 20px", padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
@@ -100,6 +129,7 @@ export default async function BlogDetaySayfasi({ params }: Params) {
             baslik: yazi.baslik,
             aciklama: yazi.ozet,
             yayinTarihi: yazi.tarih,
+            guncellenmeTarihi: yazi.guncellenme && yazi.guncellenme > yazi.tarih ? yazi.guncellenme : undefined,
             url: `/blog/${yazi.slug}`,
             yazar: yazi.yazar,
             gorselUrl: yazi.gorsel ? `${siteConfig.url}${yazi.gorsel}` : undefined,
@@ -140,6 +170,7 @@ export default async function BlogDetaySayfasi({ params }: Params) {
               <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
             </svg>
             {tarihiBicimle(yazi.tarih)}
+            {yazi.guncellenme && yazi.guncellenme > yazi.tarih && <span>· Güncellendi: {tarihiBicimle(yazi.guncellenme)}</span>}
           </div>
 
           {/* Gövde */}

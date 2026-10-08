@@ -30,6 +30,8 @@ export type Hizmet = {
   seoTitle?: string;
   /** SEO için özel meta açıklaması (verilmezse kisaAciklama kullanılır). */
   seoAciklama?: string;
+  /** Eş anlamlı adlar — Service şemasında alternateName olarak verilir. */
+  alternatifAdlar?: string[];
   /** Sayfada gösterilen ve FAQPage yapısal verisi üretilen sıkça sorulan sorular. */
   sss?: { soru: string; cevap: string }[];
 };
@@ -181,17 +183,18 @@ export const hizmetler: Hizmet[] = [
     slug: "tedarikci-denetimi",
     kategori: "Denetim",
     baslik: "Tedarikçi Denetimi",
-    seoTitle: "Tedarikçi Denetimi Hizmeti",
+    seoTitle: "Tedarikçi Denetimi ve İkinci Taraf Denetim",
+    alternatifAdlar: ["İkinci taraf denetim", "2. taraf denetim", "Tedarikçi denetimi hizmeti", "Fason üretici denetimi", "Supplier audit", "Second-party audit"],
     seoAciklama:
-      "Bağımsız tedarikçi denetimi hizmeti: tedarikçi, fason üretici ve alt yüklenicilerinizi kalite, çevre, İSG ve sözleşme şartlarına göre yerinde denetliyor, ayrıntılı tedarikçi denetim raporu sunuyoruz.",
+      "Bağımsız tedarikçi denetimi (ikinci taraf denetim) hizmeti: tedarikçi, fason üretici ve alt yüklenicilerinizi kalite, çevre, İSG ve sözleşme şartlarına göre yerinde denetliyor, ayrıntılı tedarikçi denetim raporu sunuyoruz.",
     kisaAciklama:
       "Tedarikçi, fason üretici ve alt yüklenicilerinizi kalite, çevre, İSG ve sözleşme şartlarına uygunluk açısından yerinde ve bağımsızca denetliyoruz.",
     ikon: "denetim",
     giris:
-      "Tedarikçi denetimi; bir kuruluşun mal veya hizmet satın aldığı tedarikçilerini, fason üreticilerini, alt yüklenicilerini ve iş ortaklarını belirlenen standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından yerinde değerlendirmesidir. Literatürde 2. taraf denetimi olarak da geçer; tedarik zincirindeki riskleri yönetmenin en etkili yollarından biridir.\n\n" +
+      "Tedarikçi denetimi (ikinci taraf denetim); bir kuruluşun mal veya hizmet satın aldığı tedarikçilerini, fason üreticilerini, alt yüklenicilerini ve iş ortaklarını belirlenen standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından yerinde değerlendirmesidir. Denetim müşteri kuruluş adına yapılır ve sonucunda sertifika değil, puanlanmış bir denetim raporu düzenlenir; tedarik zincirindeki riskleri yönetmenin en etkili yollarından biridir. İç denetim ve belgelendirme denetimiyle karşılaştırması için [birinci, ikinci ve üçüncü taraf denetim farkı](/blog/birinci-ikinci-ucuncu-taraf-denetim-farki) yazımıza bakabilirsiniz.\n\n" +
       "Tedarikçi beyanları, anketler ve belgeler tek başına yeterli güvence sağlamaz. Bağımsız bir tedarikçi denetimi; üretim koşullarını, kalite kontrol uygulamalarını, kayıtları ve yasal uyumu sahada kanıta dayalı olarak doğrular. Böylece tedarikçi seçimi, onayı ve performans değerlendirmesi kararlarınızı nesnel verilere dayandırırsınız. Tedarikçi denetiminin iç denetim ve belgelendirme denetiminden farkını [tedarikçi denetimi nedir](/blog/tedarikci-denetimi-nedir) yazımızda ele aldık.\n\n" +
-      "Tedarikçi denetimi; yeni tedarikçi onayı öncesinde, kritik tedarikçilerin periyodik izlenmesinde, kalite şikâyeti veya uygunsuzluk sonrasında ve yeni bir sözleşme başlamadan önce planlanabilir. Denetim kriterleri ISO 9001, ISO 14001, ISO 45001 gibi standartlardan, müşteri ve sektör şartlarından ya da doğrudan sizin tedarikçi şartnamenizden oluşabilir. Sürecin adım adım nasıl yürütüldüğünü [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir), hangi başlıkların değerlendirildiğini [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) ve puanlamanın nasıl yapıldığını [tedarikçi değerlendirme kriterleri](/blog/tedarikci-degerlendirme-kriterleri) yazılarımızda bulabilirsiniz.\n\n" +
-      "Sektörünüze özgü denetim başlıkları için [gıda tedarikçi denetimi](/blog/gida-tedarikci-denetimi), [tekstil tedarikçi denetimi](/blog/tekstil-tedarikci-denetimi) ve [otomotiv tedarikçi denetimi](/blog/otomotiv-tedarikci-denetimi) rehberlerimize göz atabilirsiniz. Aynı bağımsız denetim yaklaşımını zincir mağaza, bayi ve franchise ağınıza uygulamak için [şube ve mağaza denetimi](/hizmetler/sube-denetimi) hizmetimizi inceleyebilirsiniz.\n\n" +
+      "Tedarikçi denetimi; yeni tedarikçi onayı öncesinde, kritik tedarikçilerin periyodik izlenmesinde, kalite şikâyeti veya uygunsuzluk sonrasında ve yeni bir sözleşme başlamadan önce planlanabilir. Denetim kriterleri ISO 9001, ISO 14001, ISO 45001 gibi standartlardan, müşteri ve sektör şartlarından ya da doğrudan sizin tedarikçi şartnamenizden oluşabilir. Sürecin adım adım nasıl yürütüldüğünü [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir), hangi başlıkların değerlendirildiğini [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) ve puanlamanın nasıl yapıldığını [tedarikçi değerlendirme kriterleri](/blog/tedarikci-degerlendirme-kriterleri) yazılarımızda bulabilirsiniz. ISO 9001 madde 8.4 açısından hangi tedarikçilerin denetlenmesi gerektiğini [ISO 9001'de tedarikçi denetimi zorunlu mu](/blog/iso-9001-tedarikci-denetimi-zorunlu-mu), sahada sorulan soruları [tedarikçi denetiminde sorulacak sorular](/blog/tedarikci-denetimi-sorulari), raporun yapısını ise [tedarikçi denetim raporu](/blog/tedarikci-denetim-raporu) yazımızda ele aldık.\n\n" +
+      "Sektörünüze özgü denetim başlıkları için [gıda tedarikçi denetimi](/blog/gida-tedarikci-denetimi), [tekstil tedarikçi denetimi](/blog/tekstil-tedarikci-denetimi) ve [otomotiv tedarikçi denetimi](/blog/otomotiv-tedarikci-denetimi) rehberlerimize göz atabilirsiniz. Sizin adınıza üretim yapan firmalar için [fason üretici denetimi](/blog/fason-uretici-denetimi), yerinde ziyaretin zor olduğu durumlar için [uzaktan tedarikçi denetimi](/blog/uzaktan-tedarikci-denetimi) yazılarımız yol gösterir. Aynı bağımsız denetim yaklaşımını zincir mağaza, bayi ve franchise ağınıza uygulamak için [şube ve mağaza denetimi](/hizmetler/sube-denetimi) hizmetimizi inceleyebilirsiniz.\n\n" +
       "DVN Cert olarak tedarikçi denetimlerini tarafsızlık, bağımsızlık ve gizlilik ilkeleriyle yürütür; bulguları ayrıntılı, önceliklendirilmiş ve uygulanabilir bir tedarikçi denetim raporuyla paylaşırız.",
     faydalar: [
       "Tedarikçi ve fason üreticilerin belirlenen kriterlere uygunluğunun bağımsızca değerlendirilmesi",
@@ -214,6 +217,11 @@ export const hizmetler: Hizmet[] = [
         soru: "Tedarikçi denetimi nedir?",
         cevap:
           "Tedarikçi denetimi, bir kuruluşun mal veya hizmet aldığı tedarikçilerini, fason üreticilerini ve alt yüklenicilerini; belirlenen standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından yerinde değerlendirmesidir. Denetim, müşteri konumundaki kuruluş adına yürütülür ve 2. taraf denetimi olarak da adlandırılır.",
+      },
+      {
+        soru: "İkinci taraf denetim nedir?",
+        cevap:
+          "İkinci taraf denetim, bir kuruluşun tedarikçisini, fason üreticisini, alt yüklenicisini veya bayi ve şubelerini kendi belirlediği kriterlere göre denetlemesidir; en yaygın örneği tedarikçi denetimidir. Birinci taraf denetim kuruluşun kendi iç denetimi, üçüncü taraf denetim ise bağımsız bir belgelendirme kuruluşunun sertifikayla sonuçlanan denetimidir.",
       },
       {
         soru: "Tedarikçi denetimi neden yapılır?",
@@ -246,9 +254,19 @@ export const hizmetler: Hizmet[] = [
           "Hayır. Belgelendirme denetimi, bağımsız bir belgelendirme kuruluşunun standart şartlarına göre yaptığı ve sonunda sertifika düzenlenen denetimdir. Tedarikçi denetiminde ise amaç, tedarikçinizin sizin belirlediğiniz kriterlere uygunluğunu doğrulamaktır; sonucunda sertifika değil, ayrıntılı bir denetim raporu sunulur. Tedarikçinin ISO belgesi olması, sizin özel şartlarınızı karşıladığı anlamına gelmez.",
       },
       {
+        soru: "ISO 9001'de tedarikçi denetimi zorunlu mu?",
+        cevap:
+          "Her tedarikçi için zorunlu değildir. ISO 9001 madde 8.4, dış tedarikçilerin risk temelli olarak değerlendirilmesini, seçilmesini, izlenmesini ve kontrol edilmesini ister. Ürün kalitesini doğrudan etkileyen kritik tedarikçilerde bu kontrolün en güçlü ve en çok kabul gören yolu tedarikçi denetimidir.",
+      },
+      {
         soru: "Tedarikçi denetimi ne kadar sürer?",
         cevap:
           "Süre; tedarikçinin büyüklüğüne, denetim kapsamına ve değerlendirilecek süreç sayısına göre değişir. Tek bir tesisin saha denetimi genellikle 1-2 gün sürer; planlama ve raporlama bu sürenin dışındadır. Kapsam netleştikten sonra net bir zaman planı paylaşılır.",
+      },
+      {
+        soru: "Tedarikçi denetimi ücreti neye göre belirlenir?",
+        cevap:
+          "Ücret; denetlenecek tedarikçi ve tesis sayısına, tesislerin konumuna, denetim kapsamına ve kriterlerine, sahada geçecek gün sayısına ve denetimin yerinde, uzaktan veya karma yapılmasına göre belirlenir. Kapsam netleştikten sonra size özel teklif hazırlanır.",
       },
       {
         soru: "Tedarikçi denetim raporu neler içerir?",

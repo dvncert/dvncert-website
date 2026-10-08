@@ -53,6 +53,7 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
             aciklama: hizmet.kisaAciklama,
             url: `/hizmetler/${hizmet.slug}`,
             hizmetTipi: hizmet.kategori,
+            alternatifAdlar: hizmet.alternatifAdlar,
           })
         )}
       />

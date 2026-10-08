@@ -14,6 +14,114 @@
 export type BlogSSSorusu = { soru: string; cevap: string };
 
 export const blogSSS: Record<string, BlogSSSorusu[]> = {
+  // ---------- Tedarikçi (ikinci taraf) denetimi soru-cevap kümesi ----------
+  "birinci-ikinci-ucuncu-taraf-denetim-farki": [
+    {
+      soru: "İkinci taraf denetim nedir?",
+      cevap:
+        "İkinci taraf denetim, bir kuruluşun tedarikçisini, fason üreticisini, alt yüklenicisini veya bayi ve şubelerini kendi belirlediği kriterlere göre denetlemesidir. En yaygın örneği tedarikçi denetimidir. Denetim müşteri kuruluş veya onun adına bağımsız bir denetim firması tarafından yapılır ve sonucunda sertifika değil denetim raporu düzenlenir.",
+    },
+    {
+      soru: "Birinci, ikinci ve üçüncü taraf denetim arasındaki fark nedir?",
+      cevap:
+        "Birinci taraf denetimde kuruluş kendi sistemini denetler (iç denetim). İkinci taraf denetimde kuruluş tedarikçisini veya iş ortağını denetler (tedarikçi denetimi). Üçüncü taraf denetimde ise bağımsız bir belgelendirme kuruluşu denetim yapar ve olumlu sonuçta sertifika düzenler.",
+    },
+    {
+      soru: "Belgelendirme denetimi kaçıncı taraf denetimdir?",
+      cevap:
+        "Belgelendirme denetimi üçüncü taraf denetimdir. Denetlenen kuruluşla ticari ilişkisi olmayan bağımsız bir belgelendirme kuruluşu tarafından, ISO 9001 gibi bir standardın şartlarına göre yapılır.",
+    },
+    {
+      soru: "İkinci taraf denetimini bağımsız bir firma yapabilir mi?",
+      cevap:
+        "Evet. İkinci taraf denetim müşteri kuruluş adına yapılan denetimdir; kuruluşun kendi kalite veya satın alma ekibi yapabileceği gibi bağımsız bir denetim firmasına da yaptırılabilir. Bağımsız denetçi ticari ilişkiden kaynaklanan önyargıyı azaltır ve tedarikçiler arasında aynı ölçütlerle karşılaştırma sağlar.",
+    },
+  ],
+  "iso-9001-tedarikci-denetimi-zorunlu-mu": [
+    {
+      soru: "ISO 9001'de tedarikçi denetimi zorunlu mu?",
+      cevap:
+        "Her tedarikçi için zorunlu değildir. ISO 9001 madde 8.4, dış tedarikçilerin değerlendirilmesini, seçilmesini, performanslarının izlenmesini ve kontrol edilmesini şart koşar; kontrolün türünü ise tedarikçinin ürün uygunluğu üzerindeki etkisine göre kuruluş belirler. Kritik tedarikçilerde bu kontrolün en güçlü yolu tedarikçi denetimidir.",
+    },
+    {
+      soru: "ISO 9001 madde 8.4 nedir?",
+      cevap:
+        "ISO 9001:2015 madde 8.4, dışarıdan sağlanan proses, ürün ve hizmetlerin kontrolünü düzenler. Dış tedarikçilerin değerlendirme ve seçim kriterlerinin belirlenmesini, kontrolün türü ve kapsamının riske göre tanımlanmasını ve şartların tedarikçiye açıkça iletilmesini ister.",
+    },
+    {
+      soru: "Hangi tedarikçiler denetlenmelidir?",
+      cevap:
+        "Ürüne doğrudan giren hammadde ve parçaları sağlayan, fason üretim yapan veya ürün güvenliğini etkileyen kritik tedarikçiler öncelikli olarak denetlenmelidir. Düşük etkili tedarikçiler için belge incelemesi ve performans takibi genellikle yeterlidir.",
+    },
+  ],
+  "tedarikci-denetim-raporu": [
+    {
+      soru: "Tedarikçi denetim raporunda neler bulunur?",
+      cevap:
+        "Rapor; tedarikçi ve denetim bilgilerini, kapsam ve kriterleri, yönetici özetini, bölüm bazında puanları, objektif kanıtlarıyla birlikte bulguları ve sınıflarını, olumlu yönleri, düzeltici faaliyet taleplerini ve onaylı, koşullu onaylı veya onaysız şeklindeki sonuç kararını içerir.",
+    },
+    {
+      soru: "Majör ve minör uygunsuzluk arasındaki fark nedir?",
+      cevap:
+        "Majör uygunsuzluk ürün uygunluğunu veya müşteri güvenliğini doğrudan riske atan, sistematik bir eksikliktir ve hızlı düzeltici faaliyet ile doğrulama gerektirir. Minör uygunsuzluk ise tekil ve sistemi bozmayan bir eksikliktir; belirlenen sürede düzeltilmesi beklenir.",
+    },
+    {
+      soru: "Tedarikçi denetiminde puanlama nasıl yapılır?",
+      cevap:
+        "Kontrol listesindeki her soru bir ölçekle (ör. 0-10) puanlanır, bölümler önemine göre ağırlıklandırılır ve genel başarı yüzdesi hesaplanır. Sonuç eşik değerlerle sınıflandırılır; tek bir majör uygunsuzluk ise yüksek puana rağmen sonucu koşullu onay veya onaysıza düşürebilir.",
+    },
+  ],
+  "tedarikci-denetimi-sorulari": [
+    {
+      soru: "Tedarikçi denetiminde hangi sorular sorulur?",
+      cevap:
+        "Kalite yönetimi, üretim ve proses kontrolü, izlenebilirlik, ölçüm ve kalibrasyon, uygun olmayan ürün, satın alma ve alt tedarikçiler, depolama ve sevkiyat ile iş sağlığı, güvenliği ve çevre başlıklarında; her yanıtın kayıt veya sahada gözlemle kanıtlanmasını isteyen açık uçlu sorular sorulur.",
+    },
+    {
+      soru: "Tedarikçi denetiminde sorular nasıl sorulmalı?",
+      cevap:
+        "Evet/hayır soruları yerine \"nasıl yapıyorsunuz, gösterir misiniz?\" kalıbıyla açık uçlu sorulmalı, incelenecek kayıt ve partileri denetçi seçmeli ve yönetimin anlattıkları sahadaki uygulama ve operatör görüşmeleriyle karşılaştırılmalıdır.",
+    },
+    {
+      soru: "Tedarikçi denetim soru listesi her sektörde aynı mı?",
+      cevap:
+        "Hayır. Temel başlıklar ortaktır; ancak gıdada hijyen ve gıda güvenliği, otomotivde proses yeterliliği ve PPAP, tekstilde sosyal uygunluk ve kimyasal yönetimi gibi sektöre özgü sorular eklenmeli ve liste sözleşme şartlarına göre uyarlanmalıdır.",
+    },
+  ],
+  "fason-uretici-denetimi": [
+    {
+      soru: "Fason üretici denetimi nedir?",
+      cevap:
+        "Fason üretici denetimi, ürününüzü sizin adınıza veya markanızla üreten firmanın üretim koşullarını, kalite kontrolünü, izlenebilirliğini, şartnameye uyumunu ve yasal uyumunu yerinde değerlendiren ikinci taraf denetimidir.",
+    },
+    {
+      soru: "Fason üretimde ürün sorumluluğu kimdedir?",
+      cevap:
+        "Üretim fason firmada yapılsa da ürün sizin markanızı taşıdığı için kalite, güvenlik ve itibar sorumluluğu büyük ölçüde marka sahibinde kalır. Bu nedenle fason üreticinin şartlarınızı uyguladığının yerinde doğrulanması önemlidir.",
+    },
+    {
+      soru: "Fason üretici ne sıklıkla denetlenmelidir?",
+      cevap:
+        "İlk sipariş öncesinde onay denetimi, ardından risk ve performansa göre genellikle yılda bir periyodik denetim yapılır. Kalite şikâyeti, geri çağırma, tesis veya proses değişikliği gibi durumlarda ek denetim planlanır.",
+    },
+  ],
+  "uzaktan-tedarikci-denetimi": [
+    {
+      soru: "Uzaktan tedarikçi denetimi geçerli midir?",
+      cevap:
+        "Evet. İkinci taraf denetimlerinde yöntemi müşteri kuruluş belirler; ISO 19011:2018 de uzaktan tetkik yöntemlerine ilişkin rehberlik içerir. Ancak saha gözlemi gerektiren durumlarda uzaktan denetim tek başına yeterli değildir.",
+    },
+    {
+      soru: "Uzaktan denetim hangi durumlarda yeterli olmaz?",
+      cevap:
+        "Yeni ve kritik bir tedarikçinin ilk onayında, ciddi bir kalite şikâyeti sonrasında ve gıda, ilaç, otomotiv gibi yüksek riskli üretimlerde; üretim, hijyen ve depolama koşullarının doğrudan gözlemlenmesi gerektiği için yerinde denetim önerilir.",
+    },
+    {
+      soru: "Karma (hibrit) tedarikçi denetimi nedir?",
+      cevap:
+        "Doküman incelemesi ve yönetim görüşmelerinin uzaktan, saha gözleminin ise kısa bir yerinde ziyaretle yapıldığı denetim yöntemidir. Seyahat süresini azaltırken saha gözlemini korur.",
+    },
+  ],
   // ---------- Taraf denetimleri kümesi ----------
   "tedarikci-denetimi-nedir": [
     {

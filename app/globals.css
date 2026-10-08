@@ -939,3 +939,11 @@ img {
 .dvn-btn-primary:hover::after {
   transform: translateX(120%);
 }
+
+/* Blog içi tablolar (icerik metninde "| a | b |" satırları) */
+.dvn-tablo-kap { overflow-x: auto; margin: 0 0 24px; border: 0.5px solid var(--dvn-gri-300); border-radius: 12px; }
+.dvn-tablo { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; color: var(--dvn-gri-700); min-width: 520px; }
+.dvn-tablo th { background: var(--dvn-lacivert); color: #fff; font-weight: 600; text-align: left; padding: 11px 14px; }
+.dvn-tablo td { padding: 10px 14px; border-top: 0.5px solid var(--dvn-gri-300); vertical-align: top; }
+.dvn-tablo tbody tr:nth-child(even) td { background: var(--dvn-gri-50); }
+.dvn-tablo td:first-child { font-weight: 600; color: var(--dvn-lacivert); }

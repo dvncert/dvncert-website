@@ -56,6 +56,13 @@ export function organizationSchema() {
       "ISO 45001 Occupational Health and Safety Certification",
       "ISO 50001 Energy Management System Certification",
       "Second Party Audits",
+      "Supplier Audit",
+      "Tedarikçi denetimi",
+      "İkinci taraf denetim (2. taraf denetim)",
+      "Fason üretici ve alt yüklenici denetimi",
+      "Tedarikçi değerlendirme",
+      "VDA 6.3 proses denetimi",
+      "Şube ve mağaza denetimi",
       "Internal Auditor Training",
     ],
   };
@@ -136,11 +143,14 @@ export function serviceSchema(params: {
   aciklama: string;
   url: string;
   hizmetTipi?: string;
+  /** Hizmetin eş anlamlı adları (ör. "İkinci taraf denetim") — Google'ın varlığı eşleştirmesi için. */
+  alternatifAdlar?: string[];
 }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
     name: params.ad,
+    ...(params.alternatifAdlar?.length ? { alternateName: params.alternatifAdlar } : {}),
     description: params.aciklama,
     url: `${siteConfig.url}${params.url}`,
     provider: {
@@ -274,6 +284,7 @@ export function blogPostingSchema(params: {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: params.baslik,
+    inLanguage: "tr-TR",
     description: params.aciklama,
     datePublished: params.yayinTarihi,
     dateModified: params.guncellenmeTarihi || params.yayinTarihi,

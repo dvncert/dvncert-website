@@ -100,6 +100,7 @@ export async function bloglariGetir(): Promise<BlogYazisi[]> {
       gorselAlt: r.gorselAlt ?? undefined,
       icerik: r.icerik,
       ilgiliHizmetler: r.ilgiliHizmetler ?? [],
+      guncellenme: new Date(r.guncellenme).toISOString().slice(0, 10),
     }));
   } catch (e) {
     console.error("bloglariGetir DB hatası, statik içeriğe düşülüyor:", e);
