@@ -1,10 +1,9 @@
-import Link from "next/link";
-import SertifikaNoFormu from "./SertifikaNoFormu";
+import SertifikaDogrulaSekmeleri from "./SertifikaDogrulaSekmeleri";
 
 /**
  * Ana sayfa "Sertifika Doğrulama" modülü.
- * Eğitim sertifikaları numara ile anında doğrulanır; ISO belgeleri için
- * /sertifika-sorgula sayfasındaki doğrulama talebi formuna yönlendirilir.
+ * İki seçenek: eğitim sertifikası (numara/QR ile anında) ve sistem sertifikası
+ * (ISO belgeleri — /sertifika-sorgula sayfasındaki doğrulama talebi formu).
  */
 export default function SertifikaSorgula() {
   return (
@@ -27,16 +26,13 @@ export default function SertifikaSorgula() {
             Sertifikanın geçerliliğini <span className="dvn-altin-vurgu">anında doğrulayın</span>
           </h2>
           <p className="dvn-sorgu-aciklama">
-            Sertifika üzerindeki 8 haneli numarayı girin veya QR kodu okutun. ISO belgeleri için
-            belge doğrulama talebi oluşturabilirsiniz.
+            Eğitim sertifikalarını numara veya QR kod ile anında doğrulayın; ISO yönetim sistemi
+            belgeleri için doğrulama talebi oluşturun.
           </p>
         </div>
 
         <div className="dvn-sorgu-aksiyon">
-          <SertifikaNoFormu koyu />
-          <Link href="/sertifika-sorgula#dogrulama-talebi" className="dvn-sorgu-not">
-            ISO belgesi doğrulama talebi →
-          </Link>
+          <SertifikaDogrulaSekmeleri />
         </div>
       </div>
 
@@ -115,19 +111,17 @@ export default function SertifikaSorgula() {
         .dvn-sorgu-aksiyon {
           position: relative;
           z-index: 1;
-          flex: 0 1 420px;
+          flex: 0 1 460px;
           min-width: min(280px, 100%);
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           gap: 10px;
         }
-        .dvn-sorgu-not { color: #9aa5b1; font-size: 12.5px; letter-spacing: 0.3px; text-decoration: none; }
-        .dvn-sorgu-not:hover { color: #fff; }
 
         @media (max-width: 860px) {
           .dvn-sorgu-ic { flex-direction: column; align-items: flex-start; text-align: left; padding: 32px 28px; }
-          .dvn-sorgu-aksiyon { align-items: flex-start; width: 100%; }
+          .dvn-sorgu-aksiyon { align-items: flex-start; width: 100%; flex: none; }
         }
       `}</style>
     </section>
