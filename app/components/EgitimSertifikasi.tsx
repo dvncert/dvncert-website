@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { Cormorant_Garamond, Source_Serif_4 } from "next/font/google";
 
 const baslikFont = Cormorant_Garamond({ subsets: ["latin", "latin-ext"], weight: ["600", "700"], display: "swap" });
-const metinFont = Source_Serif_4({ subsets: ["latin", "latin-ext"], weight: ["600"], display: "swap" });
+const metinFont = Source_Serif_4({ subsets: ["latin", "latin-ext"], weight: ["400", "600"], display: "swap" });
 
 export type EgitimSertifikasiVeri = {
   katilimciAdi: string;
@@ -17,7 +17,8 @@ export type EgitimSertifikasiVeri = {
 
 /*
  * Şablon görseli 1536×1024 px (public/sertifika/egitim-sertifikasi.webp,
- * noktalı alanları temizlenmiş). Aşağıdaki konumlar bu görseldeki piksel
+ * noktalı alanları ve "katılım sağlamış olduğu" ifadesi temizlenmiş — bu ifade
+ * adla birlikte ortalansın diye metin olarak basılır). Aşağıdaki konumlar bu görseldeki piksel
  * koordinatlarının yüzdesidir; yazı boyutları cqw (sertifika genişliğinin
  * %1'i = 15.36 px) cinsindendir — böylece ekranda ve A4 baskıda aynı oranda
  * ölçeklenir.
@@ -28,12 +29,15 @@ const x = (px: number) => `${(px / W) * 100}%`;
 const y = (px: number) => `${(px / H) * 100}%`;
 
 const LACIVERT = "#0b1f4d";
+/** Şablondaki gövde metinlerinin rengi ("Kuruluşumuz tarafından..."). */
+const METIN_RENGI = "#1e2a47";
 
 /** Satıra sığması için ad uzunluğuna göre yazı boyutu (cqw). */
 function adBoyutu(ad: string): number {
   const buyukOrani = ad.replace(/[^A-ZÇĞİÖŞÜ]/g, "").length / Math.max(ad.replace(/\s/g, "").length, 1);
   const karakterGenisligi = buyukOrani > 0.6 ? 0.66 : 0.46; // em cinsinden ortalama (Cormorant dar bir yazı tipi)
-  return Math.min(3, 44 / (ad.length * karakterGenisligi));
+  // Satır 67 cqw; "katılım sağlamış olduğu" + boşluk ≈ 19 cqw yer kaplar
+  return Math.min(3, 47 / (ad.length * karakterGenisligi));
 }
 
 /** Eğitim adı: tek satıra sığarsa tek satır, sığmazsa küçültülüp iki satır. */
@@ -51,22 +55,26 @@ export default function EgitimSertifikasi({ veri, className }: { veri: EgitimSer
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/sertifika/egitim-sertifikasi.webp" alt="" className="dvn-sertifika-zemin" />
 
-      {/* Katılımcı adı — sağa yaslı, şablondaki "katılım sağlamış olduğu" (x≈1013)
-          ifadesiyle aynı cümle gibi okunsun diye hemen önünde biter */}
+      {/* Katılımcı adı + "katılım sağlamış olduğu" — tek satırda, birlikte ortalı */}
       <div
-        className={baslikFont.className}
         style={{
           ...satir,
-          left: x(300),
-          width: x(700),
-          textAlign: "right",
-          bottom: `calc(100% - ${y(514)})`,
-          fontSize: `${adBoyutu(veri.katilimciAdi)}cqw`,
-          fontWeight: 700,
+          left: x(250),
+          width: x(1036),
+          bottom: `calc(100% - ${y(512)})`,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "baseline",
+          gap: "0.9cqw",
           whiteSpace: "nowrap",
         }}
       >
-        {veri.katilimciAdi}
+        <span className={baslikFont.className} style={{ fontSize: `${adBoyutu(veri.katilimciAdi)}cqw`, fontWeight: 700 }}>
+          {veri.katilimciAdi}
+        </span>
+        <span className={metinFont.className} style={{ fontSize: "1.72cqw", fontWeight: 400, color: METIN_RENGI }}>
+          katılım sağlamış olduğu
+        </span>
       </div>
 
       {/* Eğitim adı — "Eğitimini başarı ile..." satırının üstü */}
