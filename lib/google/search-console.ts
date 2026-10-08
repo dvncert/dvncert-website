@@ -74,3 +74,36 @@ async function getir(): Promise<GscOzet> {
 
 /** 15 dk önbellekli Search Console özeti. */
 export const gscOzetGetir = unstable_cache(getir, ["gsc-ozet-v1"], { revalidate: 900, tags: ["analitik"] });
+
+/**
+ * Belirli bir konudaki aramalar (ör. tedarikçi / ikinci taraf denetim):
+ * sorgu adı düzenli ifadeyle süzülür, gösterime göre sıralı döner.
+ */
+async function konuGetir(desen: string): Promise<GscSatir[]> {
+  const siteUrl = process.env.GSC_SITE_URL;
+  if (!siteUrl) throw new Error("GSC_SITE_URL tanımlı değil.");
+  const token = await erisimTokeni();
+  const yanit = await sorgula(
+    siteUrl,
+    {
+      startDate: gunOnce(30),
+      endDate: gunOnce(3),
+      dimensions: ["query"],
+      dimensionFilterGroups: [{ filters: [{ dimension: "query", operator: "includingRegex", expression: desen }] }],
+      rowLimit: 25,
+    },
+    token,
+  );
+  return (yanit.rows ?? [])
+    .map((r) => ({
+      ad: r.keys?.[0] ?? "",
+      tiklama: Number(r.clicks ?? 0),
+      gosterim: Number(r.impressions ?? 0),
+      ctr: Number(r.ctr ?? 0),
+      sira: Number(r.position ?? 0),
+    }))
+    .sort((a, b) => b.gosterim - a.gosterim);
+}
+
+/** 15 dk önbellekli konu bazlı Search Console sorguları. */
+export const gscKonuGetir = unstable_cache(konuGetir, ["gsc-konu-v1"], { revalidate: 900, tags: ["analitik"] });

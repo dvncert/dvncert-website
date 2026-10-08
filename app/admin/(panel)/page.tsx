@@ -6,6 +6,7 @@ import { db } from "@/lib/db";
 import { duyurular, blogYazilari, yorumlar, referanslar, formGonderileri, egitimEtkinlikleri, egitimSertifikalari } from "@/lib/db/schema";
 import { SayfaBaslik, adminKart } from "./_ui";
 import { AnalitikBolum, AramaBolum } from "./_analitik";
+import { SeoBolum } from "./_seo";
 
 async function say(tbl: PgTable): Promise<number> {
   try {
@@ -173,6 +174,10 @@ export default async function Panel() {
           </div>
         </section>
       ))}
+
+      <Suspense fallback={<div style={{ marginTop: 32 }}><Yukleniyor ad="SEO durumu" /></div>}>
+        <SeoBolum />
+      </Suspense>
 
       <Suspense fallback={<div style={{ marginTop: 32 }}><Yukleniyor ad="Ziyaretçi istatistikleri" /></div>}>
         <AnalitikBolum />
