@@ -16,7 +16,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
     slug: "birinci-ikinci-ucuncu-taraf-denetim-farki",
     baslik: "Birinci, İkinci ve Üçüncü Taraf Denetim Nedir? Farkları ve Karşılaştırma Tablosu",
     ozet:
-      "İkinci taraf denetim, bir kuruluşun tedarikçisini veya iş ortağını kendi kriterlerine göre denetlemesidir. Birinci, ikinci ve üçüncü taraf denetimlerin tanımlarını, farklarını ve hangi durumda hangisinin gerektiğini tabloyla açıklıyoruz.",
+      "İkinci taraf denetim, kuruluşun tedarikçisini kendi kriterleriyle denetlemesidir. Birinci, ikinci ve üçüncü taraf denetim farklarını tabloyla açıklıyoruz.",
     tarih: "2026-10-08",
     kategori: "Denetim",
     icerik:
@@ -49,7 +49,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
     slug: "iso-9001-tedarikci-denetimi-zorunlu-mu",
     baslik: "ISO 9001'de Tedarikçi Denetimi Zorunlu mu? Madde 8.4 Dış Tedarikçilerin Kontrolü",
     ozet:
-      "ISO 9001, tedarikçi denetimini her durumda zorunlu tutmaz; ancak madde 8.4 dış tedarikçilerin risk temelli değerlendirilmesini ve kontrolünü şart koşar. Hangi tedarikçilerin denetlenmesi gerektiğini ve tetkikte hangi kanıtların arandığını açıklıyoruz.",
+      "ISO 9001 tedarikçi denetimini her durumda zorunlu tutmaz; madde 8.4 risk temelli kontrol ister. Hangi tedarikçinin denetlenmesi gerektiğini açıklıyoruz.",
     tarih: "2026-10-08",
     kategori: "Denetim",
     icerik:
@@ -85,7 +85,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
     slug: "tedarikci-denetim-raporu",
     baslik: "Tedarikçi Denetim Raporu Nasıl Hazırlanır? İçerik, Puanlama ve Örnek Yapı",
     ozet:
-      "Tedarikçi denetim raporu; denetimin kapsamını, kriterlerini, bulguları, puanı ve düzeltici faaliyet taleplerini içerir. İyi bir raporun bölümlerini, bulguların nasıl sınıflandırıldığını ve puanlamanın nasıl yapıldığını açıklıyoruz.",
+      "Tedarikçi denetim raporu; kapsam, kriterler, bulgular, puan ve düzeltici faaliyet taleplerini içerir. Rapor bölümlerini ve puanlamayı açıklıyoruz.",
     tarih: "2026-10-07",
     kategori: "Denetim",
     icerik:
@@ -123,7 +123,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
     slug: "tedarikci-denetimi-sorulari",
     baslik: "Tedarikçi Denetiminde Sorulacak Sorular: Bölüm Bölüm Örnek Soru Listesi",
     ozet:
-      "Tedarikçi denetiminde kalite yönetimi, üretim, izlenebilirlik, kalibrasyon, uygun olmayan ürün, depolama, İSG ve çevre başlıklarında sorulacak örnek soruları ve her soruda hangi kanıtın istenmesi gerektiğini listeledik.",
+      "Tedarikçi denetiminde kalite, üretim, izlenebilirlik, kalibrasyon, depolama, İSG ve çevre başlıklarında sorulacak soruları ve istenecek kanıtları listeledik.",
     tarih: "2026-10-06",
     kategori: "Denetim",
     icerik:
@@ -175,7 +175,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
     slug: "fason-uretici-denetimi",
     baslik: "Fason Üretici ve Alt Yüklenici Denetimi: Neden Gerekli, Nasıl Yapılır?",
     ozet:
-      "Fason üretici denetimi, sizin adınıza ve markanızla üretim yapan firmanın üretim koşullarının, kalite kontrolünün ve yasal uyumunun yerinde doğrulanmasıdır. Fason ve alt yüklenici denetiminin farklarını, kapsamını ve adımlarını açıklıyoruz.",
+      "Fason üretici denetimi, markanızla üretim yapan firmanın kalite ve yasal uyumunun yerinde doğrulanmasıdır. Kapsamını ve adımlarını açıklıyoruz.",
     tarih: "2026-10-05",
     kategori: "Denetim",
     icerik:
@@ -218,7 +218,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
     slug: "uzaktan-tedarikci-denetimi",
     baslik: "Uzaktan (Online) Tedarikçi Denetimi Nasıl Yapılır? Avantajları ve Sınırları",
     ozet:
-      "Uzaktan tedarikçi denetimi, doküman incelemesi, görüşme ve canlı saha görüntüsünün video konferansla yapıldığı ikinci taraf denetimidir. Ne zaman uygun olduğunu, nasıl hazırlanılacağını ve yerinde denetimin yerini ne zaman tutmadığını açıklıyoruz.",
+      "Uzaktan tedarikçi denetimi, video konferansla yapılan ikinci taraf denetimidir. Ne zaman uygun olduğunu, hazırlığı ve yerinde denetimle farkını anlatıyoruz.",
     tarih: "2026-10-04",
     kategori: "Denetim",
     icerik:

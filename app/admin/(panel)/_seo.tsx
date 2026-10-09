@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import { bloglariGetir } from "@/lib/icerik";
 import { blogSSSGetir } from "@/lib/blog-sss";
+import { blogSeoBaslik } from "@/lib/blog-seo";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { googleYapilandirildiMi } from "@/lib/google/client";
 import { gscKonuGetir } from "@/lib/google/search-console";
@@ -20,9 +21,10 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-3VJDV7WQBG";
 /** Odak konu: tedarikçi (ikinci taraf) denetimi aramaları. */
 const ODAK_DESEN = "tedarik|taraf denetim|2\\. taraf|fason|alt yüklenici|supplier|vda|ppap";
 
-type Durum = "iyi" | "uyari" | "kotu";
-const RENK: Record<Durum, string> = { iyi: "#15803d", uyari: "#b45309", kotu: "#b91c1c" };
-const ISARET: Record<Durum, string> = { iyi: "✓", uyari: "!", kotu: "✕" };
+/** "bilgi": puana katılmayan, yalnızca bilgilendiren satır. */
+type Durum = "iyi" | "uyari" | "kotu" | "bilgi";
+const RENK: Record<Durum, string> = { iyi: "#15803d", uyari: "#b45309", kotu: "#b91c1c", bilgi: "#64748b" };
+const ISARET: Record<Durum, string> = { iyi: "✓", uyari: "!", kotu: "✕", bilgi: "i" };
 
 type Kontrol = { ad: string; durum: Durum; detay: ReactNode };
 
@@ -89,7 +91,8 @@ export async function SeoBolum() {
   const n = yazilar.length;
   const sssli = yazilar.filter((b) => blogSSSGetir(b.slug).length > 0);
   const aciklamaIyi = yazilar.filter((b) => b.ozet.length >= 110 && b.ozet.length <= 170);
-  const baslikIyi = yazilar.filter((b) => b.baslik.length <= 70);
+  const seoBaslik = (b: (typeof yazilar)[number]) => blogSeoBaslik(b.slug, b.baslik);
+  const baslikIyi = yazilar.filter((b) => seoBaslik(b).length <= 70);
   const gorselli = yazilar.filter((b) => b.gorsel);
   const enYeni = yazilar.map((b) => b.tarih).sort().at(-1);
   const son30 = yazilar.filter((b) => gunFarki(b.tarih) <= 30).length;
@@ -134,14 +137,14 @@ export async function SeoBolum() {
       detay: `${aciklamaIyi.length}/${n} yazı uygun aralıkta.`,
     },
     {
-      ad: "Başlık uzunluğu (≤ 70 karakter)",
+      ad: "Arama sonucu başlığı (≤ 70 karakter)",
       durum: esik(oran(baslikIyi.length, n), 0.8, 0.5),
       detay: `${baslikIyi.length}/${n} yazı. Uzun başlıklar arama sonucunda kesilir; anlam ilk 60 karakterde verilmeli.`,
     },
     {
       ad: "Kapak görseli",
-      durum: esik(oran(gorselli.length, n), 0.8, 0.4),
-      detay: `${gorselli.length}/${n} yazıda kapak görseli var. Görselsiz yazılar paylaşımda ve Google Discover'da zayıf kalır.`,
+      durum: "bilgi",
+      detay: `Her yazının paylaşım görseli (Open Graph) başlığından otomatik üretiliyor. ${gorselli.length}/${n} yazıda ayrıca elle eklenmiş kapak fotoğrafı var; fotoğraf eklemek Google Discover görünürlüğünü artırır.`,
     },
   ];
 
@@ -169,18 +172,17 @@ export async function SeoBolum() {
   const sorunlar = yazilar
     .map((b) => {
       const s: string[] = [];
-      if (b.baslik.length > 70) s.push(`başlık ${b.baslik.length} karakter`);
+      if (seoBaslik(b).length > 70) s.push(`başlık ${seoBaslik(b).length} karakter`);
       if (b.ozet.length < 110) s.push(`açıklama kısa (${b.ozet.length})`);
       if (b.ozet.length > 170) s.push(`açıklama uzun (${b.ozet.length})`);
       if (!blogSSSGetir(b.slug).length) s.push("SSS yok");
-      if (!b.gorsel) s.push("kapak görseli yok");
       return { b, s };
     })
     .filter((x) => x.s.length > 0)
     .sort((a, b) => b.s.length - a.s.length)
     .slice(0, 8);
 
-  const tumu = [...teknik, ...icerik, ...odak];
+  const tumu = [...teknik, ...icerik, ...odak].filter((k) => k.durum !== "bilgi");
   const puan = Math.round((tumu.reduce((t, k) => t + (k.durum === "iyi" ? 1 : k.durum === "uyari" ? 0.5 : 0), 0) / tumu.length) * 100);
   const puanRenk = puan >= 80 ? RENK.iyi : puan >= 60 ? RENK.uyari : RENK.kotu;
 

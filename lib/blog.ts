@@ -78,7 +78,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-45001-belgesi",
     baslik: "ISO 45001 Belgesi: Kimler Alabilir, Belge Neyi Gösterir?",
     ozet:
-      "ISO 45001 belgesi iş sağlığı ve güvenliği yönetim sisteminizin standart şartlarını karşıladığını gösterir. Belgenin kapsamı, geçerliliği, doğrulanması ve yasal yükümlülüklerle ilişkisini açıklıyoruz.",
+      "ISO 45001 belgesi, iş sağlığı ve güvenliği yönetim sisteminizin standarda uygunluğunu gösterir. Kapsamını, geçerliliğini ve doğrulanmasını açıklıyoruz.",
     tarih: "2026-08-07",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -108,7 +108,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-14001-belgesi",
     baslik: "ISO 14001 Belgesi: Kapsam, Geçerlilik ve 2026 Sürümüne Geçiş",
     ozet:
-      "ISO 14001 belgesi çevre yönetim sisteminizin standart şartlarını karşıladığını gösterir. Belgenin kapsamı, geçerlilik süresi, doğrulanması ve ISO 14001:2026 geçişindeki durumunu açıklıyoruz.",
+      "ISO 14001 belgesi, çevre yönetim sisteminizin standarda uygun olduğunu gösterir. Kapsam, geçerlilik süresi, doğrulama ve 2026 geçişini açıklıyoruz.",
     tarih: "2026-08-07",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -138,7 +138,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-50001-belgesi",
     baslik: "ISO 50001 Belgesi: Enerji Yönetim Sistemi Belgesi Nedir?",
     ozet:
-      "ISO 50001 belgesi enerji yönetim sisteminizin standart şartlarını karşıladığını gösterir. Belgenin kapsamı, enerji performansı şartı, tetkik süresi ve doğrulama yöntemlerini açıklıyoruz.",
+      "ISO 50001 belgesi, enerji yönetim sisteminizin standarda uygunluğunu gösterir. Kapsamı, enerji performansı şartını, tetkik süresini ve doğrulamayı açıklıyoruz.",
     tarih: "2026-08-06",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -195,7 +195,7 @@ export const blogYazilari: BlogYazisi[] = [
     baslik:
       "ISO 14001:2026 Yayımlandı: Ne Değişti, Geçiş Süresi Ne Kadar?",
     ozet:
-      "ISO 14001:2026, 15 Nisan 2026'da yayımlandı ve ISO 14001:2015'in yerini aldı. Yeni sürümdeki değişiklikleri, üç yıllık geçiş takvimini ve kuruluşların atması gereken adımları açıklıyoruz.",
+      "ISO 14001:2026, 15 Nisan 2026'da yayımlandı. Yeni sürümdeki değişiklikleri, üç yıllık geçiş takvimini ve kuruluşların atması gereken adımları açıklıyoruz.",
     tarih: "2026-07-31",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -398,7 +398,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-9001-belgelendirme-nedir-nasil-alinir",
     baslik: "ISO 9001 Belgelendirme Nedir ve Nasıl Alınır?",
     ozet:
-      "ISO 9001 belgelendirme, kalite yönetim sisteminizin bağımsız ve tarafsız bir kuruluşça doğrulanmasıdır. Başvurudan sertifikaya kadar ISO 9001 belgelendirme sürecini adım adım açıklıyoruz.",
+      "ISO 9001 belgelendirme, kalite yönetim sisteminizin bağımsız bir kuruluşça doğrulanmasıdır. Başvurudan sertifikaya kadar süreci adım adım anlatıyoruz.",
     tarih: "2026-07-04",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -427,7 +427,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-45001-belgelendirme-is-sagligi-guvenligi",
     baslik: "ISO 45001 Belgelendirme: İş Sağlığı ve Güvenliği Yönetim Sistemi",
     ozet:
-      "ISO 45001 belgelendirme, iş sağlığı ve güvenliği yönetim sisteminizin bağımsız ve tarafsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, faydalarını ve belgelendirme sürecini açıklıyoruz.",
+      "ISO 45001 belgelendirme, İSG yönetim sisteminizin bağımsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, faydalarını ve belgelendirme sürecini anlatıyoruz.",
     tarih: "2026-06-27",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -451,7 +451,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-14001-belgelendirme-cevre-yonetim-sistemi",
     baslik: "ISO 14001 Belgelendirme: Çevre Yönetim Sistemi Belgesi",
     ozet:
-      "ISO 14001 belgelendirme, çevre yönetim sisteminizin bağımsız ve tarafsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, sağladığı faydaları ve belgelendirme sürecini açıklıyoruz.",
+      "ISO 14001 belgelendirme, çevre yönetim sisteminizin bağımsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, faydalarını ve sürecini açıklıyoruz.",
     tarih: "2026-06-24",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -473,7 +473,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "ic-denetci-ic-tetkikci-egitimi-nedir",
     baslik: "İç Denetçi (İç Tetkikçi) Eğitimi Nedir, Kimler Katılmalı?",
     ozet:
-      "İç denetçi (iç tetkikçi) eğitimi, kuruluşların yönetim sistemi iç tetkiklerini yürütecek yetkinliği kazandırır. Eğitimin kapsamını, kimlerin katılması gerektiğini ve iç tetkikin önemini açıklıyoruz.",
+      "İç denetçi (iç tetkikçi) eğitimi, yönetim sistemi iç tetkiklerini yürütme yetkinliği kazandırır. Kapsamını ve kimlerin katılması gerektiğini anlatıyoruz.",
     tarih: "2026-06-20",
     kategori: "Eğitim",
     icerik:
@@ -497,7 +497,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "iso-50001-belgelendirme-enerji-yonetim-sistemi",
     baslik: "ISO 50001 Belgelendirme: Enerji Yönetim Sistemi Belgesi",
     ozet:
-      "ISO 50001 belgelendirme, enerji yönetim sisteminizin bağımsız ve tarafsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, enerji verimliliği faydalarını ve belgelendirme sürecini açıklıyoruz.",
+      "ISO 50001 belgelendirme, enerji yönetim sisteminizin bağımsız bir kuruluşça doğrulanmasıdır. Kapsamını, verimlilik faydalarını ve sürecini açıklıyoruz.",
     tarih: "2026-06-16",
     kategori: "Yönetim Sistemleri",
     icerik:
@@ -519,7 +519,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "gida-tedarikci-denetimi",
     baslik: "Gıda Tedarikçi Denetimi: Gıda Güvenliği ve Hijyen Kriterleri",
     ozet:
-      "Gıda tedarikçi denetimi; hammadde, ambalaj ve fason üreticilerin gıda güvenliği, hijyen ve izlenebilirlik kriterlerine uygunluğunu doğrular. Denetim başlıklarını ve referans standartları açıklıyoruz.",
+      "Gıda tedarikçi denetimi; hammadde, ambalaj ve fason üreticilerin gıda güvenliği, hijyen ve izlenebilirlik uyumunu doğrular. Başlıkları ve standartları anlatıyoruz.",
     tarih: "2026-06-13",
     kategori: "Denetim",
     icerik:
@@ -550,7 +550,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "tekstil-tedarikci-denetimi",
     baslik: "Tekstil ve Hazır Giyim Tedarikçi Denetimi: Kalite ve Sosyal Uygunluk",
     ozet:
-      "Tekstil ve hazır giyim ihracatında alıcılar tedarikçilerden hem kalite hem de sosyal uygunluk bekler. Tekstil tedarikçi denetiminin kalite, sosyal uygunluk ve çevre başlıklarını ele alıyoruz.",
+      "Tekstil ve hazır giyim alıcıları tedarikçiden kalite ve sosyal uygunluk bekler. Tekstil tedarikçi denetiminin kalite, sosyal ve çevre başlıklarını ele alıyoruz.",
     tarih: "2026-06-13",
     kategori: "Denetim",
     icerik:
@@ -611,7 +611,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "vda-6-3-nedir",
     baslik: "VDA 6.3 Nedir? Proses Denetimi, Soru Kataloğu ve IATF 16949 Farkı",
     ozet:
-      "VDA 6.3, Alman otomotiv endüstrisinin proses denetimi standardıdır. Kapsadığı süreç elemanlarını (P1–P7), puanlama ve A/B/C sınıflandırmasını, IATF 16949 ile farkını ve tedarikçi denetimlerinde nasıl kullanıldığını açıklıyoruz.",
+      "VDA 6.3, Alman otomotiv sektörünün proses denetimi standardıdır. P1–P7 süreç elemanlarını, A/B/C puanlamasını ve IATF 16949 ile farkını açıklıyoruz.",
     tarih: "2026-10-06",
     kategori: "Denetim",
     icerik:
@@ -659,7 +659,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "tedarikci-denetimi-nedir",
     baslik: "Tedarikçi Denetimi Nedir? Neden, Ne Zaman ve Nasıl Yapılır?",
     ozet:
-      "Tedarikçi denetimi, bir kuruluşun tedarikçilerini, fason üreticilerini ve alt yüklenicilerini yerinde değerlendirmesidir. Amacını, hangi durumlarda yapıldığını, iç denetim ve belgelendirme denetiminden farkını açıklıyoruz.",
+      "Tedarikçi denetimi (ikinci taraf denetim), tedarikçi ve fason üreticilerin yerinde değerlendirilmesidir. Amacını ve iç denetimden farkını açıklıyoruz.",
     tarih: "2026-06-12",
     kategori: "Denetim",
     icerik:
@@ -695,7 +695,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "tedarikci-denetimi-nasil-yapilir",
     baslik: "Tedarikçi Denetimi Nasıl Yapılır? Adım Adım Süreç",
     ozet:
-      "Tedarikçi denetimi (2. taraf denetimi); planlama, doküman incelemesi, saha denetimi, raporlama ve düzeltici faaliyet takibi adımlarından oluşur. Sürecin her aşamasını adım adım açıklıyoruz.",
+      "Tedarikçi denetimi; planlama, doküman incelemesi, saha denetimi, raporlama ve düzeltici faaliyet takibinden oluşur. Her aşamayı adım adım açıklıyoruz.",
     tarih: "2026-06-09",
     kategori: "Denetim",
     icerik:
@@ -721,7 +721,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "tedarikci-denetimi-kontrol-listesi",
     baslik: "Tedarikçi Denetimi Kontrol Listesi (Checklist) ve Değerlendirme Başlıkları",
     ozet:
-      "Tedarikçi denetiminde hangi başlıklar değerlendirilir? Kalite, üretim, İSG, çevre, sosyal uygunluk ve izlenebilirlik başlıklarını kapsayan bir tedarikçi denetimi kontrol listesi rehberi.",
+      "Tedarikçi denetiminde kalite, üretim, İSG, çevre, sosyal uygunluk ve izlenebilirlik başlıklarını kapsayan kontrol listesi (checklist) rehberi.",
     tarih: "2026-06-05",
     kategori: "Denetim",
     icerik:
@@ -759,7 +759,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "tedarikci-degerlendirme-kriterleri",
     baslik: "Tedarikçi Değerlendirme Kriterleri ve Tedarikçi Seçimi",
     ozet:
-      "Tedarikçi seçimi ve onayında hangi kriterler kullanılır? Tedarikçi değerlendirme kriterlerini, ön yeterlilik ve performans izleme aşamalarını ve denetimin bu süreçteki rolünü açıklıyoruz.",
+      "Tedarikçi seçimi ve onayında kullanılan değerlendirme kriterleri, ön yeterlilik ve performans izleme aşamaları ile denetimin bu süreçteki rolü.",
     tarih: "2026-06-02",
     kategori: "Denetim",
     icerik:
@@ -785,7 +785,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "sube-magaza-denetimi-rehberi",
     baslik: "Şube ve Mağaza Denetimi Nedir? Zincir İşletmeler İçin Rehber",
     ozet:
-      "Şube denetimi (mağaza denetimi), zincir işletmelerin ve franchise ağlarının şubelerini marka standartlarına uygunluk açısından değerlendirmesidir. Kapsamını, faydalarını ve gizli müşteriden farkını açıklıyoruz.",
+      "Şube (mağaza) denetimi, zincir işletme ve franchise şubelerinin marka standartlarına uygunluğunun değerlendirilmesidir. Kapsam ve gizli müşteri farkı.",
     tarih: "2026-05-28",
     kategori: "Denetim",
     icerik:
@@ -820,7 +820,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "sube-denetimi-kontrol-listesi",
     baslik: "Şube Denetimi Kontrol Listesi: Mağaza Denetim Formunda Olması Gerekenler",
     ozet:
-      "Etkili bir şube denetimi, iyi hazırlanmış bir kontrol listesiyle başlar. Mağaza denetim formunda yer alması gereken başlıkları, puanlama yaklaşımını ve formu hazırlarken dikkat edilmesi gerekenleri açıklıyoruz.",
+      "Mağaza denetim formunda olması gereken başlıklar, puanlama yaklaşımı ve şube denetimi kontrol listesi hazırlarken dikkat edilmesi gerekenler.",
     tarih: "2026-10-05",
     kategori: "Denetim",
     icerik:
@@ -873,7 +873,7 @@ export const blogYazilari: BlogYazisi[] = [
     slug: "tedarik-zinciri-risk-yonetimi",
     baslik: "Tedarik Zinciri Risk Yönetimi ve Denetimin Rolü",
     ozet:
-      "Tedarik zinciri riskleri işletmenin sürekliliğini doğrudan etkiler. Başlıca riskleri, risk temelli bir yaklaşımı ve tedarikçi denetiminin riskleri yönetmedeki rolünü ele alıyoruz.",
+      "Tedarik zinciri riskleri işletmenin sürekliliğini doğrudan etkiler. Başlıca riskleri, risk temelli yaklaşımı ve tedarikçi denetiminin rolünü ele alıyoruz.",
     tarih: "2026-05-24",
     kategori: "Denetim",
     icerik:

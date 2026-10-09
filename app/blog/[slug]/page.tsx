@@ -8,6 +8,7 @@ import { tarihiBicimle } from "@/lib/duyurular";
 import { bloglariGetir, blogDetay, benzerBloglar, kategoriSlug } from "@/lib/icerik";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { blogSSSGetir } from "@/lib/blog-sss";
+import { blogSeoBaslik } from "@/lib/blog-seo";
 import { siteConfig } from "@/lib/site-config";
 import { blogPostingSchema, breadcrumbSchema, faqSchema, schemaScript } from "@/lib/seo-schemas";
 
@@ -24,14 +25,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const yazi = await blogDetay(slug);
   if (!yazi) return { title: "Yazı bulunamadı" };
+  const baslik = blogSeoBaslik(yazi.slug, yazi.baslik);
 
   return {
-    title: yazi.baslik,
+    title: baslik,
     description: yazi.ozet,
     alternates: { canonical: `${siteConfig.url}/blog/${yazi.slug}` },
     openGraph: {
       type: "article",
-      title: yazi.baslik,
+      title: baslik,
       description: yazi.ozet,
       url: `${siteConfig.url}/blog/${yazi.slug}`,
       publishedTime: yazi.tarih,

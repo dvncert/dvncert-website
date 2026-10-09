@@ -398,6 +398,290 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
         "Geçerlilik süresi dolmadan önce, ilk belgelendirmeye benzer kapsamda bir yeniden belgelendirme tetkiki planlanır. Sistemin son üç yıldaki performansı ve standardın güncel şartlarına uyumu değerlendirilir; olumlu sonuçta belge 3 yıl daha uzatılır.",
     },
   ],
+
+  // ---------- Belgelendirme süreci, standartlar ve tedarikçi rehberleri ----------
+  "cok-sahali-belgelendirme": [
+    {
+      soru: "Çok sahalı belgelendirme nedir?",
+      cevap:
+        "Çok sahalı belgelendirme, merkezi olarak yönetilen ve ortak bir yönetim sistemine sahip birden fazla lokasyonun tek bir sözleşme ve tek bir sertifika kapsamında değerlendirilmesidir. Her saha ayrı ayrı denetlenmez; tetkik ekibi örnekleme yöntemiyle sahaların bir kısmını ziyaret eder.",
+    },
+    {
+      soru: "Çok sahalı belgelendirmede her şube denetlenir mi?",
+      cevap:
+        "Her tetkikte her şube denetlenmez. Her tetkik döneminde örnekleme ile farklı bir saha grubu ziyaret edilir; böylece belgenin geçerlilik süresi boyunca sahaların tamamı zaman içinde örnekleme kapsamına girer.",
+    },
+    {
+      soru: "Çok sahalı belgelendirme için şartlar nelerdir?",
+      cevap:
+        "Tüm sahaların aynı yönetim sistemi, politika ve prosedürler altında çalışması ve merkezi bir yönetim tarafından denetlenmesi gerekir. İç tetkik programı tüm sahaları kapsamalı, iç tetkik ve yönetim gözden geçirme merkezi olarak planlanmalıdır. Merkezi kontrolün olmadığı sahalar ayrı ayrı belgelendirilir.",
+    },
+    {
+      soru: "Çok sahalı belgelendirme ile şube denetimi aynı şey mi?",
+      cevap:
+        "Hayır. Çok sahalı belgelendirme, bağımsız bir belgelendirme kuruluşunun şubeleri üçüncü taraf olarak denetleyip tek bir ISO sertifikası düzenlemesidir. Şube ve mağaza denetimi ise markanın kendi kriterleriyle yapılan ikinci taraf denetimdir ve sonucunda sertifika değil denetim raporu sunulur.",
+    },
+  ],
+  "belgelendirme-karari-nasil-verilir": [
+    {
+      soru: "ISO belgelendirme kararını kim verir?",
+      cevap:
+        "Belgelendirme kararını, o tetkike katılmamış ve tetkik ekibinden bağımsız bir karar verici verir. ISO/IEC 17021-1 standardı, tarafsızlığı korumak için tetkiki yürüten kişinin sertifika kararını tek başına vermesine izin vermez.",
+    },
+    {
+      soru: "Belgelendirme kararında neler değerlendirilir?",
+      cevap:
+        "Karar verici; tetkik bulgularının standarda uygun değerlendirilip değerlendirilmediğini, uygunsuzlukların kapatılıp kapatılmadığını, tetkik ekibinin yetkinliğini ve kapsam ifadesinin tetkik edilen faaliyetlerle tutarlılığını inceler. Gerekirse ek bilgi veya açıklama talep edebilir.",
+    },
+    {
+      soru: "Belgelendirme kararı olumsuz olursa ne olur?",
+      cevap:
+        "Bulgular yeterince kapatılmamışsa veya kanıtlar yetersizse karar verici ek bilgi isteyebilir, sertifikayı reddedebilir ya da mevcut bir belgeyi askıya alabilir. Karar olumluysa sertifika düzenlenir veya mevcut belgenin geçerliliği sürdürülür.",
+    },
+  ],
+  "iso-9001-ve-iso-14001-farki": [
+    {
+      soru: "ISO 9001 ile ISO 14001 arasındaki fark nedir?",
+      cevap:
+        "ISO 9001 kalite yönetim sistemi standardıdır ve ürün/hizmet kalitesine, müşteri memnuniyetine ve süreç kontrolüne odaklanır. ISO 14001 ise çevre yönetim sistemi standardıdır ve çevresel etkilerin yönetimine, çevre mevzuatına uyuma ve çevresel performansın iyileştirilmesine odaklanır.",
+    },
+    {
+      soru: "ISO 9001 ve ISO 14001 birlikte alınabilir mi?",
+      cevap:
+        "Evet. İki standart da Annex SL ortak üst yapısını kullandığı için tek bir entegre yönetim sistemi çatısı altında birleştirilebilir ve tek bir denetim programıyla belgelendirilebilir.",
+    },
+    {
+      soru: "ISO 9001 ve ISO 14001'in ortak yönleri nelerdir?",
+      cevap:
+        "Her iki standart da kuruluşun bağlamı, liderlik, planlama, destek, operasyon, performans değerlendirme ve iyileştirme başlıklarını aynı sırayla içerir. Bu sayede doküman yönetimi, iç tetkik ve yönetim gözden geçirme gibi süreçler tek elden yürütülebilir.",
+    },
+  ],
+  "belgelendirme-kapsami-nasil-belirlenir": [
+    {
+      soru: "Belgelendirme kapsamı nedir?",
+      cevap:
+        "Belgelendirme kapsamı, bir yönetim sistemi sertifikasının hangi faaliyet, ürün, hizmet, lokasyon ve süreçleri içerdiğini tanımlayan ve sertifika üzerinde yer alan resmi ifadedir. Belgenin geçerli olduğu sınırları netleştirir.",
+    },
+    {
+      soru: "Belgelendirme kapsamını kim belirler?",
+      cevap:
+        "Kapsam başvuru aşamasında kuruluş tarafından tanımlanır ve belgelendirme kuruluşu tarafından aşama 1 tetkikinde gözden geçirilir. Kapsamın standardın şartlarına ve kuruluşun fiilen yürüttüğü faaliyetlere uygun olmadığı görülürse netleştirme istenir.",
+    },
+    {
+      soru: "ISO sertifikasının kapsamı sonradan değiştirilebilir mi?",
+      cevap:
+        "Evet. Faaliyet alanı genişler veya daralırsa kapsam güncellemesi talep edilebilir; belgelendirme kuruluşu değişikliğin etkisine göre ek denetim gerekip gerekmediğine karar verir. Kapsam değişikliği sertifikanın geçerlilik süresini etkilemez, yalnızca belge üzerinde güncellenir.",
+    },
+  ],
+  "iso-45001-belgelendirme-is-sagligi-guvenligi": [
+    {
+      soru: "ISO 45001 nedir?",
+      cevap:
+        "ISO 45001:2018, kuruluşların çalışanları ve işyerinde etkilenen diğer kişiler için güvenli ve sağlıklı çalışma koşulları sağlamasına yönelik şartları belirleyen iş sağlığı ve güvenliği yönetim sistemi standardıdır. Risk temelli ve çalışan katılımını esas alan bir yaklaşım sunar.",
+    },
+    {
+      soru: "ISO 45001 belgesi ne işe yarar?",
+      cevap:
+        "ISO 45001 belgesi, iş kazası ve meslek hastalığı risklerinin sistematik olarak yönetildiğini ve yasal İSG yükümlülüklerine uyulduğunu gösterir. İhale ve tedarikçi şartlarında İSG performansını belgelemeye, kaza kaynaklı maliyet ve iş gücü kayıplarını azaltmaya yardımcı olur.",
+    },
+    {
+      soru: "ISO 45001 belgelendirme süreci nasıl işler?",
+      cevap:
+        "Süreç; başvuru, aşama 1 (hazırlık) tetkiki, aşama 2 (saha) tetkiki, uygunsuzlukların kapatılması ve bağımsız belgelendirme kararı adımlarından oluşur. Belge geçerliliği boyunca yıllık gözetim tetkikleriyle sistemin sürdürüldüğü doğrulanır.",
+    },
+  ],
+  "iso-14001-belgelendirme-cevre-yonetim-sistemi": [
+    {
+      soru: "ISO 14001 belgesi nedir?",
+      cevap:
+        "ISO 14001 belgesi, bir kuruluşun ISO 14001:2015 çevre yönetim sistemi standardına göre çevresel etkilerini kontrol altına aldığını ve çevresel performansını sürekli iyileştirdiğini gösteren sertifikadır. Bağımsız bir belgelendirme kuruluşunun tetkiki sonucunda verilir.",
+    },
+    {
+      soru: "ISO 14001 belgesinin faydaları nelerdir?",
+      cevap:
+        "Çevre mevzuatına uyumu göstermeyi ve yaptırım riskini azaltmayı sağlar; enerji, su ve hammadde kullanımını iyileştirerek maliyetleri düşürür. Ayrıca atık ve emisyonların sistematik yönetimini, kurumsal itibarı ve ihale ile ihracattaki çevresel gerekliliklerin karşılanmasını destekler.",
+    },
+    {
+      soru: "ISO 14001 belgelendirme nasıl yapılır?",
+      cevap:
+        "Belgelendirme; başvuru, aşama 1 ve aşama 2 tetkikleri, uygunsuzlukların kapatılması ve bağımsız belgelendirme kararı ile ilerler. Belge geçerliliği boyunca yıllık gözetim tetkikleri yapılır.",
+    },
+  ],
+  "ic-denetci-ic-tetkikci-egitimi-nedir": [
+    {
+      soru: "İç denetçi eğitimi nedir?",
+      cevap:
+        "İç denetçi (iç tetkikçi) eğitimi, kuruluşun kendi yönetim sistemini planlı aralıklarla ve tarafsız biçimde denetleyecek kişilere gerekli yetkinliği kazandıran eğitimdir. Standart şartlarının yorumlanması, ISO 19011 tetkik prensipleri, tetkik planlama, delil toplama ve raporlama konularını kapsar.",
+    },
+    {
+      soru: "İç denetçi eğitimine kimler katılmalı?",
+      cevap:
+        "Yönetim temsilcileri, kalite, İSG ve çevre sorumluları, süreç sahipleri ve iç tetkik ekibinde görev alacak tüm çalışanlar bu eğitimden yararlanır.",
+    },
+    {
+      soru: "İç tetkik ile belgelendirme denetimi arasındaki fark nedir?",
+      cevap:
+        "İç tetkik, kuruluşun kendi sistemini kendi ekibiyle değerlendirdiği birinci taraf denetimdir. Belgelendirme denetimi ise bağımsız bir belgelendirme kuruluşunun yaptığı üçüncü taraf denetimdir. İç tetkik, belgelendirme denetiminden önce sistemin sağlığını gösteren en önemli araçtır.",
+    },
+    {
+      soru: "İç tetkikçi kendi bölümünü denetleyebilir mi?",
+      cevap:
+        "Hayır, tarafsızlığın korunması için iç tetkikçiler doğrudan sorumlu oldukları alanı tetkik etmeyecek şekilde görevlendirilir.",
+    },
+  ],
+  "iso-50001-belgelendirme-enerji-yonetim-sistemi": [
+    {
+      soru: "ISO 50001 nedir?",
+      cevap:
+        "ISO 50001:2018, bir kuruluşun enerji kullanımını ve tüketimini yönetmesi, enerji performansını izlemesi ve sürekli iyileştirmesi için gereken şartları belirleyen enerji yönetim sistemi standardıdır.",
+    },
+    {
+      soru: "ISO 50001 belgesinin faydaları nelerdir?",
+      cevap:
+        "Enerji maliyetlerini ölçülebilir biçimde düşürmeyi ve enerji verimliliğini kurumsal bir sürece dönüştürmeyi sağlar. Sera gazı emisyonlarının azaltılmasını, yasal ve müşteri kaynaklı enerji gerekliliklerinin karşılanmasını ve sürdürülebilirlik ile ESG hedeflerini destekler.",
+    },
+    {
+      soru: "Enerji performans göstergesi (EnPI) nedir?",
+      cevap:
+        "Enerji performans göstergeleri (EnPI), kuruluşun enerji performansını ölçmek için kullandığı göstergelerdir. Enerji temel çizgisi (baseline) ile birlikte ISO 50001 sisteminin ölçüm omurgasını oluşturur ve belgelendirmede bu verilerin izlenebilirliği özellikle önemlidir.",
+    },
+  ],
+  "tekstil-tedarikci-denetimi": [
+    {
+      soru: "Tekstil tedarikçi denetimi nedir?",
+      cevap:
+        "Tekstil tedarikçi denetimi; konfeksiyon, dokuma, örme, boya-apre veya fason üreticilerin kalite, sosyal uygunluk ve çevre kriterlerine uygunluğunu değerlendiren ikinci taraf denetimdir. Marka ve perakendeciler fason üretim ağlarını kontrol etmek için yaygın olarak kullanır.",
+    },
+    {
+      soru: "Tekstil tedarikçi denetiminde neler kontrol edilir?",
+      cevap:
+        "Dikiş, ölçü, renk ve aksesuar kalitesi, üretim ve kalite kontrol noktaları ile AQL örneklemeli son ürün kontrolü değerlendirilir. Bunlara ek olarak çalışma saatleri, ücret, çocuk işçi ve zorla çalıştırma yasakları gibi sosyal uygunluk başlıkları ile kimyasal, atık su ve atık yönetimi incelenir.",
+    },
+    {
+      soru: "Tekstil ihracatında sosyal uygunluk denetimi neden önemli?",
+      cevap:
+        "Avrupa ve global alıcılar, tedarik zincirlerinde insan hakları ve etik iş uygulamalarını giderek daha sıkı şart koşuyor. Sosyal uygunluk gereklilikleri karşılanmadığında siparişler iptal olabilir; bu nedenle bağımsız denetim ihracat sürekliliği için kritiktir.",
+    },
+  ],
+  "otomotiv-tedarikci-denetimi": [
+    {
+      soru: "Otomotiv tedarikçi denetimi nedir?",
+      cevap:
+        "Otomotiv tedarikçi denetimi, bir OEM'in veya Tier 1/Tier 2 tedarikçinin alt tedarikçilerini kalite, proses yeterliliği ve teslim güvenilirliği açısından değerlendirdiği ikinci taraf denetimdir. Amaç seri üretimde tutarlı kaliteyi ve sıfır hata hedefini güvence altına almaktır.",
+    },
+    {
+      soru: "Otomotiv tedarikçi denetiminde hangi konular değerlendirilir?",
+      cevap:
+        "APQP ve proje yönetimi, PPAP dokümantasyonu, FMEA ile risk analizi, proses kontrol planları ve SPC, izlenebilirlik ile uygunsuz ürün yönetimi ve ölçüm sistemleri analizi (MSA) başlıca değerlendirme konularıdır.",
+    },
+    {
+      soru: "Otomotiv tedarikçi denetiminde VDA 6.3 kullanılır mı?",
+      cevap:
+        "Evet. VDA 6.3, Alman otomotiv endüstrisinin geliştirdiği risk temelli bir proses denetimi yöntemidir; ürün geliştirmeden seri üretime kadar prosesleri değerlendirir ve otomotiv tedarikçi denetimlerinde yaygın bir referanstır.",
+    },
+  ],
+  "gida-tedarikci-denetimi": [
+    {
+      soru: "Gıda tedarikçi denetimi nedir?",
+      cevap:
+        "Gıda tedarikçi denetimi, bir gıda işletmesinin hammadde, katkı, ambalaj veya fason üretim tedarikçilerini gıda güvenliği, hijyen ve yasal gerekliliklere uygunluk açısından değerlendirdiği ikinci taraf denetimdir. Sonucunda sertifika değil, ayrıntılı bir tedarikçi denetim raporu sunulur.",
+    },
+    {
+      soru: "Gıda tedarikçi denetiminde neler kontrol edilir?",
+      cevap:
+        "HACCP planı ve kritik kontrol noktaları, personel hijyeni ve sanitasyon, haşere kontrolü, alerjen yönetimi ve çapraz bulaşma önlemleri incelenir. Hammadde kabul, depolama ve soğuk zincir koşulları ile izlenebilirlik ve geri çağırma hazırlığı da değerlendirilir.",
+    },
+    {
+      soru: "Gıda tedarikçi denetiminde hangi standartlar referans alınır?",
+      cevap:
+        "ISO 22000, FSSC 22000, BRCGS ve IFS Food ile Codex Alimentarius ilkeleri ve ulusal gıda mevzuatı sık kullanılan referanslardır. Denetim, kuruluşun kendi belirlediği kriterlerle birlikte bu standartların gereklilikleri doğrultusunda yürütülür.",
+    },
+  ],
+  "tedarikci-denetimi-kontrol-listesi": [
+    {
+      soru: "Tedarikçi denetimi kontrol listesinde neler olmalı?",
+      cevap:
+        "Tipik bir kontrol listesi; kalite yönetimi, üretim ve süreç kontrolü, iş sağlığı ve güvenliği ile çevre, sosyal uygunluk ve etik, dokümantasyon ve izlenebilirlik başlıklarını içerir. Liste kuruluşun kendi gereksinimlerine göre uyarlanmalıdır.",
+    },
+    {
+      soru: "Tedarikçi denetim kontrol listesi nasıl puanlanır?",
+      cevap:
+        "Her başlık genellikle uygun, kısmen uygun, uygun değil şeklinde veya sayısal bir puanla değerlendirilir. Bulgular kritik, majör ve minör olarak önem derecesine göre sınıflandırılır; böylece tedarikçiler karşılaştırılabilir ve önceliklendirilmiş bir iyileştirme planı oluşturulabilir.",
+    },
+    {
+      soru: "Tedarikçi denetiminde kontrol listesi neden kullanılır?",
+      cevap:
+        "Kontrol listesi, ikinci taraf denetimin her tedarikçide aynı kriterlerle ve aynı titizlikle yapılmasını sağlar. Bulguların puanlanması ve tedarikçilerin nesnel biçimde karşılaştırılması için yapılandırılmış bir liste gerekir.",
+    },
+  ],
+  "tedarikci-degerlendirme-kriterleri": [
+    {
+      soru: "Tedarikçi değerlendirme kriterleri nelerdir?",
+      cevap:
+        "Başlıca kriterler; kalite yönetim sistemi ve ürün kalitesi, teslim performansı, fiyat ve toplam sahip olma maliyeti, kapasite ve finansal istikrar, yasal, çevresel ve sosyal uygunluk ile ISO 9001 gibi sertifikalar ve referanslardır.",
+    },
+    {
+      soru: "Tedarikçi değerlendirme ne zaman yapılır?",
+      cevap:
+        "Tedarikçi değerlendirme hem yeni tedarikçi seçiminde onay öncesi ön yeterlilik olarak hem de onaylı tedarikçilerin performansını izlemek için onay sonrası düzenli olarak yapılır.",
+    },
+    {
+      soru: "Tedarikçi değerlendirme ile tedarikçi denetimi arasındaki fark nedir?",
+      cevap:
+        "Tedarikçi değerlendirme büyük ölçüde verilere ve tedarikçi beyanına dayanır. Tedarikçi denetimi ise bu bilgileri yerinde ve kanıta dayalı olarak doğrulayan ikinci taraf denetimdir; bu yüzden sağlam bir değerlendirme sürecinin en güçlü bileşenidir.",
+    },
+  ],
+  "tedarik-zinciri-risk-yonetimi": [
+    {
+      soru: "Tedarik zinciri riski nedir?",
+      cevap:
+        "Tedarik zinciri riski, bir tedarikçiden veya iş ortağından kaynaklanan ve kaliteyi, teslimatı, maliyeti veya itibarı olumsuz etkileyebilecek belirsizliklerdir. Bu riskler tek bir tedarikçide başlayıp tüm zincire yayılabilir.",
+    },
+    {
+      soru: "Tedarik zinciri riskleri nelerdir?",
+      cevap:
+        "Başlıca riskler; uygunsuz ürün ve izlenebilirlik eksikliği gibi kalite riskleri, teslim gecikmesi ve finansal sorunlar gibi süreklilik riskleri, yasal ve sosyal gerekliliklere uymama gibi uygunluk riskleri ve tedarikçi kaynaklı etik veya çevresel sorunlardan doğan itibar riskleridir.",
+    },
+    {
+      soru: "Risk temelli tedarikçi denetimi nedir?",
+      cevap:
+        "Risk temelli tedarikçi denetimi, denetim sıklığını ve kapsamını tedarikçinin risk seviyesine göre belirleme yaklaşımıdır. Kritik, yüksek hacimli veya geçmişinde uygunsuzluk bulunan tedarikçiler daha sık ve derinlemesine denetlenir.",
+    },
+  ],
+  "entegre-yonetim-sistemi-nedir": [
+    {
+      soru: "Entegre yönetim sistemi nedir?",
+      cevap:
+        "Entegre yönetim sistemi (EYS), ISO 9001, ISO 14001 ve ISO 45001 gibi standartların ortak gerekliliklerini tek bir yönetim yapısında birleştiren yaklaşımdır. Doküman yönetimi, risk değerlendirmesi, iç tetkik ve yönetim gözden geçirme gibi ortak süreçler tek elden yürütülür.",
+    },
+    {
+      soru: "Entegre yönetim sisteminin avantajları nelerdir?",
+      cevap:
+        "Birden fazla standart tek bir bütünleşik denetimle belgelendirilebilir; tekrar eden dokümantasyon azalır ve denetim ile yönetim maliyeti düşer. Ayrıca departmanlar arası tutarlılık artar ve riskler bütünsel olarak ele alınır.",
+    },
+    {
+      soru: "Hangi ISO standartları entegre edilebilir?",
+      cevap:
+        "En yaygın entegrasyon ISO 9001, ISO 14001 ve ISO 45001 üçlüsüdür. Enerji yoğun kuruluşlar buna ISO 50001 enerji yönetim sistemini de ekleyebilir. Annex SL ortak üst yapısı bu entegrasyonu kolaylaştırır.",
+    },
+  ],
+  "belgelendirme-denetimine-hazirlik": [
+    {
+      soru: "Aşama 1 ve aşama 2 tetkiki arasındaki fark nedir?",
+      cevap:
+        "Aşama 1 tetkikinde yönetim sistemi dokümantasyonu ve genel hazırlık durumu değerlendirilir ve aşama 2 planlanır. Aşama 2 ise sistemin sahada nasıl uygulandığının görüşmeler, kayıt incelemesi ve yerinde gözlemle kapsamlı olarak değerlendirildiği ana belgelendirme tetkikidir.",
+    },
+    {
+      soru: "ISO belgelendirme denetimine nasıl hazırlanılır?",
+      cevap:
+        "Politika, hedef ve prosedürler güncel tutulmalı, en az bir tam iç tetkik ve yönetim gözden geçirme toplantısı tamamlanmalıdır. Düzeltici faaliyet kayıtları ve yasal uyum kayıtları hazır bulundurulmalı, çalışanların kendi süreç ve sorumluluklarına hâkim olduğundan emin olunmalıdır.",
+    },
+    {
+      soru: "Belgelendirme denetiminde en sık hangi uygunsuzluklar çıkar?",
+      cevap:
+        "En sık görülenler; eksik veya güncellenmemiş kayıtlar, iç tetkik veya yönetim gözden geçirmesinin yapılmamış olması, düzeltici faaliyetlerin etkinliğinin gösterilememesi ve risk ve fırsatların yeterince ele alınmamasıdır.",
+    },
+  ],
 };
 
 /** Bir blog slug'ına ait curated SSS'i getirir (yoksa boş dizi). */
