@@ -19,6 +19,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
       "Tedarikçi denetimleri; planlama, denetçi ataması, bulgu, uygunsuzluk ve rapor onayıyla tek bir online sistemden yönetilebilir. DBYS ile nasıl işlediğini anlatıyoruz.",
     tarih: "2026-10-09",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/tedarikci-denetim-yonetimi-yazilimi.webp",
     icerik:
       "Tedarikçi denetim yönetimi yazılımı, ikinci taraf denetimlerin planlanmasından rapor onayına kadar tüm adımlarının tek bir online sistem üzerinden yürütülmesini sağlar. Denetim takvimi, denetçi ataması, soru listeleri, kanıtlarıyla birlikte bulgular, uygunsuzlukların kapanışı ve raporlar e-posta ve Excel dosyaları arasında dağılmak yerine tek yerde toplanır. DVN Cert, tedarikçi denetimlerini bu amaçla geliştirdiği DBYS (DVN Cert Belge Yönetim Sistemi) üzerinden yönetir; müşterilerimiz denetim sürecini online olarak izler ve raporları sistem üzerinden onaylar.\n\n" +
       "## Tedarikçi denetimlerini Excel ve e-postayla yönetmenin sorunu nedir?\n\n" +
@@ -52,6 +53,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
       "İkinci taraf denetim, kuruluşun tedarikçisini kendi kriterleriyle denetlemesidir. Birinci, ikinci ve üçüncü taraf denetim farklarını tabloyla açıklıyoruz.",
     tarih: "2026-10-08",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/birinci-ikinci-ucuncu-taraf-denetim-farki.webp",
     icerik:
       "Denetimler, denetimi kimin kim adına yaptığına göre üçe ayrılır: kuruluşun kendi kendini denetlediği birinci taraf (iç) denetim, kuruluşun tedarikçisini veya iş ortağını denetlediği ikinci taraf denetim ve bağımsız bir kuruluşun yaptığı üçüncü taraf denetim. Bu sınıflandırma, yönetim sistemleri tetkik kılavuzu olan ISO 19011:2018 standardında da aynı biçimde yer alır.\n\n" +
       "## İkinci taraf denetim nedir?\n\n" +
@@ -85,6 +87,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
       "ISO 9001 tedarikçi denetimini her durumda zorunlu tutmaz; madde 8.4 risk temelli kontrol ister. Hangi tedarikçinin denetlenmesi gerektiğini açıklıyoruz.",
     tarih: "2026-10-08",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/iso-9001-tedarikci-denetimi-zorunlu-mu.webp",
     icerik:
       "Kısa yanıt: ISO 9001:2015, her tedarikçinin yerinde denetlenmesini zorunlu tutmaz. Standart, kuruluşun dış tedarikçileri değerlendirme, seçme, performanslarını izleme ve yeniden değerlendirme kriterlerini belirleyip uygulamasını ister (madde 8.4.1). Kontrolün türü ve sıkılığı ise tedarikçinin ürün ve hizmet uygunluğu üzerindeki etkisine göre belirlenir (madde 8.4.2). Kritik ve yüksek riskli tedarikçilerde bu kontrolün en güçlü yolu tedarikçi denetimidir.\n\n" +
       "## ISO 9001 madde 8.4 ne ister?\n\n" +
@@ -121,6 +124,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
       "Tedarikçi denetim raporu; kapsam, kriterler, bulgular, puan ve düzeltici faaliyet taleplerini içerir. Rapor bölümlerini ve puanlamayı açıklıyoruz.",
     tarih: "2026-10-07",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/tedarikci-denetim-raporu.webp",
     icerik:
       "Tedarikçi denetim raporu, tedarikçi denetiminin resmî çıktısıdır: Denetimde neyin, hangi kriterlere göre incelendiğini, hangi kanıtların görüldüğünü, tespit edilen bulguları ve bunların önemini, tedarikçinin aldığı puanı ve sonuç kararını kayıt altına alır. Satın alma ve kalite ekipleri tedarikçi onayı, sipariş dağılımı ve performans değerlendirmesi kararlarını bu rapora dayandırır.\n\n" +
       "## Tedarikçi denetim raporunda hangi bölümler olmalı?\n\n" +
@@ -159,6 +163,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
       "Tedarikçi denetiminde kalite, üretim, izlenebilirlik, kalibrasyon, depolama, İSG ve çevre başlıklarında sorulacak soruları ve istenecek kanıtları listeledik.",
     tarih: "2026-10-06",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/tedarikci-denetimi-sorulari.webp",
     icerik:
       "Tedarikçi denetiminde sorular, tedarikçinin beyanını değil uygulamasını ortaya çıkaracak biçimde sorulmalıdır. Bu yüzden her sorunun ardından kanıt istenir: \"Kalibrasyon yapıyor musunuz?\" yerine \"Bu kumpasın son kalibrasyon kaydını görebilir miyim?\" diye sorulur. Aşağıdaki liste, genel bir üretim tedarikçisi için başlangıç noktasıdır; sorular ürüne, sektöre ve sözleşme şartlarına göre uyarlanmalıdır.\n\n" +
       "## Kalite yönetimi ile ilgili sorular\n\n" +
@@ -211,6 +216,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
       "Fason üretici denetimi, markanızla üretim yapan firmanın kalite ve yasal uyumunun yerinde doğrulanmasıdır. Kapsamını ve adımlarını açıklıyoruz.",
     tarih: "2026-10-05",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/fason-uretici-denetimi.webp",
     icerik:
       "Fason üretici denetimi, ürününüzü sizin adınıza üreten bir firmanın; üretim koşullarını, kalite kontrol uygulamalarını, izlenebilirliğini ve yasal uyumunu yerinde değerlendiren ikinci taraf denetimidir. Fason üretimde ürün sizin markanızı taşır; bu yüzden üretim başkasının tesisinde yapılsa da kalite, güvenlik ve yasal sorumluluk büyük ölçüde size aittir.\n\n" +
       "## Fason üretici denetimi neden gereklidir?\n\n" +
@@ -254,6 +260,7 @@ export const tedarikciKumesi: BlogYazisi[] = [
       "Uzaktan tedarikçi denetimi, video konferansla yapılan ikinci taraf denetimidir. Ne zaman uygun olduğunu, hazırlığı ve yerinde denetimle farkını anlatıyoruz.",
     tarih: "2026-10-04",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/uzaktan-tedarikci-denetimi.webp",
     icerik:
       "Uzaktan tedarikçi denetimi (online veya sanal denetim), tedarikçinin tesisine gidilmeden; doküman ve kayıtların ekran paylaşımıyla incelendiği, görüşmelerin video konferansla yapıldığı ve gerekirse sahanın canlı kamerayla gösterildiği bir ikinci taraf denetim yöntemidir. Yönetim sistemleri tetkik kılavuzu ISO 19011:2018, sanal konumların ve uzaktan tetkik yöntemlerinin kullanımına ilişkin rehberlik içerir.\n\n" +
       "## Uzaktan tedarikçi denetimi ne zaman uygundur?\n\n" +

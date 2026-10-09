@@ -49,6 +49,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 9001 belgesi neyi gösterir, belge üzerinde hangi bilgiler yer alır, kaç yıl geçerlidir ve nasıl doğrulanır? ISO 9001 belgesinin ayırt edici özelliklerini açıklıyoruz.",
     tarih: "2026-08-08",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-9001-belgesi.webp",
     icerik:
       "ISO 9001 belgesi, bir kuruluşun kalite yönetim sisteminin ISO 9001:2015 standardının şartlarını karşıladığının bağımsız bir belgelendirme kuruluşu tarafından doğrulandığını gösteren sertifikadır. Bu yazıda belgenin ne anlama geldiğini, üzerinde hangi bilgilerin bulunduğunu, geçerlilik süresini ve doğruluğunun nasıl teyit edileceğini ele alıyoruz. Belgeyi almaya yönelik süreç adımları için [ISO 9001 belgelendirme nedir ve nasıl alınır](/blog/iso-9001-belgelendirme-nedir-nasil-alinir) yazımızı inceleyebilirsiniz.\n\n" +
       "## ISO 9001 belgesi nedir?\n\n" +
@@ -81,6 +82,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 45001 belgesi, iş sağlığı ve güvenliği yönetim sisteminizin standarda uygunluğunu gösterir. Kapsamını, geçerliliğini ve doğrulanmasını açıklıyoruz.",
     tarih: "2026-08-07",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-45001-belgesi.webp",
     icerik:
       "ISO 45001 belgesi, bir kuruluşun iş sağlığı ve güvenliği (İSG) yönetim sisteminin ISO 45001:2018 standardının şartlarını karşıladığının bağımsız biçimde doğrulandığını gösteren sertifikadır. Bu yazıda belgeyi kimlerin alabileceğini, belgenin neyi gösterip neyi göstermediğini ve geçerliliğinin nasıl sürdürüldüğünü ele alıyoruz. Belgelendirme sürecinin adımları için [ISO 45001 belgelendirme](/blog/iso-45001-belgelendirme-is-sagligi-guvenligi) yazımızı inceleyebilirsiniz.\n\n" +
       "## ISO 45001 belgesi nedir?\n\n" +
@@ -111,6 +113,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 14001 belgesi, çevre yönetim sisteminizin standarda uygun olduğunu gösterir. Kapsam, geçerlilik süresi, doğrulama ve 2026 geçişini açıklıyoruz.",
     tarih: "2026-08-07",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-14001-belgesi.webp",
     icerik:
       "ISO 14001 belgesi, bir kuruluşun çevre yönetim sisteminin ISO 14001 standardının şartlarını karşıladığının bağımsız bir belgelendirme kuruluşu tarafından doğrulandığını gösteren sertifikadır. Bu yazıda belgenin kapsamını, geçerliliğini, nasıl doğrulandığını ve yeni sürüme geçişte belgelerin durumunu ele alıyoruz. Sürecin adımları için [ISO 14001 belgelendirme](/blog/iso-14001-belgelendirme-cevre-yonetim-sistemi) yazımızı inceleyebilirsiniz.\n\n" +
       "## ISO 14001 belgesi nedir?\n\n" +
@@ -141,6 +144,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 50001 belgesi, enerji yönetim sisteminizin standarda uygunluğunu gösterir. Kapsamı, enerji performansı şartını, tetkik süresini ve doğrulamayı açıklıyoruz.",
     tarih: "2026-08-06",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-50001-belgesi.webp",
     icerik:
       "ISO 50001 belgesi, bir kuruluşun enerji yönetim sisteminin ISO 50001:2018 standardının şartlarını karşıladığının bağımsız biçimde doğrulandığını gösteren sertifikadır. Bu yazıda belgenin diğer yönetim sistemi belgelerinden ayrılan yönlerini, geçerliliğini ve doğrulanmasını ele alıyoruz. Belgelendirme sürecinin adımları için [ISO 50001 belgelendirme](/blog/iso-50001-belgelendirme-enerji-yonetim-sistemi) yazımızı inceleyebilirsiniz.\n\n" +
       "## ISO 50001 belgesi nedir?\n\n" +
@@ -170,6 +174,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 9001 standardı kuruluş büyüklüğüne göre bir asgari şart içermez. KOBİ'lerde belgelendirme kapsamı, tetkik süresi ve yaygın yanlış anlamaları ele alıyoruz.",
     tarih: "2026-08-04",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-9001-kobiler-icin.webp",
     icerik:
       "Küçük ve orta ölçekli işletmeler (KOBİ), ISO 9001 belgelendirmesini genellikle büyük kuruluşlara özgü bir süreç olarak görme eğilimindedir. Oysa ISO 9001:2015 standardı, kuruluş büyüklüğüne veya sektörüne dair herhangi bir asgari şart içermez; standart, her ölçekteki kuruluşun kendi yapısına uyarlayabileceği bir kalite yönetim sistemi çerçevesi sunar.\n\n" +
       "## ISO 9001 yalnızca büyük kuruluşlar için mi?\n\n" +
@@ -198,6 +203,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 14001:2026, 15 Nisan 2026'da yayımlandı. Yeni sürümdeki değişiklikleri, üç yıllık geçiş takvimini ve kuruluşların atması gereken adımları açıklıyoruz.",
     tarih: "2026-07-31",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-14001-2026-degisiklikler-ve-gecis.webp",
     icerik:
       "Çevre yönetim sistemi standardı ISO 14001, on bir yıl aradan sonra revize edildi. ISO 14001:2026, 15 Nisan 2026 tarihinde yayımlanarak ISO 14001:2015'in yerini aldı. Bu yazıda yeni sürümde nelerin değiştiğini, geçiş süresinin ne kadar olduğunu ve belgeli kuruluşların hangi adımları izlemesi gerektiğini ele alıyoruz.\n\n" +
       "## ISO 14001:2026 ne zaman yayımlandı?\n\n" +
@@ -249,6 +255,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Çok sahalı belgelendirmede örnekleme yaklaşımı, merkezi yönetim sistemi şartı ve gözetim tetkiklerinde saha seçimi nasıl işler? Süreci açıklıyoruz.",
     tarih: "2026-07-27",
     kategori: "Belgelendirme Süreci",
+    gorsel: "/gorseller/blog/cok-sahali-belgelendirme.webp",
     icerik:
       "Birden fazla şube, tesis veya sahada faaliyet gösteren kuruluşlar için her lokasyonun ayrı ayrı ve tam kapsamlı denetlenmesi her zaman gerekli değildir. Bu gibi durumlarda devreye giren çok sahalı (çok lokasyonlu) belgelendirme yaklaşımı, tek bir sertifika altında birden fazla sahayı örnekleme yoluyla değerlendirmeyi mümkün kılar.\n\n" +
       "## Çok sahalı belgelendirme nedir?\n\n" +
@@ -282,6 +289,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Belgelendirme kararı, tetkikten bağımsız bir karar vericinin onayıyla verilir. Yönetim sistemi belgelendirme sürecinde kararın nasıl alındığını açıklıyoruz.",
     tarih: "2026-07-13",
     kategori: "Belgelendirme Süreci",
+    gorsel: "/gorseller/blog/belgelendirme-karari-nasil-verilir.webp",
     icerik:
       "Bir ISO sertifikasının düzenlenmesi, denetimi yürüten tetkikçinin kararı değildir; TS EN ISO/IEC 17021-1 standardı, tetkik sonucunun değerlendirilmesini ve sertifikanın onaylanmasını tetkikten bağımsız, ayrı bir belgelendirme kararı sürecine bağlar. Bu yazıda belgelendirme kararının ne olduğunu, kimin verdiğini ve hangi adımlardan geçtiğini ele alıyoruz.\n\n" +
       "## Belgelendirme kararı nedir?\n\n" +
@@ -313,6 +321,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Gözetim tetkiki, ISO belgesinin geçerlilik süresince sistemin sürdürüldüğünü doğrulayan yıllık bağımsız denetimdir. Kapsamını ve işleyişini açıklıyoruz.",
     tarih: "2026-07-10",
     kategori: "Belgelendirme Süreci",
+    gorsel: "/gorseller/blog/gozetim-tetkiki-nedir.webp",
     icerik:
       "Bir ISO sertifikası alındıktan sonra süreç bitmez; sertifikanın geçerlilik süresi boyunca yönetim sisteminin sürdürüldüğü, düzenli aralıklarla yapılan gözetim tetkikleriyle bağımsız olarak doğrulanır. Bu yazıda gözetim tetkikinin ne olduğunu, kimin yürüttüğünü, ne sıklıkla yapıldığını ve kapsamını ele alıyoruz.\n\n" +
       "## Gözetim tetkiki nedir?\n\n" +
@@ -347,6 +356,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 9001 kalite, ISO 14001 çevre yönetim sistemi standardıdır. İki standardın odak noktalarını, ortak yönlerini ve birlikte yürütülme imkanını karşılaştırıyoruz.",
     tarih: "2026-07-06",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-9001-ve-iso-14001-farki.webp",
     icerik:
       "ISO 9001 ve ISO 14001, kuruluşların en sık başvurduğu iki yönetim sistemi standardıdır. İkisi de bağımsız bir belgelendirme kuruluşu tarafından denetlenip belgelendirilebilir, ancak odaklandıkları alan farklıdır.\n\n" +
       "## ISO 9001 nedir?\n\n" +
@@ -373,6 +383,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Belgelendirme kapsamı, bir ISO sertifikasının sınırlarını tanımlar. Yönetim sistemi belgelendirme sürecinde kapsamın nasıl belirlendiğini açıklıyoruz.",
     tarih: "2026-07-05",
     kategori: "Belgelendirme Süreci",
+    gorsel: "/gorseller/blog/belgelendirme-kapsami-nasil-belirlenir.webp",
     icerik:
       "Bir ISO sertifikasının üzerinde yer alan kapsam ifadesi, belgenin tam olarak neyi kapsadığını ve hangi faaliyetler için geçerli olduğunu gösterir. Belgelendirme kapsamının doğru belirlenmesi, hem denetimin sağlıklı planlanması hem de belgenin güvenilirliği açısından kritik bir adımdır.\n\n" +
       "## Belgelendirme kapsamı nedir?\n\n" +
@@ -401,6 +412,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 9001 belgelendirme, kalite yönetim sisteminizin bağımsız bir kuruluşça doğrulanmasıdır. Başvurudan sertifikaya kadar süreci adım adım anlatıyoruz.",
     tarih: "2026-07-04",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-9001-belgelendirme-nedir-nasil-alinir.webp",
     icerik:
       "ISO 9001, dünya genelinde en yaygın kullanılan kalite yönetim sistemi standardıdır. Bir kuruluşun ürün ve hizmetlerini tutarlı biçimde, müşteri ve yasal gerekliliklere uygun olarak sunma yeteneğini güvence altına alır. ISO 9001 belgelendirme ise bu sistemin bağımsız, tarafsız bir belgelendirme kuruluşu tarafından doğrulanmasıdır.\n\n" +
       "## ISO 9001 belgelendirme nedir?\n\n" +
@@ -430,6 +442,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 45001 belgelendirme, İSG yönetim sisteminizin bağımsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, faydalarını ve belgelendirme sürecini anlatıyoruz.",
     tarih: "2026-06-27",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-45001-belgelendirme-is-sagligi-guvenligi.webp",
     icerik:
       "İş kazaları ve meslek hastalıkları hem insani hem de yasal açıdan ciddi sonuçlar doğurur. ISO 45001, iş sağlığı ve güvenliği (İSG) risklerini sistematik biçimde yönetmek için geliştirilmiş uluslararası yönetim sistemi standardıdır.\n\n" +
       "## ISO 45001 nedir?\n\n" +
@@ -454,6 +467,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 14001 belgelendirme, çevre yönetim sisteminizin bağımsız bir kuruluşça doğrulanmasıdır. Standardın kapsamını, faydalarını ve sürecini açıklıyoruz.",
     tarih: "2026-06-24",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-14001-belgelendirme-cevre-yonetim-sistemi.webp",
     icerik:
       "Çevresel sorumluluk, artık yalnızca yasal bir zorunluluk değil; müşteri, yatırımcı ve tedarik zinciri beklentisidir. ISO 14001, kuruluşların çevresel etkilerini sistematik biçimde yönetmesini sağlayan uluslararası çevre yönetim sistemi standardıdır.\n\n" +
       "## ISO 14001 nedir?\n\n" +
@@ -476,6 +490,7 @@ export const blogYazilari: BlogYazisi[] = [
       "İç denetçi (iç tetkikçi) eğitimi, yönetim sistemi iç tetkiklerini yürütme yetkinliği kazandırır. Kapsamını ve kimlerin katılması gerektiğini anlatıyoruz.",
     tarih: "2026-06-20",
     kategori: "Eğitim",
+    gorsel: "/gorseller/blog/ic-denetci-ic-tetkikci-egitimi-nedir.webp",
     icerik:
       "ISO yönetim sistemleri, kuruluşun kendi sistemini düzenli olarak denetlemesini (iç tetkik) zorunlu kılar. Bu tetkikleri yürütecek kişilerin yetkinliği ise iç denetçi (iç tetkikçi) eğitimi ile kazandırılır.\n\n" +
       "## İç tetkik (iç denetim) nedir?\n\n" +
@@ -500,6 +515,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO 50001 belgelendirme, enerji yönetim sisteminizin bağımsız bir kuruluşça doğrulanmasıdır. Kapsamını, verimlilik faydalarını ve sürecini açıklıyoruz.",
     tarih: "2026-06-16",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/iso-50001-belgelendirme-enerji-yonetim-sistemi.webp",
     icerik:
       "Artan enerji maliyetleri ve sürdürülebilirlik hedefleri, enerji tüketiminin sistematik yönetimini zorunlu hale getiriyor. ISO 50001, kuruluşların enerji performansını ölçülebilir biçimde iyileştirmesini sağlayan uluslararası enerji yönetim sistemi standardıdır.\n\n" +
       "## ISO 50001 nedir?\n\n" +
@@ -522,6 +538,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Gıda tedarikçi denetimi; hammadde, ambalaj ve fason üreticilerin gıda güvenliği, hijyen ve izlenebilirlik uyumunu doğrular. Başlıkları ve standartları anlatıyoruz.",
     tarih: "2026-06-13",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/gida-tedarikci-denetimi.webp",
     icerik:
       "Gıda sektöründe bir tek tedarikçi kaynaklı sorun bile tüm zincire ve marka itibarına zarar verebilir. Bu nedenle gıda tedarikçilerinin bağımsız bir gözle denetlenmesi, gıda güvenliğinin en kritik halkalarından biridir.\n\n" +
       "## Gıda tedarikçi denetimi nedir?\n\n" +
@@ -553,6 +570,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Tekstil ve hazır giyim alıcıları tedarikçiden kalite ve sosyal uygunluk bekler. Tekstil tedarikçi denetiminin kalite, sosyal ve çevre başlıklarını ele alıyoruz.",
     tarih: "2026-06-13",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/tekstil-tedarikci-denetimi.webp",
     icerik:
       "Türkiye'nin en güçlü ihracat sektörlerinden biri olan tekstil ve hazır giyimde, uluslararası alıcılar tedarikçilerini yalnızca kaliteyle değil; çalışan hakları, etik ve çevre kriterleriyle de değerlendirir. Bu nedenle tekstil tedarikçi denetimi çok boyutludur.\n\n" +
       "## Tekstil tedarikçi denetimi nedir?\n\n" +
@@ -586,6 +604,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Otomotiv tedarik zincirinde sıfır hata beklenir. Otomotiv tedarikçi denetiminin IATF 16949, VDA 6.3 proses denetimi, PPAP ve APQP gibi temel başlıklarını açıklıyoruz.",
     tarih: "2026-06-13",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/otomotiv-tedarikci-denetimi.webp",
     icerik:
       "Otomotiv sektörü, tedarik zinciri kalite gerekliliklerinin en sıkı olduğu alanlardan biridir. Ana sanayi (OEM) ve üst kademe tedarikçiler, alt tedarikçilerini sistematik denetimlerle değerlendirir.\n\n" +
       "## Otomotiv tedarikçi denetimi nedir?\n\n" +
@@ -614,6 +633,7 @@ export const blogYazilari: BlogYazisi[] = [
       "VDA 6.3, Alman otomotiv sektörünün proses denetimi standardıdır. P1–P7 süreç elemanlarını, A/B/C puanlamasını ve IATF 16949 ile farkını açıklıyoruz.",
     tarih: "2026-10-06",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/vda-6-3-nedir.webp",
     icerik:
       "Otomotiv tedarik zincirinde bir tedarikçinin \"kaliteli parça üretip üretemeyeceği\" sorusu, yalnızca kalite yönetim sistemine bakılarak cevaplanamaz. Bu soruya proses düzeyinde cevap arayan yöntemlerin başında VDA 6.3 gelir.\n\n" +
       "## VDA 6.3 nedir?\n\n" +
@@ -662,6 +682,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Tedarikçi denetimi (ikinci taraf denetim), tedarikçi ve fason üreticilerin yerinde değerlendirilmesidir. Amacını ve iç denetimden farkını açıklıyoruz.",
     tarih: "2026-06-12",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/tedarikci-denetimi-nedir.webp",
     icerik:
       "Satın aldığınız her hammadde, parça ve hizmet, sizin ürününüzün ve itibarınızın bir parçasıdır. Tedarikçi denetimi, bu zincirdeki halkaların beklediğiniz kalitede ve şartlarda çalışıp çalışmadığını yerinde doğrulamanın en güvenilir yoludur.\n\n" +
       "## Tedarikçi denetimi nedir?\n\n" +
@@ -698,6 +719,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Tedarikçi denetimi; planlama, doküman incelemesi, saha denetimi, raporlama ve düzeltici faaliyet takibinden oluşur. Her aşamayı adım adım açıklıyoruz.",
     tarih: "2026-06-09",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/tedarikci-denetimi-nasil-yapilir.webp",
     icerik:
       "Tedarikçi denetimi (2. taraf denetimi), tedarik zincirinizdeki riskleri yönetmenin ve sözleşme şartlarına uyumu doğrulamanın en etkili yollarından biridir. İyi yapılandırılmış bir denetim süreci, nesnel ve tekrarlanabilir sonuçlar üretir.\n\n" +
       "## Tedarikçi denetimine neden ihtiyaç duyulur?\n\n" +
@@ -724,6 +746,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Tedarikçi denetiminde kalite, üretim, İSG, çevre, sosyal uygunluk ve izlenebilirlik başlıklarını kapsayan kontrol listesi (checklist) rehberi.",
     tarih: "2026-06-05",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/tedarikci-denetimi-kontrol-listesi.webp",
     icerik:
       "İyi hazırlanmış bir kontrol listesi (checklist), tedarikçi denetimini nesnel, kapsamlı ve şubeler/tedarikçiler arasında karşılaştırılabilir hâle getirir. Aşağıda tipik bir tedarikçi denetimi kontrol listesinin ana başlıklarını derledik.\n\n" +
       "## Tedarikçi denetim kontrol listesi neden önemli?\n\n" +
@@ -762,6 +785,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Tedarikçi seçimi ve onayında kullanılan değerlendirme kriterleri, ön yeterlilik ve performans izleme aşamaları ile denetimin bu süreçteki rolü.",
     tarih: "2026-06-02",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/tedarikci-degerlendirme-kriterleri.webp",
     icerik:
       "Doğru tedarikçiyi seçmek ve performansını sürekli izlemek, tedarik zinciri yönetiminin temelidir. Bunun için nesnel ve ölçülebilir tedarikçi değerlendirme kriterlerine ihtiyaç vardır.\n\n" +
       "## Tedarikçi değerlendirme nedir?\n\n" +
@@ -788,6 +812,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Şube (mağaza) denetimi, zincir işletme ve franchise şubelerinin marka standartlarına uygunluğunun değerlendirilmesidir. Kapsam ve gizli müşteri farkı.",
     tarih: "2026-05-28",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/sube-magaza-denetimi-rehberi.webp",
     icerik:
       "Çok şubeli işletmelerde her noktada aynı kaliteyi sunmak kolay değildir. Düzenli ve bağımsız şube denetimleri, marka standartlarının tüm şubelerde korunmasını sağlayan en etkili araçlardan biridir.\n\n" +
       "## Şube denetimi nedir?\n\n" +
@@ -823,6 +848,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Mağaza denetim formunda olması gereken başlıklar, puanlama yaklaşımı ve şube denetimi kontrol listesi hazırlarken dikkat edilmesi gerekenler.",
     tarih: "2026-10-05",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/sube-denetimi-kontrol-listesi.webp",
     icerik:
       "Şube denetiminin değeri, kullanılan kontrol listesinin kalitesiyle doğrudan ilişkilidir. Her denetçinin aynı soruları aynı ölçütlerle sorduğu bir şube denetim formu; şubeler arasında karşılaştırılabilir veri üretir ve iyileştirme önceliklerini netleştirir.\n\n" +
       "## Şube denetimi kontrol listesi nedir?\n\n" +
@@ -876,6 +902,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Tedarik zinciri riskleri işletmenin sürekliliğini doğrudan etkiler. Başlıca riskleri, risk temelli yaklaşımı ve tedarikçi denetiminin rolünü ele alıyoruz.",
     tarih: "2026-05-24",
     kategori: "Denetim",
+    gorsel: "/gorseller/blog/tedarik-zinciri-risk-yonetimi.webp",
     icerik:
       "Bir işletmenin kalitesi ve sürekliliği, büyük ölçüde tedarik zincirinin sağlamlığına bağlıdır. Tedarik zinciri risk yönetimi, bu zincirdeki olası aksaklıkları önceden görüp azaltmayı amaçlar.\n\n" +
       "## Tedarik zinciri riski nedir?\n\n" +
@@ -901,6 +928,7 @@ export const blogYazilari: BlogYazisi[] = [
       "Birden fazla ISO standardını tek bir yönetim sistemi çatısında birleştiren entegre yönetim sistemi; tek denetim, daha az maliyet ve daha güçlü bir yönetim yapısı sağlar.",
     tarih: "2026-05-20",
     kategori: "Yönetim Sistemleri",
+    gorsel: "/gorseller/blog/entegre-yonetim-sistemi-nedir.webp",
     icerik:
       "Kalite, çevre ve iş sağlığı güvenliği gibi farklı yönetim sistemlerini ayrı ayrı kurmak ve sürdürmek, kuruluşlar için tekrar eden iş yükü ve maliyet anlamına gelebilir. Entegre yönetim sistemi (EYS), bu standartları tek bir bütünleşik çatı altında toplayarak süreçleri sadeleştirir.\n\n" +
       "## Entegre yönetim sistemi nedir?\n\n" +
@@ -925,6 +953,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO belgelendirme denetimi Aşama 1 ve Aşama 2 olmak üzere iki aşamadan oluşur. Tetkike hazırlık için yapılması gerekenleri ve sık karşılaşılan uygunsuzlukları derledik.",
     tarih: "2026-05-12",
     kategori: "Belgelendirme Süreci",
+    gorsel: "/gorseller/blog/belgelendirme-denetimine-hazirlik.webp",
     icerik:
       "ISO belgelendirme denetimi, kuruluşun yönetim sisteminin standardın gerekliliklerini karşılayıp karşılamadığını bağımsız olarak değerlendiren yapılandırılmış bir süreçtir. İyi bir hazırlık, sürecin sorunsuz ilerlemesini sağlar.\n\n" +
       "## Aşama 1 tetkiki (ön tetkik)\n\n" +
@@ -952,6 +981,7 @@ export const blogYazilari: BlogYazisi[] = [
       "ISO sertifikaları 3 yıl geçerlidir. Bu süre boyunca yıllık gözetim tetkikleri ve üçüncü yılda yeniden belgelendirme tetkiki yapılır. Sürecin nasıl işlediğini açıklıyoruz.",
     tarih: "2026-05-04",
     kategori: "Belgelendirme Süreci",
+    gorsel: "/gorseller/blog/iso-belgesi-gecerlilik-ve-yenileme.webp",
     icerik:
       "ISO yönetim sistemi belgeleri süresiz değildir; belirli bir geçerlilik süresi vardır ve bu süre boyunca sistemin sürdürüldüğü periyodik denetimlerle teyit edilir.\n\n" +
       "## ISO belgesi kaç yıl geçerlidir?\n\n" +
