@@ -34,6 +34,13 @@ export type Hizmet = {
   alternatifAdlar?: string[];
   /** Sayfada gösterilen ve FAQPage yapısal verisi üretilen sıkça sorulan sorular. */
   sss?: { soru: string; cevap: string }[];
+  /** Hizmetin yürütüldüğü online sistem tanıtımı (ör. DBYS); faydalardan sonra ayrı bölüm olarak gösterilir. */
+  platform?: {
+    etiket: string;
+    baslik: string;
+    aciklama: string;
+    ozellikler: { baslik: string; aciklama: string }[];
+  };
 };
 
 // Tüm ISO sistem belgelendirmeleri için ortak süreç adımları
@@ -195,6 +202,7 @@ export const hizmetler: Hizmet[] = [
       "Tedarikçi beyanları, anketler ve belgeler tek başına yeterli güvence sağlamaz. Bağımsız bir tedarikçi denetimi; üretim koşullarını, kalite kontrol uygulamalarını, kayıtları ve yasal uyumu sahada kanıta dayalı olarak doğrular. Böylece tedarikçi seçimi, onayı ve performans değerlendirmesi kararlarınızı nesnel verilere dayandırırsınız. Tedarikçi denetiminin iç denetim ve belgelendirme denetiminden farkını [tedarikçi denetimi nedir](/blog/tedarikci-denetimi-nedir) yazımızda ele aldık.\n\n" +
       "Tedarikçi denetimi; yeni tedarikçi onayı öncesinde, kritik tedarikçilerin periyodik izlenmesinde, kalite şikâyeti veya uygunsuzluk sonrasında ve yeni bir sözleşme başlamadan önce planlanabilir. Denetim kriterleri ISO 9001, ISO 14001, ISO 45001 gibi standartlardan, müşteri ve sektör şartlarından ya da doğrudan sizin tedarikçi şartnamenizden oluşabilir. Sürecin adım adım nasıl yürütüldüğünü [tedarikçi denetimi nasıl yapılır](/blog/tedarikci-denetimi-nasil-yapilir), hangi başlıkların değerlendirildiğini [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) ve puanlamanın nasıl yapıldığını [tedarikçi değerlendirme kriterleri](/blog/tedarikci-degerlendirme-kriterleri) yazılarımızda bulabilirsiniz. ISO 9001 madde 8.4 açısından hangi tedarikçilerin denetlenmesi gerektiğini [ISO 9001'de tedarikçi denetimi zorunlu mu](/blog/iso-9001-tedarikci-denetimi-zorunlu-mu), sahada sorulan soruları [tedarikçi denetiminde sorulacak sorular](/blog/tedarikci-denetimi-sorulari), raporun yapısını ise [tedarikçi denetim raporu](/blog/tedarikci-denetim-raporu) yazımızda ele aldık.\n\n" +
       "Sektörünüze özgü denetim başlıkları için [gıda tedarikçi denetimi](/blog/gida-tedarikci-denetimi), [tekstil tedarikçi denetimi](/blog/tekstil-tedarikci-denetimi) ve [otomotiv tedarikçi denetimi](/blog/otomotiv-tedarikci-denetimi) rehberlerimize göz atabilirsiniz. Sizin adınıza üretim yapan firmalar için [fason üretici denetimi](/blog/fason-uretici-denetimi), yerinde ziyaretin zor olduğu durumlar için [uzaktan tedarikçi denetimi](/blog/uzaktan-tedarikci-denetimi) yazılarımız yol gösterir. Aynı bağımsız denetim yaklaşımını zincir mağaza, bayi ve franchise ağınıza uygulamak için [şube ve mağaza denetimi](/hizmetler/sube-denetimi) hizmetimizi inceleyebilirsiniz.\n\n" +
+      "Tedarikçi denetimlerinizin tamamı DBYS (DVN Cert Belge Yönetim Sistemi) üzerinden online yönetilir: denetim planlaması, denetçi ataması, soru listeleri üzerinden kanıtlarıyla birlikte bulguların yazılması ve takibi, uygunsuzluk takibi, hakediş takibi ve denetim raporlarının müşteri ve denetim kuruluşu tarafından online onaylanması tek sistemde, hızlı ve düzenli biçimde yürür. Ayrıntılar için [tedarikçi denetim yönetimi yazılımı](/blog/tedarikci-denetim-yonetimi-yazilimi) yazımıza bakabilirsiniz.\n\n" +
       "DVN Cert olarak tedarikçi denetimlerini tarafsızlık, bağımsızlık ve gizlilik ilkeleriyle yürütür; bulguları ayrıntılı, önceliklendirilmiş ve uygulanabilir bir tedarikçi denetim raporuyla paylaşırız.",
     faydalar: [
       "Tedarikçi ve fason üreticilerin belirlenen kriterlere uygunluğunun bağımsızca değerlendirilmesi",
@@ -203,9 +211,24 @@ export const hizmetler: Hizmet[] = [
       "Sözleşme ve tedarikçi şartnamesi yükümlülüklerinin yerine getirildiğinin doğrulanması",
       "Tedarikçi seçimi, onayı ve performans değerlendirmesine nesnel veri sağlanması",
       "Puanlanmış tedarikçi denetim raporu ve düzeltici faaliyet takibi",
+      "DBYS ile tüm denetimlerin online, hızlı ve düzenli yönetimi; raporların online onayı",
       "Yerinde veya uzaktan (online) denetim seçenekleriyle esnek planlama",
       "Marka itibarının ve müşteri güveninin korunması",
     ],
+    platform: {
+      etiket: "DBYS İLE ONLINE DENETİM YÖNETİMİ",
+      baslik: "Tedarikçi denetimleriniz tek sistemde, online ve düzenli",
+      aciklama:
+        "Tedarikçi denetimlerinizi DBYS (DVN Cert Belge Yönetim Sistemi) üzerinden yönetiyoruz. Planlamadan rapor onayına kadar her adım online ilerler; e-posta ve Excel dosyaları arasında kaybolan bilgi, bekleyen onay ve unutulan uygunsuzluk kalmaz.",
+      ozellikler: [
+        { baslik: "Denetim planlaması", aciklama: "Denetlenecek tedarikçiler, kapsam, kriterler ve tarihler sistemde planlanır; takvim tek ekrandan izlenir." },
+        { baslik: "Denetçi ataması", aciklama: "Her denetime yetkin denetçi atanır; sorumluluklar açıkça görünür." },
+        { baslik: "Soru listeleri ve kanıtlı bulgular", aciklama: "Denetim soru listeleri üzerinden yürütülür; bulgular kanıtlarıyla birlikte yazılır ve takip edilir." },
+        { baslik: "Uygunsuzluk takibi", aciklama: "Uygunsuzluklar kapanana kadar sistemde görünür kalır; düzeltici faaliyetler izlenir." },
+        { baslik: "Online rapor onayı", aciklama: "Denetim raporları müşteri ve denetim kuruluşu tarafından sistem üzerinden online onaylanır." },
+        { baslik: "Hakediş takibi", aciklama: "Tamamlanan denetimlere ait hakedişler sistem üzerinden düzenli olarak takip edilir." },
+      ],
+    },
     surec: [
       { baslik: "Planlama", aciklama: "Denetlenecek tedarikçiler, kapsam, kriterler ve kontrol listesi belirlenir." },
       { baslik: "Saha Denetimi", aciklama: "Tedarikçi tesisinde faaliyetler gözlemlenir, kayıt ve dokümanlar incelenir." },
@@ -267,6 +290,11 @@ export const hizmetler: Hizmet[] = [
         soru: "Tedarikçi denetimi ücreti neye göre belirlenir?",
         cevap:
           "Ücret; denetlenecek tedarikçi ve tesis sayısına, tesislerin konumuna, denetim kapsamına ve kriterlerine, sahada geçecek gün sayısına ve denetimin yerinde, uzaktan veya karma yapılmasına göre belirlenir. Kapsam netleştikten sonra size özel teklif hazırlanır.",
+      },
+      {
+        soru: "Tedarikçi denetimlerini online takip edebilir miyim?",
+        cevap:
+          "Evet. DVN Cert tedarikçi denetimlerini DBYS (DVN Cert Belge Yönetim Sistemi) üzerinden yönetir. Denetim planlaması, denetçi ataması, soru listeleri üzerinden kanıtlarıyla birlikte bulgular, uygunsuzluk takibi ve hakediş takibi sistemde yürür; denetim raporları müşteri ve denetim kuruluşu tarafından online onaylanır.",
       },
       {
         soru: "Tedarikçi denetim raporu neler içerir?",

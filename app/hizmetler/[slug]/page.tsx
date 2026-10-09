@@ -149,6 +149,76 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
         </div>
       </section>
 
+      {/* Online yönetim sistemi (DBYS) */}
+      {hizmet.platform && (
+        <section style={{ background: "var(--dvn-lacivert)", padding: "64px 32px", color: "white" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <div style={{ maxWidth: 760, marginBottom: 36 }}>
+              <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+                {hizmet.platform.etiket}
+              </p>
+              <h2 style={{ color: "white", fontSize: 25, fontWeight: 500, margin: "0 0 14px", lineHeight: 1.3 }}>
+                {hizmet.platform.baslik}
+              </h2>
+              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.8)", lineHeight: 1.75, margin: 0 }}>{hizmet.platform.aciklama}</p>
+            </div>
+
+            <div className="dvn-platform-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+              {hizmet.platform.ozellikler.map((o, i) => (
+                <div
+                  key={i}
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    border: "0.5px solid rgba(255,255,255,0.18)",
+                    borderRadius: 14,
+                    padding: "22px 22px",
+                  }}
+                >
+                  <span
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: 30,
+                      height: 30,
+                      borderRadius: 8,
+                      background: "var(--dvn-gradient-turuncu)",
+                      marginBottom: 14,
+                    }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12l5 5L20 7" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <h3 style={{ color: "white", fontSize: 15.5, fontWeight: 600, margin: "0 0 6px", lineHeight: 1.3 }}>{o.baslik}</h3>
+                  <p style={{ fontSize: 13, color: "rgba(255,255,255,0.72)", lineHeight: 1.65, margin: 0 }}>{o.aciklama}</p>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 30 }}>
+              <Link href="/iletisim" className="dvn-btn-primary" style={{ padding: "12px 22px", fontSize: 14 }}>
+                Teklif İsteyin
+              </Link>
+              <Link
+                href="https://dbys.dvncert.com/login"
+                target="_blank"
+                style={{
+                  padding: "12px 22px",
+                  fontSize: 14,
+                  color: "white",
+                  border: "1px solid rgba(255,255,255,0.4)",
+                  borderRadius: 8,
+                  textDecoration: "none",
+                }}
+              >
+                DBYS Müşteri Girişi
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Alt standartlar (sistem belgelendirme) */}
       {altStandartlar.length > 0 && (
         <section style={{ background: "white", padding: "60px 32px" }}>
@@ -382,6 +452,10 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
           .dvn-fayda-grid { grid-template-columns: 1fr !important; }
           .dvn-std-kart-grid { grid-template-columns: 1fr !important; }
           .dvn-surec-grid { grid-template-columns: 1fr 1fr !important; }
+          .dvn-platform-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 560px) {
+          .dvn-platform-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 520px) {
           .dvn-surec-grid { grid-template-columns: 1fr !important; }

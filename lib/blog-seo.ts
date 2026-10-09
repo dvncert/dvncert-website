@@ -7,6 +7,7 @@
  */
 
 export const blogSeoBasliklari: Record<string, string> = {
+  "tedarikci-denetim-yonetimi-yazilimi": "Tedarikçi Denetim Yönetimi Yazılımı ile Online Takip",
   "birinci-ikinci-ucuncu-taraf-denetim-farki": "Birinci, İkinci ve Üçüncü Taraf Denetim Farkı (Tablolu)",
   "iso-9001-tedarikci-denetimi-zorunlu-mu": "ISO 9001'de Tedarikçi Denetimi Zorunlu mu? (Madde 8.4)",
   "tedarikci-denetim-raporu": "Tedarikçi Denetim Raporu Nasıl Hazırlanır? Örnek Yapı",

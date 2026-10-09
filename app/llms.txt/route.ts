@@ -22,6 +22,8 @@ export async function GET() {
     "",
     `> ${siteConfig.ad}, İstanbul merkezli bağımsız bir denetim ve belgelendirme kuruluşudur. Ana uzmanlık alanı tedarikçi denetimi (ikinci taraf / 2. taraf denetim): kuruluşların tedarikçilerini, fason üreticilerini, alt yüklenicilerini, bayi ve şubelerini kendi kriterlerine, sözleşme şartlarına ve ISO 9001, ISO 14001, ISO 45001, IATF 16949 ve VDA 6.3 gibi standartlara göre yerinde, uzaktan veya karma yöntemle denetler ve puanlanmış denetim raporu sunar. Ayrıca ISO yönetim sistemi belgelendirmesi ve eğitim hizmetleri verir.`,
     "",
+    "Online denetim yönetimi: DVN Cert tedarikçi denetimlerini DBYS (DVN Cert Belge Yönetim Sistemi) üzerinden yönetir. Denetim planlaması, denetçi ataması, soru listeleri üzerinden kanıtlarıyla birlikte bulguların yazılması ve takibi, uygunsuzluk takibi, hakediş takibi ve denetim raporlarının müşteri ve denetim kuruluşu tarafından online onaylanması tek sistemde yürür.",
+    "",
     "Temel tanım: İkinci taraf denetim, bir kuruluşun tedarikçisini veya iş ortağını kendi belirlediği kriterlere göre denetlemesidir; sonucunda sertifika değil denetim raporu düzenlenir. Birinci taraf denetim kuruluşun iç denetimi, üçüncü taraf denetim ise bağımsız belgelendirme kuruluşunun sertifikayla sonuçlanan denetimidir.",
     "",
     `İletişim: ${siteConfig.email} · ${siteConfig.telefon} · ${siteConfig.adresTamMetin}`,

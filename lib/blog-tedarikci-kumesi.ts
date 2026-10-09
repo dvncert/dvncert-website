@@ -13,6 +13,39 @@ const HIZMET = "/hizmetler/tedarikci-denetimi";
 
 export const tedarikciKumesi: BlogYazisi[] = [
   {
+    slug: "tedarikci-denetim-yonetimi-yazilimi",
+    baslik: "Tedarikçi Denetim Yönetimi Yazılımı: Denetimleri Online Nasıl Yönetirsiniz?",
+    ozet:
+      "Tedarikçi denetimleri; planlama, denetçi ataması, bulgu, uygunsuzluk ve rapor onayıyla tek bir online sistemden yönetilebilir. DBYS ile nasıl işlediğini anlatıyoruz.",
+    tarih: "2026-10-09",
+    kategori: "Denetim",
+    icerik:
+      "Tedarikçi denetim yönetimi yazılımı, ikinci taraf denetimlerin planlanmasından rapor onayına kadar tüm adımlarının tek bir online sistem üzerinden yürütülmesini sağlar. Denetim takvimi, denetçi ataması, soru listeleri, kanıtlarıyla birlikte bulgular, uygunsuzlukların kapanışı ve raporlar e-posta ve Excel dosyaları arasında dağılmak yerine tek yerde toplanır. DVN Cert, tedarikçi denetimlerini bu amaçla geliştirdiği DBYS (DVN Cert Belge Yönetim Sistemi) üzerinden yönetir; müşterilerimiz denetim sürecini online olarak izler ve raporları sistem üzerinden onaylar.\n\n" +
+      "## Tedarikçi denetimlerini Excel ve e-postayla yönetmenin sorunu nedir?\n\n" +
+      "Tedarikçi sayısı arttıkça dosya tabanlı takip hızla dağınık hâle gelir. Denetim tarihleri farklı tablolarda tutulur, kontrol listelerinin güncel sürümü belirsizleşir, bulgulara ait kanıtlar e-posta eklerinde kaybolur ve hangi uygunsuzluğun kapatıldığını görmek için yazışmaları taramak gerekir. Rapor onayı için belgeler defalarca gidip gelir. Sonuçta denetimin kendisi iyi yapılsa bile takip zayıf kalır; oysa [tedarikçi denetimi](" + HIZMET + ") değerini düzeltici faaliyetlerin zamanında kapatılmasından alır.\n\n" +
+      "## Bir denetim yönetim sistemi hangi adımları kapsar?\n\n" +
+      "DBYS'de bir tedarikçi denetimi şu adımlarla yönetilir:\n\n" +
+      "1. Denetim planlaması: Denetlenecek tedarikçiler, kapsam, kriterler ve tarihler sistemde planlanır; denetim takvimi tek ekrandan izlenir.\n" +
+      "2. Denetçi ataması: Her denetime yetkin denetçi atanır; kimin hangi denetimden sorumlu olduğu açıkça görünür.\n" +
+      "3. Soru listeleri ve kanıtlar: Denetim, tanımlı soru listeleri (kontrol listeleri) üzerinden yürütülür; her sorunun bulgusu kanıtlarıyla birlikte kayda alınır.\n" +
+      "4. Bulgu ve uygunsuzluk takibi: Tespit edilen uygunsuzluklar sistemde açık kalır; düzeltici faaliyetler ve kapanış durumu izlenir.\n" +
+      "5. Online rapor onayı: Denetim raporu müşteri ve denetim kuruluşu tarafından sistem üzerinden online onaylanır.\n" +
+      "6. Hakediş takibi: Tamamlanan denetimlere ait hakedişler sistem üzerinden takip edilir.\n\n" +
+      "## Online denetim yönetimi müşteriye ne kazandırır?\n\n" +
+      "- Hız: Planlama, atama ve rapor onayı yazışma beklemeden sistem üzerinden ilerler.\n" +
+      "- Düzen: Tüm denetimler, bulgular ve raporlar tek yerde ve aynı yapıda tutulur; geçmiş denetimlere kolayca ulaşılır.\n" +
+      "- Şeffaflık: Müşteri, denetimin hangi aşamada olduğunu ve açık uygunsuzlukları online olarak görür.\n" +
+      "- Kanıta dayalı kayıt: Her bulgu, ilgili soru ve kanıtıyla birlikte saklanır; sonradan yapılacak incelemelerde ve belgelendirme tetkiklerinde hazır kanıt sunar.\n" +
+      "- Kapanış disiplini: Uygunsuzluklar kapatılana kadar görünür kalır; takip unutulmaz.\n\n" +
+      "Bu kayıtlar, ISO 9001 madde 8.4'ün istediği dış tedarikçi kontrolünün kanıtı olarak da kullanılabilir; ayrıntı için [ISO 9001'de tedarikçi denetimi zorunlu mu](/blog/iso-9001-tedarikci-denetimi-zorunlu-mu) yazımıza bakabilirsiniz.\n\n" +
+      "## Denetim raporu online nasıl onaylanır?\n\n" +
+      "Denetim tamamlandığında rapor DBYS'de hazırlanır ve müşteri ile denetim kuruluşunun onayına sunulur. Taraflar raporu sistem üzerinden inceleyip onaylar; onaylanan rapor ve ona bağlı bulgular kayıt altına alınır. Böylece raporun hangi sürümünün geçerli olduğu konusunda belirsizlik kalmaz. Raporun bölümleri için [tedarikçi denetim raporu](/blog/tedarikci-denetim-raporu) yazımıza bakabilirsiniz.\n\n" +
+      "## Yazılım, denetçinin yerini tutar mı?\n\n" +
+      "Hayır. Yazılım denetimin yönetimini kolaylaştırır; kanıtı sahada toplayan ve değerlendiren yine yetkin bir denetçidir. Doğru sonuç için iyi bir kontrol listesi, bağımsız ve deneyimli bir denetçi ve düzenli bir takip sistemi birlikte gerekir. Kontrol listesinde hangi başlıkların yer alması gerektiğini [tedarikçi denetimi kontrol listesi](/blog/tedarikci-denetimi-kontrol-listesi) yazımızda ele aldık.\n\n" +
+      "DVN Cert olarak tedarikçi denetimlerinizi bağımsız denetçilerimizle yürütüyor, tüm süreci DBYS üzerinden online ve düzenli biçimde sizinle paylaşıyoruz. Teklif ve bilgi için [tedarikçi denetimi](" + HIZMET + ") sayfamızı inceleyebilirsiniz.",
+    ilgiliHizmetler: ["tedarikci-denetimi"],
+  },
+  {
     slug: "birinci-ikinci-ucuncu-taraf-denetim-farki",
     baslik: "Birinci, İkinci ve Üçüncü Taraf Denetim Nedir? Farkları ve Karşılaştırma Tablosu",
     ozet:

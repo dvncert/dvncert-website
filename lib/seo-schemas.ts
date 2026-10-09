@@ -61,6 +61,7 @@ export function organizationSchema() {
       "İkinci taraf denetim (2. taraf denetim)",
       "Fason üretici ve alt yüklenici denetimi",
       "Tedarikçi değerlendirme",
+      "Tedarikçi denetim yönetimi yazılımı (DBYS)",
       "VDA 6.3 proses denetimi",
       "Şube ve mağaza denetimi",
       "Internal Auditor Training",

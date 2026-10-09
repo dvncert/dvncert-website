@@ -15,6 +15,28 @@ export type BlogSSSorusu = { soru: string; cevap: string };
 
 export const blogSSS: Record<string, BlogSSSorusu[]> = {
   // ---------- Tedarikçi (ikinci taraf) denetimi soru-cevap kümesi ----------
+  "tedarikci-denetim-yonetimi-yazilimi": [
+    {
+      soru: "Tedarikçi denetim yönetimi yazılımı nedir?",
+      cevap:
+        "Tedarikçi denetim yönetimi yazılımı, ikinci taraf denetimlerin planlanması, denetçi ataması, soru listeleri, bulgular, uygunsuzluk takibi ve rapor onayı gibi tüm adımlarının tek bir online sistemden yürütülmesini sağlayan yazılımdır. Denetim bilgileri e-posta ve Excel dosyaları arasında dağılmak yerine tek yerde toplanır.",
+    },
+    {
+      soru: "DBYS nedir?",
+      cevap:
+        "DBYS (DVN Cert Belge Yönetim Sistemi), DVN Cert'in denetimleri online yönettiği sistemdir. Tedarikçi denetimlerinde denetim planlaması, denetçi ataması, soru listeleri üzerinden kanıtlarıyla birlikte bulgu kaydı, uygunsuzluk takibi, hakediş takibi ve denetim raporlarının müşteri ve denetim kuruluşu tarafından online onaylanması DBYS üzerinden yapılır.",
+    },
+    {
+      soru: "Tedarikçi denetim raporu online onaylanabilir mi?",
+      cevap:
+        "Evet. DVN Cert'in yürüttüğü tedarikçi denetimlerinde rapor DBYS'de hazırlanır ve müşteri ile denetim kuruluşu tarafından sistem üzerinden online onaylanır. Onaylanan rapor ve bağlı bulgular kayıt altına alınır.",
+    },
+    {
+      soru: "Denetim yazılımı denetçinin yerini tutar mı?",
+      cevap:
+        "Hayır. Yazılım denetimin planlanmasını, kaydını ve takibini kolaylaştırır; kanıtı sahada toplayan ve değerlendiren yine yetkin ve bağımsız bir denetçidir.",
+    },
+  ],
   "birinci-ikinci-ucuncu-taraf-denetim-farki": [
     {
       soru: "İkinci taraf denetim nedir?",
