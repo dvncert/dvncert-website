@@ -71,6 +71,7 @@ export const hizmetler: Hizmet[] = [
     kisaAciklama:
       "ISO 9001, 14001, 45001 ve 50001 yönetim sistemleri belgelendirmesini şeffaf ve etkin bir süreçle yönetiyoruz.",
     ikon: "sistem",
+    gorsel: "/gorseller/hizmetler/sistem-belgelendirme.webp",
     giris:
       "DVN Cert olarak tarafsız ve profesyonel belgelendirme çözümleri sunuyoruz. Deneyimli denetçi kadromuzla yönetim sistemi belgelendirme süreçlerinizi şeffaf ve etkin bir şekilde yönetiyoruz.\n\n" +
       "Kapsamımızdaki dört temel yönetim sistemi standardında, kuruluşunuzun uluslararası standartlara uyumunu bağımsızlık ve gizlilik ilkeleriyle değerlendiriyoruz.",
@@ -197,6 +198,7 @@ export const hizmetler: Hizmet[] = [
     kisaAciklama:
       "Tedarikçi, fason üretici ve alt yüklenicilerinizi kalite, çevre, İSG ve sözleşme şartlarına uygunluk açısından yerinde ve bağımsızca denetliyoruz.",
     ikon: "denetim",
+    gorsel: "/gorseller/hizmetler/tedarikci-denetimi.webp",
     giris:
       "Tedarikçi denetimi (ikinci taraf denetim); bir kuruluşun mal veya hizmet satın aldığı tedarikçilerini, fason üreticilerini, alt yüklenicilerini ve iş ortaklarını belirlenen standartlara, sözleşme şartlarına ve yasal gerekliliklere uygunluk açısından yerinde değerlendirmesidir. Denetim müşteri kuruluş adına yapılır ve sonucunda sertifika değil, puanlanmış bir denetim raporu düzenlenir; tedarik zincirindeki riskleri yönetmenin en etkili yollarından biridir. İç denetim ve belgelendirme denetimiyle karşılaştırması için [birinci, ikinci ve üçüncü taraf denetim farkı](/blog/birinci-ikinci-ucuncu-taraf-denetim-farki) yazımıza bakabilirsiniz.\n\n" +
       "Tedarikçi beyanları, anketler ve belgeler tek başına yeterli güvence sağlamaz. Bağımsız bir tedarikçi denetimi; üretim koşullarını, kalite kontrol uygulamalarını, kayıtları ve yasal uyumu sahada kanıta dayalı olarak doğrular. Böylece tedarikçi seçimi, onayı ve performans değerlendirmesi kararlarınızı nesnel verilere dayandırırsınız. Tedarikçi denetiminin iç denetim ve belgelendirme denetiminden farkını [tedarikçi denetimi nedir](/blog/tedarikci-denetimi-nedir) yazımızda ele aldık.\n\n" +
@@ -318,6 +320,7 @@ export const hizmetler: Hizmet[] = [
     kisaAciklama:
       "Zincir mağaza, bayi ve franchise ağlarınızdaki şubeleri; marka standartlarına, hizmet kalitesine, hijyen ve operasyonel kurallara uygunluk açısından yerinde ve bağımsızca denetliyoruz.",
     ikon: "denetim",
+    gorsel: "/gorseller/hizmetler/sube-denetimi.webp",
     giris:
       "Şube denetimi (mağaza denetimi); zincir işletmelerin, bayi ve franchise ağlarının kendi şubelerini veya iş ortaklarının işlettiği satış noktalarını belirlenen marka standartlarına, operasyonel prosedürlere, hijyen ve güvenlik kurallarına uygunluk açısından bağımsız olarak değerlendirmesidir. Bayi denetimi, franchise denetimi ve satış noktası denetimi de bu hizmetin kapsamındadır.\n\n" +
       "Çok şubeli yapılarda hizmet kalitesini her noktada aynı seviyede tutmak markaların en büyük zorluklarından biridir. Bölge müdürlerinin yaptığı iç kontroller zamanla rutinleşir ve şubeler arasında karşılaştırılabilir veri üretmez. Bağımsız bir denetçinin aynı kontrol listesiyle yaptığı düzenli şube denetimleri; standartlardan sapmaları erken tespit eder, şubeler arası tutarlılığı artırır ve müşteri deneyimini korur.\n\n" +

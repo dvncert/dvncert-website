@@ -7,7 +7,7 @@ import HizmetIkon from "../../components/HizmetIkon";
 import IcerikMetin from "../../components/IcerikMetin";
 import IlgiliYazilar from "../../components/IlgiliYazilar";
 import { hizmetler, hizmetGetir } from "@/lib/hizmetler";
-import { hizmetIcerikGetirDB } from "@/lib/sayfa-icerigi";
+import { hizmetIcerikGetirDB, sayfaKapakGetir } from "@/lib/sayfa-icerigi";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
 import { serviceSchema, breadcrumbSchema, faqSchema, schemaScript } from "@/lib/seo-schemas";
 
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function HizmetDetaySayfasi({ params }: Params) {
   const { slug } = await params;
-  const hizmet = await hizmetIcerikGetirDB(slug);
+  const [hizmet, kapakSrc] = await Promise.all([hizmetIcerikGetirDB(slug), sayfaKapakGetir(`/hizmetler/${slug}`)]);
   if (!hizmet) notFound();
 
   const altStandartlar = (hizmet.altStandartlar ?? [])
@@ -82,7 +82,7 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
       />
 
       <KapakGorsel
-        src={hizmet.gorsel}
+        src={kapakSrc ?? hizmet.gorsel}
         alt={`${hizmet.baslik} - DVN Cert belgelendirme`}
         ikon={hizmet.ikon}
         etiket={hizmet.baslik}

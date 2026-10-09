@@ -88,7 +88,7 @@ export default async function EgitimDetaySayfasi({ params }: Params) {
         kirintilar={[{ etiket: "Eğitimler", href: "/egitimler" }, { etiket: egitim.baslik }]}
       />
 
-      <KapakGorsel alt={`${egitim.baslik} - DVN Cert eğitim programı`} ikon={egitim.ikon} etiket={egitim.baslik} oncelik />
+      <KapakGorsel src={egitim.gorsel} alt={`${egitim.baslik} - DVN Cert eğitim programı`} ikon={egitim.ikon} etiket={egitim.baslik} oncelik />
 
       {/* Künye */}
       <section style={{ background: "white", padding: "40px 32px 0" }}>
