@@ -26,6 +26,18 @@ export type Duyuru = {
   ilgiliHizmetler?: string[];
 };
 
+/**
+ * Arama sonucu açıklamaları (slug bazlı). Özet sayfada ve DB'de olduğu gibi
+ * kalır; Google ~160 karakterden sonrasını kestiği için uzun özetlerin yerine
+ * meta açıklamada bu kısa metin kullanılır.
+ */
+export const duyuruSeoAciklamalari: Record<string, string> = {
+  "akreditasyon-durumuna-iliskin-bilgilendirme":
+    "TÜRKAK'ın 21.08.2026 tarihli kararıyla DVN CERT'in AB-0209-YS numaralı akreditasyonu geri çekilmiş; TÜRKAK markası ve akreditasyon atıfları durdurulmuştur.",
+  "iso-14001-2026-yayimlandi":
+    "ISO 14001:2026, 15 Nisan 2026'da yayımlanarak ISO 14001:2015'in yerini aldı. Belgeli kuruluşlar geçiş tetkikini üç yıl içinde tamamlamalı.",
+};
+
 export const duyurular: Duyuru[] = [
   {
     slug: "akreditasyon-durumuna-iliskin-bilgilendirme",

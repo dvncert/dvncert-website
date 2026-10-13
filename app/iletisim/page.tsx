@@ -7,7 +7,7 @@ import { localBusinessSchema, contactPageSchema, breadcrumbSchema, schemaScript 
 
 export const metadata: Metadata = {
   title: "İletişim",
-  description: `DVN Cert ile iletişime geçin. ${siteConfig.adresTamMetin} · ${siteConfig.telefonGorunen} · ${siteConfig.email}. Belgelendirme, denetim ve eğitim talepleriniz için bize ulaşın.`,
+  description: `Belgelendirme, denetim ve eğitim talepleriniz için DVN Cert'e ulaşın: ${siteConfig.adres.ilce} / ${siteConfig.adres.il} · ${siteConfig.telefonGorunen} · ${siteConfig.email}`,
   alternates: { canonical: `${siteConfig.url}/iletisim` },
 };
 

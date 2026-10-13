@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { isoMeta } from "./iso-icerik";
+import { isoIcerikler, isoMeta } from "./iso-icerik";
+import { seoBaslik } from "./seo-baslik";
 import { sayfaSeoGetir } from "./faz2-icerik";
 import { siteConfig } from "./site-config";
 
@@ -13,13 +14,13 @@ export async function isoSayfaMetadata(slug: string): Promise<Metadata> {
   const override = await sayfaSeoGetir(yol);
   if (!override) return tabanli;
 
-  const sonTitle = override.seoTitle || (tabanli.title as string);
+  const sonTitle = override.seoTitle || isoIcerikler[slug].metaTitle;
   const sonDesc = override.seoDescription || (tabanli.description as string);
   const ogImageUrl = override.ogImage ? `${siteConfig.url}${override.ogImage}` : undefined;
 
   const m: Metadata = {
     ...tabanli,
-    title: sonTitle,
+    title: seoBaslik(sonTitle),
     description: sonDesc,
     robots: override.noIndex ? { index: false, follow: false } : tabanli.robots,
   };

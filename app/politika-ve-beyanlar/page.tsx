@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: YOL,
     title: "Politika ve Beyanlar",
     description:
-      "DVN Cert'in tarafsızlık ve bağımsızlık beyanı, kalite politikası, gizlilik ilkeleri ile şikayet ve itirazların değerlendirilmesine ilişkin temel politika ve beyanları.",
+      "DVN Cert'in tarafsızlık ve bağımsızlık beyanı, kalite politikası, gizlilik ilkeleri ile şikâyet ve itiraz değerlendirme politikaları.",
   });
 }
 

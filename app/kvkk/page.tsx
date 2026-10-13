@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "KVKK Aydınlatma Metni",
   description:
-    "DVN Cert kişisel verilerin korunması (KVKK) aydınlatma metni. İşlenen veriler, işleme amaçları, hukuki sebepler, aktarım, saklama süreleri ve ilgili kişi hakları.",
+    "DVN Cert KVKK aydınlatma metni: işlenen kişisel veriler, işleme amaçları, hukuki sebepler, aktarım, saklama süreleri ve ilgili kişi hakları.",
   alternates: { canonical: `${siteConfig.url}/kvkk` },
 };
 

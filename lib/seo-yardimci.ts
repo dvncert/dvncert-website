@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { sayfaSeoGetir } from "./faz2-icerik";
 import { siteConfig } from "./site-config";
+import { seoBaslik } from "./seo-baslik";
 
 type Varsayilan = {
   yol: string;
@@ -21,7 +22,7 @@ export async function sayfaMetadataUret({ yol, title, description }: Varsayilan)
   const ogImageUrl = override?.ogImage ? `${siteConfig.url}${override.ogImage}` : undefined;
 
   const m: Metadata = {
-    title: sonTitle,
+    title: seoBaslik(sonTitle),
     description: sonDesc,
     alternates: { canonical },
     robots: override?.noIndex ? { index: false, follow: false } : undefined,

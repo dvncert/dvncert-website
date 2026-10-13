@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 import SayfaBaslik from "../../components/SayfaBaslik";
 import KapakGorsel from "../../components/KapakGorsel";
 import IcerikMetin from "../../components/IcerikMetin";
-import { tarihiBicimle } from "@/lib/duyurular";
+import { duyuruSeoAciklamalari, tarihiBicimle } from "@/lib/duyurular";
 import { duyurulariGetir, duyuruDetay } from "@/lib/icerik";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { siteConfig } from "@/lib/site-config";
+import { seoBaslik } from "@/lib/seo-baslik";
 import { newsArticleSchema, breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -24,15 +25,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const duyuru = await duyuruDetay(slug);
   if (!duyuru) return { title: "Duyuru bulunamadı" };
+  const aciklama = duyuruSeoAciklamalari[duyuru.slug] ?? duyuru.ozet;
 
   return {
-    title: duyuru.baslik,
-    description: duyuru.ozet,
+    title: seoBaslik(duyuru.baslik),
+    description: aciklama,
     alternates: { canonical: `${siteConfig.url}/duyurular/${duyuru.slug}` },
     openGraph: {
       type: "article",
       title: duyuru.baslik,
-      description: duyuru.ozet,
+      description: aciklama,
       url: `${siteConfig.url}/duyurular/${duyuru.slug}`,
       publishedTime: duyuru.tarih,
     },

@@ -142,8 +142,8 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_YOK,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Kalite yönetim sistemini öğrenmek, kurmak veya sürdürmek isteyen herkes; kalite ekibi adayları ve standartla ilk kez tanışacak katılımcılar.",
-    seoTitle: "ISO 9001 Temel Eğitimi (Bilinçlendirme) | Genel Katılım",
-    seoAciklama: "ISO 9001:2015 Kalite Yönetim Sistemi temel/bilinçlendirme eğitimi. Standardın gereklilikleri, terimleri ve uygulaması; çevrim içi veya yüz yüze, genel katılıma açık.",
+    seoTitle: "ISO 9001 Temel Eğitimi (Bilinçlendirme)",
+    seoAciklama: "ISO 9001:2015 Kalite Yönetim Sistemi temel/bilinçlendirme eğitimi: gereklilikler, terimler ve uygulama. Çevrim içi veya yüz yüze, genel katılım.",
     kisaAciklama: "ISO 9001:2015 Kalite Yönetim Sistemi'nin gerekliliklerini ve uygulama mantığını baştan sona kavratan temel eğitim.",
     giris:
       "ISO 9001 Temel Eğitimi, dünyanın en yaygın yönetim sistemi standardı olan ISO 9001:2015'in gerekliliklerini ve uygulama mantığını baştan sona kavramanızı sağlar. Standardın terminolojisi, madde yapısı ve kalite yönetimi ilkeleri uygulama örnekleriyle ele alınır.\n\n" +
@@ -177,8 +177,8 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_IC,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Kuruluşunda iç tetkik (iç denetim) yapacak veya yapan kişiler, kalite yönetim sistemi sorumluları ve süreç sahipleri.",
-    seoTitle: "ISO 9001 İç Tetkikçi (İç Denetçi) Eğitimi | Genel Katılım",
-    seoAciklama: "ISO 9001:2015 iç tetkikçi (iç denetçi) eğitimi. ISO 19011'e göre iç tetkik planlama, yürütme, uygunsuzluk yazma ve raporlama; çevrim içi veya yüz yüze, genel katılıma açık.",
+    seoTitle: "ISO 9001 İç Tetkikçi (İç Denetçi) Eğitimi",
+    seoAciklama: "ISO 9001:2015 iç tetkikçi eğitimi: ISO 19011'e göre tetkik planlama, yürütme, uygunsuzluk yazma ve raporlama. Çevrim içi veya yüz yüze.",
     kisaAciklama: "ISO 19011 esaslı; ISO 9001 kalite yönetim sisteminde iç tetkik planlama, yürütme ve raporlama becerisi kazandıran eğitim.",
     giris:
       "ISO 9001 İç Tetkikçi Eğitimi, kalite yönetim sisteminizin iç tetkiklerini ISO 19011 rehberliğinde planlayıp yürütecek yetkinliği kazandırır. Tetkik sorularının hazırlanmasından uygunsuzlukların yazılmasına kadar tüm iç tetkik süreci uygulamalı olarak işlenir.\n\n" +
@@ -212,8 +212,8 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_BAS,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Denetçi/baş denetçi olmayı hedefleyen profesyoneller, yönetim sistemi danışmanları ve deneyimli kalite uzmanları.",
-    seoTitle: "ISO 9001 Baş Denetçi Eğitimi (Lead Auditor) | Genel Katılım",
-    seoAciklama: "ISO 9001:2015 baş denetçi (lead auditor) eğitimi. Tetkik ekibi yönetimi, tüm tetkik döngüsü ve belgelendirme süreci; çevrim içi veya yüz yüze, genel katılıma açık.",
+    seoTitle: "ISO 9001 Baş Denetçi Eğitimi (Lead Auditor)",
+    seoAciklama: "ISO 9001:2015 baş denetçi (lead auditor) eğitimi: tetkik ekibi yönetimi, tüm tetkik döngüsü ve belgelendirme süreci. Çevrim içi veya yüz yüze.",
     kisaAciklama: "ISO 9001 kalite yönetim sisteminde tetkik ekibi yönetme ve tetkikin tüm döngüsünü yürütme yetkinliği kazandıran ileri düzey eğitim.",
     giris:
       "ISO 9001 Baş Denetçi Eğitimi, kalite yönetim sistemi tetkiklerini bir ekip lideri olarak baştan sona yönetecek ileri düzey yetkinliği kazandırır. Tetkikin başlatılmasından raporlama ve takibine kadar tüm döngü, belgelendirme (3. taraf) tetkik süreci perspektifiyle uygulamalı işlenir.\n\n" +
@@ -249,8 +249,8 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_YOK,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Çevre yönetim sistemini öğrenmek, kurmak veya sürdürmek isteyen herkes; çevre ve sürdürülebilirlik ekibi adayları.",
-    seoTitle: "ISO 14001 Temel Eğitimi (Bilinçlendirme) | Genel Katılım",
-    seoAciklama: "ISO 14001:2015 Çevre Yönetim Sistemi temel/bilinçlendirme eğitimi. Çevre boyutları, uygunluk yükümlülükleri ve uygulama; çevrim içi veya yüz yüze, genel katılıma açık.",
+    seoTitle: "ISO 14001 Temel Eğitimi (Bilinçlendirme)",
+    seoAciklama: "ISO 14001:2015 Çevre Yönetim Sistemi temel eğitimi: çevre boyutları, uygunluk yükümlülükleri ve uygulama. Çevrim içi veya yüz yüze, genel katılım.",
     kisaAciklama: "ISO 14001:2015 Çevre Yönetim Sistemi'nin gerekliliklerini ve çevre yönetimi yaklaşımını kavratan temel eğitim.",
     giris:
       "ISO 14001 Temel Eğitimi, çevre yönetim sisteminin gerekliliklerini, çevre boyutları ve etkileri ile yaşam döngüsü perspektifini uygulama örnekleriyle kavramanızı sağlar. Standardın madde yapısı ve uygunluk yükümlülükleri ayrıntılı ele alınır.\n\n" +
@@ -284,7 +284,7 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_IC,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Çevre yönetim sisteminde iç tetkik yapacak/yapan kişiler ve çevre yönetim sistemi sorumluları.",
-    seoTitle: "ISO 14001 İç Tetkikçi (İç Denetçi) Eğitimi | Genel Katılım",
+    seoTitle: "ISO 14001 İç Tetkikçi (İç Denetçi) Eğitimi",
     seoAciklama: "ISO 14001:2015 iç tetkikçi (iç denetçi) eğitimi. ISO 19011'e göre çevre yönetim sistemi iç tetkiki planlama, yürütme ve raporlama; genel katılıma açık.",
     kisaAciklama: "ISO 19011 esaslı; ISO 14001 çevre yönetim sisteminde iç tetkik yürütme becerisi kazandıran eğitim.",
     giris:
@@ -319,7 +319,7 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_BAS,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Çevre alanında denetçi/baş denetçi olmayı hedefleyenler, danışmanlar ve deneyimli çevre yönetimi uzmanları.",
-    seoTitle: "ISO 14001 Baş Denetçi Eğitimi (Lead Auditor) | Genel Katılım",
+    seoTitle: "ISO 14001 Baş Denetçi Eğitimi (Lead Auditor)",
     seoAciklama: "ISO 14001:2015 baş denetçi (lead auditor) eğitimi. Tetkik ekibi yönetimi, tüm tetkik döngüsü ve belgelendirme süreci; genel katılıma açık.",
     kisaAciklama: "ISO 14001 çevre yönetim sisteminde tetkik ekibi yönetme ve tetkikin tüm döngüsünü yürütme yetkinliği kazandıran ileri düzey eğitim.",
     giris:
@@ -356,8 +356,8 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_YOK,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "İş sağlığı ve güvenliği yönetim sistemini öğrenmek isteyen herkes; İSG ekibi adayları ve ilgili profesyoneller.",
-    seoTitle: "ISO 45001 Temel Eğitimi (Bilinçlendirme) | Genel Katılım",
-    seoAciklama: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi temel eğitimi. Tehlike tanımlama, risk değerlendirme ve uygulama; çevrim içi veya yüz yüze, genel katılıma açık.",
+    seoTitle: "ISO 45001 Temel Eğitimi (Bilinçlendirme)",
+    seoAciklama: "ISO 45001:2018 İSG Yönetim Sistemi temel eğitimi: tehlike tanımlama, risk değerlendirme ve uygulama. Çevrim içi veya yüz yüze, genel katılım.",
     kisaAciklama: "ISO 45001:2018 İSG Yönetim Sistemi'nin gerekliliklerini ve risk temelli İSG yaklaşımını kavratan temel eğitim.",
     giris:
       "ISO 45001 Temel Eğitimi, iş sağlığı ve güvenliği yönetim sisteminin gerekliliklerini; tehlike tanımlama, risk değerlendirme ve çalışan katılımı kavramlarıyla birlikte kavramanızı sağlar. Standardın madde yapısı ve yasal gereklilikler uygulama örnekleriyle ele alınır.\n\n" +
@@ -391,7 +391,7 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_IC,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "İSG yönetim sisteminde iç tetkik yapacak/yapan kişiler, İSG sorumluları ve uzmanları.",
-    seoTitle: "ISO 45001 İç Tetkikçi (İç Denetçi) Eğitimi | Genel Katılım",
+    seoTitle: "ISO 45001 İç Tetkikçi (İç Denetçi) Eğitimi",
     seoAciklama: "ISO 45001:2018 iç tetkikçi (iç denetçi) eğitimi. ISO 19011'e göre İSG yönetim sistemi iç tetkiki planlama, yürütme ve raporlama; genel katılıma açık.",
     kisaAciklama: "ISO 19011 esaslı; ISO 45001 İSG yönetim sisteminde iç tetkik yürütme becerisi kazandıran eğitim.",
     giris:
@@ -426,7 +426,7 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_BAS,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "İSG alanında denetçi/baş denetçi olmayı hedefleyenler, danışmanlar ve deneyimli İSG uzmanları.",
-    seoTitle: "ISO 45001 Baş Denetçi Eğitimi (Lead Auditor) | Genel Katılım",
+    seoTitle: "ISO 45001 Baş Denetçi Eğitimi (Lead Auditor)",
     seoAciklama: "ISO 45001:2018 baş denetçi (lead auditor) eğitimi. Tetkik ekibi yönetimi, tüm tetkik döngüsü ve belgelendirme süreci; genel katılıma açık.",
     kisaAciklama: "ISO 45001 İSG yönetim sisteminde tetkik ekibi yönetme ve tetkikin tüm döngüsünü yürütme yetkinliği kazandıran ileri düzey eğitim.",
     giris:
@@ -463,7 +463,7 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_YOK,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Enerji yönetim sistemini öğrenmek isteyen herkes; enerji yöneticileri, enerji verimliliği ve sürdürülebilirlik ile ilgilenen profesyoneller.",
-    seoTitle: "ISO 50001 Temel Eğitimi (Bilinçlendirme) | Genel Katılım",
+    seoTitle: "ISO 50001 Temel Eğitimi (Bilinçlendirme)",
     seoAciklama: "ISO 50001:2018 Enerji Yönetim Sistemi temel eğitimi. Enerji gözden geçirme, EnPI ve enerji verimliliği; çevrim içi veya yüz yüze, genel katılıma açık.",
     kisaAciklama: "ISO 50001:2018 Enerji Yönetim Sistemi'nin gerekliliklerini ve enerji performansı yaklaşımını kavratan temel eğitim.",
     giris:
@@ -498,7 +498,7 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_IC,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Enerji yönetim sisteminde iç tetkik yapacak/yapan kişiler ve enerji yöneticileri.",
-    seoTitle: "ISO 50001 İç Tetkikçi (İç Denetçi) Eğitimi | Genel Katılım",
+    seoTitle: "ISO 50001 İç Tetkikçi (İç Denetçi) Eğitimi",
     seoAciklama: "ISO 50001:2018 iç tetkikçi (iç denetçi) eğitimi. ISO 19011'e göre enerji yönetim sistemi iç tetkiki planlama, yürütme ve raporlama; genel katılıma açık.",
     kisaAciklama: "ISO 19011 esaslı; ISO 50001 enerji yönetim sisteminde iç tetkik yürütme becerisi kazandıran eğitim.",
     giris:
@@ -533,7 +533,7 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_BAS,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Enerji alanında denetçi/baş denetçi olmayı hedefleyenler, danışmanlar ve deneyimli enerji yönetimi uzmanları.",
-    seoTitle: "ISO 50001 Baş Denetçi Eğitimi (Lead Auditor) | Genel Katılım",
+    seoTitle: "ISO 50001 Baş Denetçi Eğitimi (Lead Auditor)",
     seoAciklama: "ISO 50001:2018 baş denetçi (lead auditor) eğitimi. Tetkik ekibi yönetimi, tüm tetkik döngüsü ve belgelendirme süreci; genel katılıma açık.",
     kisaAciklama: "ISO 50001 enerji yönetim sisteminde tetkik ekibi yönetme ve tetkikin tüm döngüsünü yürütme yetkinliği kazandıran ileri düzey eğitim.",
     giris:
@@ -570,7 +570,7 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_IC,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Her tür yönetim sistemi tetkiki yapacak iç tetkikçiler, tetkik programı yöneticileri ve denetim metodolojisini öğrenmek isteyenler.",
-    seoTitle: "ISO 19011 Tetkik Eğitimi (Yönetim Sistemleri Denetimi) | Genel Katılım",
+    seoTitle: "ISO 19011 Tetkik Eğitimi (Yönetim Sistemleri Denetimi)",
     seoAciklama: "ISO 19011:2018 yönetim sistemleri tetkik eğitimi. Tetkik prensipleri, tetkik programı yönetimi, tetkik faaliyetleri ve tetkikçi yetkinliği; genel katılıma açık.",
     kisaAciklama: "Yönetim sistemi türünden bağımsız; ISO 19011:2018 tetkik prensipleri, programı ve metodolojisini kazandıran eğitim.",
     giris:
@@ -615,8 +615,8 @@ export const egitimler: Egitim[] = [
     onKosul: ON_KOSUL_IC,
     katilimBelgesi: BELGE,
     kimlerKatilabilir: "Birden fazla ISO standardını tek sistemde yöneten/yönetmek isteyen yönetim sistemi sorumluları, kalite-çevre-İSG ekipleri.",
-    seoTitle: "Entegre Yönetim Sistemi Eğitimi (ISO 9001-14001-45001) | Genel Katılım",
-    seoAciklama: "Entegre Yönetim Sistemi eğitimi: ISO 9001, 14001 ve 45001'i ortak yapıda (Annex SL) birleştirme, entegre tetkik ve yönetim; çevrim içi veya yüz yüze, genel katılıma açık.",
+    seoTitle: "Entegre Yönetim Sistemi Eğitimi (ISO 9001-14001-45001)",
+    seoAciklama: "Entegre Yönetim Sistemi eğitimi: ISO 9001, 14001 ve 45001'i Annex SL yapısında birleştirme ve entegre tetkik. Çevrim içi veya yüz yüze.",
     kisaAciklama: "ISO 9001, 14001 ve 45001'i tek bir entegre yönetim sistemi çatısında birleştirme ve yönetme yaklaşımını kazandıran eğitim.",
     giris:
       "Entegre Yönetim Sistemi Eğitimi; ISO 9001 (kalite), ISO 14001 (çevre) ve ISO 45001 (İSG) standartlarını Annex SL ortak üst yapısı sayesinde tek bir yönetim sistemi çatısında nasıl birleştireceğinizi öğretir. Ortak ve standarda özgü gereklilikler karşılaştırmalı olarak ele alınır.\n\n" +

@@ -10,7 +10,7 @@ import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 export const metadata: Metadata = {
   title: "Hizmetlerimiz",
   description:
-    "DVN Cert; ISO 9001, 14001, 45001, 50001 sistem belgelendirmesi, tedarikçi ve şube denetimleri ile yönetim sistemi eğitimleri sunar. Tüm belgelendirme hizmetlerimizi keşfedin.",
+    "ISO 9001, 14001, 45001 ve 50001 belgelendirmesi, tedarikçi ve şube denetimleri ile yönetim sistemi eğitimleri. Tüm hizmetlerimizi keşfedin.",
   alternates: { canonical: `${siteConfig.url}/hizmetler` },
 };
 

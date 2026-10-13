@@ -10,6 +10,7 @@
 
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { seoBaslik } from "@/lib/seo-baslik";
 
 export type IsoKart = { baslik: string; metin: string };
 
@@ -278,7 +279,7 @@ export const isoIcerikler: Record<string, IsoIcerik> = {
       cumleBasi: "İş sağlığı ve güvenliği yönetim sisteminin",
     },
     politika: "İş sağlığı ve güvenliği politikası",
-    metaTitle: "ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi Belgelendirmesi",
+    metaTitle: "ISO 45001:2018 İSG Yönetim Sistemi Belgelendirmesi",
     metaDescription:
       "ISO 45001:2018 iş sağlığı ve güvenliği yönetim sistemi belgelendirmesi: tehlike ve risk yönetimi, yasal İSG uyumu ve iş kazalarının azaltılması.",
     keywords: [
@@ -471,7 +472,7 @@ export function isoMeta(slug: string): Metadata {
   const v = isoIcerikler[slug];
   const url = `${siteConfig.url}/hizmetler/${slug}`;
   return {
-    title: v.metaTitle,
+    title: seoBaslik(v.metaTitle),
     description: v.metaDescription,
     keywords: v.keywords,
     alternates: { canonical: url },

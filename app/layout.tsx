@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
+import { MARKA_EKI, VARSAYILAN_BASLIK } from "@/lib/seo-baslik";
 import { organizationSchema, websiteSchema, schemaScript } from "@/lib/seo-schemas";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -16,9 +17,11 @@ import { popupGetir } from "@/lib/popup";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  // Google ~60 karakterden sonrasını keser: marka eki kısa tutulur; eki
+  // sığmayan sayfalar seoBaslik() ile eksiz başlık verir (lib/seo-yardimci.ts).
   title: {
-    default: `${siteConfig.adUzun} - ISO Belgelendirme, Denetim ve Eğitim`,
-    template: `%s | ${siteConfig.adUzun}`,
+    default: VARSAYILAN_BASLIK,
+    template: `%s${MARKA_EKI}`,
   },
   description: siteConfig.aciklamaKisa,
   keywords: siteConfig.anahtarKelimeler,
@@ -41,22 +44,19 @@ export const metadata: Metadata = {
   },
 
   // Open Graph (Facebook, LinkedIn, WhatsApp)
+  // title/description/url burada verilmez: Next.js bunları her sayfanın kendi
+  // başlık ve açıklamasından doldurur (sabit değer her sayfada aynı paylaşım
+  // önizlemesine yol açıyordu).
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: siteConfig.url,
-    title: `${siteConfig.adUzun} - ISO Belgelendirme, Denetim ve Eğitim`,
-    description: siteConfig.aciklamaKisa,
     siteName: siteConfig.adUzun,
     // og:image, kök dizindeki opengraph-image.tsx tarafından otomatik üretilir.
   },
 
-  // Twitter Card
+  // Twitter Card — başlık, açıklama ve görsel sayfanın Open Graph verisinden gelir.
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.adUzun} - ISO Belgelendirme, Denetim ve Eğitim`,
-    description: siteConfig.aciklamaKisa,
-    // twitter:image, kök dizindeki twitter-image.tsx tarafından otomatik üretilir.
   },
 
   // Diğer önemli alanlar

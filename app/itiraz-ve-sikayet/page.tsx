@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: "/itiraz-ve-sikayet",
     title: "İtiraz ve Şikayet Süreci",
     description:
-      "DVN Cert belgelendirme kararlarına itiraz ve hizmetlerimize ilişkin şikâyetlerin tarafsız biçimde değerlendirildiği süreç. İtiraz ve şikâyet nasıl yapılır, nasıl sonuçlandırılır?",
+      "Belgelendirme kararlarına itiraz ve hizmetlerimize ilişkin şikâyetler nasıl yapılır, tarafsız biçimde nasıl değerlendirilip sonuçlandırılır?",
   });
 }
 

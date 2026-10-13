@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import { bloglariGetir } from "@/lib/icerik";
 import { blogSSSGetir } from "@/lib/blog-sss";
-import { blogSeoBaslik } from "@/lib/blog-seo";
+import { blogSeoAciklama, blogSeoBaslik } from "@/lib/blog-seo";
 import { hizmetGetir } from "@/lib/hizmetler";
 import { googleYapilandirildiMi } from "@/lib/google/client";
 import { gscKonuGetir } from "@/lib/google/search-console";
@@ -90,9 +90,12 @@ export async function SeoBolum() {
   // ---- İçerik ölçümleri ----
   const n = yazilar.length;
   const sssli = yazilar.filter((b) => blogSSSGetir(b.slug).length > 0);
-  const aciklamaIyi = yazilar.filter((b) => b.ozet.length >= 110 && b.ozet.length <= 170);
+  const aciklamaIyi = yazilar.filter((b) => {
+    const u = blogSeoAciklama(b.slug, b.ozet).length;
+    return u >= 110 && u <= 160;
+  });
   const seoBaslik = (b: (typeof yazilar)[number]) => blogSeoBaslik(b.slug, b.baslik);
-  const baslikIyi = yazilar.filter((b) => seoBaslik(b).length <= 70);
+  const baslikIyi = yazilar.filter((b) => seoBaslik(b).length <= 60);
   const gorselli = yazilar.filter((b) => b.gorsel);
   const enYeni = yazilar.map((b) => b.tarih).sort().at(-1);
   const son30 = yazilar.filter((b) => gunFarki(b.tarih) <= 30).length;
@@ -132,14 +135,14 @@ export async function SeoBolum() {
       detay: `${sssli.length}/${n} yazı (${yuzde(oran(sssli.length, n))}). Soru-cevap blokları yapay zekâ yanıtlarında alıntılanma şansını artırır.`,
     },
     {
-      ad: "Meta açıklama uzunluğu (110–170 karakter)",
+      ad: "Meta açıklama uzunluğu (110–160 karakter)",
       durum: esik(oran(aciklamaIyi.length, n), 0.85, 0.6),
       detay: `${aciklamaIyi.length}/${n} yazı uygun aralıkta.`,
     },
     {
-      ad: "Arama sonucu başlığı (≤ 70 karakter)",
+      ad: "Arama sonucu başlığı (≤ 60 karakter)",
       durum: esik(oran(baslikIyi.length, n), 0.8, 0.5),
-      detay: `${baslikIyi.length}/${n} yazı. Uzun başlıklar arama sonucunda kesilir; anlam ilk 60 karakterde verilmeli.`,
+      detay: `${baslikIyi.length}/${n} yazı. Google ~60 karakterden sonrasını keser; marka eki sığmayan başlıklarda otomatik atlanır.`,
     },
     {
       ad: "Kapak görseli",

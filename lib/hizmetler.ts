@@ -26,7 +26,7 @@ export type Hizmet = {
   surec?: SurecAdimi[];
   /** Sadece "sistem-belgelendirme" için: alt standartların slug'ları */
   altStandartlar?: string[];
-  /** SEO için özel <title> (verilmezse baslik kullanılır); layout şablonu " | DVN Cert Belgelendirme" ekler. */
+  /** SEO için özel <title> (verilmezse baslik kullanılır); layout şablonu " | DVN Cert" ekler (bkz. lib/seo-baslik.ts). */
   seoTitle?: string;
   /** SEO için özel meta açıklaması (verilmezse kisaAciklama kullanılır). */
   seoAciklama?: string;
@@ -194,7 +194,7 @@ export const hizmetler: Hizmet[] = [
     seoTitle: "Tedarikçi Denetimi ve İkinci Taraf Denetim",
     alternatifAdlar: ["İkinci taraf denetim", "2. taraf denetim", "Tedarikçi denetimi hizmeti", "Fason üretici denetimi", "Supplier audit", "Second-party audit"],
     seoAciklama:
-      "Bağımsız tedarikçi denetimi (ikinci taraf denetim) hizmeti: tedarikçi, fason üretici ve alt yüklenicilerinizi kalite, çevre, İSG ve sözleşme şartlarına göre yerinde denetliyor, ayrıntılı tedarikçi denetim raporu sunuyoruz.",
+      "Bağımsız tedarikçi denetimi (ikinci taraf denetim): tedarikçi, fason üretici ve alt yüklenicilerinizi yerinde denetliyor, ayrıntılı rapor sunuyoruz.",
     kisaAciklama:
       "Tedarikçi, fason üretici ve alt yüklenicilerinizi kalite, çevre, İSG ve sözleşme şartlarına uygunluk açısından yerinde ve bağımsızca denetliyoruz.",
     ikon: "denetim",
@@ -316,7 +316,7 @@ export const hizmetler: Hizmet[] = [
     baslik: "Şube ve Mağaza Denetimi",
     seoTitle: "Şube ve Mağaza Denetimi Hizmeti",
     seoAciklama:
-      "Zincir işletmeler, bayi ve franchise ağları için bağımsız şube denetimi ve mağaza denetimi: marka standartları, hijyen, İSG ve operasyonel kurallara uyumu yerinde denetliyor, puanlı ve fotoğraflı rapor sunuyoruz.",
+      "Zincir işletmeler, bayi ve franchise ağları için bağımsız şube ve mağaza denetimi: marka standardı, hijyen ve İSG uyumu, puanlı ve fotoğraflı rapor.",
     kisaAciklama:
       "Zincir mağaza, bayi ve franchise ağlarınızdaki şubeleri; marka standartlarına, hizmet kalitesine, hijyen ve operasyonel kurallara uygunluk açısından yerinde ve bağımsızca denetliyoruz.",
     ikon: "denetim",

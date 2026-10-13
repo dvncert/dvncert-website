@@ -6,6 +6,7 @@ import KapakGorsel from "../../components/KapakGorsel";
 import IcerikMetin from "../../components/IcerikMetin";
 import { etkinlikleriGetir, etkinlikDetay, etkinlikTarihBicim } from "@/lib/etkinlikler";
 import { siteConfig } from "@/lib/site-config";
+import { seoBaslik } from "@/lib/seo-baslik";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!e) return { title: "Etkinlik bulunamadı" };
 
   return {
-    title: e.seoTitle || e.baslik,
+    title: seoBaslik(e.seoTitle || e.baslik),
     description: e.seoDescription || e.ozet,
     alternates: { canonical: `${siteConfig.url}/etkinlikler/${e.slug}` },
     robots: e.noIndex ? { index: false, follow: false } : undefined,
@@ -32,7 +33,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       title: e.seoTitle || e.baslik,
       description: e.seoDescription || e.ozet,
       url: `${siteConfig.url}/etkinlikler/${e.slug}`,
-      images: e.gorsel ? [{ url: `${siteConfig.url}${e.gorsel}` }] : undefined,
+      // Yüklü görsel yoksa sitenin genel paylaşım görseli kullanılır.
+      images: [{ url: `${siteConfig.url}${e.gorsel ?? "/opengraph-image"}` }],
     },
   };
 }

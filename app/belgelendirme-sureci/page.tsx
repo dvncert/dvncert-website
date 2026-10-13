@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
     yol: "/belgelendirme-sureci",
     title: "ISO Belgesi Nasıl Alınır? Belgelendirme Süreci Adım Adım",
     description:
-      "ISO belgelendirme süreci adım adım: başvuru, sözleşme, Aşama 1 ve Aşama 2 denetimi, belgelendirme kararı, belge, gözetim ve yeniden belgelendirme. Nasıl ISO belgesi alınır?",
+      "ISO belgesi nasıl alınır? Başvuru, sözleşme, Aşama 1 ve Aşama 2 denetimi, belgelendirme kararı, gözetim ve yeniden belgelendirme adım adım.",
   });
 }
 
