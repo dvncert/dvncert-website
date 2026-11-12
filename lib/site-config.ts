@@ -62,7 +62,7 @@ export const siteConfig = {
   // Sosyal medya (JSON-LD sameAs + görünür sosyal butonlar bu değerlerden beslenir;
   // admin panelden DB'ye girilirse DB önceliklidir, bkz. lib/site-ayarlari.ts)
   sosyal: {
-    linkedin: "https://www.linkedin.com/in/dvncert/",
+    linkedin: "https://www.linkedin.com/company/dvncert",
     twitter: "",
     facebook: "",
     instagram: "https://www.instagram.com/dvncertification/",
