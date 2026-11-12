@@ -91,7 +91,7 @@ export const blogSSS: Record<string, BlogSSSorusu[]> = {
     {
       soru: "DBYS nedir?",
       cevap:
-        "DBYS (DVN Cert Belge Yönetim Sistemi), DVN Cert'in denetimleri online yönettiği sistemdir. Tedarikçi denetimlerinde denetim planlaması, denetçi ataması, soru listeleri üzerinden kanıtlarıyla birlikte bulgu kaydı, uygunsuzluk takibi, hakediş takibi ve denetim raporlarının müşteri ve denetim kuruluşu tarafından online onaylanması DBYS üzerinden yapılır.",
+        "DBYS (Denetim ve Belgelendirme Yönetim Sistemi), DVN Cert'in denetimleri online yönettiği sistemdir. Tedarikçi denetimlerinde denetim planlaması, denetçi ataması, soru listeleri üzerinden kanıtlarıyla birlikte bulgu kaydı, uygunsuzluk takibi, hakediş takibi ve denetim raporlarının müşteri ve denetim kuruluşu tarafından online onaylanması DBYS üzerinden yapılır.",
     },
     {
       soru: "Tedarikçi denetim raporu online onaylanabilir mi?",

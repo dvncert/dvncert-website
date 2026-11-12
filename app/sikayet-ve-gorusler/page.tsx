@@ -131,7 +131,7 @@ export default function SikayetVeGoruslerSayfasi() {
             Talebinizi iletin
           </h2>
           <p style={{ fontSize: 14.5, color: "var(--dvn-gri-500)", lineHeight: 1.7, margin: "0 auto 28px", maxWidth: 520 }}>
-            Şikayet, itiraz, öneri ve görüşlerinizi DVN Cert Belge Yönetim Sistemi (DBYS) üzerinden
+            Şikayet, itiraz, öneri ve görüşlerinizi Denetim ve Belgelendirme Yönetim Sistemi (DBYS) üzerinden
             iletebilirsiniz. Aşağıdaki butona tıklayarak başvuru formuna ulaşabilirsiniz.
           </p>
           <a
