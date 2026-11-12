@@ -62,10 +62,17 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/dvncertification/",
   },
 
-  // Coğrafi koordinatlar (Pendik için yaklaşık)
+  // Google İşletme Profili (yönetici: utkusaygi@gmail.com). CID ve Knowledge
+  // Graph kimliği Haritalar kaydından alınmıştır; schema sameAs/hasMap'te kullanılır.
+  googleIsletme: {
+    haritaUrl: "https://maps.google.com/?cid=721326908128488265",
+    kgId: "/g/11yj4stvq1",
+  },
+
+  // Coğrafi koordinatlar (Google Haritalar'daki işletme kaydıyla aynı)
   konum: {
-    enlem: 40.876,
-    boylam: 29.255,
+    enlem: 40.8590646,
+    boylam: 29.2851273,
   },
 
   // Çalışma saatleri

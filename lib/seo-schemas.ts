@@ -49,6 +49,7 @@ export function organizationSchema() {
       availableLanguage: ["Turkish", "English"],
     },
     sameAs: [
+      siteConfig.googleIsletme.haritaUrl,
       siteConfig.sosyal.linkedin,
       siteConfig.sosyal.twitter,
       siteConfig.sosyal.facebook,
@@ -114,6 +115,9 @@ export function localBusinessSchema() {
       postalCode: siteConfig.adres.posta,
       addressCountry: "TR",
     },
+    hasMap: siteConfig.googleIsletme.haritaUrl,
+    sameAs: [siteConfig.googleIsletme.haritaUrl],
+    parentOrganization: { "@id": `${siteConfig.url}/#organization` },
     geo: {
       "@type": "GeoCoordinates",
       latitude: siteConfig.konum.enlem,
