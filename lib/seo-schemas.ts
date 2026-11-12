@@ -5,6 +5,7 @@
  */
 
 import { siteConfig } from "./site-config";
+import { hizmetlerKategoriye } from "./hizmetler";
 
 /**
  * 1. Organization Schema (Tüm sayfalarda)
@@ -15,8 +16,11 @@ export function organizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${siteConfig.url}/#organization`,
-    name: siteConfig.adUzun,
-    alternateName: siteConfig.ad,
+    // Marka adı başlık, og:site_name ve WebSite adıyla aynı tutulur ("DVN Cert");
+    // uzun ad ve ticari unvan ayrı alanlarda verilir.
+    name: siteConfig.ad,
+    alternateName: siteConfig.adUzun,
+    legalName: siteConfig.ticariUnvan,
     url: siteConfig.url,
     logo: {
       "@type": "ImageObject",
@@ -64,8 +68,26 @@ export function organizationSchema() {
       "Tedarikçi denetim yönetimi yazılımı (DBYS)",
       "VDA 6.3 proses denetimi",
       "Şube ve mağaza denetimi",
+      "Bayi denetimi",
+      "Franchise denetimi",
+      "Dealer Audit",
       "Internal Auditor Training",
     ],
+    // Denetim hizmetleri katalog olarak: yapay zekâ yanıt motorları ve Google
+    // kuruluşu bu hizmetlerin sağlayıcısı olarak doğrudan eşleştirebilsin.
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Denetim Hizmetleri (İkinci Taraf Denetim)",
+      itemListElement: hizmetlerKategoriye("Denetim").map((h) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          "@id": `${siteConfig.url}/hizmetler/${h.slug}#service`,
+          name: h.baslik,
+          url: `${siteConfig.url}/hizmetler/${h.slug}`,
+        },
+      })),
+    },
   };
 }
 
@@ -118,7 +140,8 @@ export function websiteSchema() {
     "@type": "WebSite",
     "@id": `${siteConfig.url}/#website`,
     url: siteConfig.url,
-    name: siteConfig.adUzun,
+    name: siteConfig.ad,
+    alternateName: siteConfig.adUzun,
     description: siteConfig.aciklamaKisa,
     inLanguage: siteConfig.dil,
     publisher: {
@@ -146,14 +169,22 @@ export function serviceSchema(params: {
   hizmetTipi?: string;
   /** Hizmetin eş anlamlı adları (ör. "İkinci taraf denetim") — Google'ın varlığı eşleştirmesi için. */
   alternatifAdlar?: string[];
+  /** Hedef kitle (ör. "Franchise ağları") — audience olarak verilir. */
+  hedefKitle?: string[];
 }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${siteConfig.url}${params.url}#service`,
     name: params.ad,
     ...(params.alternatifAdlar?.length ? { alternateName: params.alternatifAdlar } : {}),
     description: params.aciklama,
     url: `${siteConfig.url}${params.url}`,
+    ...(params.hedefKitle?.length
+      ? {
+          audience: params.hedefKitle.map((k) => ({ "@type": "BusinessAudience", audienceType: k })),
+        }
+      : {}),
     provider: {
       "@id": `${siteConfig.url}/#organization`,
     },
@@ -162,6 +193,33 @@ export function serviceSchema(params: {
       name: "Türkiye",
     },
     serviceType: params.hizmetTipi || "Certification Service",
+  };
+}
+
+/**
+ * 4b. WebPage Schema (hizmet sayfalarında) — sayfanın tazelik sinyali
+ * (dateModified) ve hangi hizmeti anlattığı (about → Service).
+ */
+export function webPageSchema(params: {
+  baslik: string;
+  aciklama: string;
+  url: string;
+  guncellenme: string;
+  /** Sayfanın anlattığı varlığın @id'si (ör. Service). */
+  konuId?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}${params.url}#webpage`,
+    name: params.baslik,
+    description: params.aciklama,
+    url: `${siteConfig.url}${params.url}`,
+    inLanguage: siteConfig.dil,
+    dateModified: params.guncellenme,
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    publisher: { "@id": `${siteConfig.url}/#organization` },
+    ...(params.konuId ? { about: { "@id": params.konuId } } : {}),
   };
 }
 

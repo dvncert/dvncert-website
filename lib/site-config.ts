@@ -8,6 +8,7 @@ export const siteConfig = {
   // Temel kimlik
   ad: "DVN Cert",
   adUzun: "DVN Cert Belgelendirme",
+  ticariUnvan: "DVN CERT Belgelendirme Hizmetleri Ltd. Şti.",
   slogan: "Bağımsız, tarafsız ve doğrulanabilir belgelendirme yaklaşımı",
   aciklamaKisa:
     "ISO 9001, 14001, 45001 ve 50001 yönetim sistemleri için bağımsız, tarafsız ve izlenebilir belgelendirme, denetim ve eğitim süreçleri.",

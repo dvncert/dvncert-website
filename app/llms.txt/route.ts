@@ -12,8 +12,10 @@ export const revalidate = 3600;
 export async function GET() {
   const u = siteConfig.url;
   const yazilar = await bloglariGetir();
-  const tedarikci = yazilar.filter((b) => b.ilgiliHizmetler?.includes("tedarikci-denetimi"));
-  const diger = yazilar.filter((b) => !b.ilgiliHizmetler?.includes("tedarikci-denetimi"));
+  const denetimHizmeti = (b: { ilgiliHizmetler?: string[] }) =>
+    b.ilgiliHizmetler?.some((s) => ["tedarikci-denetimi", "sube-denetimi", "bayi-denetimi"].includes(s));
+  const tedarikci = yazilar.filter(denetimHizmeti);
+  const diger = yazilar.filter((b) => !denetimHizmeti(b));
   const satir = (ad: string, yol: string, not?: string) => `- [${ad}](${u}${yol})${not ? `: ${not}` : ""}`;
   const tedarikciHizmeti = hizmetler.find((h) => h.slug === "tedarikci-denetimi");
 
@@ -26,18 +28,21 @@ export async function GET() {
     "",
     "Temel tanım: İkinci taraf denetim, bir kuruluşun tedarikçisini veya iş ortağını kendi belirlediği kriterlere göre denetlemesidir; sonucunda sertifika değil denetim raporu düzenlenir. Birinci taraf denetim kuruluşun iç denetimi, üçüncü taraf denetim ise bağımsız belgelendirme kuruluşunun sertifikayla sonuçlanan denetimidir.",
     "",
+    "Şube ve bayi denetimi: Zincir mağaza, franchise ve bayi ağlarının satış ve servis noktaları marka standartlarına, bayi/franchise sözleşmesine, hijyen ve İSG kurallarına göre bağımsız olarak denetlenir; bulgular nokta bazında puanlanmış ve fotoğraflı raporla, ağ genelinde karşılaştırmalı olarak sunulur.",
+    "",
     `İletişim: ${siteConfig.email} · ${siteConfig.telefon} · ${siteConfig.adresTamMetin}`,
     "",
-    "## Tedarikçi denetimi (ikinci taraf denetim)",
+    "## İkinci taraf denetim: tedarikçi, şube ve bayi denetimi",
     "",
     satir("Tedarikçi Denetimi Hizmeti", "/hizmetler/tedarikci-denetimi", tedarikciHizmeti?.kisaAciklama),
-    satir("Şube ve Mağaza Denetimi", "/hizmetler/sube-denetimi", "Zincir mağaza, bayi ve franchise ağları için ikinci taraf denetim"),
+    satir("Şube ve Mağaza Denetimi", "/hizmetler/sube-denetimi", "Zincir mağaza ve franchise ağları için ikinci taraf denetim"),
+    satir("Bayi Denetimi", "/hizmetler/bayi-denetimi", hizmetler.find((h) => h.slug === "bayi-denetimi")?.kisaAciklama),
     ...tedarikci.map((b) => satir(b.baslik, `/blog/${b.slug}`, b.ozet)),
     "",
     "## Belgelendirme hizmetleri",
     "",
     ...hizmetler
-      .filter((h) => h.slug !== "tedarikci-denetimi" && h.slug !== "sube-denetimi")
+      .filter((h) => h.kategori !== "Denetim")
       .map((h) => satir(h.baslik, `/hizmetler/${h.slug}`, h.kisaAciklama)),
     satir("Sertifika Sorgula", "/sertifika-sorgula", "Eğitim sertifikalarını numara veya QR ile doğrulama; ISO belgeleri için doğrulama talebi"),
     "",

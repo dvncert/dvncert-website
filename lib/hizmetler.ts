@@ -41,7 +41,16 @@ export type Hizmet = {
     aciklama: string;
     ozellikler: { baslik: string; aciklama: string }[];
   };
+  /** İçeriğin son gözden geçirildiği tarih (YYYY-MM-DD) — sayfada "Son güncelleme",
+   *  WebPage şemasında dateModified ve sitemap lastmod olarak kullanılır.
+   *  İçerik anlamlı biçimde değiştiğinde güncelleyin. */
+  guncellenme?: string;
+  /** Hizmetin hedef kitlesi — Service şemasında audience olarak verilir. */
+  hedefKitle?: string[];
 };
+
+/** Hizmetlerde guncellenme verilmemişse kullanılan taban tarih. */
+export const HIZMET_TABAN_GUNCELLEME = "2026-06-15";
 
 // Tüm ISO sistem belgelendirmeleri için ortak süreç adımları
 const isoSurec: SurecAdimi[] = [
@@ -193,6 +202,8 @@ export const hizmetler: Hizmet[] = [
     baslik: "Tedarikçi Denetimi",
     seoTitle: "Tedarikçi Denetimi ve İkinci Taraf Denetim",
     alternatifAdlar: ["İkinci taraf denetim", "2. taraf denetim", "Tedarikçi denetimi hizmeti", "Fason üretici denetimi", "Supplier audit", "Second-party audit"],
+    guncellenme: "2026-11-12",
+    hedefKitle: ["Üretici firmalar", "Satın alma ve tedarik zinciri yöneticileri", "Kalite yöneticileri", "Perakende ve marka sahipleri"],
     seoAciklama:
       "Bağımsız tedarikçi denetimi (ikinci taraf denetim): tedarikçi, fason üretici ve alt yüklenicilerinizi yerinde denetliyor, ayrıntılı rapor sunuyoruz.",
     kisaAciklama:
@@ -315,6 +326,9 @@ export const hizmetler: Hizmet[] = [
     kategori: "Denetim",
     baslik: "Şube ve Mağaza Denetimi",
     seoTitle: "Şube ve Mağaza Denetimi Hizmeti",
+    alternatifAdlar: ["Mağaza denetimi", "Franchise denetimi", "Satış noktası denetimi", "Zincir mağaza denetimi", "Store audit", "Franchise audit"],
+    guncellenme: "2026-11-12",
+    hedefKitle: ["Perakende ve market zincirleri", "Restoran ve kafe zincirleri", "Franchise ağları", "Çok şubeli işletmeler"],
     seoAciklama:
       "Zincir işletmeler, bayi ve franchise ağları için bağımsız şube ve mağaza denetimi: marka standardı, hijyen ve İSG uyumu, puanlı ve fotoğraflı rapor.",
     kisaAciklama:
@@ -322,9 +336,10 @@ export const hizmetler: Hizmet[] = [
     ikon: "denetim",
     gorsel: "/gorseller/hizmetler/sube-denetimi.webp",
     giris:
-      "Şube denetimi (mağaza denetimi); zincir işletmelerin, bayi ve franchise ağlarının kendi şubelerini veya iş ortaklarının işlettiği satış noktalarını belirlenen marka standartlarına, operasyonel prosedürlere, hijyen ve güvenlik kurallarına uygunluk açısından bağımsız olarak değerlendirmesidir. Bayi denetimi, franchise denetimi ve satış noktası denetimi de bu hizmetin kapsamındadır.\n\n" +
+      "Şube denetimi (mağaza denetimi); zincir işletmelerin, bayi ve franchise ağlarının kendi şubelerini veya iş ortaklarının işlettiği satış noktalarını belirlenen marka standartlarına, operasyonel prosedürlere, hijyen ve güvenlik kurallarına uygunluk açısından bağımsız olarak değerlendirmesidir. Franchise denetimi ve satış noktası denetimi de bu hizmetin kapsamındadır; bağımsız iş ortaklarının işlettiği satış ve servis noktaları için ayrıca [bayi denetimi](/hizmetler/bayi-denetimi) hizmetimizi sunuyoruz.\n\n" +
       "Çok şubeli yapılarda hizmet kalitesini her noktada aynı seviyede tutmak markaların en büyük zorluklarından biridir. Bölge müdürlerinin yaptığı iç kontroller zamanla rutinleşir ve şubeler arasında karşılaştırılabilir veri üretmez. Bağımsız bir denetçinin aynı kontrol listesiyle yaptığı düzenli şube denetimleri; standartlardan sapmaları erken tespit eder, şubeler arası tutarlılığı artırır ve müşteri deneyimini korur.\n\n" +
       "Denetimde tipik olarak mağaza düzeni ve görsel marka uyumu, ürün teşhiri ve fiyat etiketleri, hijyen ve gıda güvenliği, stok ve son kullanma tarihi kontrolleri, iş sağlığı ve güvenliği, kasa ve nakit prosedürleri, personel görünümü ve müşteri karşılama standartları değerlendirilir. Kontrol listesi markanıza özel hazırlanır; hangi başlıkların yer aldığını [şube denetimi kontrol listesi](/blog/sube-denetimi-kontrol-listesi) yazımızda ayrıntılı ele aldık.\n\n" +
+      "Franchise denetimi, şube denetiminin franchise sözleşmesine odaklanan biçimidir. Franchise veren marka; franchise alanın işlettiği noktada operasyon el kitabına, görsel kimlik ve ürün standartlarına, onaylı tedarikçi ve ürün kullanımına, eğitim yükümlülüklerine ve hijyen-güvenlik kurallarına uyulup uyulmadığını bağımsız bir denetçiyle doğrular. Denetim sonuçları, franchise alanlarla yapılan performans görüşmelerine, destek ve eğitim planlarına ve gerektiğinde sözleşme yaptırımlarına nesnel bir dayanak sağlar.\n\n" +
       "Şube denetimi; perakende ve market zincirleri, restoran ve kafe zincirleri, akaryakıt istasyonları, yetkili servis ve bayi ağları, eczane, optik, kozmetik ve eğitim zincirleri gibi çok noktalı tüm yapılarda uygulanır. Denetimin nasıl planlandığını [şube ve mağaza denetimi rehberi](/blog/sube-magaza-denetimi-rehberi) yazımızda anlattık. Aynı bağımsız yaklaşımı tedarik zincirinize uygulamak için [tedarikçi denetimi](/hizmetler/tedarikci-denetimi) hizmetimizi inceleyebilirsiniz.\n\n" +
       "DVN Cert olarak şube ve mağaza denetimlerini, kuruluşunuzun belirlediği kontrol listeleri ve marka standartları doğrultusunda; tarafsızlık ve gizlilik ilkeleriyle yürütür, bulguları şube bazında puanlanmış ve fotoğraflı bir denetim raporuyla paylaşırız.",
     faydalar: [
@@ -362,7 +377,12 @@ export const hizmetler: Hizmet[] = [
       {
         soru: "Bayi ve franchise denetimi de bu kapsamda mıdır?",
         cevap:
-          "Evet. Markanın belirlediği standartlara uyumun bağımsızca doğrulanması gereken bayi, franchise ve yetkili servis ağları şube denetimi kapsamında değerlendirilir.",
+          "Evet. Markanın belirlediği standartlara uyumun bağımsızca doğrulanması gereken franchise ağları şube denetimi kapsamında değerlendirilir. Bağımsız işletmelerin yürüttüğü satış, servis ve dağıtım noktaları için ise bayi sözleşmesine ve satış-servis standartlarına odaklanan Bayi Denetimi hizmetimizi sunuyoruz.",
+      },
+      {
+        soru: "Franchise denetimi nedir?",
+        cevap:
+          "Franchise denetimi, franchise veren markanın, franchise alanın işlettiği noktada operasyon el kitabına, görsel kimlik ve ürün standartlarına, onaylı tedarikçi kullanımına, eğitim yükümlülüklerine ve hijyen-güvenlik kurallarına uyumunu bağımsız bir denetçiyle doğrulatmasıdır. Sonuçlar puanlanmış ve fotoğraflı raporla paylaşılır; franchise alanla yapılacak performans görüşmelerine nesnel dayanak oluşturur.",
       },
       {
         soru: "Şube denetim formu (kontrol listesi) kim tarafından hazırlanır?",
@@ -393,6 +413,106 @@ export const hizmetler: Hizmet[] = [
         soru: "Hangi sektörlerde şube denetimi uygulanır?",
         cevap:
           "Şube ve mağaza denetimi; perakende zincirleri, marketler, restoran-kafe (HORECA) işletmeleri, akaryakıt istasyonları, yetkili servisler, bankacılık ve finans şubeleri ile sağlık, güzellik ve eğitim zincirleri başta olmak üzere, çok noktalı ve marka standartlarını her şubede aynı seviyede tutması gereken tüm sektörlerde uygulanır.",
+      },
+    ],
+  },
+  {
+    slug: "bayi-denetimi",
+    kategori: "Denetim",
+    baslik: "Bayi Denetimi",
+    seoTitle: "Bayi Denetimi: Bağımsız Bayi Ağı Denetimi",
+    alternatifAdlar: [
+      "Bayi ağı denetimi",
+      "Yetkili satıcı denetimi",
+      "Yetkili servis denetimi",
+      "Distribütör denetimi",
+      "Dealer audit",
+      "Dealer network audit",
+    ],
+    guncellenme: "2026-11-12",
+    hedefKitle: [
+      "Bayi ağı yöneten üretici ve markalar",
+      "Otomotiv, beyaz eşya ve elektronik markaları",
+      "Akaryakıt ve enerji dağıtım şirketleri",
+      "Distribütör ve yetkili servis ağları",
+    ],
+    seoAciklama:
+      "Bayi ve yetkili servis ağınız için bağımsız bayi denetimi: sözleşme ve marka standardı uyumu, satış ve servis kalitesi, puanlı ve fotoğraflı rapor.",
+    kisaAciklama:
+      "Bayi, yetkili satıcı, yetkili servis ve distribütör ağınızı; bayi sözleşmesine, marka standartlarına, satış ve servis kalitesine uygunluk açısından yerinde ve bağımsızca denetliyoruz.",
+    ikon: "denetim",
+    giris:
+      "Bayi denetimi; bir üreticinin veya markanın, kendi adına satış, servis ya da dağıtım yapan bağımsız işletmeleri (bayi, yetkili satıcı, yetkili servis, distribütör) bayi sözleşmesine, marka standartlarına, satış ve servis prosedürlerine ve yasal yükümlülüklere uygunluk açısından yerinde değerlendirmesidir. Denetlenen taraf markanın iş ortağı olduğu ve denetim marka adına yürütüldüğü için bayi denetimi bir ikinci taraf denetimdir.\n\n" +
+      "Bayiler markanın müşteriyle buluştuğu noktadır; ancak bayi, markanın değil kendi sahibinin işletmesidir. Bu nedenle şirketin kendi şubelerinde uygulanan doğrudan yönetim araçları bayide aynı etkiyi göstermez. Bölge satış ekiplerinin ziyaretleri ise çoğu zaman ticari ilişkinin gölgesinde kalır ve bayiler arasında karşılaştırılabilir veri üretmez. Bağımsız bir denetçinin aynı kontrol listesiyle yürüttüğü bayi denetimi; standartlardan sapmaları kanıtıyla ortaya koyar, bayiler arasında adil bir kıyas sağlar ve teşvik, prim veya sözleşme kararlarına nesnel bir dayanak oluşturur.\n\n" +
+      "Bayi denetiminde tipik olarak şu başlıklar değerlendirilir: bayi sözleşmesindeki yükümlülükler (yetki bölgesi, asgari stok, personel ve eğitim şartları), görsel kimlik ve showroom standartları, ürün teşhiri ve fiyatlandırma, satış süreci ve müşteri karşılama, satış sonrası hizmet ve servis süreçleri, orijinal yedek parça ve onaylı ürün kullanımı, garanti işlemleri ve kayıtları, müşteri şikâyetlerinin yönetimi, iş sağlığı ve güvenliği, çevre ve atık yönetimi ile ticari ve yasal belgelerin geçerliliği. Kontrol listesi markanızın bayi standartlarına göre birlikte hazırlanır; sık kullanılan başlıkları [bayi denetimi kontrol listesi](/blog/bayi-denetimi-kontrol-listesi) yazımızda ayrıntılı ele aldık.\n\n" +
+      "Bayi denetimi; otomotiv ve iş makinesi bayileri, beyaz eşya ve elektronik yetkili satıcıları, akaryakıt ve LPG istasyonları, tarım makineleri ve gübre-ilaç bayileri, yapı malzemeleri ve mobilya bayileri, telekom ve bankacılık acenteleri ile yetkili servis ağları gibi bağımsız iş ortaklarıyla çalışan tüm dağıtım modellerinde uygulanır. Şirketin kendi işlettiği ya da franchise modelindeki satış noktaları için [şube ve mağaza denetimi](/hizmetler/sube-denetimi), tedarik zincirinin üretim tarafı için ise [tedarikçi denetimi](/hizmetler/tedarikci-denetimi) hizmetimizi inceleyebilirsiniz.\n\n" +
+      "DVN Cert olarak bayi denetimlerini markanızın belirlediği kriterler doğrultusunda; tarafsızlık, bağımsızlık ve gizlilik ilkeleriyle yürütür, bulguları bayi bazında puanlanmış, fotoğraflı ve önceliklendirilmiş bir denetim raporuyla paylaşırız. Birden çok bayi denetlendiğinde bölge ve ağ genelinde karşılaştırmalı özet sunarız.",
+    faydalar: [
+      "Bayi sözleşmesindeki yükümlülüklere uyumun bağımsız ve kanıta dayalı doğrulanması",
+      "Tüm bayilerde tutarlı marka deneyimi, satış ve servis kalitesi",
+      "Bayiler arası adil ve karşılaştırılabilir, puanlanmış performans verisi",
+      "Teşvik, prim, yetki ve sözleşme yenileme kararlarına nesnel dayanak",
+      "Orijinal parça, onaylı ürün ve garanti süreçlerindeki suistimal risklerinin erken tespiti",
+      "İSG, çevre ve yasal gerekliliklere uyumun yerinde kontrolü",
+      "Fotoğraflı ve önceliklendirilmiş rapor ile düzeltici faaliyet takibi",
+      "Satış ekibinin ticari ilişkisinden ayrışan, tarafsız bir değerlendirme",
+    ],
+    surec: [
+      { baslik: "Kriterlerin Belirlenmesi", aciklama: "Bayi sözleşmesi, marka standartları, bayi denetim formu ve puanlama ağırlıkları birlikte netleştirilir." },
+      { baslik: "Saha Denetimi", aciklama: "Bayi yerinde ziyaret edilir; showroom, satış, servis, stok ve kayıtlar gözlemlenip incelenir." },
+      { baslik: "Raporlama", aciklama: "Bulgular bayi bazında puanlanmış, fotoğraflı ve ağ genelinde karşılaştırmalı raporla paylaşılır." },
+      { baslik: "Takip", aciklama: "Bayinin düzeltici faaliyetleri izlenir; gerektiğinde doğrulama denetimi yapılır." },
+    ],
+    sss: [
+      {
+        soru: "Bayi denetimi nedir?",
+        cevap:
+          "Bayi denetimi, bir markanın kendi adına satış, servis veya dağıtım yapan bağımsız işletmeleri (bayi, yetkili satıcı, yetkili servis, distribütör) bayi sözleşmesine, marka standartlarına, satış ve servis prosedürlerine ve yasal yükümlülüklere uygunluk açısından yerinde ve bağımsız olarak değerlendirmesidir.",
+      },
+      {
+        soru: "Bayi denetimi ile şube denetimi arasındaki fark nedir?",
+        cevap:
+          "Şube denetimi, markanın kendi işlettiği veya franchise modelindeki satış noktalarını operasyon ve marka standartlarına göre değerlendirir. Bayi denetiminde ise denetlenen işletme bağımsız bir iş ortağıdır; denetim bayi sözleşmesindeki yükümlülüklere, yetki ve stok şartlarına, satış sonrası hizmet, garanti ve orijinal parça kullanımına daha fazla odaklanır.",
+      },
+      {
+        soru: "Bayi denetimi ikinci taraf denetim midir?",
+        cevap:
+          "Evet. Denetim, bayi ile sözleşme ilişkisi olan marka adına ve markanın belirlediği kriterlere göre yürütüldüğü için ikinci taraf denetimdir. Sonucunda sertifika değil, puanlanmış bir bayi denetim raporu düzenlenir.",
+      },
+      {
+        soru: "Bayi denetiminde neler kontrol edilir?",
+        cevap:
+          "Tipik başlıklar; bayi sözleşmesi yükümlülükleri, görsel kimlik ve showroom standartları, ürün teşhiri ve fiyatlandırma, satış süreci ve müşteri karşılama, satış sonrası hizmet ve servis süreçleri, orijinal yedek parça ve onaylı ürün kullanımı, garanti kayıtları, müşteri şikâyetlerinin yönetimi, iş sağlığı ve güvenliği ile ticari ve yasal belgelerdir. Kontrol listesi markanın kendi bayi standartlarına göre özelleştirilir.",
+      },
+      {
+        soru: "Hangi sektörlerde bayi denetimi yapılır?",
+        cevap:
+          "Otomotiv ve iş makinesi bayileri, beyaz eşya ve elektronik yetkili satıcıları, akaryakıt ve LPG istasyonları, tarım makineleri ve tarım girdisi bayileri, yapı malzemeleri ve mobilya bayileri, telekom ve finans acenteleri ile yetkili servis ağları gibi bağımsız iş ortaklarıyla çalışan tüm sektörlerde bayi denetimi uygulanır.",
+      },
+      {
+        soru: "Bayi denetimi neden bağımsız bir kuruluşa yaptırılmalı?",
+        cevap:
+          "Bölge satış ekipleri bayiyle ticari bir ilişki içindedir; bu durum değerlendirmenin tarafsızlığını ve bayiler arası karşılaştırılabilirliği zayıflatabilir. Bağımsız bir denetçi tüm bayileri aynı kontrol listesi ve puanlama mantığıyla, kanıta dayalı olarak değerlendirir; sonuçlar teşvik, prim ve sözleşme kararlarında daha kolay savunulur.",
+      },
+      {
+        soru: "Habersiz bayi denetimi yapılabilir mi?",
+        cevap:
+          "Evet, bayi sözleşmesi denetim hakkını tanıyorsa habersiz denetim planlanabilir. Habersiz ve önceden bildirilen denetimlerin oranı markanın hedeflerine göre belirlenir; servis ve kayıt incelemesi gerektiren denetimlerde çoğunlukla önceden bildirim tercih edilir.",
+      },
+      {
+        soru: "Bayi denetimi ne sıklıkla yapılmalıdır?",
+        cevap:
+          "Sıklık; bayi sayısına, satış hacmine, risk düzeyine ve önceki denetim sonuçlarına göre belirlenir. Yaygın uygulama, tüm bayilerin yılda en az bir kez denetlenmesi; düşük puan alan veya şikâyet yoğunluğu olan bayilerde ise takip denetimlerinin daha sık planlanmasıdır.",
+      },
+      {
+        soru: "Bayi denetim raporu neler içerir?",
+        cevap:
+          "Rapor; bayinin toplam ve başlık bazında puanını, tespit edilen uygunsuzlukları, destekleyici fotoğrafları, öncelik seviyelerini ve önerilen düzeltici faaliyetleri içerir. Birden çok bayi denetlendiğinde bölge ve ağ genelinde karşılaştırmalı özet tablolar da sunulur.",
+      },
+      {
+        soru: "Bayi denetimi ücreti neye göre belirlenir?",
+        cevap:
+          "Ücret; denetlenecek bayi sayısına ve coğrafi dağılımına, kontrol listesinin kapsamına, bayi başına sahada geçecek süreye ve denetim sıklığına göre belirlenir. Kapsam netleştikten sonra size özel teklif hazırlanır.",
       },
     ],
   },

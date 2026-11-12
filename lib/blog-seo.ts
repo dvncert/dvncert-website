@@ -7,6 +7,9 @@
  */
 
 export const blogSeoBasliklari: Record<string, string> = {
+  "bayi-denetimi-kontrol-listesi": "Bayi Denetimi Kontrol Listesi: Bayi Denetim Formu",
+  "franchise-denetimi-nedir": "Franchise Denetimi Nedir? Kapsam ve Süreç",
+  "tedarikci-denetim-firmasi-nasil-secilir": "Tedarikçi Denetim Firması Nasıl Seçilir? 8 Kriter",
   "tedarikci-denetim-yonetimi-yazilimi": "Tedarikçi Denetim Yönetimi Yazılımı ile Online Takip",
   "birinci-ikinci-ucuncu-taraf-denetim-farki": "Birinci, İkinci ve Üçüncü Taraf Denetim Farkı (Tablolu)",
   "iso-9001-tedarikci-denetimi-zorunlu-mu": "ISO 9001'de Tedarikçi Denetimi Zorunlu mu? (Madde 8.4)",
@@ -40,6 +43,12 @@ export function blogSeoBaslik(slug: string, baslik: string): string {
  * kestiği için uzun özetlerin yerine meta açıklamada bu kısa metin kullanılır.
  */
 export const blogSeoAciklamalari: Record<string, string> = {
+  "bayi-denetimi-kontrol-listesi":
+    "Bayi denetim formunda olması gereken başlıklar: sözleşme yükümlülükleri, showroom, satış, servis, garanti, orijinal parça ve puanlama. Örnek tabloyla.",
+  "franchise-denetimi-nedir":
+    "Franchise denetimi, franchise noktasının operasyon el kitabına ve sözleşmeye uyumunun bağımsız doğrulanmasıdır. Kapsamı, süreci ve şube/bayi farkı.",
+  "tedarikci-denetim-firmasi-nasil-secilir":
+    "Tedarikçi, şube veya bayi denetimi için denetim firması seçerken tarafsızlık, denetçi yetkinliği, rapor kalitesi ve online takip gibi 8 kritere bakın.",
   "tedarikci-denetim-yonetimi-yazilimi":
     "Tedarikçi denetimlerini planlama, denetçi ataması, bulgu, uygunsuzluk ve rapor onayıyla tek online sistemden yönetin. DBYS ile nasıl işlediğini anlatıyoruz.",
   "iso-9001-belgesi":

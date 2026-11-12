@@ -14,6 +14,73 @@
 export type BlogSSSorusu = { soru: string; cevap: string };
 
 export const blogSSS: Record<string, BlogSSSorusu[]> = {
+  // ---------- Bayi, franchise ve denetim firması seçimi kümesi ----------
+  "bayi-denetimi-kontrol-listesi": [
+    {
+      soru: "Bayi denetimi kontrol listesi nedir?",
+      cevap:
+        "Bayi denetimi kontrol listesi, bir markanın bayilerini, yetkili satıcılarını ve yetkili servislerini aynı ölçütlerle değerlendirmek için kullandığı yapılandırılmış soru listesidir. Sözleşme yükümlülükleri, görsel kimlik, satış ve servis süreçleri, garanti, orijinal parça kullanımı, İSG ve yasal belgeler gibi başlıkları kapsar.",
+    },
+    {
+      soru: "Bayi denetiminde puanlama nasıl yapılır?",
+      cevap:
+        "Her başlığa önemine göre ağırlık verilir, sorular uygun, kısmen uygun ve uygun değil olarak puanlanır ve sonuç 100 üzerinden bayi puanına dönüştürülür. Sözleşmenin esaslı şartlarına veya güvenliğe ilişkin sorular kritik olarak işaretlenir; kritik bir uygunsuzluk toplam puandan bağımsız olarak takip denetimini tetikler.",
+    },
+    {
+      soru: "Bayi denetim formu ile şube denetim formu aynı mıdır?",
+      cevap:
+        "Hayır. Şube formu ağırlıklı olarak operasyon, hijyen ve müşteri karşılama standartlarına odaklanır. Bayi formu bunlara ek olarak bayi sözleşmesindeki yetki bölgesi, asgari stok, eğitim şartları, garanti işlemleri ve orijinal parça kullanımı gibi ticari ve teknik yükümlülükleri sorgular.",
+    },
+    {
+      soru: "Bayi denetimi kontrol listesi ne sıklıkla güncellenmeli?",
+      cevap:
+        "En az yılda bir kez ve marka standartları, bayi sözleşmesi veya mevzuat değiştiğinde gözden geçirilmelidir. Tekrarlayan uygunsuzluk görülen alanlarda soru sayısı ve ağırlık artırılır.",
+    },
+  ],
+  "franchise-denetimi-nedir": [
+    {
+      soru: "Franchise denetimi nedir?",
+      cevap:
+        "Franchise denetimi, franchise veren markanın, franchise alanın işlettiği noktada operasyon el kitabına, franchise sözleşmesine, görsel kimlik ve ürün standartlarına, hijyen ve güvenlik kurallarına uyumu yerinde değerlendirmesidir. İkinci taraf bir denetimdir ve sonucunda puanlanmış bir denetim raporu düzenlenir.",
+    },
+    {
+      soru: "Franchise denetiminde neler kontrol edilir?",
+      cevap:
+        "Operasyon el kitabına uyum, görsel kimlik, ürün standartları, onaylı tedarikçi kullanımı, hijyen ve gıda güvenliği, iş sağlığı ve güvenliği, personel eğitimi ve franchise sözleşmesindeki yükümlülükler kontrol edilir.",
+    },
+    {
+      soru: "Franchise denetimi ile bayi denetimi arasındaki fark nedir?",
+      cevap:
+        "Franchise noktası markanın tüm iş sistemini, görsel kimliğini ve operasyon el kitabını kullanır; denetim bu el kitabına ve franchise sözleşmesine odaklanır. Bayi ise markanın ürünlerini satan veya servisini veren bağımsız bir işletmedir; bayi denetimi sözleşme yükümlülüklerine, satış ve servis süreçlerine, garanti ve orijinal parça kullanımına odaklanır.",
+    },
+    {
+      soru: "Franchise denetimi habersiz yapılabilir mi?",
+      cevap:
+        "Evet, franchise sözleşmesi denetim hakkı tanıyorsa habersiz denetim yapılabilir; noktanın olağan işleyişini en doğru gösteren yöntem budur. Kayıt incelemesi ağırlıklı denetimlerde önceden bildirim tercih edilebilir.",
+    },
+  ],
+  "tedarikci-denetim-firmasi-nasil-secilir": [
+    {
+      soru: "Tedarikçi denetim firması seçerken nelere dikkat edilmeli?",
+      cevap:
+        "Tarafsızlık ve çıkar çatışması yönetimi, denetçi yetkinliği, sektör deneyimi, kontrol listesinin sizin şartlarınıza göre uyarlanabilmesi, kanıta dayalı ve puanlanmış rapor kalitesi, online takip imkânı, coğrafi kapsama alanı ve gizlilik taahhüdü değerlendirilmelidir.",
+    },
+    {
+      soru: "Tedarikçi denetimini dışarıdan yaptırmanın avantajı nedir?",
+      cevap:
+        "Bağımsız bir denetim firması, denetlenen tarafla ticari ilişkisi olmadığı için tarafsız değerlendirme yapar, aynı kontrol listesini tüm tedarikçi, şube veya bayi ağına tutarlı biçimde uygular ve kendi ekibinizin kapasite ve coğrafi erişim sınırlarını ortadan kaldırır.",
+    },
+    {
+      soru: "Denetim firmasından teklif alırken ne sorulmalı?",
+      cevap:
+        "Denetçi kadrosu ve sektör deneyimi, kontrol listesinin birlikte hazırlanıp hazırlanamayacağı, anonim bir örnek rapor, bulgu ve düzeltici faaliyet takibinin nasıl yapıldığı, denetimlerin online izlenip izlenemeyeceği ve ücretin neye göre belirlendiği sorulmalıdır.",
+    },
+    {
+      soru: "Denetim firmasını yalnızca fiyata göre seçmek doğru mu?",
+      cevap:
+        "Hayır. Kanıtsız, puanlaması belirsiz veya takibi yapılmayan ucuz bir denetim, uygunsuzlukların kapanmasını sağlamaz ve satın alma kararlarına güvenilir veri üretmez. Değerlendirme denetim günü ücreti yerine kapanan uygunsuzluk ve azalan şikâyet gibi sonuçlar üzerinden yapılmalıdır.",
+    },
+  ],
   // ---------- Tedarikçi (ikinci taraf) denetimi soru-cevap kümesi ----------
   "tedarikci-denetim-yonetimi-yazilimi": [
     {

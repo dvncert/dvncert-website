@@ -6,10 +6,12 @@ import KapakGorsel from "../../components/KapakGorsel";
 import HizmetIkon from "../../components/HizmetIkon";
 import IcerikMetin from "../../components/IcerikMetin";
 import IlgiliYazilar from "../../components/IlgiliYazilar";
-import { hizmetler, hizmetGetir } from "@/lib/hizmetler";
+import { hizmetler, hizmetGetir, HIZMET_TABAN_GUNCELLEME } from "@/lib/hizmetler";
 import { hizmetIcerikGetirDB, sayfaKapakGetir } from "@/lib/sayfa-icerigi";
 import { sayfaMetadataUret } from "@/lib/seo-yardimci";
-import { serviceSchema, breadcrumbSchema, faqSchema, schemaScript } from "@/lib/seo-schemas";
+import { siteConfig } from "@/lib/site-config";
+import { tarihiBicimle } from "@/lib/duyurular";
+import { serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, schemaScript } from "@/lib/seo-schemas";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -43,6 +45,8 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
     .map((s) => hizmetGetir(s))
     .filter((h): h is NonNullable<typeof h> => Boolean(h));
 
+  const guncellenme = hizmet.guncellenme ?? HIZMET_TABAN_GUNCELLEME;
+
   return (
     <main>
       <script
@@ -54,6 +58,19 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
             url: `/hizmetler/${hizmet.slug}`,
             hizmetTipi: hizmet.kategori,
             alternatifAdlar: hizmet.alternatifAdlar,
+            hedefKitle: hizmet.hedefKitle,
+          })
+        )}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(
+          webPageSchema({
+            baslik: hizmet.seoTitle ?? hizmet.baslik,
+            aciklama: hizmet.seoAciklama ?? hizmet.kisaAciklama,
+            url: `/hizmetler/${hizmet.slug}`,
+            guncellenme: guncellenme,
+            konuId: `${siteConfig.url}/hizmetler/${hizmet.slug}#service`,
           })
         )}
       />
@@ -93,6 +110,9 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
       <section style={{ background: "white", padding: "60px 32px" }}>
         <div style={{ maxWidth: 860, margin: "0 auto" }}>
           <IcerikMetin metin={hizmet.giris} paragrafStil={{ margin: "0 0 18px" }} />
+          <p style={{ fontSize: 12.5, color: "var(--dvn-gri-500)", margin: "6px 0 0" }}>
+            Son güncelleme: <time dateTime={guncellenme}>{tarihiBicimle(guncellenme)}</time>
+          </p>
         </div>
       </section>
 

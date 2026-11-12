@@ -122,7 +122,9 @@ export default function KapakGorsel(props: {
                 alt={alt}
                 fill
                 sizes="(max-width: 1344px) 100vw, 1280px"
-                preload={oncelik}
+                // LCP görseli: Next 16 belgesi preload yerine fetchPriority/loading önerir
+                // (Lighthouse "fetchpriority=high should be applied" uyarısı).
+                {...(oncelik ? { fetchPriority: "high" as const, loading: "eager" as const } : {})}
                 className="dvn-kapak-img"
               />
               <div className="dvn-kapak-overlay" />

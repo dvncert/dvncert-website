@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
-import { hizmetler } from "@/lib/hizmetler";
+import { hizmetler, HIZMET_TABAN_GUNCELLEME } from "@/lib/hizmetler";
 import { egitimler } from "@/lib/egitimler";
 import { duyurular } from "@/lib/duyurular";
 import { blogYazilari } from "@/lib/blog";
@@ -68,9 +68,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // ===== HİZMET DETAY SAYFALARI (otomatik) =====
+  // lastmod: hizmetin kendi güncellenme tarihi (sayfadaki "Son güncelleme" ve
+  // WebPage dateModified ile aynı) — her deploy'da yapay olarak ilerlemez.
   const hizmetSayfalari: MetadataRoute.Sitemap = hizmetler.map((h) => ({
     url: `${url}/hizmetler/${h.slug}`,
-    lastModified: siteGuncelleme,
+    lastModified: new Date(h.guncellenme ?? HIZMET_TABAN_GUNCELLEME),
     changeFrequency: "monthly",
     priority: 0.9,
   }));

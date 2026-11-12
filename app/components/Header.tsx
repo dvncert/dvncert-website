@@ -96,6 +96,7 @@ const hizmetlerMenu: {
     alt: [
       { baslik: "Tedarikçi Denetimi", href: "/hizmetler/tedarikci-denetimi" },
       { baslik: "Şube ve Mağaza Denetimi", href: "/hizmetler/sube-denetimi" },
+      { baslik: "Bayi Denetimi", href: "/hizmetler/bayi-denetimi" },
     ],
   },
   { baslik: "Belgelendirme Süreci", href: "/belgelendirme-sureci", ikon: "sistem", alt: [] },

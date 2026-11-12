@@ -50,7 +50,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    siteName: siteConfig.adUzun,
+    // Başlık eki, Organization ve WebSite şemasıyla aynı marka adı.
+    siteName: siteConfig.ad,
     // og:image, kök dizindeki opengraph-image.tsx tarafından otomatik üretilir.
   },
 
@@ -96,6 +97,9 @@ export default async function RootLayout({
         <meta name="color-scheme" content="light only" />
         <meta name="theme-color" content="#022398" />
         <meta name="format-detection" content="telephone=no" />
+        {/* Blog RSS beslemesi — yanıt motorları ve okuyucular yeni yazıları buradan keşfeder.
+            (metadata.alternates yerine burada: sayfa düzeyindeki alternates birleşmez, ezer.) */}
+        <link rel="alternate" type="application/rss+xml" title={`${siteConfig.ad} Blog`} href="/feed.xml" />
 
         {/* 1) Google Consent Mode v2 — varsayılan onay: denied. Parse anında,
             gtag config'ten ÖNCE çalışır. Onayı CookieConsent banner'ı

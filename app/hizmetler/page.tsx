@@ -3,14 +3,14 @@ import Link from "next/link";
 import SayfaBaslik from "../components/SayfaBaslik";
 import KapakGorsel from "../components/KapakGorsel";
 import HizmetIkon from "../components/HizmetIkon";
-import { hizmetGetir, hizmetler } from "@/lib/hizmetler";
+import { hizmetGetir, hizmetler, hizmetlerKategoriye } from "@/lib/hizmetler";
 import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, schemaScript } from "@/lib/seo-schemas";
 
 export const metadata: Metadata = {
   title: "Hizmetlerimiz",
   description:
-    "ISO 9001, 14001, 45001 ve 50001 belgelendirmesi, tedarikçi ve şube denetimleri ile yönetim sistemi eğitimleri. Tüm hizmetlerimizi keşfedin.",
+    "ISO 9001, 14001, 45001 ve 50001 belgelendirmesi; tedarikçi, şube ve bayi denetimleri ile yönetim sistemi eğitimleri. Tüm hizmetlerimizi keşfedin.",
   alternates: { canonical: `${siteConfig.url}/hizmetler` },
 };
 
@@ -29,6 +29,7 @@ const anaHizmetler = [
 ];
 
 const isoStandartlari = hizmetler.filter((h) => h.kod);
+const denetimHizmetleri = hizmetlerKategoriye("Denetim");
 
 export default function HizmetlerSayfasi() {
   return (
@@ -100,6 +101,51 @@ export default function HizmetlerSayfasi() {
                     <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* İkinci taraf denetim hizmetleri */}
+      <section className="dvn-reveal" style={{ background: "var(--dvn-gri-50)", padding: "60px 32px 20px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <p style={{ fontSize: 11, color: "var(--dvn-turuncu)", fontWeight: 500, letterSpacing: "1.5px", margin: "0 0 8px" }}>
+              İKİNCİ TARAF DENETİM
+            </p>
+            <h2 className="dvn-gradyan-metin--koyu" style={{ fontSize: 28, fontWeight: 600, margin: 0, lineHeight: 1.3, display: "inline-block" }}>
+              Tedarikçi, şube ve bayi denetimleri
+            </h2>
+            <p style={{ fontSize: 14, color: "var(--dvn-gri-500)", lineHeight: 1.7, maxWidth: 720, margin: "12px auto 0" }}>
+              Tedarik zincirinizi, kendi şubelerinizi ve bayi ağınızı sizin kriterlerinize göre, bağımsız denetçilerle ve
+              puanlanmış raporlarla denetliyoruz.
+            </p>
+          </div>
+
+          <div className="dvn-denetim-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+            {denetimHizmetleri.map((d) => (
+              <Link
+                key={d.slug}
+                href={`/hizmetler/${d.slug}`}
+                className="dvn-hub-kart"
+                style={{
+                  display: "block",
+                  background: "white",
+                  borderRadius: 14,
+                  padding: "26px 26px",
+                  boxShadow: "0 4px 16px rgba(2,35,152,0.06)",
+                  border: "0.5px solid var(--dvn-gri-300)",
+                  borderLeft: "3px solid var(--dvn-turuncu)",
+                  textDecoration: "none",
+                  color: "inherit",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <h3 style={{ color: "var(--dvn-lacivert)", fontSize: 16.5, fontWeight: 600, margin: "0 0 8px", lineHeight: 1.3 }}>
+                  {d.baslik}
+                </h3>
+                <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", lineHeight: 1.6, margin: 0 }}>{d.kisaAciklama}</p>
               </Link>
             ))}
           </div>
@@ -195,6 +241,7 @@ export default function HizmetlerSayfasi() {
         @media (max-width: 900px) {
           .dvn-anahizmet-grid { grid-template-columns: 1fr !important; }
           .dvn-iso-grid { grid-template-columns: 1fr !important; }
+          .dvn-denetim-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </main>

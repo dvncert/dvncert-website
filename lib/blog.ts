@@ -16,6 +16,7 @@
  */
 
 import { tedarikciKumesi } from "./blog-tedarikci-kumesi";
+import { bayiKumesi } from "./blog-bayi-kumesi";
 
 export type BlogYazisi = {
   slug: string;
@@ -40,6 +41,8 @@ export type BlogYazisi = {
 };
 
 export const blogYazilari: BlogYazisi[] = [
+  // Bayi, franchise ve denetim firması seçimi kümesi — lib/blog-bayi-kumesi.ts
+  ...bayiKumesi,
   // Tedarikçi (ikinci taraf) denetimi soru-cevap kümesi — lib/blog-tedarikci-kumesi.ts
   ...tedarikciKumesi,
   {

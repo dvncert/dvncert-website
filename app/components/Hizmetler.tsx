@@ -35,10 +35,10 @@ const hizmetler = [
   },
   {
     ikon: "denetim",
-    baslik: "Tedarikçi ve Şube Denetimleri",
+    baslik: "Tedarikçi, Şube ve Bayi Denetimleri",
     aciklama:
-      "Tedarikçi, şube ve operasyon denetimlerinde kurumunuza özel kontrol kriterleriyle saha değerlendirmesi.",
-    maddeler: ["Tedarikçi riski", "Saha kontrolü", "Raporlama"],
+      "Tedarikçi, şube ve bayi ağınızda kurumunuza özel kontrol kriterleriyle bağımsız ikinci taraf denetim.",
+    maddeler: ["Tedarikçi riski", "Şube ve bayi uyumu", "Puanlı raporlama"],
     link: "/hizmetler/tedarikci-denetimi",
   },
   {
