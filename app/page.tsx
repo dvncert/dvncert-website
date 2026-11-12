@@ -8,7 +8,9 @@ import MusteriYorumlari from "./components/MusteriYorumlari";
 import Duyurular from "./components/Duyurular";
 import EgitimEtkinlikleri from "./components/EgitimEtkinlikleri";
 import AnaSayfaSSS from "./components/AnaSayfaSSS";
-import { localBusinessSchema, faqSchema, schemaScript } from "@/lib/seo-schemas";
+import { localBusinessSchema, faqSchema, webPageSchema, schemaScript } from "@/lib/seo-schemas";
+import { siteConfig } from "@/lib/site-config";
+import { VARSAYILAN_BASLIK } from "@/lib/seo-baslik";
 import { sssSorular } from "@/lib/sss";
 
 export default function AnaSayfa() {
@@ -23,6 +25,18 @@ export default function AnaSayfa() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={schemaScript(faqSchema(sssSorular.slice(0, 4)))}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={schemaScript(
+          webPageSchema({
+            baslik: VARSAYILAN_BASLIK,
+            aciklama: siteConfig.aciklamaKisa,
+            url: "/",
+            guncellenme: siteConfig.anaSayfaGuncellenme,
+            konuId: `${siteConfig.url}/#organization`,
+          })
+        )}
       />
       <HeroSlider />
       <div className="dvn-reveal"><Istatistikler /></div>

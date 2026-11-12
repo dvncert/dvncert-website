@@ -116,6 +116,43 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
         </div>
       </section>
 
+      {/* Karşılaştırma tablosu */}
+      {hizmet.karsilastirma && (
+        <section style={{ background: "white", padding: "0 32px 60px" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <h2 style={{ color: "var(--dvn-lacivert)", fontSize: 25, fontWeight: 500, margin: "0 0 10px", lineHeight: 1.3 }}>
+              {hizmet.karsilastirma.baslik}
+            </h2>
+            {hizmet.karsilastirma.aciklama && (
+              <p style={{ fontSize: 15, color: "var(--dvn-gri-700)", lineHeight: 1.7, margin: "0 0 22px", maxWidth: 860 }}>
+                {hizmet.karsilastirma.aciklama}
+              </p>
+            )}
+            <div className="dvn-karsilastirma-kap">
+              <table className="dvn-karsilastirma">
+                <thead>
+                  <tr>
+                    {hizmet.karsilastirma.sutunlar.map((sutun) => (
+                      <th key={sutun} scope="col">{sutun}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {hizmet.karsilastirma.satirlar.map((satir) => (
+                    <tr key={satir[0]}>
+                      <th scope="row">{satir[0]}</th>
+                      {satir.slice(1).map((hucre, i) => (
+                        <td key={i}>{hucre}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Faydalar */}
       <section style={{ background: "var(--dvn-gri-50)", padding: "60px 32px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -462,6 +499,13 @@ export default async function HizmetDetaySayfasi({ params }: Params) {
       </section>
 
       <style>{`
+        .dvn-karsilastirma-kap { overflow-x: auto; border: 0.5px solid var(--dvn-gri-300); border-radius: 12px; }
+        .dvn-karsilastirma { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13.5px; line-height: 1.55; }
+        .dvn-karsilastirma th, .dvn-karsilastirma td { padding: 13px 16px; text-align: left; vertical-align: top; border-bottom: 0.5px solid var(--dvn-gri-300); }
+        .dvn-karsilastirma thead th { background: var(--dvn-lacivert); color: white; font-weight: 500; }
+        .dvn-karsilastirma tbody th { color: var(--dvn-lacivert); font-weight: 600; background: var(--dvn-gri-50); width: 20%; }
+        .dvn-karsilastirma td { color: var(--dvn-gri-700); }
+        .dvn-karsilastirma tbody tr:last-child th, .dvn-karsilastirma tbody tr:last-child td { border-bottom: none; }
         .dvn-std-kart:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(2,35,152,0.1) !important; }
         .dvn-sss-baslik::-webkit-details-marker { display: none; }
         .dvn-sss[open] .dvn-sss-ok { transform: rotate(180deg); }

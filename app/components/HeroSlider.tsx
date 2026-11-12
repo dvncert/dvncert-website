@@ -16,7 +16,7 @@ type Slayt = {
 const slaytlar: Slayt[] = [
   {
     eyebrow: "ISO belgelendirme, tedarikçi denetimi ve eğitim",
-    baslikBas: "Belgelendirme sürecinizi ",
+    baslikBas: "DVN Cert ile belgelendirme sürecinizi ",
     baslikVurgu: "açık, izlenebilir",
     baslikSon: " ve ölçülü yönetin",
     aciklama:

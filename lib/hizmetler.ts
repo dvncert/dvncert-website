@@ -47,6 +47,14 @@ export type Hizmet = {
   guncellenme?: string;
   /** Hizmetin hedef kitlesi — Service şemasında audience olarak verilir. */
   hedefKitle?: string[];
+  /** Girişten sonra gösterilen karşılaştırma tablosu (yapay zekâ yanıtlarında alıntılanmaya uygun yapı).
+   *  sutunlar[0] satır başlığı sütunudur; her satır sutunlar ile aynı uzunlukta olmalı. */
+  karsilastirma?: {
+    baslik: string;
+    aciklama?: string;
+    sutunlar: string[];
+    satirlar: string[][];
+  };
 };
 
 /** Hizmetlerde guncellenme verilmemişse kullanılan taban tarih. */
@@ -202,6 +210,18 @@ export const hizmetler: Hizmet[] = [
     baslik: "Tedarikçi Denetimi",
     seoTitle: "Tedarikçi Denetimi ve İkinci Taraf Denetim",
     alternatifAdlar: ["İkinci taraf denetim", "2. taraf denetim", "Tedarikçi denetimi hizmeti", "Fason üretici denetimi", "Supplier audit", "Second-party audit"],
+    karsilastirma: {
+      baslik: "Birinci, ikinci ve üçüncü taraf denetim karşılaştırması",
+      aciklama: "Tedarikçi denetimi ikinci taraf denetimdir: denetimi, tedarikçiden ürün veya hizmet alan müşteri kuruluş ya da onun adına bağımsız bir denetim kuruluşu yapar.",
+      sutunlar: ["Kriter", "Birinci taraf (iç denetim)", "İkinci taraf (tedarikçi denetimi)", "Üçüncü taraf (belgelendirme denetimi)"],
+      satirlar: [
+        ["Denetimi kim yapar?", "Kuruluşun kendi iç denetçileri", "Müşteri kuruluş veya onun adına bağımsız denetim kuruluşu", "Bağımsız belgelendirme kuruluşu"],
+        ["Neye göre denetlenir?", "Kuruluşun kendi yönetim sistemi ve prosedürleri", "Müşterinin kriterleri, sözleşme şartları ve ilgili standartlar (ISO 9001, IATF 16949, VDA 6.3 vb.)", "İlgili ISO standardının gereklilikleri"],
+        ["Sonucunda ne çıkar?", "İç denetim raporu ve düzeltici faaliyetler", "Puanlanmış denetim raporu; tedarikçi onayı, gelişim planı veya ret kararına girdi", "Belgelendirme kararı ve sertifika"],
+        ["Kapsam", "Kuruluşun tüm süreçleri", "Satın alınan ürün veya hizmeti etkileyen süreçler", "Belgelendirme kapsamındaki yönetim sistemi"],
+        ["Sıklık", "İç denetim programına göre", "Tedarikçinin risk düzeyine göre müşterinin belirlediği aralıkta", "Yıllık gözetim, üç yılda bir yeniden belgelendirme"],
+      ],
+    },
     guncellenme: "2026-11-12",
     hedefKitle: ["Üretici firmalar", "Satın alma ve tedarik zinciri yöneticileri", "Kalite yöneticileri", "Perakende ve marka sahipleri"],
     seoAciklama:
@@ -327,6 +347,18 @@ export const hizmetler: Hizmet[] = [
     baslik: "Şube ve Mağaza Denetimi",
     seoTitle: "Şube ve Mağaza Denetimi Hizmeti",
     alternatifAdlar: ["Mağaza denetimi", "Franchise denetimi", "Satış noktası denetimi", "Zincir mağaza denetimi", "Store audit", "Franchise audit"],
+    karsilastirma: {
+      baslik: "İç kontrol, gizli müşteri ve bağımsız şube denetimi",
+      aciklama: "Üç yöntem farklı soruları yanıtlar; bağımsız şube denetimi, tüm şubeleri aynı kontrol listesiyle ve kanıta dayalı olarak karşılaştırılabilir kılar.",
+      sutunlar: ["Kriter", "Bölge müdürü / iç kontrol", "Gizli müşteri", "Bağımsız şube denetimi"],
+      satirlar: [
+        ["Odak", "Günlük operasyon ve satış hedefleri", "Müşterinin yaşadığı hizmet deneyimi", "Marka standardı, hijyen, İSG, operasyon ve kayıtlar"],
+        ["Tarafsızlık", "Şubeyle iş ilişkisi içinde; zamanla rutinleşebilir", "Bağımsız", "Bağımsız"],
+        ["Arka plan erişimi", "Var", "Yok; yalnızca müşteri alanı", "Var; depo, mutfak, kayıtlar ve belgeler dahil"],
+        ["Kanıt", "Çoğunlukla gözlem notları", "Senaryo bazlı deneyim raporu", "Puanlı kontrol listesi, fotoğraf ve kayıt kanıtı"],
+        ["Şubeler arası karşılaştırma", "Denetleyene göre değişebilir", "Senaryoyla sınırlı", "Tüm şubelerde aynı ölçüt ve puanlama"],
+      ],
+    },
     guncellenme: "2026-11-12",
     hedefKitle: ["Perakende ve market zincirleri", "Restoran ve kafe zincirleri", "Franchise ağları", "Çok şubeli işletmeler"],
     seoAciklama:
@@ -429,6 +461,18 @@ export const hizmetler: Hizmet[] = [
       "Dealer audit",
       "Dealer network audit",
     ],
+    karsilastirma: {
+      baslik: "Saha ekibi ziyareti ile bağımsız bayi denetimi",
+      aciklama: "Saha ekibi ilişkiyi ve satışı geliştirir; bağımsız bayi denetimi ise sözleşme ve marka standardına uyumu tarafsız biçimde doğrular. İkisi birbirinin yerine değil, birlikte kullanılır.",
+      sutunlar: ["Kriter", "Marka saha ekibi ziyareti", "Bağımsız bayi denetimi"],
+      satirlar: [
+        ["Temel amaç", "Satış geliştirme ve bayi ilişkisini yönetme", "Sözleşme, marka standardı ve servis kalitesine uyumu doğrulama"],
+        ["Bayiyle ilişki", "Ticari ve kişisel ilişki içinde", "Ticari ilişkisi olmayan bağımsız denetçi"],
+        ["Ölçüt tutarlılığı", "Ziyaret edene göre değişebilir", "Tüm bayilerde aynı kontrol listesi ve puanlama"],
+        ["Kanıt", "Çoğunlukla ziyaret notları", "Puanlı rapor, fotoğraf ve kayıt kanıtı"],
+        ["Yaptırım kararlarında kullanım", "Taraf olduğu için itiraza açık", "Bağımsız rapor olarak daha kolay savunulur"],
+      ],
+    },
     guncellenme: "2026-11-12",
     hedefKitle: [
       "Bayi ağı yöneten üretici ve markalar",
