@@ -14,6 +14,63 @@
 export type BlogSSSorusu = { soru: string; cevap: string };
 
 export const blogSSS: Record<string, BlogSSSorusu[]> = {
+  // ---------- Akreditasyon bilgilendirme yazıları (DVN Cert adına iddia içermez) ----------
+  "turkak-akreditasyonu-nedir": [
+    {
+      soru: "TÜRKAK akreditasyonu nedir?",
+      cevap:
+        "TÜRKAK akreditasyonu, bir belgelendirme kuruluşunun, muayene kuruluşunun veya laboratuvarın ilgili uluslararası standarda göre yetkin ve tarafsız çalıştığının Türk Akreditasyon Kurumu tarafından değerlendirilip resmi olarak tanınmasıdır. Yönetim sistemi belgelendirme kuruluşları ISO/IEC 17021-1 standardına göre akredite edilir.",
+    },
+    {
+      soru: "Akreditasyon ile belgelendirme arasındaki fark nedir?",
+      cevap:
+        "Akreditasyon belgelendirme kuruluşunu değerlendirir ve akreditasyon kurumu tarafından yapılır; belgelendirme ise işletmenin yönetim sistemini değerlendirir ve belgelendirme kuruluşu tarafından yapılır. TÜRKAK işletmelere ISO 9001 gibi belgeler vermez.",
+    },
+    {
+      soru: "ISO belgesi için akreditasyon zorunlu mu?",
+      cevap:
+        "Hayır. ISO 9001, ISO 14001, ISO 45001 ve ISO 50001 standartları belgenin akredite bir kuruluştan alınmasını şart koşmaz. Bazı ihale veya müşteri şartnameleri akredite belge isteyebileceğinden, belgeyi sunacağınız tarafın şartı önceden kontrol edilmelidir.",
+    },
+    {
+      soru: "Bir belgelendirme kuruluşunun akreditasyonu nasıl doğrulanır?",
+      cevap:
+        "Akreditasyon kurumunun kamuya açık akredite kuruluşlar listesinden; akreditasyon numarası, akredite olunan standartlar, kapsam ve güncel durum kontrol edilerek doğrulanır. Tek bir belgenin geçerliliği ise belgeyi düzenleyen kuruluşun sorgulama sisteminden doğrulanır.",
+    },
+  ],
+  "akreditasyon-markasi-kullanimi": [
+    {
+      soru: "Belgelendirme logosu ile akreditasyon markası aynı şey mi?",
+      cevap:
+        "Hayır. Belgelendirme logosu belgeyi veren belgelendirme kuruluşuna, akreditasyon markası ise o kuruluşu akredite eden akreditasyon kurumuna aittir. Akreditasyon markası belgeli kuruluş tarafından tek başına kullanılamaz.",
+    },
+    {
+      soru: "ISO 9001 logosu ürün üzerinde kullanılabilir mi?",
+      cevap:
+        "Hayır. Yönetim sistemi belgesine ait logo ve marka ürün, ürün ambalajı, etiket, deney veya muayene raporu üzerinde kullanılamaz; çünkü yönetim sistemi belgesi ürünü değil kuruluşun süreçlerini belgelendirir. Bu kural ISO/IEC 17021-1 standardından gelir.",
+    },
+    {
+      soru: "Belge askıya alınırsa logo kullanılmaya devam edilebilir mi?",
+      cevap:
+        "Hayır. Belge askıya alındığında veya geri çekildiğinde logo ve marka kullanımı derhal durdurulmalı, web sitesi, katalog ve teklif dosyalarındaki atıflar kaldırılmalıdır. Kapsam daraltıldığında kullanım kalan kapsamla sınırlanır.",
+    },
+  ],
+  "belgelendirme-kurulusu-secerken-nelere-dikkat-edilmeli": [
+    {
+      soru: "Belgelendirme kuruluşu seçerken nelere dikkat edilmeli?",
+      cevap:
+        "Belgeyi sunacağınız tarafın şartları, kuruluşun tarafsızlığı, danışmanlık vermemesi, faaliyet alanınızda yetkin tetkikçisinin bulunması, belgelendirme kararının tetkik ekibinden bağımsız verilmesi, belgelerin kamuya açık sorgulanabilmesi, kurallara uygun tetkik süresi ve net bir gözetim takvimi başlıca ölçütlerdir.",
+    },
+    {
+      soru: "Belgelendirme kuruluşu danışmanlık verebilir mi?",
+      cevap:
+        "Hayır. ISO/IEC 17021-1 gereği belgelendirme kuruluşu, belgelendireceği kuruluşa yönetim sisteminin kurulması için danışmanlık veremez. Sistem kurulumu ve belgelendirmeyi birlikte sunan paket teklifler bu ilkeye aykırıdır.",
+    },
+    {
+      soru: "En ucuz belgelendirme teklifi seçilmeli mi?",
+      cevap:
+        "Fiyat tek başına doğru bir ölçüt değildir. Tetkik süresi çalışan sayısı, faaliyetin karmaşıklığı ve saha sayısına göre kurallarla hesaplandığından, belirgin biçimde düşük bir teklif eksik tetkik süresine işaret edebilir. Teklifler adam-gün sayısıyla birlikte karşılaştırılmalıdır.",
+    },
+  ],
   // ---------- Bayi, franchise ve denetim firması seçimi kümesi ----------
   "bayi-denetimi-kontrol-listesi": [
     {

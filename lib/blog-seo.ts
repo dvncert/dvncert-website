@@ -7,6 +7,10 @@
  */
 
 export const blogSeoBasliklari: Record<string, string> = {
+  "turkak-akreditasyonu-nedir": "TÜRKAK Akreditasyonu Nedir? Belgelendirmeden Farkı",
+  "akreditasyon-markasi-kullanimi": "Akreditasyon Markası ve Logo Kullanım Kuralları",
+  "belgelendirme-kurulusu-secerken-nelere-dikkat-edilmeli":
+    "Belgelendirme Kuruluşu Nasıl Seçilir? 8 Ölçüt",
   "bayi-denetimi-kontrol-listesi": "Bayi Denetimi Kontrol Listesi: Bayi Denetim Formu",
   "franchise-denetimi-nedir": "Franchise Denetimi Nedir? Kapsam ve Süreç",
   "tedarikci-denetim-firmasi-nasil-secilir": "Tedarikçi Denetim Firması Nasıl Seçilir? 8 Kriter",
