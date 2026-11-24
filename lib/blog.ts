@@ -17,6 +17,7 @@
 
 import { tedarikciKumesi } from "./blog-tedarikci-kumesi";
 import { bayiKumesi } from "./blog-bayi-kumesi";
+import { surecKumesi } from "./blog-surec-kumesi";
 
 export type BlogYazisi = {
   slug: string;
@@ -41,6 +42,8 @@ export type BlogYazisi = {
 };
 
 export const blogYazilari: BlogYazisi[] = [
+  // Belgelendirme süreci kümesi (Drive onay kuyruğu, 2026-11-24) — lib/blog-surec-kumesi.ts
+  ...surecKumesi,
   // Bayi, franchise ve denetim firması seçimi kümesi — lib/blog-bayi-kumesi.ts
   ...bayiKumesi,
   // Tedarikçi (ikinci taraf) denetimi soru-cevap kümesi — lib/blog-tedarikci-kumesi.ts
