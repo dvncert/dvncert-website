@@ -3,8 +3,11 @@ import type { Metadata } from "next";
 /** Her sayfa başlığına eklenen marka eki (app/layout.tsx title.template). */
 export const MARKA_EKI = " | DVN Cert";
 
-/** Ana sayfa ve kendi başlığı olmayan sayfaların başlığı. */
-export const VARSAYILAN_BASLIK = `ISO Belgelendirme, Denetim ve Eğitim${MARKA_EKI}`;
+/**
+ * Ana sayfa ve kendi başlığı olmayan sayfaların başlığı. Marka adı önde:
+ * H1 ("DVN Cert ile …") ve Organization şemasıyla aynı adla başlar (GEO marka tutarlılığı).
+ */
+export const VARSAYILAN_BASLIK = "DVN Cert | ISO Belgelendirme, Denetim ve Eğitim";
 
 /** Google'ın arama sonucunda kesmeden gösterdiği yaklaşık başlık uzunluğu. */
 const BASLIK_SINIRI = 60;

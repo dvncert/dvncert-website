@@ -50,6 +50,7 @@ export function organizationSchema() {
     },
     sameAs: [
       siteConfig.googleIsletme.haritaUrl,
+      `https://www.google.com/search?kgmid=${siteConfig.googleIsletme.kgId}`,
       siteConfig.sosyal.linkedin,
       siteConfig.sosyal.twitter,
       siteConfig.sosyal.facebook,
