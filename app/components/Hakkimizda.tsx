@@ -60,6 +60,18 @@ export default function Hakkimizda() {
             {siteConfig.aciklamaUzun}
           </p>
 
+          <div className="dvn-rakamlar">
+            {siteConfig.rakamlar.map((r) => (
+              <div key={r.etiket}>
+                <strong>{r.deger}</strong>
+                <span>{r.etiket}</span>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontSize: 13, color: "var(--dvn-gri-500)", lineHeight: 1.6, margin: "0 0 24px" }}>
+            {siteConfig.rakamlarCumle}
+          </p>
+
           <ul style={{ listStyle: "none", margin: "0 0 28px", padding: 0, display: "grid", gap: 12 }}>
             {guclerimiz.map((g, i) => (
               <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
@@ -171,6 +183,34 @@ export default function Hakkimizda() {
       </div>
 
       <style>{`
+        .dvn-rakamlar {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+          margin: 0 0 10px;
+        }
+        .dvn-rakamlar div {
+          border: 1px solid var(--dvn-gri-300);
+          border-radius: 10px;
+          padding: 12px 10px;
+          text-align: center;
+        }
+        .dvn-rakamlar strong {
+          display: block;
+          color: var(--dvn-lacivert);
+          font-size: 22px;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+        .dvn-rakamlar span {
+          display: block;
+          color: var(--dvn-gri-500);
+          font-size: 12px;
+          margin-top: 2px;
+        }
+        @media (max-width: 560px) {
+          .dvn-rakamlar { grid-template-columns: repeat(2, 1fr); }
+        }
         .dvn-hakkimizda-kart {
           position: relative;
           overflow: hidden;

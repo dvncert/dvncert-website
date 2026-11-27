@@ -17,7 +17,21 @@ export const siteConfig = {
 
   /** Ana sayfa içeriğinin son anlamlı güncellenme tarihi (YYYY-MM-DD): WebPage şemasında
    *  dateModified olarak verilir. Ana sayfa metinleri değiştiğinde güncelleyin. */
-  anaSayfaGuncellenme: "2026-11-12",
+  anaSayfaGuncellenme: "2026-11-27",
+
+  /** Kurumsal rakamlar: ana sayfada görünür, llms.txt ve şema açıklamasında da kullanılır.
+   *  Değerler yönetimden alınmıştır (2026-11); değişirse yalnızca burayı güncelleyin. */
+  rakamlar: [
+    { deger: "300+", etiket: "müşteri" },
+    { deger: "2.000+", etiket: "denetim" },
+    { deger: "20+", etiket: "sektörde deneyim" },
+    { deger: "10+", etiket: "yıllık denetim deneyimi" },
+  ],
+  rakamlarCumle:
+    "DVN Cert 300'ü aşkın müşteriye hizmet vermiştir; 20'den fazla sektörde 2.000'i aşkın denetim gerçekleştirmiş, 10 yılı aşkın denetim deneyimine sahip bir kadroyla çalışır.",
+
+  /** Blog yazılarının şemadaki yazarı (sayfada görünmez; yalnızca BlogPosting author). */
+  blogYazari: { ad: "Utku Saygı", unvan: "Baş Denetçi" },
 
   // URL ve dil
   url: "https://www.dvncert.com",

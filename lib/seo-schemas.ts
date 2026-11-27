@@ -354,9 +354,12 @@ export function blogPostingSchema(params: {
     dateModified: params.guncellenmeTarihi || params.yayinTarihi,
     url: `${siteConfig.url}${params.url}`,
     image: params.gorselUrl || `${siteConfig.url}/logo.png`,
+    // Admin panelde yazar girilmemişse varsayılan yazar: Baş Denetçi (yalnızca şemada).
     author: {
-      "@type": "Organization",
-      name: params.yazar || siteConfig.adUzun,
+      "@type": "Person",
+      name: params.yazar || siteConfig.blogYazari.ad,
+      ...(params.yazar ? {} : { jobTitle: siteConfig.blogYazari.unvan }),
+      worksFor: { "@id": `${siteConfig.url}/#organization` },
     },
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
